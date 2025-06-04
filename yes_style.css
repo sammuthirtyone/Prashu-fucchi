@@ -1,25 +1,23 @@
 body {
-  margin: 0;
-  background: url('images/bg.jpg') no-repeat center center fixed;
-  background-size: cover;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(189, 225, 122);
 }
 
-.center button {
-  padding: 15px 30px;
-  font-size: 1.5rem;
-  background-color: lightyellow;
-  border: 2px solid gold;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+.header_text {
+    font-family: 'Nunito';
+    font-size: 50px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0px;
 }
 
-.center button:hover {
-  background-color: gold;
-  transform: scale(1.1);
+.gif_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
