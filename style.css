@@ -26,7 +26,7 @@ body {
   margin-bottom: 10px;
 }
 
-h2 {
+h2, h1 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
@@ -56,5 +56,4 @@ button {
 #noBtn {
   background-color: #e74c3c;
   color: white;
-  position: relative;
 }
