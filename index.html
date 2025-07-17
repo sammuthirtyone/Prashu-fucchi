@@ -1,35 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <link rel="stylesheet" href="./styles.css">
-        
-    </head> 
-    <body>
-        <div class="container">
-            <div >
-                <h1 class = "header_text">Hey i wanna say something</h1>
-                <h1 class = "header_text">I am sorry😭</h1>
-            </div>
-            <div class="gif_container">
-                <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDlsOTViOThscnQ1eWgzdTBmendoajNqaTgybnpkNjAwZDdhMGQwdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KztT2c4u8mYYUiMKdJ/giphy.gif" alt="Cute animated illustration">
-            </div>
-            <div class = "buttons">
-                <button class="btn" id = "yesButton" onclick="nextPage()">Forgive me</button>
-                <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No,i won't forgive you</button>
-                <script>
-                    function nextPage() {
-                        window.location.href = "yes.html";
-                    }
-                    
-                    function moveButton() {
-                        var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth) - 85;
-                        var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight) - 48;
-                        document.getElementById('noButton').style.left = `${x}px`;
-                        document.getElementById('noButton').style.top = `${y}px`;
-                    }
-                </script> 
-            </div>
-        </div>
-       
-    </body> 
+<head>
+  <meta charset="UTF-8">
+  <title>Will you be my Valentine?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <img src="https://i.imgur.com/J1mL5zo.png" alt="Cute Bear" class="bear">
+    <h2>Will you be my Valentine?</h2>
+    <div class="buttons">
+      <button id="yesBtn">Yes</button>
+      <button id="noBtn">Think again!</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
