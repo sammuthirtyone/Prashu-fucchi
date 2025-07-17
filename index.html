@@ -2,13 +2,74 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Will you be mine?</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Will you be my Valentine?</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      padding: 40px;
+      border-radius: 20px;
+      background-color: #fefefe;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .gif-img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #noBtn {
+      background-color: #e74c3c;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzMxbDNoOWR2aW1idmZ6NmlpOWlmZGdvM285MWtmZDVmNTd4c2IzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NxC8VtyxqhMtpLoEEN/giphy.gif" alt="Cute Bear" class="bear">
-    <h2>Will you be mine?</h2>
+  <div class="container" id="mainContainer">
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzMxbDNoOWR2aW1idmZ6NmlpOWlmZGdvM285MWtmZDVmNTd4c2IzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NxC8VtyxqhMtpLoEEN/giphy.gif" id="mainGif" class="gif-img">
+    <h2 id="question">Will you be my Valentine?</h2>
     <div class="buttons">
       <button id="yesBtn">Yes</button>
       <button id="noBtn">No</button>
@@ -18,26 +79,49 @@
   <script>
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
+    const mainGif = document.getElementById("mainGif");
+    const question = document.getElementById("question");
 
-    // Read rejection count
+    const noTexts = [
+      "No 🥺?",
+      "Really no?",
+      "Are you sure?",
+      "Don't do this 😢",
+      "But I'm cute!",
+      "Just say yes 🥹",
+      "Pretty please?",
+      "You’re breaking my heart 💔",
+      "One last chance?",
+      "Say yes? 😭"
+    ];
+
     let rejectionCount = parseInt(localStorage.getItem("rejections")) || 0;
 
-    // Limit max rejections to 10
+    // Set yes button size based on rejections
     if (rejectionCount > 10) rejectionCount = 10;
+    yesBtn.style.transform = `scale(${1 + rejectionCount * 0.15})`;
 
-    // Grow the Yes button based on rejections
-    const scale = 1 + rejectionCount * 0.15; // gradually scale up
-    yesBtn.style.transform = `scale(${scale})`;
+    if (rejectionCount > 0) {
+      noBtn.textContent = noTexts[rejectionCount - 1] || "No again?";
+      mainGif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTl3eTgzbDFraDhvNjB3ajhxYjhqMDg2ZzZ5cnFrcmIwczBvbWh1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif";
+    }
 
     yesBtn.addEventListener("click", () => {
-      window.location.href = "yes.html";
+      localStorage.clear(); // reset
+      document.body.innerHTML = `
+        <div class="container">
+          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWp0bW5ucHJlNTRzMGhsZ24zZ2RwcTUxMWR0dXptNHN3ZjM2MW40NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5GoVLqeAOo6PK/giphy.gif" class="gif-img">
+          <h1 style="color: #e91e63;">Yayyyy!!! 🥰💖</h1>
+          <p>You just made me the happiest person alive!</p>
+        </div>
+      `;
     });
 
     noBtn.addEventListener("click", () => {
-      // Increase rejection count
       rejectionCount++;
+      if (rejectionCount > 10) rejectionCount = 10;
       localStorage.setItem("rejections", rejectionCount);
-      window.location.href = "no.html";
+      location.reload(); // refresh page to update button and gif
     });
   </script>
 </body>
