@@ -43,7 +43,7 @@ yesBtn.addEventListener("click", () => {
     <div style="text-align: center; padding: 40px;">
       <h1 style="color: #e91e63;">Yayyyy!!! 🥰💖</h1>
       <p>You just made me the happiest person alive!</p>
-      <img src="https://i.imgur.com/Y7k5zX1.png" alt="Happy Bear" style="width: 150px;">
+      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTU5Z3AwOHdnejdoMzI3amU1dWJtNHBiZjJlaDFyMm05dmx1MXBqeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gyuIdNScFyyaPmCyQt/giphy.gif" alt="Happy Bear" style="width: 150px;">
     </div>
   `;
 });
