@@ -8,7 +8,7 @@
 <body>
   <div class="container">
     <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzMxbDNoOWR2aW1idmZ6NmlpOWlmZGdvM285MWtmZDVmNTd4c2IzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NxC8VtyxqhMtpLoEEN/giphy.gif" alt="Cute Bear" class="bear">
-    <h2>Will you be mine?</h2>
+    <h2>Will you be my Valentine?</h2>
     <div class="buttons">
       <button id="yesBtn">Yes</button>
       <button id="noBtn">No</button>
@@ -16,15 +16,27 @@
   </div>
 
   <script>
-    let clickCount = 0;
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
+
+    // Read rejection count
+    let rejectionCount = parseInt(localStorage.getItem("rejections")) || 0;
+
+    // Limit max rejections to 10
+    if (rejectionCount > 10) rejectionCount = 10;
+
+    // Grow the Yes button based on rejections
+    const scale = 1 + rejectionCount * 0.15; // gradually scale up
+    yesBtn.style.transform = `scale(${scale})`;
 
     yesBtn.addEventListener("click", () => {
       window.location.href = "yes.html";
     });
 
     noBtn.addEventListener("click", () => {
+      // Increase rejection count
+      rejectionCount++;
+      localStorage.setItem("rejections", rejectionCount);
       window.location.href = "no.html";
     });
   </script>
