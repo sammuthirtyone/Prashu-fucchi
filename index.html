@@ -2,126 +2,119 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Will you be mine?</title>
+  <title>Will You Be Mine?</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: "Comic Sans MS", cursive, sans-serif;
-      background: #fff;
+      background-color: #fff0f5;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      text-align: center;
-      padding: 40px;
-      border-radius: 20px;
-      background-color: #fefefe;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      width: 90%;
-      max-width: 400px;
-      position: relative;
-    }
-
-    .gif-img {
-      width: 200px;
-      height: auto;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-
-    h2 {
-      font-size: 24px;
-      color: #333;
-      margin-bottom: 20px;
-    }
-
-    .buttons {
-      display: flex;
       justify-content: center;
-      gap: 15px;
-      position: relative;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    #gif {
+      width: 300px;
+      height: auto;
+      margin-bottom: 30px;
+      border-radius: 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #d63384;
+      text-shadow: 1px 1px 2px #ff69b4;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 20px;
     }
 
     button {
-      padding: 12px 25px;
-      font-size: 18px;
+      padding: 15px 25px;
       border: none;
-      border-radius: 8px;
+      border-radius: 20px;
+      font-size: 1.2rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
     }
 
     #yesBtn {
-      background-color: #4CAF50;
+      background-color: #ff69b4;
       color: white;
     }
 
     #noBtn {
-      background-color: #e74c3c;
-      color: white;
+      background-color: #ffc0cb;
+      color: black;
     }
+
+    #message {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #555;
+      height: 30px;
+      text-align: center;
+    }
+
   </style>
 </head>
 <body>
-  <div class="container" id="mainContainer">
-    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzMxbDNoOWR2aW1idmZ6NmlpOWlmZGdvM285MWtmZDVmNTd4c2IzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NxC8VtyxqhMtpLoEEN/giphy.gif" id="mainGif" class="gif-img">
-    <h2 id="question">Will you be mine?</h2>
-    <div class="buttons">
-      <button id="yesBtn">Yes</button>
-      <button id="noBtn">No</button>
-    </div>
+  <img id="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzMxbDNoOWR2aW1idmZ6NmlpOWlmZGdvM285MWtmZDVmNTd4c2IzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NxC8VtyxqhMtpLoEEN/giphy.gif" alt="Cute GIF">
+  <h1>Will you be mine?</h1>
+  <div class="btn-container">
+    <button id="yesBtn">Yes</button>
+    <button id="noBtn">No</button>
   </div>
+  <div id="message"></div>
 
   <script>
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
-    const mainGif = document.getElementById("mainGif");
-    const question = document.getElementById("question");
+    const message = document.getElementById("message");
+    const gif = document.getElementById("gif");
 
-    const noTexts = [
-      "No 🥺?",
-      "Really no?",
-      "Are you sure?",
-      "Don't do this 😢",
-      "But I'm cute!",
-      "Just say yes 🥹",
-      "Pretty please?",
-      "You’re breaking my heart 💔",
-      "One last chance?",
-      "Say yes? 😭"
+    const noMessages = [
+      "No? Are you sure? 🥺",
+      "Really no? 😔",
+      "But I made this for you... 😖",
+      "Don't break my heart 💔",
+      "You're so mean 😢",
+      "Please say yes 😩",
+      "Still no?! 😭",
+      "My heart can't take it... 😭😭",
+      "Last chance 🥺",
+      "Okay... now you HAVE to say yes! 💘"
     ];
 
-    let rejectionCount = parseInt(localStorage.getItem("rejections")) || 0;
-
-    // Set yes button size based on rejections
-    if (rejectionCount > 10) rejectionCount = 10;
-    yesBtn.style.transform = `scale(${1 + rejectionCount * 0.15})`;
-
-    if (rejectionCount > 0) {
-      noBtn.textContent = noTexts[rejectionCount - 1] || "No again?";
-      mainGif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTl3eTgzbDFraDhvNjB3ajhxYjhqMDg2ZzZ5cnFrcmIwczBvbWh1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif";
-    }
-
-    yesBtn.addEventListener("click", () => {
-      localStorage.clear(); // reset
-      document.body.innerHTML = `
-        <div class="container">
-          <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWp0bW5ucHJlNTRzMGhsZ24zZ2RwcTUxMWR0dXptNHN3ZjM2MW40NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5GoVLqeAOo6PK/giphy.gif" class="gif-img">
-          <h1 style="color: #e91e63;">Yayyyy!!! 🥰💖</h1>
-          <p>You just made me the happiest person alive!</p>
-        </div>
-      `;
-    });
+    let rejectionCount = 0;
+    let yesSize = 1;
 
     noBtn.addEventListener("click", () => {
-      rejectionCount++;
-      if (rejectionCount > 10) rejectionCount = 10;
-      localStorage.setItem("rejections", rejectionCount);
-      location.reload(); // refresh page to update button and gif
+      if (rejectionCount < noMessages.length - 1) {
+        message.textContent = noMessages[rejectionCount];
+        rejectionCount++;
+
+        yesSize += 0.3;
+        yesBtn.style.transform = `scale(${yesSize})`;
+      } else {
+        gif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTl3eTgzbDFraDhvNjB3ajhxYjhqMDg2ZzZ5cnFrcmIwczBvbWh1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif";
+        message.textContent = "You rejected me 10 times... 💔😭";
+        noBtn.disabled = true;
+      }
+    });
+
+    yesBtn.addEventListener("click", () => {
+      gif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWp0bW5ucHJlNTRzMGhsZ24zZ2RwcTUxMWR0dXptNHN3ZjM2MW40NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5GoVLqeAOo6PK/giphy.gif";
+      message.textContent = "YAYYYYY!! I knew you'd say yes 😘💖";
+      yesBtn.style.transform = "scale(1)";
+      noBtn.style.display = "none";
     });
   </script>
 </body>
