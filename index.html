@@ -17,14 +17,14 @@
 
     h1 {
       font-size: 3em;
-      margin-top: 50px;
-      text-shadow: 2px 2px 10px pink;
+      margin-top: 40px;
+      text-shadow: 2px 2px 15px hotpink;
       animation: glow 2s infinite alternate;
     }
 
     @keyframes glow {
       from { text-shadow: 0 0 10px pink; }
-      to { text-shadow: 0 0 25px hotpink; }
+      to { text-shadow: 0 0 30px deeppink; }
     }
 
     .heart {
@@ -79,15 +79,18 @@
       border: none;
       border-radius: 30px;
       color: white;
-      font-size: 1.2em;
+      font-size: 1.3em;
+      font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
       margin-top: 20px;
+      box-shadow: 0 0 10px white;
     }
 
     button:hover {
       background-color: deeppink;
       transform: scale(1.1);
+      box-shadow: 0 0 20px white;
     }
 
     .hidden {
@@ -97,9 +100,10 @@
     .floating {
       position: absolute;
       animation: floatUp 8s linear infinite;
-      color: pink;
       font-size: 2em;
+      color: pink;
       pointer-events: none;
+      text-shadow: 0 0 10px hotpink;
     }
 
     @keyframes floatUp {
@@ -112,9 +116,21 @@
         opacity: 0;
       }
     }
+
+    .extra-msg {
+      font-style: italic;
+      margin-top: 50px;
+      font-size: 1.1em;
+      padding: 10px 30px;
+      background-color: rgba(255, 182, 193, 0.2);
+      border-radius: 20px;
+      box-shadow: 0 0 15px pink;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
+
   <h1>Goodnight My Lovely Prashu 💖</h1>
   <div class="heart"></div>
 
@@ -130,33 +146,52 @@
     <div class="msg" style="margin-top: 30px;">
       Here's your warm virtual hug, my cupcake 🥰<br>
       <strong>I love you more than the stars love the night 💗</strong><br>
-      You're always safe, always loved, and always mine.
-      <br><br>
-      <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWEzcjgxYXQ1N2t2Mzhjb3Qxd2xiazZhczV2YXQ4djF6cW1xbWZrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/OSOOHw7N9gb3R06OU7/giphy.gif" width="200" />
+      You're always safe, always loved, and always mine.<br><br>
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW83cmRwdm9ybDZ5enZubXNxdzQ1Z2h4NzZocnVhcGx0aDdsYjM5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif" width="200" />
     </div>
   </div>
 
-  <!-- Floating hearts -->
+  <div class="extra-msg">
+    You're the reason my stars shine brighter, my moon glows warmer, and my nights feel softer. <br>
+    I love you always, Prashu 🌙💋
+  </div>
+
+  <!-- Floating emojis and text -->
   <script>
     function showSurprise() {
-      document.getElementById('surprise').classList.remove('hidden');
+      const surprise = document.getElementById('surprise');
+      surprise.classList.remove('hidden');
+      surprise.scrollIntoView({ behavior: 'smooth' });
     }
+
+    const phrases = [
+      "💖 I love you",
+      "🌙 Sweet dreams",
+      "🌷 My tulip girl",
+      "💤 Sleep well, cupcake",
+      "🧸 You're safe with me",
+      "🥺 Hug hug hug",
+      "💗 Forever yours"
+    ];
 
     function createFloating() {
       const el = document.createElement("div");
       el.classList.add("floating");
-      el.innerHTML = "💖";
-      el.style.left = Math.random() * 100 + "vw";
+      el.innerHTML = phrases[Math.floor(Math.random() * phrases.length)];
+      el.style.left = Math.random() * 90 + "vw";
       el.style.bottom = "0px";
       document.body.appendChild(el);
-
-      setTimeout(() => {
-        el.remove();
-      }, 8000);
+      setTimeout(() => el.remove(), 8000);
     }
 
-    setInterval(createFloating, 600);
+    setInterval(createFloating, 700);
   </script>
+
+  <!-- Optional lullaby -->
+  <!-- <audio autoplay loop>
+    <source src="https://example.com/lullaby.mp3" type="audio/mp3">
+  </audio> -->
+
 </body>
 </html>
 
