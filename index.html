@@ -15,6 +15,7 @@
       justify-content: center;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     h1 {
@@ -29,13 +30,16 @@
       font-size: 1.5em;
     }
 
-    .heart {
+    .heart, .quote {
       position: absolute;
-      width: 20px;
-      height: 20px;
       background: red;
       transform: rotate(45deg);
-      animation: float 5s linear infinite;
+      animation: float 6s linear infinite;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
     }
 
     .heart::before,
@@ -58,15 +62,22 @@
       top: 0;
     }
 
+    .quote {
+      color: #ff1493;
+      font-size: 1em;
+      font-weight: bold;
+      background: transparent;
+      animation: floatQuote 12s linear infinite;
+    }
+
     @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+
+    @keyframes floatQuote {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
     }
 
     .button-group {
@@ -123,6 +134,20 @@
       background: rgba(255, 182, 193, 0.4);
       z-index: 5;
     }
+
+    .photo-slider {
+      display: flex;
+      overflow-x: scroll;
+      max-width: 90vw;
+      padding: 10px;
+      gap: 10px;
+    }
+
+    .photo-slider img {
+      height: 300px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px #ff66cc;
+    }
   </style>
 </head>
 <body>
@@ -132,7 +157,10 @@
   <div class="button-group">
     <button onclick="showPopup('why')">Why I Love You? 💌</button>
     <button onclick="showPopup('memories')">Our Memories 📸</button>
+    <button onclick="showPopup('smile')">You Make Me Smile 😊</button>
     <button onclick="showPopup('proposal')">Will You Be Mine? 💍</button>
+    <button onclick="showPopup('forever')">I Love You Forever 💖</button>
+    <button onclick="showPopup('photos')">Special Gallery 🖼️</button>
   </div>
 
   <div class="overlay" id="overlay" onclick="closePopup()"></div>
@@ -152,6 +180,12 @@
     <button onclick="closePopup()">Let's make more 💖</button>
   </div>
 
+  <div class="popup" id="popup-smile">
+    <h2>You Make Me Smile 😊</h2>
+    <p>Even a simple "hi" from you lights up my entire day like sunshine 🌞</p>
+    <button onclick="closePopup()">Hehe 💕</button>
+  </div>
+
   <div class="popup" id="popup-proposal">
     <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWF2OHA3d2t6eTlwMTY1eGducXltaW83YW12Mm44djc1cGcwZ3RrbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iGqP4DYXe4zVJbCY5N/giphy.gif" />
     <h2>Will You Be Mine Forever? 💍</h2>
@@ -159,7 +193,23 @@
     <button onclick="closePopup()">Yes, obviously! 💞</button>
   </div>
 
-  <!-- Floating Hearts -->
+  <div class="popup" id="popup-forever">
+    <h2>I Love You Forever 💖</h2>
+    <p>You are my everything, my sunshine, my peace, and my forever 💗</p>
+    <button onclick="closePopup()">Always yours 💘</button>
+  </div>
+
+  <div class="popup" id="popup-photos">
+    <h2>My Prashu’s Cutest Moments 💕</h2>
+    <div class="photo-slider">
+      <img src="/mnt/data/Screenshot 2025-07-09 100648.png" />
+      <img src="/mnt/data/Screenshot 2025-07-08 122651.png" />
+      <img src="/mnt/data/Screenshot 2025-07-06 135612.png" />
+    </div>
+    <button onclick="closePopup()">So Beautiful 😍</button>
+  </div>
+
+  <!-- Floating Hearts and Quotes -->
   <script>
     function createHeart() {
       const heart = document.createElement('div');
@@ -167,9 +217,28 @@
       heart.style.left = Math.random() * 100 + 'vw';
       heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
+      setTimeout(() => heart.remove(), 6000);
     }
+
+    function createQuote() {
+      const quotes = [
+        "You are my sunshine ☀️",
+        "I love you to the moon 🌙",
+        "My favorite person 💕",
+        "Forever yours 💍",
+        "Tulip of my life 🌷"
+      ];
+      const quote = document.createElement('div');
+      quote.className = 'quote';
+      quote.innerText = quotes[Math.floor(Math.random() * quotes.length)];
+      quote.style.left = Math.random() * 80 + 'vw';
+      quote.style.animationDuration = (Math.random() * 10 + 6) + 's';
+      document.body.appendChild(quote);
+      setTimeout(() => quote.remove(), 12000);
+    }
+
     setInterval(createHeart, 300);
+    setInterval(createQuote, 6000);
 
     function showPopup(type) {
       document.getElementById('overlay').style.display = 'block';
@@ -178,10 +247,11 @@
 
     function closePopup() {
       document.getElementById('overlay').style.display = 'none';
-      ['why', 'memories', 'proposal'].forEach(id => {
+      ['why', 'memories', 'smile', 'proposal', 'forever', 'photos'].forEach(id => {
         document.getElementById('popup-' + id).style.display = 'none';
       });
     }
   </script>
 </body>
 </html>
+
