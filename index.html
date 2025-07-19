@@ -2,256 +2,240 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>I Love You Prashu 💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I love my babyy soo much 💗</title>
   <style>
     body {
-      margin: 0;
-      background: linear-gradient(to bottom right, #ffd6e7, #fff0f5);
+      background: linear-gradient(120deg, #ffe4ec, #ffc2d1);
       font-family: 'Comic Sans MS', cursive;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
-
     h1 {
-      color: #ff3399;
-      font-size: 3.5em;
-      margin-top: 1em;
-      text-shadow: 2px 2px #fff;
+      color: #ff4081;
+      font-size: 3rem;
+      text-shadow: 2px 2px white;
+    }
+    .btn {
+      background: #fff0f8;
+      border: 2px solid #ff6fa1;
+      color: #ff007f;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
+      transition: transform 0.3s, background 0.3s;
+    }
+    .btn:hover {
+      background-color: #ffd1dc;
+      transform: scale(1.05);
+    }
+    .hidden {
+      display: none;
+      margin-top: 20px;
+    }
+    .image-gallery img {
+      max-width: 280px;
+      margin: 10px;
+      border: 4px dotted #ff69b4;
+      border-radius: 15px;
+      transition: transform 0.3s;
+    }
+    .image-gallery img:hover {
+      transform: scale(1.1);
+    }
+    .box {
+      background: #fffafa;
+      border-radius: 20px;
+      padding: 25px;
+      margin: 25px auto;
+      max-width: 600px;
+      box-shadow: 0 0 20px #ff80ab;
+      animation: fadeIn 1s ease-in-out;
+    }
+    ul {
+      list-style-type: ✨;
+      padding-left: 0;
+    }
+    ul li {
+      margin: 10px 0;
+      font-size: 18px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    p {
-      color: #ff66cc;
-      font-size: 1.5em;
-    }
-
-    .heart, .quote {
-      position: absolute;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 6s linear infinite;
-    }
-
+    /* Floating hearts */
     .heart {
+      position: fixed;
       width: 20px;
       height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+      opacity: 0.7;
     }
-
     .heart::before,
     .heart::after {
       content: '';
       position: absolute;
       width: 20px;
       height: 20px;
-      background: red;
+      background: pink;
       border-radius: 50%;
     }
-
     .heart::before {
       top: -10px;
       left: 0;
     }
-
     .heart::after {
       left: -10px;
       top: 0;
     }
-
-    .quote {
-      color: #ff1493;
-      font-size: 1em;
-      font-weight: bold;
-      background: transparent;
-      animation: floatQuote 12s linear infinite;
-    }
-
     @keyframes float {
-      0% { transform: translateY(100vh) rotate(45deg); opacity: 1; }
-      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+      0% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
+      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
     }
 
-    @keyframes floatQuote {
-      0% { transform: translateY(100vh); opacity: 1; }
-      100% { transform: translateY(-10vh); opacity: 0; }
-    }
-
-    .button-group {
+    /* Infinite Love Meter */
+    .meter-box {
       margin-top: 30px;
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    button {
-      padding: 12px 25px;
-      background-color: #ff99cc;
-      color: white;
-      font-size: 1em;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      box-shadow: 2px 2px 10px #ff66cc;
-      transition: transform 0.3s ease;
-    }
-
-    button:hover {
-      transform: scale(1.1);
-    }
-
-    .popup, .overlay {
-      display: none;
-    }
-
-    .popup {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      background-color: white;
-      padding: 2em;
-      border-radius: 20px;
-      transform: translate(-50%, -50%);
-      box-shadow: 0 0 15px #ff66cc;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
       text-align: center;
-      z-index: 10;
-      max-width: 80%;
     }
-
-    .popup img {
-      width: 150px;
-      margin-bottom: 1em;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255, 182, 193, 0.4);
-      z-index: 5;
-    }
-
-    .photo-slider {
-      display: flex;
-      overflow-x: scroll;
-      max-width: 90vw;
-      padding: 10px;
-      gap: 10px;
-    }
-
-    .photo-slider img {
-      height: 300px;
+    .meter {
+      width: 100%;
+      height: 20px;
+      background: #ffe4ec;
       border-radius: 20px;
-      box-shadow: 0 4px 10px #ff66cc;
+      overflow: hidden;
+      border: 2px solid #ff69b4;
+    }
+    .meter-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #ff69b4, #ff1493, #ff69b4);
+      animation: fillLove 5s linear infinite;
+    }
+    @keyframes fillLove {
+      0% { width: 0%; }
+      100% { width: 100%; }
     }
   </style>
 </head>
 <body>
-  <h1>I Love You Prashu 💖</h1>
-  <p>You’re my favorite tulip 🌷 in the garden of life</p>
-
-  <div class="button-group">
-    <button onclick="showPopup('why')">Why I Love You? 💌</button>
-    <button onclick="showPopup('memories')">Our Memories 📸</button>
-    <button onclick="showPopup('smile')">You Make Me Smile 😊</button>
-    <button onclick="showPopup('proposal')">Will You Be Mine? 💍</button>
-    <button onclick="showPopup('forever')">I Love You Forever 💖</button>
-    <button onclick="showPopup('photos')">Special Gallery 🖼️</button>
+  <h1>💞 I love my babyy soo much 💞</h1>
+  <div class="box">
+    <p>Hey my cute babyy! I made this page just for you to feel extra special! 💘</p>
+    <button class="btn" onclick="toggleSection('feelings')">❤️ My Feelings</button>
+    <button class="btn" onclick="toggleSection('reasons')">😍 Why I Like You</button>
+    <button class="btn" onclick="toggleSection('pics')">📸 Your Cute Pics</button>
+    <button class="btn" onclick="toggleSection('messages')">📩 Secret Notes</button>
+    <button class="btn" onclick="toggleSection('wishes')">🎁 My Wishes for You</button>
+    <button class="btn" onclick="toggleSection('hug')">🤗 Virtual Hug</button>
+    <button class="btn" onclick="toggleSection('future')">🌟 Our Future</button>
+    <button class="btn" onclick="toggleSection('quotes')">💬 Sweet Quotes</button>
+    <button class="btn" onclick="toggleSection('letters')">💌 Mini Letters</button>
+    <button class="btn" onclick="toggleSection('nights')">🌙 Night Wishes</button>
   </div>
 
-  <div class="overlay" id="overlay" onclick="closePopup()"></div>
-
-  <!-- Popup Messages -->
-  <div class="popup" id="popup-why">
-    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3oxYWpya2EydXQxYWR1MW4xd3I1MXNrYjFidXgxandwMXdhZTFuayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gZWMwbe998iyqtO34M/giphy.gif" />
-    <h2>Why I Love You 💗</h2>
-    <p>Because you're the sunshine to my rain, the tulip in my heart's garden 🌷, and the smile I want to see forever 💕</p>
-    <button onclick="closePopup()">Awww 🥺</button>
+  <div id="feelings" class="hidden box">
+    <h2>💕 My Feelings</h2>
+    <p>When I see your smile, my world becomes the sweetest place ever. You're not just someone I like, you're someone I dream about. 🤍</p>
   </div>
 
-  <div class="popup" id="popup-memories">
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3J3NTR3aGtyZWlmMDVmdm5qbjVvNWhtOTQ2MnVnNGs2cWx5ZWlrMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5WP15460YjHlrWrppv/giphy.gif" />
-    <h2>Our Memories 📷</h2>
-    <p>Every moment with you is a memory I cherish. From silly chats to the sweetest words – I treasure it all 🥰</p>
-    <button onclick="closePopup()">Let's make more 💖</button>
+  <div id="reasons" class="hidden box">
+    <h2>😍 Why I Like You</h2>
+    <ul>
+      <li>✨ Your smile can heal any pain</li>
+      <li>🪥 Your voice is music to my heart</li>
+      <li>🌈 You're colorful and unique</li>
+      <li>❤️ You’re perfect the way you are</li>
+    </ul>
   </div>
 
-  <div class="popup" id="popup-smile">
-    <h2>You Make Me Smile 😊</h2>
-    <p>Even a simple "hi" from you lights up my entire day like sunshine 🌞</p>
-    <button onclick="closePopup()">Hehe 💕</button>
-  </div>
-
-  <div class="popup" id="popup-proposal">
-    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWF2OHA3d2t6eTlwMTY1eGducXltaW83YW12Mm44djc1cGcwZ3RrbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iGqP4DYXe4zVJbCY5N/giphy.gif" />
-    <h2>Will You Be Mine Forever? 💍</h2>
-    <p>Say yes and let me be the one to love you endlessly, my tulip queen 🌷👑</p>
-    <button onclick="closePopup()">Yes, obviously! 💞</button>
-  </div>
-
-  <div class="popup" id="popup-forever">
-    <h2>I Love You Forever 💖</h2>
-    <p>You are my everything, my sunshine, my peace, and my forever 💗</p>
-    <button onclick="closePopup()">Always yours 💘</button>
-  </div>
-
-  <div class="popup" id="popup-photos">
-    <h2>My Prashu’s Cutest Moments 💕</h2>
-    <div class="photo-slider">
-      <img src="/mnt/data/Screenshot 2025-07-09 100648.png" />
-      <img src="/mnt/data/Screenshot 2025-07-08 122651.png" />
-      <img src="/mnt/data/Screenshot 2025-07-06 135612.png" />
+  <div id="pics" class="hidden box">
+    <h2>📸 Her Cutest Pics Ever 😍</h2>
+    <div class="image-gallery">
+      <img src="prashu1.png" alt="Prashu Pic 1" />
+      <img src="prashu2.png" alt="Prashu Pic 2" />
+      <img src="prashu3.png" alt="Prashu Pic 3" />
     </div>
-    <button onclick="closePopup()">So Beautiful 😍</button>
   </div>
 
-  <!-- Floating Hearts and Quotes -->
+  <div id="messages" class="hidden box">
+    <h2>📩 Secret Messages</h2>
+    <p>If you ever feel alone, just remember... someone out there is thinking about you a lot — and it’s me. ❤️</p>
+    <p>Your smile is my favorite notification. - From Winter ❄️</p>
+  </div>
+
+  <div id="wishes" class="hidden box">
+    <h2>🎁 My Sweet Wishes</h2>
+    <p>I wish every morning starts with your smile and every night ends with me saying 'I love you' 💫</p>
+    <p>You deserve all the love and happiness in the world. 🌸</p>
+  </div>
+
+  <div id="hug" class="hidden box">
+    <h2>🤗 Virtual Hug</h2>
+    <p>Wrapping my arms around you, even if it’s just through a screen. Here's a big, warm hug just for you 🤗💞</p>
+  </div>
+
+  <div id="future" class="hidden box">
+    <h2>🌟 Our Future</h2>
+    <p>I dream of a future where we laugh, travel, grow, and love even more every single day 💍🏡</p>
+    <p>With you by my side, everything feels possible 💖</p>
+  </div>
+
+  <div id="quotes" class="hidden box">
+    <h2>💬 Sweet Quotes</h2>
+    <p>"You are my today and all of my tomorrows." — Leo Christopher</p>
+    <p>"In a sea of people, my eyes always search for you." 💞</p>
+  </div>
+
+  <div id="letters" class="hidden box">
+    <h2>💌 Mini Letters</h2>
+    <p>Dear babyy, you’re the best part of my life. I’ll never stop cherishing you. 💝</p>
+    <p>I just want to hold your hand and never let go. Love you so much 💘</p>
+  </div>
+
+  <div id="nights" class="hidden box">
+    <h2>🌙 Night Wishes</h2>
+    <p>Good night, my love. Dream of me and wake up with a smile 💫</p>
+    <p>May angels guard your dreams tonight 😴💤</p>
+  </div>
+
+  <!-- Infinite Love Meter -->
+  <div class="meter-box">
+    <h2>💗 Love Meter</h2>
+    <div class="meter"><div class="meter-fill"></div></div>
+    <p>Love increasing... ♾️❤️</p>
+  </div>
+
+  <!-- Heart particle script -->
   <script>
-    function createHeart() {
+    function toggleSection(id) {
+      const sections = document.querySelectorAll('.hidden');
+      sections.forEach(section => section.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    // Floating heart particles
+    setInterval(() => {
       const heart = document.createElement('div');
       heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + 'vw';
-      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }
-
-    function createQuote() {
-      const quotes = [
-        "You are my sunshine ☀️",
-        "I love you to the moon 🌙",
-        "My favorite person 💕",
-        "Forever yours 💍",
-        "Tulip of my life 🌷"
-      ];
-      const quote = document.createElement('div');
-      quote.className = 'quote';
-      quote.innerText = quotes[Math.floor(Math.random() * quotes.length)];
-      quote.style.left = Math.random() * 80 + 'vw';
-      quote.style.animationDuration = (Math.random() * 10 + 6) + 's';
-      document.body.appendChild(quote);
-      setTimeout(() => quote.remove(), 12000);
-    }
-
-    setInterval(createHeart, 300);
-    setInterval(createQuote, 6000);
-
-    function showPopup(type) {
-      document.getElementById('overlay').style.display = 'block';
-      document.getElementById('popup-' + type).style.display = 'block';
-    }
-
-    function closePopup() {
-      document.getElementById('overlay').style.display = 'none';
-      ['why', 'memories', 'smile', 'proposal', 'forever', 'photos'].forEach(id => {
-        document.getElementById('popup-' + id).style.display = 'none';
-      });
-    }
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
   </script>
 </body>
 </html>
-
