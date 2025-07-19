@@ -1,239 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I love my babyy soo much 💗</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will You Be Mine?</title>
   <style>
     body {
-      background: linear-gradient(120deg, #ffe4ec, #ffc2d1);
-      font-family: 'Comic Sans MS', cursive;
-      color: #333;
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffe0f0, #ffe6ff);
+      overflow: hidden;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
-      padding: 20px;
-      overflow-x: hidden;
-      overflow-y: auto;
+      padding: 2rem;
     }
     h1 {
-      color: #ff4081;
-      font-size: 3rem;
-      text-shadow: 2px 2px white;
+      font-size: 2.8rem;
+      color: #ff4da6;
+      margin-bottom: 1rem;
+      animation: popIn 1s ease-in-out;
     }
-    .btn {
-      background: #fff0f8;
-      border: 2px solid #ff6fa1;
-      color: #ff007f;
-      padding: 12px 25px;
-      margin: 10px;
-      font-size: 18px;
-      border-radius: 20px;
+    @keyframes popIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .btn-container {
+      margin-top: 2rem;
+      display: flex;
+      gap: 2rem;
+    }
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
       cursor: pointer;
-      box-shadow: 0 4px 10px rgba(255, 105, 180, 0.2);
-      transition: transform 0.3s, background 0.3s;
+      transition: 0.3s ease-in-out;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-    .btn:hover {
-      background-color: #ffd1dc;
-      transform: scale(1.05);
+    #yesBtn {
+      background-color: #ff85b3;
+      color: white;
     }
-    .hidden {
-      display: none;
-      margin-top: 20px;
+    #noBtn {
+      background-color: #ffd6e7;
+      color: #333;
     }
-    .image-gallery img {
-      max-width: 280px;
-      margin: 10px;
-      border: 4px dotted #ff69b4;
-      border-radius: 15px;
-      transition: transform 0.3s;
-    }
-    .image-gallery img:hover {
-      transform: scale(1.1);
-    }
-    .box {
-      background: #fffafa;
-      border-radius: 20px;
-      padding: 25px;
-      margin: 25px auto;
-      max-width: 600px;
-      box-shadow: 0 0 20px #ff80ab;
-      animation: fadeIn 1s ease-in-out;
-    }
-    ul {
-      list-style-type: ✨;
-      padding-left: 0;
-    }
-    ul li {
-      margin: 10px 0;
-      font-size: 18px;
+    .message {
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      color: #ff4da6;
+      min-height: 3rem;
+      animation: fadeIn 0.5s ease-in-out;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
-
-    /* Floating hearts */
-    .heart {
+    .hearts {
       position: fixed;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      transform: rotate(45deg);
-      animation: float 5s linear infinite;
-      opacity: 0.7;
-    }
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: pink;
-      border-radius: 50%;
-    }
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-    @keyframes float {
-      0% { transform: translateY(0) rotate(45deg); opacity: 0.7; }
-      100% { transform: translateY(-100vh) rotate(45deg); opacity: 0; }
-    }
-
-    /* Infinite Love Meter */
-    .meter-box {
-      margin-top: 30px;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
-    }
-    .meter {
       width: 100%;
-      height: 20px;
-      background: #ffe4ec;
-      border-radius: 20px;
-      overflow: hidden;
-      border: 2px solid #ff69b4;
-    }
-    .meter-fill {
       height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #ff69b4, #ff1493, #ff69b4);
-      animation: fillLove 5s linear infinite;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
     }
-    @keyframes fillLove {
-      0% { width: 0%; }
-      100% { width: 100%; }
+    .heart {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      background: url('https://emoji.slack-edge.com/T024FPYBQ/heart/9f5ddc2486156b99.png') no-repeat center/contain;
+      animation: floatHearts 10s linear infinite;
+    }
+    @keyframes floatHearts {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(0.5);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>💞 I love my babyy soo much 💞</h1>
-  <div class="box">
-    <p>Hey my cute babyy! I made this page just for you to feel extra special! 💘</p>
-    <button class="btn" onclick="toggleSection('feelings')">❤️ My Feelings</button>
-    <button class="btn" onclick="toggleSection('reasons')">😍 Why I Like You</button>
-    <button class="btn" onclick="toggleSection('pics')">📸 Your Cute Pics</button>
-    <button class="btn" onclick="toggleSection('messages')">📩 Secret Notes</button>
-    <button class="btn" onclick="toggleSection('wishes')">🎁 My Wishes for You</button>
-    <button class="btn" onclick="toggleSection('hug')">🤗 Virtual Hug</button>
-    <button class="btn" onclick="toggleSection('future')">🌟 Our Future</button>
-    <button class="btn" onclick="toggleSection('quotes')">💬 Sweet Quotes</button>
-    <button class="btn" onclick="toggleSection('letters')">💌 Mini Letters</button>
-    <button class="btn" onclick="toggleSection('nights')">🌙 Night Wishes</button>
-  </div>
-
-  <div id="feelings" class="hidden box">
-    <h2>💕 My Feelings</h2>
-    <p>My babyy Prashu, you’re the reason my heart smiles every day. Your laugh is my favorite melody, your presence is my peace, and your love is my treasure. Every little thing about you from the way you say my name to the way you light up my world — makes me fall for you all over again. You’re not just my girlfriend, you're my sunshine, my moonlight, and my dream come true. I love you endlessly, cutiepie 💕💫</p>
-  </div>
-
-  <div id="reasons" class="hidden box">
-    <h2>😍 Why I Like You</h2>
-    <ul>
-      <li>✨Prashu, I don’t just like you... I adore everything about you. You're like the softest melody that plays in the background of my heart, constantly making everything better. I like you because you’re kind without even trying, and your heart is made of pure gold. The way you talk, the way you laugh, and the way you get shy or excited it's the cutest thing in the universe. You make my bad days vanish with just one “hii” and my good days feel magical just by existing. I like you because you understand me in ways I never imagined someone could. You make me feel like I’m enough. Your energy, your thoughts, your smile, your messy hair, even your sleepy face everything about you makes my heart go "OMG she’s the one!" You're a warm cup of cocoa on a cold day, a rainbow after my storm, and the star I always wished upon. Every moment I spend with you feels like the sweetest dream I don’t ever want to wake up from. That’s why I like you, and honestly… I always will 💘
-
-</li>
-    
-    </ul>
-  </div>
-
-  <div id="pics" class="hidden box">
-    <h2>📸Usss 😍</h2>
-    <div class="image-gallery">
-      <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExenY5ejBpbHFtc2pkenRvdDc5czRuMzAzZnN4OXhmbHduNXBjZ2dtNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/F8SAw0VbRU51V5aDVX/giphy.gif" alt="Prashu Pic 2" />
+  <div class="container">
+    <h1>Will you be mine forever? 💕</h1>
+    <div class="btn-container">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 😢</button>
     </div>
+    <div class="message" id="message"></div>
   </div>
+  <div class="hearts" id="hearts"></div>
 
-  <div id="messages" class="hidden box">
-    <h2>📩 Secret Messages</h2>
-    <p>If you ever feel alone, just remember... someone out there is thinking about you a lot and it’s me. ❤️</p>
-    <p>Your smile is my favorite notification. - From Winter ❄️</p>
-  </div>
-
-  <div id="wishes" class="hidden box">
-    <h2>🎁 My Sweet Wishes</h2>
-    <p>I wish every morning starts with your smile and every night ends with me saying 'I love you' 💫</p>
-    <p>You deserve all the love and happiness in the world. 🌸</p>
-  </div>
-
-  <div id="hug" class="hidden box">
-    <h2>🤗 Virtual Hug</h2>
-    <p>Wrapping my arms around you, even if it’s just through a screen. Here's a big, warm hug just for you 🤗💞</p>
-  </div>
-
-  <div id="future" class="hidden box">
-    <h2>🌟 Our Future</h2>
-    <p>I dream of a future where we laugh, travel, grow, and love even more every single day 💍🏡</p>
-    <p>With you by my side, everything feels possible 💖</p>
-  </div>
-
-  <div id="quotes" class="hidden box">
-    <h2>💬 Sweet Quotes</h2>
-    <p>"You are my today and all of my tomorrows." — Leo Christopher</p>
-    <p>"In a sea of people, my eyes always search for you." 💞</p>
-  </div>
-
-  <div id="letters" class="hidden box">
-    <h2>💌 Mini Letters</h2>
-    <p>Dear babyy, you’re the best part of my life. I’ll never stop cherishing you. 💝</p>
-    <p>I just want to hold your hand and never let go. Love you so much 💘</p>
-  </div>
-
-  <div id="nights" class="hidden box">
-    <h2>🌙 Night Wishes</h2>
-    <p>Good night, my love. Dream of me and wake up with a smile 💫</p>
-    <p>May angels guard your dreams tonight 😴💤</p>
-  </div>
-
-  <!-- Infinite Love Meter -->
-  <div class="meter-box">
-    <h2>💗 Love Meter</h2>
-    <div class="meter"><div class="meter-fill"></div></div>
-    <p>Love increasing... ♾️❤️</p>
-  </div>
-
-  <!-- Heart particle script -->
   <script>
-    function toggleSection(id) {
-      const sections = document.querySelectorAll('.hidden');
-      sections.forEach(section => section.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
-    }
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+    const heartsContainer = document.getElementById("hearts");
 
-    // Floating heart particles
-    setInterval(() => {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.top = "100vh";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 5000);
-    }, 300);
+    let noClickCount = 0;
+
+    yesBtn.addEventListener("click", () => {
+      message.innerText = "Yayyyy!! 💘 You made me the happiest person ever! Let's celebrate our forever 💑";
+      showHearts();
+    });
+
+    noBtn.addEventListener("click", () => {
+      const responses = [
+        "Nooo 😭 please think again...",
+        "Are you sure? I'm cute 🥺",
+        "I'll give you chocolates 🍫",
+        "I'll write you poems every day ✨",
+        "C'mon say yes, pretty please 🙏",
+        "Don't say no, my heart is yours 💘",
+        "Okay now I'm pouting 😤",
+        "You won't get rid of me that easy 😏",
+        "I'm getting closer to you 💞",
+        "SAY YES OR ELSE... 💣❤️"
+      ];
+      message.innerText = responses[Math.min(noClickCount, responses.length - 1)];
+      noClickCount++;
+      yesBtn.style.transform = `scale(${1 + noClickCount * 0.1})`;
+      if(noClickCount >= 10) {
+        noBtn.style.display = 'none';
+        message.innerText = "Heheh you can't resist me! 💕";
+      }
+    });
+
+    function showHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + '%';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heartsContainer.appendChild(heart);
+      }
+    }
   </script>
 </body>
 </html>
