@@ -1,142 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>I Love You ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You Are Safe With Me 💖</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
-      background: url('https://i.pinimg.com/originals/e0/d3/0a/e0d30a5827b212bd6466b2cb45d3c95b.gif') no-repeat center center fixed;
-      background-size: cover;
+      background: linear-gradient(#ffe4ec, #ffd9f4);
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      overflow: hidden;
-      color: white;
+      color: #4b0082;
+      overflow-x: hidden;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 3rem;
+    }
+    .center {
       text-align: center;
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-top: 10%;
-      text-shadow: 2px 2px 5px #ff69b4;
-    }
-
-    .btn {
-      background: #ff69b4;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.5rem;
-      border-radius: 30px;
+    .button {
+      background-color: #ff69b4;
       color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
-      margin-top: 20px;
-      box-shadow: 0 0 20px #ff69b4;
-      animation: glow 2s infinite;
-    }
-
-    @keyframes glow {
-      0% { box-shadow: 0 0 10px #ff69b4; }
-      50% { box-shadow: 0 0 20px #fff, 0 0 30px #ff69b4; }
-      100% { box-shadow: 0 0 10px #ff69b4; }
-    }
-
-    #message {
-      display: none;
-      font-size: 2rem;
       margin-top: 30px;
-      padding: 20px;
-      background: rgba(255, 192, 203, 0.5);
+      transition: transform 0.2s ease;
+    }
+    .button:hover {
+      transform: scale(1.05);
+    }
+    .popup {
+      max-width: 90%;
+      width: 300px;
+      background-color: #fff0f5;
+      border: 2px solid #ffb6c1;
       border-radius: 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .hearts {
+      padding: 20px;
       position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      display: none;
+      z-index: 1000;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    .popup.show {
+      display: block;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255, 182, 193, 0.6);
+      z-index: 500;
+      display: none;
+    }
+    .overlay.show {
+      display: block;
+    }
+    .floating-hearts {
+      position: absolute;
       width: 100%;
       height: 100%;
-      z-index: -1;
+      overflow: hidden;
+      top: 0;
+      left: 0;
+      z-index: 0;
     }
-
     .heart {
-      position: absolute;
       width: 20px;
       height: 20px;
       background: red;
+      position: absolute;
       transform: rotate(45deg);
-      animation: float 5s linear infinite;
+      animation: floatUp 10s infinite ease-in;
     }
-
     .heart::before,
     .heart::after {
       content: "";
-      position: absolute;
       width: 20px;
       height: 20px;
       background: red;
       border-radius: 50%;
+      position: absolute;
     }
-
     .heart::before {
       top: -10px;
       left: 0;
     }
-
     .heart::after {
       left: -10px;
       top: 0;
     }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-      }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) rotate(45deg); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) rotate(45deg); opacity: 0; }
+    }
+    .nav {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+    }
+    .nav a {
+      background: #ffc0cb;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: bold;
+      margin-left: 10px;
     }
   </style>
 </head>
 <body>
-
-  <h1>Hey Love ❤️</h1>
-  <button class="btn" onclick="showMessage()">Click Me</button>
-  <div id="message">
-    I just wanted to say...<br><br>
-    <strong style="font-size: 2.5rem;">I Love You Sooo Much 😘🌷</strong><br><br>
-    You mean the world to me, and I’m lucky to have you ,you're the bestest gf everrrrrr, My prashu,My honey,MY baby i love you more than my self💖<br>
-    Forever yours, <br> <em>– Bacchuu 💌</em>
+  <h1>You're Always Safe With Me 💕</h1>
+  <div class="center">
+    <button class="button" onclick="showNextMessage()">Click Me 💗</button>
   </div>
 
-  <div class="hearts" id="hearts-container"></div>
+  <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <p id="popupText"></p>
+    <button class="button" onclick="closePopup()">Okay 💖</button>
+  </div>
+
+  <div class="floating-hearts" id="hearts"></div>
+
+  <div class="nav">
+    <a href="safety2.html">More Reassurance 💌</a>
+  </div>
 
   <script>
-    function showMessage() {
-      document.getElementById('message').style.display = 'block';
+    const messages = [
+      "I would never take you for granted — you're my precious world 🌍💗",
+      "Even after kitkat, my love and respect for you will only grow stronger 💕🍫",
+      "Kitkat won't change my heart, it will just deepen our bond 💫",
+      "Your comfort means everything to me. If something makes you even slightly uncomfortable, it’s a no for me too 💖",
+      "You're not here to please me — you're here to be loved, valued, and cherished 💞",
+      "No matter what happens, I promise: you’re my safe space, and I’ll be yours 🫂",
+      "Kitkat is a shared trust, not a test of love. And I would never let you feel unsafe because of it 🛡️",
+      "I don’t want kitkat just for closeness — I want your heart, soul, laughter, and weird jokes too 🤭",
+      "Even thinking about hurting you terrifies me — I could never lose someone so special 😔💗",
+      "You’re my person. You’re the one I want to grow old with. No kitkat will change that ❤️‍🔥"
+    ];
+
+    let current = 0;
+
+    function showNextMessage() {
+      if (current < messages.length) {
+        document.getElementById('popupText').innerText = messages[current];
+        document.getElementById('popup').classList.add('show');
+        document.getElementById('overlay').classList.add('show');
+        current++;
+      } else {
+        current = 0;
+        showNextMessage();
+      }
     }
 
-    // Floating hearts
-    const heartContainer = document.getElementById("hearts-container");
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
-      heartContainer.appendChild(heart);
-      setTimeout(() => {
-        heart.remove();
-      }, 5000);
-    }, 200);
+    function closePopup() {
+      document.getElementById('popup').classList.remove('show');
+      document.getElementById('overlay').classList.remove('show');
+    }
+
+    const heartsContainer = document.getElementById('hearts');
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = 5 + Math.random() * 5 + 's';
+      heartsContainer.appendChild(heart);
+    }
   </script>
 </body>
 </html>
-
