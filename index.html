@@ -1,121 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Will You Be Mine?</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I Love You Prashu 💖</title>
   <style>
     body {
-      background-color: #fff0f5;
+      margin: 0;
+      background: linear-gradient(to bottom right, #ffd6e7, #fff0f5);
+      font-family: 'Comic Sans MS', cursive;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
       overflow: hidden;
-      margin: 0;
-    }
-
-    #gif {
-      width: 300px;
-      height: auto;
-      margin-bottom: 30px;
-      border-radius: 20px;
     }
 
     h1 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      color: #d63384;
-      text-shadow: 1px 1px 2px #ff69b4;
+      color: #ff3399;
+      font-size: 3.5em;
+      margin-top: 1em;
+      text-shadow: 2px 2px #fff;
     }
 
-    .btn-container {
+    p {
+      color: #ff66cc;
+      font-size: 1.5em;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 5s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .button-group {
+      margin-top: 30px;
       display: flex;
-      gap: 20px;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     button {
-      padding: 15px 25px;
-      border: none;
-      border-radius: 20px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-    }
-
-    #yesBtn {
-      background-color: #ff69b4;
+      padding: 12px 25px;
+      background-color: #ff99cc;
       color: white;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 2px 2px 10px #ff66cc;
+      transition: transform 0.3s ease;
     }
 
-    #noBtn {
-      background-color: #ffc0cb;
-      color: black;
+    button:hover {
+      transform: scale(1.1);
     }
 
-    #message {
-      margin-top: 20px;
-      font-size: 1.2rem;
-      color: #555;
-      height: 30px;
+    .popup, .overlay {
+      display: none;
+    }
+
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      background-color: white;
+      padding: 2em;
+      border-radius: 20px;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 15px #ff66cc;
       text-align: center;
+      z-index: 10;
+      max-width: 80%;
     }
 
+    .popup img {
+      width: 150px;
+      margin-bottom: 1em;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(255, 182, 193, 0.4);
+      z-index: 5;
+    }
   </style>
 </head>
 <body>
-  <img id="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzMxbDNoOWR2aW1idmZ6NmlpOWlmZGdvM285MWtmZDVmNTd4c2IzZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/NxC8VtyxqhMtpLoEEN/giphy.gif" alt="Cute GIF">
-  <h1>Will you be mine?</h1>
-  <div class="btn-container">
-    <button id="yesBtn">Yes</button>
-    <button id="noBtn">No</button>
+  <h1>I Love You Prashu 💖</h1>
+  <p>You’re my favorite tulip 🌷 in the garden of life</p>
+
+  <div class="button-group">
+    <button onclick="showPopup('why')">Why I Love You? 💌</button>
+    <button onclick="showPopup('memories')">Our Memories 📸</button>
+    <button onclick="showPopup('proposal')">Will You Be Mine? 💍</button>
   </div>
-  <div id="message"></div>
 
+  <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+  <!-- Popup Messages -->
+  <div class="popup" id="popup-why">
+    <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3oxYWpya2EydXQxYWR1MW4xd3I1MXNrYjFidXgxandwMXdhZTFuayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/gZWMwbe998iyqtO34M/giphy.gif" />
+    <h2>Why I Love You 💗</h2>
+    <p>Because you're the sunshine to my rain, the tulip in my heart's garden 🌷, and the smile I want to see forever 💕</p>
+    <button onclick="closePopup()">Awww 🥺</button>
+  </div>
+
+  <div class="popup" id="popup-memories">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3J3NTR3aGtyZWlmMDVmdm5qbjVvNWhtOTQ2MnVnNGs2cWx5ZWlrMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5WP15460YjHlrWrppv/giphy.gif" />
+    <h2>Our Memories 📷</h2>
+    <p>Every moment with you is a memory I cherish. From silly chats to the sweetest words – I treasure it all 🥰</p>
+    <button onclick="closePopup()">Let's make more 💖</button>
+  </div>
+
+  <div class="popup" id="popup-proposal">
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOWF2OHA3d2t6eTlwMTY1eGducXltaW83YW12Mm44djc1cGcwZ3RrbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iGqP4DYXe4zVJbCY5N/giphy.gif" />
+    <h2>Will You Be Mine Forever? 💍</h2>
+    <p>Say yes and let me be the one to love you endlessly, my tulip queen 🌷👑</p>
+    <button onclick="closePopup()">Yes, obviously! 💞</button>
+  </div>
+
+  <!-- Floating Hearts -->
   <script>
-    const yesBtn = document.getElementById("yesBtn");
-    const noBtn = document.getElementById("noBtn");
-    const message = document.getElementById("message");
-    const gif = document.getElementById("gif");
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
 
-    const noMessages = [
-      "No? Are you sure? 🥺",
-      "Really no? 😔",
-      "But I made this for you... 😖",
-      "Don't break my heart 💔",
-      "You're so mean 😢",
-      "Please say yes 😩",
-      "Still no?! 😭",
-      "My heart can't take it... 😭😭",
-      "Last chance 🥺",
-      "Okay... now you HAVE to say yes! 💘"
-    ];
+    function showPopup(type) {
+      document.getElementById('overlay').style.display = 'block';
+      document.getElementById('popup-' + type).style.display = 'block';
+    }
 
-    let rejectionCount = 0;
-    let yesSize = 1;
-
-    noBtn.addEventListener("click", () => {
-      if (rejectionCount < noMessages.length - 1) {
-        message.textContent = noMessages[rejectionCount];
-        rejectionCount++;
-
-        yesSize += 0.3;
-        yesBtn.style.transform = `scale(${yesSize})`;
-      } else {
-        gif.src = "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTl3eTgzbDFraDhvNjB3ajhxYjhqMDg2ZzZ5cnFrcmIwczBvbWh1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif";
-        message.textContent = "You rejected me 10 times... 💔😭";
-        noBtn.disabled = true;
-      }
-    });
-
-    yesBtn.addEventListener("click", () => {
-      gif.src = "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWp0bW5ucHJlNTRzMGhsZ24zZ2RwcTUxMWR0dXptNHN3ZjM2MW40NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5GoVLqeAOo6PK/giphy.gif";
-      message.textContent = "YAYYYYY!! I knew you'd say yes 😘💖";
-      yesBtn.style.transform = "scale(1)";
-      noBtn.style.display = "none";
-    });
+    function closePopup() {
+      document.getElementById('overlay').style.display = 'none';
+      ['why', 'memories', 'proposal'].forEach(id => {
+        document.getElementById('popup-' + id).style.display = 'none';
+      });
+    }
   </script>
 </body>
 </html>
