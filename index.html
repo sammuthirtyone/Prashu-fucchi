@@ -1,144 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Safe Place 💖</title>
+  <meta charset="UTF-8">
+  <title>Goodnight Prashu 🌙💖</title>
   <style>
     body {
       margin: 0;
-      background: #ffe4ec;
-      font-family: 'Comic Sans MS', cursive;
-      overflow-x: hidden;
-    }
-    h1 {
-      text-align: center;
-      color: #ff3399;
-      padding-top: 30px;
-    }
-    .click-btn {
-      display: block;
-      margin: 40px auto;
-      padding: 15px 30px;
-      font-size: 20px;
-      background-color: #ff99cc;
-      border: none;
-      border-radius: 25px;
+      padding: 0;
+      background: url('https://i.ibb.co/0F5VfvT/night-sky-stars.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       color: white;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
-    }
-    .click-btn:hover {
-      transform: scale(1.05);
-    }
-    #popup {
-      display: none;
-      position: fixed;
-      top: 25%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: white;
-      border: 2px solid #ff99cc;
-      border-radius: 15px;
-      padding: 30px;
       text-align: center;
-      z-index: 1000;
+      overflow: hidden;
     }
-    #popup.show {
-      display: block;
+
+    h1 {
+      font-size: 3em;
+      margin-top: 50px;
+      text-shadow: 2px 2px 10px pink;
+      animation: glow 2s infinite alternate;
     }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px pink; }
+      to { text-shadow: 0 0 25px hotpink; }
+    }
+
     .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      top: -20px;
-      animation: fall 7s linear infinite;
+      width: 100px;
+      height: 90px;
+      position: relative;
+      margin: 20px auto;
+      animation: beat 1s infinite;
     }
+
     .heart::before,
     .heart::after {
-      content: '';
+      content: "";
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-    .heart::after {
-      left: -10px;
+      width: 100px;
+      height: 150px;
+      background: pink;
+      border-radius: 50px 50px 0 0;
       top: 0;
     }
-    @keyframes fall {
-      to {
-        top: 110%;
-        transform: rotate(45deg) translateY(0);
-      }
+
+    .heart::before {
+      left: 100px;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
     }
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 16px;
-      color: #aa3377;
+
+    .heart::after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    .msg {
+      font-size: 1.2em;
+      margin: 20px auto;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 192, 203, 0.6);
+    }
+
+    button {
+      padding: 15px 30px;
+      background-color: hotpink;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: deeppink;
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .floating {
+      position: absolute;
+      animation: floatUp 8s linear infinite;
+      color: pink;
+      font-size: 2em;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      from {
+        bottom: 0;
+        opacity: 1;
+      }
+      to {
+        bottom: 100%;
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>This is Your Safe Space 💗</h1>
-  <button class="click-btn" onclick="showNextMessage()">Click Me 💗</button>
+  <h1>Goodnight My Lovely Prashu 💖</h1>
+  <div class="heart"></div>
 
-  <div id="popup">
-    <p id="popupText">You're safe here, always.</p>
-    <button onclick="closePopup()">Close</button>
+  <div class="msg">
+    Just wanted to remind you how much I love you. <br>
+    Sleep tight my tulip princess 🌷<br>
+    May you dream of the sweetest things, and feel my hugs in your dreams 💫
   </div>
 
-  <div id="hearts"></div>
+  <button onclick="showSurprise()">Tap for a warm hug 🤗</button>
 
-  <footer>
-    Your feelings matter the most 💞 | <a href="safety2.html">Next Page 👉</a>
-  </footer>
+  <div id="surprise" class="hidden">
+    <div class="msg" style="margin-top: 30px;">
+      Here's your warm virtual hug, my cupcake 🥰<br>
+      <strong>I love you more than the stars love the night 💗</strong><br>
+      You're always safe, always loved, and always mine.
+      <br><br>
+      <img src="https://media1.giphy.com/media/3oz8xKaR836UJOYeOc/giphy.gif" width="200" />
+    </div>
+  </div>
 
+  <!-- Floating hearts -->
   <script>
-    const messages = [
-      "I will never take you for granted, even after kitkat.",
-      "You're not just loved, you're deeply respected.",
-      "Your comfort matters more than anything to me.",
-      "I promise, kitkat will never change my love for you.",
-      "You're the same beautiful soul, always.",
-      "Even after kitkat, I'll still be your biggest fan.",
-      "Our bond is beyond just moments — it's forever.",
-      "I’m here to hold your heart gently, always.",
-      "You’re safe with me. Emotionally, physically, in every way.",
-      "Kitkat will never reduce your worth — you're everything to me."
-    ];
-
-    let current = 0;
-
-    function showNextMessage() {
-      document.getElementById("popupText").innerText = messages[current];
-      document.getElementById("popup").classList.add("show");
-      current = (current + 1) % messages.length;
+    function showSurprise() {
+      document.getElementById('surprise').classList.remove('hidden');
     }
 
-    function closePopup() {
-      document.getElementById("popup").classList.remove("show");
+    function createFloating() {
+      const el = document.createElement("div");
+      el.classList.add("floating");
+      el.innerHTML = "💖";
+      el.style.left = Math.random() * 100 + "vw";
+      el.style.bottom = "0px";
+      document.body.appendChild(el);
+
+      setTimeout(() => {
+        el.remove();
+      }, 8000);
     }
 
-    // Floating hearts
-    const heartsContainer = document.getElementById("hearts");
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement("div");
-      heart.classList.add("heart");
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-      heart.style.opacity = Math.random();
-      heartsContainer.appendChild(heart);
-    }
+    setInterval(createFloating, 600);
   </script>
 </body>
 </html>
+
