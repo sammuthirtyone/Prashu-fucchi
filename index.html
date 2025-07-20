@@ -2,196 +2,694 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Goodnight Prashu 🌙💖</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Sunshine 🌞</title>
   <style>
+    :root {
+      --pink: #ff9bb3;
+      --dark-pink: #ff6b8b;
+      --light-pink: #ffd6e7;
+      --purple: #d4a5ff;
+      --yellow: #fff2a8;
+      --blue: #b8e8ff;
+    }
+    
     body {
       margin: 0;
-      padding: 0;
-      background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnJ0dWw3dWYzYzBsMnRvdnJsZjBvam1tNDdiZTRldWZubm16c3BnYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ONyTeYeH696IpVL95D/giphy.gif') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: white;
+      font-family: 'Comic Sans MS', 'Marker Felt', 'Arial Rounded MT Bold', sans-serif;
+      background: linear-gradient(135deg, var(--light-pink), var(--yellow));
+      overflow-x: hidden;
+      min-height: 100vh;
+      color: #5a3d5a;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
       text-align: center;
-      overflow: hidden;
     }
-
+    
     h1 {
-      font-size: 3em;
-      margin-top: 40px;
-      text-shadow: 2px 2px 15px hotpink;
-      animation: glow 2s infinite alternate;
+      font-size: 3rem;
+      color: var(--dark-pink);
+      text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+      margin-bottom: 1rem;
+      animation: bounce 2s infinite;
     }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px pink; }
-      to { text-shadow: 0 0 30px deeppink; }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
-
-    .heart {
-      width: 100px;
-      height: 90px;
-      position: relative;
-      margin: 20px auto;
-      animation: beat 1s infinite;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 150px;
-      background: pink;
-      border-radius: 50px 50px 0 0;
-      top: 0;
-    }
-
-    .heart::before {
-      left: 100px;
-      transform: rotate(-45deg);
-      transform-origin: 0 100%;
-    }
-
-    .heart::after {
-      left: 0;
-      transform: rotate(45deg);
-      transform-origin: 100% 100%;
-    }
-
-    @keyframes beat {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-    }
-
-    .msg {
-      font-size: 1.2em;
-      margin: 20px auto;
-      max-width: 600px;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
+    
+    .intro {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      background-color: rgba(255,255,255,0.7);
+      padding: 1.5rem;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(255, 192, 203, 0.6);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     }
-
-    button {
-      padding: 15px 30px;
-      background-color: hotpink;
+    
+    .btn-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .btn {
+      padding: 1rem 1.5rem;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 30px;
-      color: white;
-      font-size: 1.3em;
-      font-weight: bold;
+      border-radius: 50px;
       cursor: pointer;
-      transition: 0.3s;
-      margin-top: 20px;
-      box-shadow: 0 0 10px white;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
-
-    button:hover {
-      background-color: deeppink;
-      transform: scale(1.1);
-      box-shadow: 0 0 20px white;
+    
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
     }
-
+    
+    .btn-pink {
+      background-color: var(--pink);
+      color: white;
+    }
+    
+    .btn-purple {
+      background-color: var(--purple);
+      color: white;
+    }
+    
+    .btn-blue {
+      background-color: var(--blue);
+      color: #333;
+    }
+    
+    .btn-yellow {
+      background-color: var(--yellow);
+      color: #333;
+    }
+    
+    .content-area {
+      background-color: rgba(255,255,255,0.8);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-top: 2rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
     .hidden {
       display: none;
     }
-
-    .floating {
-      position: absolute;
-      animation: floatUp 8s linear infinite;
-      font-size: 2em;
-      color: pink;
-      pointer-events: none;
-      text-shadow: 0 0 10px hotpink;
+    
+    .cute-message {
+      font-size: 1.8rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      animation: fadeIn 1s ease;
     }
-
-    @keyframes floatUp {
-      from {
-        bottom: 0;
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .memory {
+      background-color: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: left;
+      max-width: 600px;
+    }
+    
+    .memory h3 {
+      color: var(--dark-pink);
+      margin-top: 0;
+    }
+    
+    .memory-date {
+      font-style: italic;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    
+    .photo-frame {
+      width: 200px;
+      height: 200px;
+      border: 10px solid white;
+      border-radius: 5px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      background-color: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem auto;
+      overflow: hidden;
+    }
+    
+    .photo-frame img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+    
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 5s linear infinite;
+    }
+    
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
         opacity: 1;
       }
-      to {
-        bottom: 100%;
+      100% {
+        transform: translateY(-100px) rotate(360deg);
         opacity: 0;
       }
     }
-
-    .extra-msg {
-      font-style: italic;
-      margin-top: 50px;
-      font-size: 1.1em;
-      padding: 10px 30px;
-      background-color: rgba(255, 182, 193, 0.2);
-      border-radius: 20px;
-      box-shadow: 0 0 15px pink;
-      display: inline-block;
+    
+    .polaroid {
+      background: white;
+      padding: 1rem 1rem 2rem 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: rotate(-5deg);
+      margin: 1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .polaroid:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+    
+    .polaroid img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 1px solid #eee;
+    }
+    
+    .polaroid-caption {
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+      margin-top: 0.5rem;
+    }
+    
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    
+    .love-meter {
+      width: 80%;
+      height: 30px;
+      background-color: #eee;
+      border-radius: 15px;
+      margin: 1rem auto;
+      overflow: hidden;
+    }
+    
+    .love-meter-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      border-radius: 15px;
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    
+    .compliment {
+      font-size: 1.5rem;
+      padding: 1rem;
+      background-color: var(--light-pink);
+      border-radius: 15px;
+      margin: 1rem 0;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .sticker {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      z-index: 100;
+      animation: floatSticker 3s ease-in-out infinite;
+    }
+    
+    @keyframes floatSticker {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+    
+    .cute-fact {
+      background-color: white;
+      border-radius: 15px;
+      padding: 1rem;
+      margin: 1rem 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-left: 5px solid var(--pink);
+    }
+    
+    .cute-fact h3 {
+      color: var(--dark-pink);
+      margin-top: 0;
+    }
+    
+    .kiss-btn {
+      background-color: var(--pink);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      margin: 1rem;
+    }
+    
+    .kiss-btn:hover {
+      transform: scale(1.1);
+      background-color: var(--dark-pink);
+    }
+    
+    /* Responsive design */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .intro {
+        font-size: 1.2rem;
+      }
+      
+      .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+      }
+      
+      .cute-message {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
 <body>
-
-  <h1>Goodnight My Lovely Prashu 💖</h1>
-  <div class="heart"></div>
-
-  <div class="msg">
-    Just wanted to remind you how much I love you. <br>
-    Sleep tight my tulip princess 🌷<br>
-    May you dream of the sweetest things, and feel my hugs in your dreams 💫
-  </div>
-
-  <button onclick="showSurprise()">Tap for a warm hug 🤗</button>
-
-  <div id="surprise" class="hidden">
-    <div class="msg" style="margin-top: 30px;">
-      Here's your warm virtual hug, my cupcake 🥰<br>
-      <strong>I love you more than the stars love the night 💗</strong><br>
-      You're always safe, always loved, and always mine.<br><br>
-      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW83cmRwdm9ybDZ5enZubXNxdzQ1Z2h4NzZocnVhcGx0aDdsYjM5NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9Y5BbDSkSTiY8/giphy.gif" width="200" />
+  <div class="hearts" id="hearts"></div>
+  
+  <div class="container">
+    <h1>For My Beautiful Girlfriend 💖</h1>
+    
+    <div class="intro">
+      <p>Hi my love! 💕 I made this special website just for you to remind you how amazing you are!</p>
+      <p>Click on any button below to discover cute surprises! ✨</p>
+    </div>
+    
+    <div class="btn-container">
+      <button class="btn btn-pink" onclick="showMessage()">💌 Sweet Message</button>
+      <button class="btn btn-purple" onclick="showMemories()">📸 Our Memories</button>
+      <button class="btn btn-blue" onclick="showCompliment()">🌸 Compliment</button>
+      <button class="btn btn-yellow" onclick="showLoveMeter()">💘 Love Meter</button>
+      <button class="btn btn-pink" onclick="sendKisses()">💋 Send Kisses</button>
+      <button class="btn btn-purple" onclick="showGallery()">🖼️ Cute Gallery</button>
+    </div>
+    
+    <div class="content-area">
+      <div id="welcome-message">
+        <p class="cute-message">I'm so lucky to have you in my life! 🥰</p>
+        <div class="photo-frame">
+          <img src="https://em-content.zobj.net/source/microsoft-teams/363/red-heart_2764-fe0f.png" alt="Heart">
+        </div>
+      </div>
+      
+      <!-- Sweet Message Content -->
+      <div id="message-content" class="hidden">
+        <p class="cute-message" id="dynamic-message">You light up my world like nobody else! ✨</p>
+        <button class="btn btn-pink" onclick="changeMessage()">More Sweetness Please!</button>
+      </div>
+      
+      <!-- Memories Content -->
+      <div id="memories-content" class="hidden">
+        <h2>Our Special Memories 💞</h2>
+        <div class="memory">
+          <h3>The First Time We Met</h3>
+          <p class="memory-date">A day I'll never forget</p>
+          <p>Even if I don't remember the exact date, I remember how you made me feel - like I had found someone truly special.</p>
+        </div>
+        <div class="memory">
+          <h3>When You Make Me Laugh</h3>
+          <p class="memory-date">Every single day</p>
+          <p>Your sense of humor brightens my darkest days. I love how we can be silly together!</p>
+        </div>
+        <div class="memory">
+          <h3>Our Little Traditions</h3>
+          <p class="memory-date">The things that make us "us"</p>
+          <p>Whether it's our special way of saying goodnight or how we always share desserts, these little things mean everything to me.</p>
+        </div>
+      </div>
+      
+      <!-- Compliment Content -->
+      <div id="compliment-content" class="hidden">
+        <div class="compliment" id="compliment-text">
+          Your smile brightens my darkest days! ☀️
+        </div>
+        <button class="btn btn-blue" onclick="newCompliment()">Another One! 💖</button>
+      </div>
+      
+      <!-- Love Meter Content -->
+      <div id="love-meter-content" class="hidden">
+        <h2>How Much I Love You 💝</h2>
+        <div class="love-meter">
+          <div class="love-meter-fill" id="love-meter-fill" style="width: 100%">INFINITY%</div>
+        </div>
+        <p class="cute-message">My love for you is immeasurable! It grows every day. 🌱</p>
+        <button class="btn btn-yellow" onclick="increaseLove()">Increase Love! 💞</button>
+      </div>
+      
+      <!-- Kisses Content -->
+      <div id="kisses-content" class="hidden">
+        <h2>Sending You Virtual Kisses 💋</h2>
+        <p class="cute-message">Click the button below to receive kisses!</p>
+        <button class="kiss-btn" onclick="sendKiss()">💋</button>
+        <p id="kiss-count">Kisses sent: 0</p>
+      </div>
+      
+      <!-- Gallery Content -->
+      <div id="gallery-content" class="hidden">
+        <h2>Our Cute Gallery 🎀</h2>
+        <div class="gallery">
+          <div class="polaroid">
+            <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=200&h=200&fit=crop" alt="Cute couple">
+            <p class="polaroid-caption">Love like ours</p>
+          </div>
+          <div class="polaroid" style="transform: rotate(2deg);">
+            <img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=200&h=200&fit=crop" alt="Romantic sunset">
+            <p class="polaroid-caption">Beautiful moments</p>
+          </div>
+          <div class="polaroid" style="transform: rotate(-3deg);">
+            <img src="https://images.unsplash.com/photo-1494774157365-9e04c6720e47?w=200&h=200&fit=crop" alt="Heart hands">
+            <p class="polaroid-caption">You & me</p>
+          </div>
+          <div class="polaroid" style="transform: rotate(1deg);">
+            <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=200&h=200&fit=crop" alt="Love letters">
+            <p class="polaroid-caption">My heart</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="cute-fact" style="margin-top: 2rem;">
+      <h3>Did You Know? 💭</h3>
+      <p id="fun-fact">Your presence alone makes my heart skip a beat! ❤️</p>
     </div>
   </div>
 
-  <div class="extra-msg">
-    You're the reason my stars shine brighter, my moon glows warmer, and my nights feel softer. <br>
-    I love you always, Prashu 🌙💋
-  </div>
-
-  <!-- Floating emojis and text -->
   <script>
-    function showSurprise() {
-      const surprise = document.getElementById('surprise');
-      surprise.classList.remove('hidden');
-      surprise.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    const phrases = [
-      "💖 I love you",
-      "🌙 Sweet dreams",
-      "🌷 My tulip girl",
-      "💤 Sleep well, cupcake",
-      "🧸 You're safe with me",
-      "🥺 Hug hug hug",
-      "💗 Forever yours"
+    // Array of sweet messages
+    const sweetMessages = [
+      "You're the most beautiful person I know, inside and out! 🌸",
+      "Every moment with you feels like a dream come true! ✨",
+      "Your laugh is my favorite sound in the world! 😊",
+      "I fall in love with you more every single day! 💘",
+      "You make my heart do somersaults! 🤸‍♂️",
+      "Being with you feels like home! 🏡",
+      "Your kindness inspires me to be a better person! 🌟",
+      "I'm the luckiest to have someone as amazing as you! 🍀",
+      "Your smile could power a thousand suns! ☀️",
+      "I love how you always know how to make me feel better! 💕"
     ];
-
-    function createFloating() {
-      const el = document.createElement("div");
-      el.classList.add("floating");
-      el.innerHTML = phrases[Math.floor(Math.random() * phrases.length)];
-      el.style.left = Math.random() * 90 + "vw";
-      el.style.bottom = "0px";
-      document.body.appendChild(el);
-      setTimeout(() => el.remove(), 8000);
+    
+    // Array of compliments
+    const compliments = [
+      "You're more beautiful than a sunset! 🌅",
+      "Your intelligence amazes me every day! 🧠",
+      "You have the most caring heart I've ever known! ❤️",
+      "Your strength inspires me! 💪",
+      "You're funnier than you think! 😂",
+      "Your creativity knows no bounds! 🎨",
+      "You're the perfect combination of sweet and spicy! 🌶️",
+      "Your eyes sparkle like stars! ✨",
+      "You have the best taste in everything! 👌",
+      "You're my favorite person to talk to, about anything! 💬"
+    ];
+    
+    // Array of fun facts
+    const funFacts = [
+      "Thinking of you releases dopamine in my brain - you're literally my happiness!",
+      "My heart beats faster when I see you - it's scientifically proven!",
+      "You're the reason I believe in soulmates!",
+      "Hugging you is my favorite form of therapy!",
+      "Your voice is my favorite melody!",
+      "I could get lost in your eyes forever!",
+      "You make ordinary moments extraordinary!",
+      "Your smile is contagious - I can't help but smile when you do!",
+      "You're my favorite notification!",
+      "Being with you is my happy place!"
+    ];
+    
+    // Array of memory prompts
+    const memoryPrompts = [
+      "Remember when we stayed up all night talking?",
+      "That time we got caught in the rain together was magical!",
+      "Our inside jokes still make me laugh every time!",
+      "The way you look at me sometimes melts my heart completely!",
+      "Every adventure with you is unforgettable!"
+    ];
+    
+    // Show initial welcome message
+    function showWelcome() {
+      hideAllContent();
+      document.getElementById('welcome-message').style.display = 'block';
     }
-
-    setInterval(createFloating, 700);
+    
+    // Show sweet message
+    function showMessage() {
+      hideAllContent();
+      document.getElementById('message-content').style.display = 'block';
+      changeMessage();
+    }
+    
+    // Change to a random sweet message
+    function changeMessage() {
+      const randomMessage = sweetMessages[Math.floor(Math.random() * sweetMessages.length)];
+      document.getElementById('dynamic-message').textContent = randomMessage;
+      createHearts(10);
+    }
+    
+    // Show memories
+    function showMemories() {
+      hideAllContent();
+      document.getElementById('memories-content').style.display = 'block';
+      createStars(15);
+    }
+    
+    // Show compliment
+    function showCompliment() {
+      hideAllContent();
+      document.getElementById('compliment-content').style.display = 'block';
+      newCompliment();
+    }
+    
+    // Generate new compliment
+    function newCompliment() {
+      const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+      document.getElementById('compliment-text').textContent = randomCompliment;
+      createStars(8);
+    }
+    
+    // Show love meter
+    function showLoveMeter() {
+      hideAllContent();
+      document.getElementById('love-meter-content').style.display = 'block';
+    }
+    
+    // Increase love (fun animation)
+    function increaseLove() {
+      const meter = document.getElementById('love-meter-fill');
+      meter.textContent = "BEYOND INFINITY%";
+      meter.style.background = "linear-gradient(90deg, #ff00aa, #ffcc00)";
+      createHearts(20);
+    }
+    
+    // Send kisses
+    function sendKisses() {
+      hideAllContent();
+      document.getElementById('kisses-content').style.display = 'block';
+      kissCount = 0;
+      updateKissCount();
+    }
+    
+    let kissCount = 0;
+    
+    // Send a kiss
+    function sendKiss() {
+      kissCount++;
+      updateKissCount();
+      createKiss();
+      if (kissCount % 10 === 0) {
+        createHearts(10);
+      }
+    }
+    
+    // Update kiss counter
+    function updateKissCount() {
+      document.getElementById('kiss-count').textContent = `Kisses sent: ${kissCount}`;
+    }
+    
+    // Show gallery
+    function showGallery() {
+      hideAllContent();
+      document.getElementById('gallery-content').style.display = 'block';
+    }
+    
+    // Hide all content sections
+    function hideAllContent() {
+      const contents = document.querySelectorAll('.content-area > div');
+      contents.forEach(content => {
+        content.style.display = 'none';
+      });
+    }
+    
+    // Create floating hearts
+    function createHearts(count) {
+      const heartsContainer = document.getElementById('hearts');
+      
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        
+        // Random heart styles
+        const heartStyles = [
+          'background-image: url("https://em-content.zobj.net/source/microsoft-teams/363/red-heart_2764-fe0f.png")',
+          'background-image: url("https://em-content.zobj.net/source/microsoft-teams/363/sparkling-heart_1f496.png")',
+          'background-image: url("https://em-content.zobj.net/source/microsoft-teams/363/growing-heart_1f497.png")',
+          'background-image: url("https://em-content.zobj.net/source/microsoft-teams/363/heart-with-arrow_1f498.png")'
+        ];
+        
+        heart.style = `
+          ${heartStyles[Math.floor(Math.random() * heartStyles.length)]};
+          left: ${Math.random() * 100}%;
+          width: ${20 + Math.random() * 30}px;
+          height: ${20 + Math.random() * 30}px;
+          animation-duration: ${3 + Math.random() * 7}s;
+          animation-delay: ${Math.random() * 2}s;
+        `;
+        
+        heartsContainer.appendChild(heart);
+        
+        // Remove heart after animation completes
+        setTimeout(() => {
+          heart.remove();
+        }, 10000);
+      }
+    }
+    
+    // Create floating stars
+    function createStars(count) {
+      const heartsContainer = document.getElementById('hearts');
+      
+      for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'heart';
+        
+        star.style = `
+          background-image: url("https://em-content.zobj.net/source/microsoft-teams/363/glowing-star_1f31f.png");
+          left: ${Math.random() * 100}%;
+          width: ${15 + Math.random() * 25}px;
+          height: ${15 + Math.random() * 25}px;
+          animation-duration: ${4 + Math.random() * 6}s;
+          animation-delay: ${Math.random() * 1}s;
+        `;
+        
+        heartsContainer.appendChild(star);
+        
+        // Remove star after animation completes
+        setTimeout(() => {
+          star.remove();
+        }, 10000);
+      }
+    }
+    
+    // Create a kiss sticker
+    function createKiss() {
+      const kiss = document.createElement('div');
+      kiss.className = 'sticker';
+      
+      kiss.style = `
+        background-image: url("https://em-content.zobj.net/source/microsoft-teams/363/kiss-mark_1f48b.png");
+        left: ${Math.random() * 80 + 10}%;
+        top: ${Math.random() * 80 + 10}%;
+        width: ${40 + Math.random() * 60}px;
+        height: ${40 + Math.random() * 60}px;
+      `;
+      
+      document.body.appendChild(kiss);
+      
+      // Remove kiss after animation
+      setTimeout(() => {
+        kiss.remove();
+      }, 3000);
+    }
+    
+    // Change fun fact periodically
+    function changeFunFact() {
+      const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+      document.getElementById('fun-fact').textContent = randomFact;
+    }
+    
+    // Initialize
+    window.onload = function() {
+      showWelcome();
+      createHearts(15);
+      
+      // Change fun fact every 10 seconds
+      setInterval(changeFunFact, 10000);
+    };
   </script>
-
-  <!-- Optional lullaby -->
-  <!-- <audio autoplay loop>
-    <source src="https://example.com/lullaby.mp3" type="audio/mp3">
-  </audio> -->
-
 </body>
 </html>
-
