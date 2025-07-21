@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Sweetheart 💕</title>
+  <title>Our Love Story ✨</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Comic+Neue:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Comic+Neue:wght@400;700&family=Pangolin&display=swap');
     
     :root {
       --pink: #ffb6c1;
@@ -15,6 +15,7 @@
       --yellow: #fffacd;
       --blue: #b8e8ff;
       --mint: #b5ead7;
+      --peach: #ffd3b6;
     }
     
     * {
@@ -24,8 +25,8 @@
     }
     
     body {
-      font-family: 'Comic Neue', cursive;
-      background: linear-gradient(135deg, #fff0fa, #fff9f0);
+      font-family: 'Pangolin', cursive;
+      background: linear-gradient(135deg, #fff0f5, #fff0e8);
       color: #ff85b3;
       overflow-x: hidden;
       min-height: 100vh;
@@ -163,13 +164,6 @@
       filter: drop-shadow(0 0 5px rgba(255,105,180,0.5));
     }
     
-    .cute-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-    
     .cute-item {
       background: white;
       border-radius: 25px;
@@ -178,6 +172,7 @@
       transition: all 0.5s ease;
       border: 4px solid var(--light-pink);
       transform: rotate(-3deg);
+      margin: 1rem;
     }
     
     .love-meter {
@@ -205,17 +200,6 @@
       font-size: 1.8rem;
       text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
       animation: grow 3s forwards, rainbow 5s infinite;
-    }
-    
-    .polaroid {
-      background: white;
-      padding: 2rem 2rem 4rem 2rem;
-      box-shadow: 0 15px 40px rgba(255,182,193,0.3);
-      transform: rotate(-8deg);
-      margin: 2rem;
-      transition: all 0.5s ease;
-      width: 250px;
-      border: 4px solid var(--light-pink);
     }
     
     .kiss-btn {
@@ -283,8 +267,8 @@
       border-radius: 50%;
     }
     
-    /* Couple Game Styles */
-    .game-container {
+    /* Adventure Game Styles */
+    .adventure-container {
       width: 100%;
       height: 500px;
       background-color: rgba(255,255,255,0.8);
@@ -295,86 +279,141 @@
       box-shadow: 0 15px 35px rgba(255,182,193,0.3);
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+    
+    .adventure-scene {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
     }
     
-    .game-title {
-      font-size: 3rem;
+    .adventure-text {
+      font-size: 1.8rem;
       margin-bottom: 2rem;
-      color: var(--dark-pink);
-      text-shadow: 3px 3px 0px rgba(255,255,255,0.8);
-    }
-    
-    .game-instructions {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      padding: 1rem 2rem;
       background-color: rgba(255,255,255,0.9);
+      padding: 1.5rem;
       border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(255,182,193,0.2);
       border: 3px dotted var(--purple);
     }
     
-    .game-board {
-      width: 300px;
-      height: 300px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 10px;
-      margin: 1rem;
-    }
-    
-    .game-cell {
-      background-color: white;
-      border-radius: 20px;
+    .adventure-choices {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
-      font-size: 4rem;
+      gap: 1rem;
+    }
+    
+    .adventure-choice {
+      padding: 1rem 1.5rem;
+      font-size: 1.4rem;
+      border: none;
+      border-radius: 30px;
       cursor: pointer;
-      box-shadow: 0 5px 15px rgba(255,182,193,0.3);
       transition: all 0.3s ease;
-      border: 3px solid var(--light-pink);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-family: 'Pangolin', cursive;
+      background-color: var(--peach);
+      color: #ff69b4;
+      border: 3px solid var(--pink);
     }
     
-    .game-cell:hover {
-      transform: scale(1.05);
-      background-color: var(--light-pink);
+    .adventure-choice:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 20px rgba(255,182,193,0.3);
     }
     
-    .game-status {
-      font-size: 1.8rem;
-      margin: 1rem;
-      padding: 1rem 2rem;
-      background-color: rgba(255,255,255,0.9);
-      border-radius: 20px;
+    .adventure-character {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transition: all 0.5s ease;
+    }
+    
+    .character-you {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/5238/5238389.png');
+      bottom: 50px;
+      left: 50px;
+      z-index: 10;
+    }
+    
+    .character-partner {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/1864/1864593.png');
+      bottom: 50px;
+      right: 50px;
+      z-index: 10;
+    }
+    
+    .adventure-item {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 5;
+    }
+    
+    .love-score {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: var(--dark-pink);
+      font-family: 'Indie Flower', cursive;
+      z-index: 20;
+      background-color: rgba(255,255,255,0.8);
+      padding: 0.5rem 1.5rem;
+      border-radius: 30px;
       border: 3px dashed var(--dark-pink);
     }
     
-    .game-players {
+    /* Photo Album */
+    .photo-album {
       display: flex;
-      justify-content: space-around;
-      width: 100%;
-      margin: 1rem 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
     }
     
-    .game-player {
-      padding: 1rem 2rem;
-      border-radius: 20px;
-      font-size: 1.5rem;
+    .photo-frame {
+      width: 200px;
+      height: 200px;
       background-color: white;
-      box-shadow: 0 5px 15px rgba(255,182,193,0.3);
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(255,182,193,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      border: 5px solid var(--light-pink);
+      transform: rotate(-5deg);
+      transition: all 0.3s ease;
     }
     
-    .game-player.active {
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.1);
+    }
+    
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
       background-color: var(--light-pink);
-      transform: scale(1.1);
-      border: 3px solid var(--dark-pink);
-    }
-    
-    .game-restart {
-      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3rem;
+      color: var(--dark-pink);
     }
     
     /* Animations */
@@ -449,17 +488,17 @@
         font-size: 1.4rem;
       }
       
-      .cute-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
       .kawaii-face {
         font-size: 4rem;
       }
       
-      .game-board {
-        width: 250px;
-        height: 250px;
+      .adventure-text {
+        font-size: 1.4rem;
+      }
+      
+      .adventure-choice {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.2rem;
       }
     }
     
@@ -478,17 +517,21 @@
         font-size: 1.2rem;
       }
       
-      .cute-grid {
-        grid-template-columns: 1fr;
-      }
-      
       .kawaii-face {
         font-size: 3.5rem;
       }
       
-      .game-board {
-        width: 220px;
-        height: 220px;
+      .adventure-text {
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
+      
+      .adventure-choices {
+        flex-direction: column;
+      }
+      
+      .adventure-choice {
+        width: 100%;
       }
     }
   </style>
@@ -498,58 +541,58 @@
   <div class="hearts" id="hearts"></div>
   
   <div class="container">
-    <h1>For My Precious Sweetheart 💝</h1>
+    <h1>Our Love Adventure 💞</h1>
     
     <div class="intro">
-      <p>My adorable little marshmallow! 💖</p>
-      <p>I made this extra super duper cute website just for you!</p>
+      <p>My sweetest honeybun! 🍯</p>
+      <p>Let's go on a magical adventure together!</p>
       <div class="kawaii-face">(◕‿◕✿)</div>
     </div>
     
     <div class="content-area">
       <div id="main-content">
-        <h2>You're Cuter Than... 🌟</h2>
+        <h2>You're My Favorite Everything ✨</h2>
         
-        <div class="cute-grid">
+        <div style="display: flex; flex-wrap: wrap; justify-content: center;">
           <div class="cute-item">
-            <div class="cute-icon">🐇</div>
-            <p>A basket of baby bunnies wearing bows</p>
+            <div class="cute-icon">🌞</div>
+            <p>My sunshine on cloudy days</p>
           </div>
           <div class="cute-item">
-            <div class="cute-icon">🍬</div>
-            <p>A candy store full of rainbow sweets</p>
+            <div class="cute-icon">🍓</div>
+            <p>My sweetest strawberry</p>
           </div>
           <div class="cute-item">
-            <div class="cute-icon">🌸</div>
-            <p>A spring garden in full bloom</p>
+            <div class="cute-icon">🌈</div>
+            <p>My pot of gold</p>
           </div>
         </div>
         
-        <h2>How Much I Love You</h2>
+        <h2>Our Love Meter</h2>
         <div class="love-meter">
-          <div class="love-meter-fill">TO INFINITY AND BEYOND! 🚀</div>
+          <div class="love-meter-fill">OVERFLOWING WITH LOVE! 💘</div>
         </div>
         
         <div class="cute-fact">
           <h3>Did You Know? 💭</h3>
-          <p id="fun-fact">Your cuteness makes unicorns jealous! 🦄</p>
+          <p id="fun-fact">Your smile makes my heart do backflips! 🤸‍♀️</p>
         </div>
         
         <div class="btn-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
           <button class="btn btn-pink" onclick="showCompliment()">
-            <i class="fas fa-heart"></i> Sweet Compliment <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i> Sweet Nothings <i class="fas fa-heart"></i>
           </button>
-          <button class="btn btn-yellow" onclick="showKawaii()">
-            <i class="fas fa-star"></i> Cuteness Overload <i class="fas fa-star"></i>
+          <button class="btn btn-yellow" onclick="showAdventure()">
+            <i class="fas fa-map"></i> Start Adventure <i class="fas fa-map"></i>
           </button>
-          <button class="btn btn-blue" onclick="showGame()">
-            <i class="fas fa-gamepad"></i> Play Our Game <i class="fas fa-gamepad"></i>
+          <button class="btn btn-blue" onclick="showAlbum()">
+            <i class="fas fa-images"></i> Our Memories <i class="fas fa-images"></i>
           </button>
         </div>
         
         <div style="margin-top: 2rem;">
           <button class="kiss-btn" onclick="sendKiss()">💋</button>
-          <p id="kiss-count" style="font-size: 1.5rem;">Blowing kisses: 0</p>
+          <p id="kiss-count" style="font-size: 1.5rem;">Virtual kisses sent: 0</p>
         </div>
       </div>
       
@@ -563,87 +606,171 @@
           <i class="fas fa-heart"></i> More Sweetness! <i class="fas fa-heart"></i>
         </button>
         <button class="btn btn-yellow" onclick="showMain()">
-          <i class="fas fa-home"></i> Back to Cuteness <i class="fas fa-home"></i>
+          <i class="fas fa-home"></i> Back Home <i class="fas fa-home"></i>
         </button>
       </div>
       
-      <!-- Kawaii Content -->
-      <div id="kawaii-content" class="hidden">
-        <h2>💖 CUTENESS OVERLOAD 💖</h2>
-        <div class="kawaii-face">ヽ(♡‿♡)ノ</div>
-        <p>Warning! Extreme adorableness detected!</p>
+      <!-- Adventure Game Content -->
+      <div id="adventure-content" class="hidden">
+        <h2>Our Love Adventure 💑✨</h2>
+        <p>Let's create beautiful memories together!</p>
         
-        <div style="font-size: 5rem; margin: 2rem; animation: rainbow 3s infinite;">
-          🐰🌸🍭🌈✨🦄
+        <div class="adventure-container">
+          <div class="love-score">Love Points: <span id="love-points">100</span></div>
+          
+          <div class="adventure-scene" id="adventure-scene">
+            <div class="adventure-character character-you" id="character-you"></div>
+            <div class="adventure-character character-partner" id="character-partner"></div>
+            
+            <div class="adventure-text" id="adventure-text">
+              Welcome to our adventure! Where should we go first?
+            </div>
+            
+            <div class="adventure-choices" id="adventure-choices">
+              <!-- Choices will be added by JavaScript -->
+            </div>
+          </div>
         </div>
         
-        <p>You've unlocked the secret level of kawaii!</p>
-        
-        <button class="btn btn-pink" onclick="createBubbles()">
-          <i class="fas fa-birthday-cake"></i> Bubble Explosion! <i class="fas fa-birthday-cake"></i>
-        </button>
-        
-        <button class="btn btn-yellow" onclick="showMain()">
-          <i class="fas fa-home"></i> Return to Safety <i class="fas fa-home"></i>
+        <button class="btn btn-yellow" onclick="showMain()" style="margin-top: 2rem;">
+          <i class="fas fa-home"></i> Back Home <i class="fas fa-home"></i>
         </button>
       </div>
       
-      <!-- Game Content -->
-      <div id="game-content" class="hidden">
-        <h2>Our Cute Couple Game 💑🎮</h2>
-        <p>Let's play a sweet game together!</p>
+      <!-- Photo Album Content -->
+      <div id="album-content" class="hidden">
+        <h2>Our Precious Memories 📸💕</h2>
+        <p>Every moment with you is a treasure!</p>
         
-        <div class="game-container">
-          <h3 class="game-title">Memory Match Game</h3>
-          <p class="game-instructions">Find all the matching pairs of cute items!</p>
-          
-          <div class="game-players">
-            <div class="game-player" id="player1">Player 1: <span id="score1">0</span> 💖</div>
-            <div class="game-player" id="player2">Player 2: <span id="score2">0</span> 💖</div>
+        <div class="photo-album">
+          <div class="photo-frame">
+            <div class="photo-placeholder">📷</div>
           </div>
-          
-          <div class="game-status" id="game-status">Player 1's turn!</div>
-          
-          <div class="game-board" id="game-board">
-            <!-- Game cells will be added by JavaScript -->
+          <div class="photo-frame">
+            <div class="photo-placeholder">📷</div>
           </div>
-          
-          <button class="btn btn-pink game-restart" onclick="resetGame()">
-            <i class="fas fa-redo"></i> Restart Game <i class="fas fa-redo"></i>
-          </button>
-          
-          <button class="btn btn-yellow" onclick="showMain()" style="margin-top: 2rem;">
-            <i class="fas fa-home"></i> Back to Cuteness <i class="fas fa-home"></i>
-          </button>
+          <div class="photo-frame">
+            <div class="photo-placeholder">📷</div>
+          </div>
+          <div class="photo-frame">
+            <div class="photo-placeholder">📷</div>
+          </div>
         </div>
+        
+        <div class="cute-fact">
+          <p>Add your own photos by replacing the placeholders in the code!</p>
+        </div>
+        
+        <button class="btn btn-yellow" onclick="showMain()" style="margin-top: 2rem;">
+          <i class="fas fa-home"></i> Back Home <i class="fas fa-home"></i>
+        </button>
       </div>
     </div>
   </div>
 
-  <audio id="matchSound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-21.mp3" type="audio/mpeg">
+  <audio id="kissSound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-10.mp3" type="audio/mpeg">
   </audio>
   
-  <audio id="winSound">
+  <audio id="positiveSound">
     <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg">
+  </audio>
+  
+  <audio id="negativeSound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-08.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    // Game variables
-    let currentPlayer = 1;
-    let scores = [0, 0];
-    let firstCard = null;
-    let secondCard = null;
-    let lockBoard = false;
-    let matchedPairs = 0;
+    // Adventure game variables
+    let lovePoints = 100;
+    let currentScene = "start";
+    let inventory = [];
     
-    // Cute emoji pairs for the game
-    const emojiPairs = ['🐰', '🌸', '🍭', '🌈', '✨', '🦄', '🍓', '🧁'];
-    let emojis = [];
+    // Adventure scenes data
+    const adventureScenes = {
+      start: {
+        text: "Welcome to our adventure! Where should we go first?",
+        choices: [
+          { text: "🌸 Flower Garden", nextScene: "garden", points: 10 },
+          { text: "🍰 Dessert Cafe", nextScene: "cafe", points: 15 },
+          { text: "🌊 Beach Sunset", nextScene: "beach", points: 20 }
+        ],
+        background: ""
+      },
+      garden: {
+        text: "We're in a beautiful flower garden full of roses and tulips! What should we do?",
+        choices: [
+          { text: "Pick flowers for each other", nextScene: "pickFlowers", points: 5 },
+          { text: "Have a picnic", nextScene: "picnic", points: 15 },
+          { text: "Go somewhere else", nextScene: "start", points: 0 }
+        ],
+        background: "linear-gradient(to bottom, #a8edea, #fed6e3)"
+      },
+      cafe: {
+        text: "The dessert cafe has the most adorable cakes and pastries! What'll you have?",
+        choices: [
+          { text: "Share a strawberry shortcake", nextScene: "shareCake", points: 20 },
+          { text: "Get matching macarons", nextScene: "macarons", points: 10 },
+          { text: "Go somewhere else", nextScene: "start", points: 0 }
+        ],
+        background: "linear-gradient(to bottom, #fff1eb, #ace0f9)"
+      },
+      beach: {
+        text: "The sunset at the beach is breathtaking! The waves sound so peaceful.",
+        choices: [
+          { text: "Walk hand in hand along the shore", nextScene: "walkBeach", points: 25 },
+          { text: "Build a sandcastle together", nextScene: "sandcastle", points: 15 },
+          { text: "Go somewhere else", nextScene: "start", points: 0 }
+        ],
+        background: "linear-gradient(to bottom, #ffc3a0, #ffafbd)"
+      },
+      pickFlowers: {
+        text: "You make me a daisy chain bracelet while I pick your favorite roses. So romantic!",
+        choices: [
+          { text: "Continue our adventure", nextScene: "start", points: 5 }
+        ],
+        background: "linear-gradient(to bottom, #c6ffdd, #fbd786, #f7797d)"
+      },
+      picnic: {
+        text: "We enjoy sandwiches, fruits, and lemonade under a cherry blossom tree. Perfect date!",
+        choices: [
+          { text: "Continue our adventure", nextScene: "start", points: 10 }
+        ],
+        background: "linear-gradient(to bottom, #fbc2eb, #a6c1ee)"
+      },
+      shareCake: {
+        text: "We feed each other bites of cake and laugh when we get frosting on our noses!",
+        choices: [
+          { text: "Continue our adventure", nextScene: "start", points: 15 }
+        ],
+        background: "linear-gradient(to bottom, #fff1eb, #ffd3b6)"
+      },
+      macarons: {
+        text: "We take cute photos with our matching pink macarons before eating them!",
+        choices: [
+          { text: "Continue our adventure", nextScene: "start", points: 10 }
+        ],
+        background: "linear-gradient(to bottom, #fdcbf1, #e6dee9)"
+      },
+      walkBeach: {
+        text: "We walk barefoot in the sand as the sun sets, sharing our dreams and secrets.",
+        choices: [
+          { text: "Continue our adventure", nextScene: "start", points: 20 }
+        ],
+        background: "linear-gradient(to bottom, #ff758c, #ff7eb3)"
+      },
+      sandcastle: {
+        text: "Our sandcastle has towers and a moat! I write 'Forever' in the sand with a heart.",
+        choices: [
+          { text: "Continue our adventure", nextScene: "start", points: 15 }
+        ],
+        background: "linear-gradient(to bottom, #a1c4fd, #c2e9fb)"
+      }
+    };
     
     // Array of cute compliments
     const compliments = [
-      "You're sweeter than a strawberry milkshake ,you're my tasty desert😋! 🍓",
+      "You're sweeter than a strawberry milkshake! 🍓",
       "Your smile makes my heart do somersaults! 🤸‍♂️",
       "You're more precious than a diamond-encrusted cupcake! 💎🧁",
       "Your laugh is my favorite song! 🎶",
@@ -652,7 +779,12 @@
       "You're more delightful than a room full of bubbles! 🫧",
       "Your hugs are warmer than fresh cookies! 🍪",
       "You're more magical than a unicorn's dream! 🦄",
-      "You make my heart sparkle like a disco ball! 💖"
+      "You make my heart sparkle like a disco ball! 💖",
+      "Your eyes twinkle like the night sky! 🌠",
+      "Being with you feels like a warm hug on a cold day! 🤗",
+      "You're my favorite notification! 📱💖",
+      "You're the marshmallow in my hot chocolate! ☕",
+      "You're the rainbow to my cloudy day! 🌈"
     ];
     
     // Array of fun facts
@@ -666,181 +798,85 @@
       "You're the human equivalent of a warm hug! 🤗",
       "Rainbows appear brighter when you're near! 🌈",
       "Your presence makes everyday sparkle! ✨",
-      "You're my favorite place in the universe! 🌍"
+      "You're my favorite place in the universe! 🌍",
+      "Angels take notes on how to be as sweet as you! 👼",
+      "Your kindness makes the world a better place! 🌎",
+      "You're the missing piece to my puzzle! 🧩",
+      "Every love song reminds me of you! 🎵",
+      "You make ordinary moments extraordinary! 💫"
     ];
     
-    // Initialize the game when page loads
-    window.onload = function() {
-      createHearts(40);
-      createBubbles();
-      
-      // Change fun fact every 5 seconds
-      setInterval(rotateFunFact, 5000);
-      
-      // Continuous hearts
-      setInterval(() => {
-        createHearts(5);
-      }, 2000);
-      
-      // Continuous bubbles
-      setInterval(() => {
-        createBubbles();
-      }, 3000);
-      
-      // Initialize game board
-      initGame();
-    };
+    // Initialize the adventure game
+    function initAdventure() {
+      currentScene = "start";
+      lovePoints = 100;
+      inventory = [];
+      updateAdventureScene();
+      createHearts(20);
+    }
     
-    // Initialize the memory game
-    function initGame() {
-      const gameBoard = document.getElementById('game-board');
-      gameBoard.innerHTML = '';
+    // Update adventure scene
+    function updateAdventureScene() {
+      const scene = adventureScenes[currentScene];
+      document.getElementById("adventure-text").textContent = scene.text;
+      document.getElementById("adventure-scene").style.background = scene.background || "rgba(255,255,255,0.8)";
       
-      // Create emoji pairs
-      emojis = [...emojiPairs, ...emojiPairs];
+      const choicesContainer = document.getElementById("adventure-choices");
+      choicesContainer.innerHTML = "";
       
-      // Shuffle emojis
-      emojis = shuffleArray(emojis);
-      
-      // Create game cells
-      emojis.forEach((emoji, index) => {
-        const cell = document.createElement('div');
-        cell.className = 'game-cell';
-        cell.dataset.index = index;
-        cell.dataset.value = emoji;
-        cell.innerHTML = '❔';
-        cell.addEventListener('click', flipCard);
-        gameBoard.appendChild(cell);
+      scene.choices.forEach(choice => {
+        const button = document.createElement("button");
+        button.className = "adventure-choice";
+        button.textContent = choice.text;
+        button.onclick = () => makeChoice(choice);
+        choicesContainer.appendChild(button);
       });
       
-      // Reset game state
-      currentPlayer = 1;
-      scores = [0, 0];
-      matchedPairs = 0;
-      firstCard = null;
-      secondCard = null;
-      lockBoard = false;
+      // Update love points display
+      document.getElementById("love-points").textContent = lovePoints;
       
-      // Update UI
-      document.getElementById('score1').textContent = '0';
-      document.getElementById('score2').textContent = '0';
-      document.getElementById('game-status').textContent = 'Player 1\'s turn!';
-      document.getElementById('player1').classList.add('active');
-      document.getElementById('player2').classList.remove('active');
+      // Animate characters
+      animateCharacters();
     }
     
-    // Shuffle array function
-    function shuffleArray(array) {
-      for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-      }
-      return array;
-    }
-    
-    // Flip card function
-    function flipCard() {
-      if (lockBoard) return;
-      if (this === firstCard) return;
+    // Make a choice in the adventure
+    function makeChoice(choice) {
+      lovePoints += choice.points;
       
-      this.innerHTML = this.dataset.value;
+      if (lovePoints > 200) lovePoints = 200;
+      if (lovePoints < 0) lovePoints = 0;
       
-      if (!firstCard) {
-        firstCard = this;
-        return;
+      if (choice.points > 0) {
+        document.getElementById("positiveSound").play();
+        createHearts(10);
+      } else if (choice.points < 0) {
+        document.getElementById("negativeSound").play();
       }
       
-      secondCard = this;
-      lockBoard = true;
-      
-      checkForMatch();
+      currentScene = choice.nextScene;
+      updateAdventureScene();
     }
     
-    // Check if cards match
-    function checkForMatch() {
-      const isMatch = firstCard.dataset.value === secondCard.dataset.value;
+    // Animate characters
+    function animateCharacters() {
+      const you = document.getElementById("character-you");
+      const partner = document.getElementById("character-partner");
       
-      if (isMatch) {
-        // Match found
-        document.getElementById('matchSound').play();
-        disableCards();
-        scores[currentPlayer - 1]++;
-        matchedPairs++;
-        
-        // Update score
-        document.getElementById(`score${currentPlayer}`).textContent = scores[currentPlayer - 1];
-        
-        // Check if game is over
-        if (matchedPairs === emojiPairs.length) {
-          setTimeout(() => {
-            endGame();
-          }, 500);
-        }
-      } else {
-        // No match
-        setTimeout(() => {
-          unflipCards();
-          switchPlayer();
-        }, 1000);
+      // Reset positions
+      you.style.bottom = "50px";
+      you.style.left = "50px";
+      partner.style.bottom = "50px";
+      partner.style.right = "50px";
+      
+      // Bounce animation
+      you.style.animation = "bounce 1s infinite";
+      partner.style.animation = "bounce 1s infinite 0.5s";
+      
+      // Move closer on certain scenes
+      if (currentScene === "pickFlowers" || currentScene === "shareCake" || currentScene === "walkBeach") {
+        you.style.left = "100px";
+        partner.style.right = "100px";
       }
-    }
-    
-    // Disable matched cards
-    function disableCards() {
-      firstCard.removeEventListener('click', flipCard);
-      secondCard.removeEventListener('click', flipCard);
-      
-      firstCard.style.backgroundColor = '#ffdfee';
-      secondCard.style.backgroundColor = '#ffdfee';
-      
-      resetBoard();
-    }
-    
-    // Unflip cards that don't match
-    function unflipCards() {
-      firstCard.innerHTML = '❔';
-      secondCard.innerHTML = '❔';
-      
-      resetBoard();
-    }
-    
-    // Reset board after turn
-    function resetBoard() {
-      [firstCard, secondCard] = [null, null];
-      lockBoard = false;
-    }
-    
-    // Switch player turn
-    function switchPlayer() {
-      currentPlayer = currentPlayer === 1 ? 2 : 1;
-      document.getElementById('game-status').textContent = `Player ${currentPlayer}'s turn!`;
-      document.getElementById('player1').classList.toggle('active');
-      document.getElementById('player2').classList.toggle('active');
-      createHearts(10);
-    }
-    
-    // End game when all pairs are matched
-    function endGame() {
-      document.getElementById('winSound').play();
-      let winnerMessage;
-      
-      if (scores[0] > scores[1]) {
-        winnerMessage = 'Player 1 wins! 💖';
-      } else if (scores[1] > scores[0]) {
-        winnerMessage = 'Player 2 wins! 💖';
-      } else {
-        winnerMessage = 'It\'s a tie! You both win! 💕';
-      }
-      
-      document.getElementById('game-status').textContent = `Game Over! ${winnerMessage}`;
-      createConfetti();
-      createHearts(30);
-    }
-    
-    // Reset game
-    function resetGame() {
-      initGame();
-      createHearts(20);
     }
     
     // Create floating hearts
@@ -851,7 +887,7 @@
         const heart = document.createElement('div');
         heart.className = 'heart';
         
-        const heartColors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '💕', '💞', '💓', '💗', '💖', '💘', '🍯', '🌸', '🍭', '🌷', '✨', '🍫'];
+        const heartColors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '💕', '💞', '💓', '💗', '💖', '💘', '🐰', '🌸', '🍭', '🌈', '✨', '🦄'];
         const randomHeart = heartColors[Math.floor(Math.random() * heartColors.length)];
         
         heart.innerHTML = randomHeart;
@@ -915,8 +951,8 @@
     function showMain() {
       document.getElementById('main-content').style.display = 'block';
       document.getElementById('compliment-content').style.display = 'none';
-      document.getElementById('kawaii-content').style.display = 'none';
-      document.getElementById('game-content').style.display = 'none';
+      document.getElementById('adventure-content').style.display = 'none';
+      document.getElementById('album-content').style.display = 'none';
       createHearts(15);
     }
     
@@ -924,29 +960,27 @@
     function showCompliment() {
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('compliment-content').style.display = 'block';
-      document.getElementById('kawaii-content').style.display = 'none';
-      document.getElementById('game-content').style.display = 'none';
+      document.getElementById('adventure-content').style.display = 'none';
+      document.getElementById('album-content').style.display = 'none';
       newCompliment();
       createHearts(20);
     }
     
-    // Show kawaii content
-    function showKawaii() {
+    // Show adventure game
+    function showAdventure() {
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('compliment-content').style.display = 'none';
-      document.getElementById('kawaii-content').style.display = 'block';
-      document.getElementById('game-content').style.display = 'none';
-      createBubbles();
-      createHearts(40);
-      createConfetti();
+      document.getElementById('adventure-content').style.display = 'block';
+      document.getElementById('album-content').style.display = 'none';
+      initAdventure();
     }
     
-    // Show game
-    function showGame() {
+    // Show photo album
+    function showAlbum() {
       document.getElementById('main-content').style.display = 'none';
       document.getElementById('compliment-content').style.display = 'none';
-      document.getElementById('kawaii-content').style.display = 'none';
-      document.getElementById('game-content').style.display = 'block';
+      document.getElementById('adventure-content').style.display = 'none';
+      document.getElementById('album-content').style.display = 'block';
       createHearts(15);
     }
     
@@ -962,7 +996,8 @@
     let kissCount = 0;
     function sendKiss() {
       kissCount++;
-      document.getElementById('kiss-count').textContent = `Blowing kisses: ${kissCount}`;
+      document.getElementById('kiss-count').textContent = `Virtual kisses sent: ${kissCount}`;
+      document.getElementById('kissSound').play();
       
       const kiss = document.createElement('div');
       kiss.className = 'sticker';
@@ -990,6 +1025,25 @@
       const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
       document.getElementById('fun-fact').textContent = randomFact;
     }
+    
+    // Initialize
+    window.onload = function() {
+      createHearts(40);
+      createBubbles();
+      
+      // Change fun fact every 5 seconds
+      setInterval(rotateFunFact, 5000);
+      
+      // Continuous hearts
+      setInterval(() => {
+        createHearts(5);
+      }, 2000);
+      
+      // Continuous bubbles
+      setInterval(() => {
+        createBubbles();
+      }, 3000);
+    };
   </script>
 </body>
 </html>
