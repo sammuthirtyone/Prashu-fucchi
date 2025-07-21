@@ -3,17 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>12 Years - From College to Forever 💕</title>
+  <title>For My Sweetheart 💕</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Delius&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Comic+Neue:wght@400;700&display=swap');
     
     :root {
-      --pink: #ff9bb3;
-      --dark-pink: #ff6b8b;
-      --light-pink: #ffd6e7;
-      --purple: #d4a5ff;
-      --gold: #ffd700;
+      --pink: #ffb6c1;
+      --dark-pink: #ff69b4;
+      --light-pink: #ffdfee;
+      --purple: #e0b0ff;
+      --yellow: #fffacd;
       --blue: #b8e8ff;
+      --mint: #b5ead7;
     }
     
     * {
@@ -23,15 +24,16 @@
     }
     
     body {
-      font-family: 'Delius', cursive;
-      background: linear-gradient(135deg, #fff0f5, #f0f9ff);
-      color: #5a3d5a;
+      font-family: 'Comic Neue', cursive;
+      background: linear-gradient(135deg, #fff0fa, #fff9f0);
+      color: #ff85b3;
       overflow-x: hidden;
       min-height: 100vh;
+      cursor: url('https://cdn.custom-cursor.com/db/11332/32/strawberry-ice-cream-cursor.png'), auto;
     }
     
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
       text-align: center;
@@ -40,293 +42,218 @@
     }
     
     h1, h2, h3 {
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Indie Flower', cursive;
       color: var(--dark-pink);
-      text-shadow: 2px 2px 0px rgba(255,255,255,0.8);
+      text-shadow: 3px 3px 0px rgba(255,255,255,0.8);
     }
     
     h1 {
-      font-size: 4rem;
+      font-size: 5rem;
       margin-bottom: 1rem;
-      animation: bounce 2s infinite;
+      animation: bounce 1.5s infinite;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4, #fbc2eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
     }
     
     @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      0%, 100% { transform: translateY(0) rotate(-3deg); }
+      50% { transform: translateY(-20px) rotate(3deg); }
     }
     
     .intro {
-      font-size: 1.3rem;
+      font-size: 1.8rem;
       margin-bottom: 2rem;
-      background-color: rgba(255,255,255,0.7);
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
-      border: 3px dotted var(--pink);
+      background-color: rgba(255,255,255,0.85);
+      padding: 2.5rem;
+      border-radius: 40px;
+      box-shadow: 0 15px 40px rgba(255,182,193,0.25);
+      backdrop-filter: blur(8px);
+      border: 5px dotted var(--pink);
+      transform: rotate(-2deg);
+      position: relative;
+      overflow: hidden;
     }
     
     .btn {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
+      padding: 1.3rem 2.8rem;
+      font-size: 1.6rem;
       border: none;
       border-radius: 50px;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
       font-weight: bold;
-      margin: 0.5rem;
+      margin: 1rem;
       position: relative;
       overflow: hidden;
+      font-family: 'Indie Flower', cursive;
+      z-index: 1;
     }
     
     .btn-pink {
       background-color: var(--pink);
       color: white;
+      text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
     }
     
-    .btn-gold {
-      background-color: var(--gold);
-      color: #5a3d5a;
+    .btn-pink:hover {
+      background-color: var(--dark-pink);
+      transform: translateY(-8px) scale(1.15) rotate(5deg);
+      box-shadow: 0 15px 35px rgba(255,105,180,0.4);
     }
     
-    .btn:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    .btn-yellow {
+      background-color: var(--yellow);
+      color: #ff85b3;
+      border: 3px dashed var(--dark-pink);
+    }
+    
+    .btn-yellow:hover {
+      background-color: #fff9a8;
+      transform: translateY(-8px) scale(1.15) rotate(-5deg);
+      box-shadow: 0 15px 35px rgba(255,215,0,0.3);
+    }
+    
+    .btn-blue {
+      background-color: var(--blue);
+      color: #ff85b3;
+      border: 3px dotted var(--purple);
     }
     
     .content-area {
-      background-color: rgba(255,255,255,0.8);
-      border-radius: 20px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      backdrop-filter: blur(5px);
-      min-height: 300px;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 40px;
+      padding: 3rem;
+      margin: 3rem 0;
+      box-shadow: 0 20px 50px rgba(255,182,193,0.25);
+      backdrop-filter: blur(8px);
+      min-height: 400px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 3px dashed var(--purple);
+      border: 5px dashed var(--purple);
+      transform: rotate(2deg);
+      position: relative;
+      overflow: hidden;
     }
     
     .hidden {
       display: none;
     }
     
-    .anniversary-counter {
-      font-size: 3rem;
-      color: var(--dark-pink);
-      margin: 1rem 0;
-      animation: pulse 1.5s infinite;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    
-    .college-memories {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    
-    .memory-book {
-      width: 150px;
-      height: 200px;
-      background: white;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .memory-book:hover {
-      transform: translateY(-5px) rotate(2deg);
-    }
-    
-    .memory-book::before {
-      content: '';
+    /* Cute Elements */
+    .bubble {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/notebook.png');
-      opacity: 0.1;
-    }
-    
-    .memory-year {
-      font-weight: bold;
-      color: var(--dark-pink);
-      margin-bottom: 0.5rem;
-      z-index: 1;
-    }
-    
-    .memory-icon {
-      font-size: 3rem;
-      margin: 0.5rem 0;
-      color: var(--dark-pink);
-      z-index: 1;
-    }
-    
-    .distance-tracker {
-      width: 100%;
-      height: 100px;
-      background: white;
-      border-radius: 15px;
-      margin: 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .distance-line {
-      width: 80%;
-      height: 4px;
-      background: linear-gradient(90deg, var(--pink), var(--purple));
-      position: relative;
-    }
-    
-    .distance-line::before, .distance-line::after {
-      content: '';
-      position: absolute;
-      width: 30px;
-      height: 30px;
+      background-color: var(--light-pink);
       border-radius: 50%;
-      top: -13px;
+      opacity: 0.7;
+      animation: floatBubble 15s linear infinite;
+      z-index: -1;
+      filter: drop-shadow(0 0 8px rgba(255,182,193,0.6));
     }
     
-    .distance-line::before {
-      left: 0;
-      background: var(--pink);
+    .kawaii-face {
+      font-size: 5rem;
+      margin: 2rem;
+      animation: wiggle 3s infinite;
+      text-shadow: 4px 4px 0px rgba(255,255,255,0.8);
+      filter: drop-shadow(0 0 5px rgba(255,105,180,0.5));
     }
     
-    .distance-line::after {
-      right: 0;
-      background: var(--purple);
+    .cute-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3rem 0;
     }
     
-    .heart-beat {
-      position: absolute;
-      font-size: 1.5rem;
-      animation: beat 1s infinite alternate;
-    }
-    
-    @keyframes beat {
-      from { transform: scale(1); }
-      to { transform: scale(1.3); }
-    }
-    
-    .video-call {
-      width: 100%;
-      height: 200px;
+    .cute-item {
       background: white;
-      border-radius: 15px;
-      margin: 1rem 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    
-    .video-icon {
-      font-size: 4rem;
-      color: var(--dark-pink);
-      animation: pulse 1.5s infinite;
-    }
-    
-    .countdown {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    
-    .countdown-item {
-      background: white;
-      border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      min-width: 80px;
-    }
-    
-    .countdown-number {
-      font-size: 2rem;
-      font-weight: bold;
-      color: var(--dark-pink);
-    }
-    
-    .countdown-label {
-      font-size: 0.8rem;
-      color: #666;
-    }
-    
-    .proposal-box {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 100;
-      opacity: 0;
-      pointer-events: none;
+      border-radius: 25px;
+      padding: 2rem;
+      box-shadow: 0 15px 35px rgba(255,182,193,0.25);
       transition: all 0.5s ease;
+      border: 4px solid var(--light-pink);
+      transform: rotate(-3deg);
     }
     
-    .proposal-box.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-    
-    .proposal-content {
-      background: white;
-      padding: 3rem;
-      border-radius: 20px;
-      max-width: 500px;
-      text-align: center;
+    .love-meter {
+      width: 100%;
+      height: 50px;
+      background-color: #ffdfee;
+      border-radius: 25px;
+      margin: 3rem auto;
+      overflow: hidden;
       position: relative;
-      transform: scale(0.8);
+      box-shadow: inset 0 0 15px rgba(255,105,180,0.4);
+      border: 4px solid white;
+    }
+    
+    .love-meter-fill {
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+      border-radius: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.8rem;
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+      animation: grow 3s forwards, rainbow 5s infinite;
+    }
+    
+    .polaroid {
+      background: white;
+      padding: 2rem 2rem 4rem 2rem;
+      box-shadow: 0 15px 40px rgba(255,182,193,0.3);
+      transform: rotate(-8deg);
+      margin: 2rem;
+      transition: all 0.5s ease;
+      width: 250px;
+      border: 4px solid var(--light-pink);
+    }
+    
+    .kiss-btn {
+      background-color: var(--pink);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      font-size: 2.5rem;
+      cursor: pointer;
+      box-shadow: 0 15px 35px rgba(255,182,193,0.4);
       transition: all 0.3s ease;
+      margin: 2rem;
+      animation: pulse 1.5s infinite, float 3s ease-in-out infinite;
     }
     
-    .proposal-box.active .proposal-content {
-      transform: scale(1);
+    .sticker {
+      position: fixed;
+      width: 150px;
+      height: 150px;
+      pointer-events: none;
+      z-index: 100;
+      animation: floatSticker 5s ease-in-out infinite;
+      font-size: 4rem;
+      text-align: center;
+      text-shadow: 4px 4px 0px rgba(255,255,255,0.8);
     }
     
-    .ring {
-      width: 100px;
-      height: 100px;
-      margin: 1rem auto;
-      background: url('https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/apple/325/ring_1f48d.png') no-repeat center/contain;
-      animation: float 3s ease-in-out infinite;
-    }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-15px); }
+    .cute-fact {
+      background-color: white;
+      border-radius: 30px;
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      box-shadow: 0 15px 40px rgba(255,182,193,0.25);
+      border-left: 10px solid var(--pink);
+      animation: wiggle 4s infinite;
+      transform: rotate(-2deg);
     }
     
     .hearts {
@@ -341,32 +268,148 @@
     
     .heart {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: floatHearts 5s linear infinite;
-    }
-    
-    @keyframes floatHearts {
-      0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-      }
+      font-size: 2.5rem;
+      animation: floatHearts 10s linear infinite;
+      text-shadow: 3px 3px 0px rgba(255,255,255,0.8);
     }
     
     .confetti {
       position: fixed;
-      width: 10px;
-      height: 10px;
-      background-color: var(--pink);
+      width: 20px;
+      height: 20px;
       opacity: 0;
       z-index: 1000;
-      animation: confettiFall 5s linear forwards;
+      animation: confettiFall 8s linear forwards;
+      border-radius: 50%;
+    }
+    
+    /* Couple Game Styles */
+    .game-container {
+      width: 100%;
+      height: 500px;
+      background-color: rgba(255,255,255,0.8);
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+      border: 4px dashed var(--pink);
+      box-shadow: 0 15px 35px rgba(255,182,193,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .game-title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: var(--dark-pink);
+      text-shadow: 3px 3px 0px rgba(255,255,255,0.8);
+    }
+    
+    .game-instructions {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      padding: 1rem 2rem;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      border: 3px dotted var(--purple);
+    }
+    
+    .game-board {
+      width: 300px;
+      height: 300px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 10px;
+      margin: 1rem;
+    }
+    
+    .game-cell {
+      background-color: white;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4rem;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(255,182,193,0.3);
+      transition: all 0.3s ease;
+      border: 3px solid var(--light-pink);
+    }
+    
+    .game-cell:hover {
+      transform: scale(1.05);
+      background-color: var(--light-pink);
+    }
+    
+    .game-status {
+      font-size: 1.8rem;
+      margin: 1rem;
+      padding: 1rem 2rem;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 20px;
+      border: 3px dashed var(--dark-pink);
+    }
+    
+    .game-players {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin: 1rem 0;
+    }
+    
+    .game-player {
+      padding: 1rem 2rem;
+      border-radius: 20px;
+      font-size: 1.5rem;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(255,182,193,0.3);
+    }
+    
+    .game-player.active {
+      background-color: var(--light-pink);
+      transform: scale(1.1);
+      border: 3px solid var(--dark-pink);
+    }
+    
+    .game-restart {
+      margin-top: 2rem;
+    }
+    
+    /* Animations */
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(0) translateX(0) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(100px) scale(1.3);
+        opacity: 0;
+      }
+    }
+    
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-10deg) scale(1.1); }
+      50% { transform: rotate(10deg) scale(1.2); }
+    }
+    
+    @keyframes grow {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    
+    @keyframes rainbow {
+      0% { filter: hue-rotate(0deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+    
+    @keyframes floatSticker {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-30px) rotate(5deg); }
     }
     
     @keyframes confettiFall {
@@ -380,68 +423,72 @@
       }
     }
     
-    .kiss-btn {
-      background-color: var(--pink);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      margin: 1rem;
-      animation: pulse 2s infinite;
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
     }
     
-    .sticker {
-      position: fixed;
-      width: 100px;
-      height: 100px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      z-index: 100;
-      animation: floatSticker 3s ease-in-out infinite;
-    }
-    
-    @keyframes floatSticker {
-      0%, 100% { transform: translateY(0) rotate(-5deg); }
-      50% { transform: translateY(-20px) rotate(5deg); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
     }
     
     /* Responsive design */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       h1 {
-        font-size: 2.5rem;
+        font-size: 3.5rem;
       }
       
       .intro {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
+        padding: 2rem;
+      }
+      
+      .btn {
+        padding: 1.1rem 2.2rem;
+        font-size: 1.4rem;
+      }
+      
+      .cute-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .kawaii-face {
+        font-size: 4rem;
+      }
+      
+      .game-board {
+        width: 250px;
+        height: 250px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      .intro {
+        font-size: 1.2rem;
         padding: 1.5rem;
       }
       
       .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
       }
       
-      .anniversary-counter {
-        font-size: 2rem;
+      .cute-grid {
+        grid-template-columns: 1fr;
       }
       
-      .countdown {
-        flex-wrap: wrap;
+      .kawaii-face {
+        font-size: 3.5rem;
       }
       
-      .countdown-item {
-        min-width: 60px;
-        padding: 0.8rem;
-      }
-      
-      .countdown-number {
-        font-size: 1.5rem;
+      .game-board {
+        width: 220px;
+        height: 220px;
       }
     }
   </style>
@@ -451,108 +498,351 @@
   <div class="hearts" id="hearts"></div>
   
   <div class="container">
-    <h1>From College to Forever 💕</h1>
+    <h1>For My Precious Sweetheart 💝</h1>
     
     <div class="intro">
-      <p>My dearest love, 12 years ago we met in college, and today I want to make you mine forever.</p>
-      <p>No distance could ever change how much I love you.</p>
+      <p>My adorable little marshmallow! 💖</p>
+      <p>I made this extra super duper cute website just for you!</p>
+      <div class="kawaii-face">(◕‿◕✿)</div>
     </div>
     
     <div class="content-area">
       <div id="main-content">
-        <div class="anniversary-counter">
-          <i class="fas fa-heart"></i> 12 YEARS TOGETHER <i class="fas fa-heart"></i>
-        </div>
+        <h2>You're Cuter Than... 🌟</h2>
         
-        <h2>Our College Days</h2>
-        <div class="college-memories">
-          <div class="memory-book">
-            <div class="memory-year">First Meet</div>
-            <div class="memory-icon"><i class="fas fa-book"></i></div>
-            <p>Library romance</p>
+        <div class="cute-grid">
+          <div class="cute-item">
+            <div class="cute-icon">🐇</div>
+            <p>A basket of baby bunnies wearing bows</p>
           </div>
-          <div class="memory-book">
-            <div class="memory-year">First Date</div>
-            <div class="memory-icon"><i class="fas fa-coffee"></i></div>
-            <p>Café dates</p>
+          <div class="cute-item">
+            <div class="cute-icon">🍬</div>
+            <p>A candy store full of rainbow sweets</p>
           </div>
-          <div class="memory-book">
-            <div class="memory-year">Graduation</div>
-            <div class="memory-icon"><i class="fas fa-graduation-cap"></i></div>
-            <p>Future together</p>
+          <div class="cute-item">
+            <div class="cute-icon">🌸</div>
+            <p>A spring garden in full bloom</p>
           </div>
         </div>
         
-        <h2>Our Long Distance Love</h2>
-        <div class="distance-tracker">
-          <div class="distance-line">
-            <div class="heart-beat">❤️</div>
-          </div>
+        <h2>How Much I Love You</h2>
+        <div class="love-meter">
+          <div class="love-meter-fill">TO INFINITY AND BEYOND! 🚀</div>
         </div>
-        <p>Miles apart but hearts together</p>
         
-        <div class="video-call">
-          <div class="video-icon"><i class="fas fa-video"></i></div>
+        <div class="cute-fact">
+          <h3>Did You Know? 💭</h3>
+          <p id="fun-fact">Your cuteness makes unicorns jealous! 🦄</p>
         </div>
-        <p>Our nightly video calls keep me going</p>
         
-        <h2>Countdown to Forever</h2>
-        <div class="countdown" id="countdown">
-          <div class="countdown-item">
-            <div class="countdown-number" id="days">00</div>
-            <div class="countdown-label">Days</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-number" id="hours">00</div>
-            <div class="countdown-label">Hours</div>
-          </div>
-          <div class="countdown-item">
-            <div class="countdown-number" id="minutes">00</div>
-            <div class="countdown-label">Minutes</div>
-          </div>
+        <div class="btn-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
+          <button class="btn btn-pink" onclick="showCompliment()">
+            <i class="fas fa-heart"></i> Sweet Compliment <i class="fas fa-heart"></i>
+          </button>
+          <button class="btn btn-yellow" onclick="showKawaii()">
+            <i class="fas fa-star"></i> Cuteness Overload <i class="fas fa-star"></i>
+          </button>
+          <button class="btn btn-blue" onclick="showGame()">
+            <i class="fas fa-gamepad"></i> Play Our Game <i class="fas fa-gamepad"></i>
+          </button>
         </div>
-        <p>Until we close the distance forever</p>
         
-        <button class="btn btn-pink" onclick="showProposal()">
-          <i class="fas fa-gem"></i> Will You Marry Me? <i class="fas fa-gem"></i>
+        <div style="margin-top: 2rem;">
+          <button class="kiss-btn" onclick="sendKiss()">💋</button>
+          <p id="kiss-count" style="font-size: 1.5rem;">Blowing kisses: 0</p>
+        </div>
+      </div>
+      
+      <!-- Compliment Content -->
+      <div id="compliment-content" class="hidden">
+        <div class="kawaii-face">(｡♥‿♥｡)</div>
+        <div class="cute-fact" style="animation: none; transform: rotate(3deg);">
+          <p id="compliment-text" style="font-size: 2rem;">You're sweeter than a cupcake with extra frosting! 🧁</p>
+        </div>
+        <button class="btn btn-pink" onclick="newCompliment()">
+          <i class="fas fa-heart"></i> More Sweetness! <i class="fas fa-heart"></i>
+        </button>
+        <button class="btn btn-yellow" onclick="showMain()">
+          <i class="fas fa-home"></i> Back to Cuteness <i class="fas fa-home"></i>
+        </button>
+      </div>
+      
+      <!-- Kawaii Content -->
+      <div id="kawaii-content" class="hidden">
+        <h2>💖 CUTENESS OVERLOAD 💖</h2>
+        <div class="kawaii-face">ヽ(♡‿♡)ノ</div>
+        <p>Warning! Extreme adorableness detected!</p>
+        
+        <div style="font-size: 5rem; margin: 2rem; animation: rainbow 3s infinite;">
+          🐰🌸🍭🌈✨🦄
+        </div>
+        
+        <p>You've unlocked the secret level of kawaii!</p>
+        
+        <button class="btn btn-pink" onclick="createBubbles()">
+          <i class="fas fa-birthday-cake"></i> Bubble Explosion! <i class="fas fa-birthday-cake"></i>
         </button>
         
-        <div style="margin-top: 1rem;">
-          <button class="kiss-btn" onclick="sendKiss()">💋</button>
-          <p id="kiss-count">Virtual kisses: 0</p>
+        <button class="btn btn-yellow" onclick="showMain()">
+          <i class="fas fa-home"></i> Return to Safety <i class="fas fa-home"></i>
+        </button>
+      </div>
+      
+      <!-- Game Content -->
+      <div id="game-content" class="hidden">
+        <h2>Our Cute Couple Game 💑🎮</h2>
+        <p>Let's play a sweet game together!</p>
+        
+        <div class="game-container">
+          <h3 class="game-title">Memory Match Game</h3>
+          <p class="game-instructions">Find all the matching pairs of cute items!</p>
+          
+          <div class="game-players">
+            <div class="game-player" id="player1">Player 1: <span id="score1">0</span> 💖</div>
+            <div class="game-player" id="player2">Player 2: <span id="score2">0</span> 💖</div>
+          </div>
+          
+          <div class="game-status" id="game-status">Player 1's turn!</div>
+          
+          <div class="game-board" id="game-board">
+            <!-- Game cells will be added by JavaScript -->
+          </div>
+          
+          <button class="btn btn-pink game-restart" onclick="resetGame()">
+            <i class="fas fa-redo"></i> Restart Game <i class="fas fa-redo"></i>
+          </button>
+          
+          <button class="btn btn-yellow" onclick="showMain()" style="margin-top: 2rem;">
+            <i class="fas fa-home"></i> Back to Cuteness <i class="fas fa-home"></i>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
-  
-  <div class="proposal-box" id="proposalBox">
-    <div class="proposal-content">
-      <div class="ring"></div>
-      <h2>Will You Marry Me?</h2>
-      <p>My love, we've been through lectures and exams,</p>
-      <p>through graduations and goodbyes,</p>
-      <p>through distance and reunions.</p>
-      <p>Now I want us to go through life as husband and wife.</p>
-      <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
-        <button class="btn btn-pink" onclick="acceptProposal()">YES! 💍</button>
-        <button class="btn btn-gold" id="noBtn">Make me wait more?</button>
-      </div>
-    </div>
-  </div>
-  
-  <div class="proposal-box" id="acceptedBox">
-    <div class="proposal-content">
-      <h2>You Said YES! 🎉</h2>
-      <p>After 12 years, we're finally getting married!</p>
-      <p>No more goodbyes, only "welcome home" hugs.</p>
-      <div style="font-size: 5rem; margin: 1rem;">
-        💍<span style="animation: spin 2s infinite;">🎓</span>💒
-      </div>
-      <button class="btn btn-pink" onclick="celebrate()">Celebrate Our Love!</button>
     </div>
   </div>
 
+  <audio id="matchSound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-21.mp3" type="audio/mpeg">
+  </audio>
+  
+  <audio id="winSound">
+    <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg">
+  </audio>
+
   <script>
+    // Game variables
+    let currentPlayer = 1;
+    let scores = [0, 0];
+    let firstCard = null;
+    let secondCard = null;
+    let lockBoard = false;
+    let matchedPairs = 0;
+    
+    // Cute emoji pairs for the game
+    const emojiPairs = ['🐰', '🌸', '🍭', '🌈', '✨', '🦄', '🍓', '🧁'];
+    let emojis = [];
+    
+    // Array of cute compliments
+    const compliments = [
+      "You're sweeter than a strawberry milkshake ,you're my tasty desert😋! 🍓",
+      "Your smile makes my heart do somersaults! 🤸‍♂️",
+      "You're more precious than a diamond-encrusted cupcake! 💎🧁",
+      "Your laugh is my favorite song! 🎶",
+      "You're cuter than a puppy in a teacup! 🐶☕",
+      "You shine brighter than glitter in sunlight! ✨",
+      "You're more delightful than a room full of bubbles! 🫧",
+      "Your hugs are warmer than fresh cookies! 🍪",
+      "You're more magical than a unicorn's dream! 🦄",
+      "You make my heart sparkle like a disco ball! 💖"
+    ];
+    
+    // Array of fun facts
+    const funFacts = [
+      "Scientists confirm you're 100% adorable! 🔬",
+      "Your cuteness could power a small city! 💡",
+      "Butterflies follow you because you're magical! 🦋",
+      "Your smile makes flowers bloom! 🌸",
+      "Puppies envy your level of cute! 🐕",
+      "Your laugh is scientifically proven to cure sadness! 😊",
+      "You're the human equivalent of a warm hug! 🤗",
+      "Rainbows appear brighter when you're near! 🌈",
+      "Your presence makes everyday sparkle! ✨",
+      "You're my favorite place in the universe! 🌍"
+    ];
+    
+    // Initialize the game when page loads
+    window.onload = function() {
+      createHearts(40);
+      createBubbles();
+      
+      // Change fun fact every 5 seconds
+      setInterval(rotateFunFact, 5000);
+      
+      // Continuous hearts
+      setInterval(() => {
+        createHearts(5);
+      }, 2000);
+      
+      // Continuous bubbles
+      setInterval(() => {
+        createBubbles();
+      }, 3000);
+      
+      // Initialize game board
+      initGame();
+    };
+    
+    // Initialize the memory game
+    function initGame() {
+      const gameBoard = document.getElementById('game-board');
+      gameBoard.innerHTML = '';
+      
+      // Create emoji pairs
+      emojis = [...emojiPairs, ...emojiPairs];
+      
+      // Shuffle emojis
+      emojis = shuffleArray(emojis);
+      
+      // Create game cells
+      emojis.forEach((emoji, index) => {
+        const cell = document.createElement('div');
+        cell.className = 'game-cell';
+        cell.dataset.index = index;
+        cell.dataset.value = emoji;
+        cell.innerHTML = '❔';
+        cell.addEventListener('click', flipCard);
+        gameBoard.appendChild(cell);
+      });
+      
+      // Reset game state
+      currentPlayer = 1;
+      scores = [0, 0];
+      matchedPairs = 0;
+      firstCard = null;
+      secondCard = null;
+      lockBoard = false;
+      
+      // Update UI
+      document.getElementById('score1').textContent = '0';
+      document.getElementById('score2').textContent = '0';
+      document.getElementById('game-status').textContent = 'Player 1\'s turn!';
+      document.getElementById('player1').classList.add('active');
+      document.getElementById('player2').classList.remove('active');
+    }
+    
+    // Shuffle array function
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    
+    // Flip card function
+    function flipCard() {
+      if (lockBoard) return;
+      if (this === firstCard) return;
+      
+      this.innerHTML = this.dataset.value;
+      
+      if (!firstCard) {
+        firstCard = this;
+        return;
+      }
+      
+      secondCard = this;
+      lockBoard = true;
+      
+      checkForMatch();
+    }
+    
+    // Check if cards match
+    function checkForMatch() {
+      const isMatch = firstCard.dataset.value === secondCard.dataset.value;
+      
+      if (isMatch) {
+        // Match found
+        document.getElementById('matchSound').play();
+        disableCards();
+        scores[currentPlayer - 1]++;
+        matchedPairs++;
+        
+        // Update score
+        document.getElementById(`score${currentPlayer}`).textContent = scores[currentPlayer - 1];
+        
+        // Check if game is over
+        if (matchedPairs === emojiPairs.length) {
+          setTimeout(() => {
+            endGame();
+          }, 500);
+        }
+      } else {
+        // No match
+        setTimeout(() => {
+          unflipCards();
+          switchPlayer();
+        }, 1000);
+      }
+    }
+    
+    // Disable matched cards
+    function disableCards() {
+      firstCard.removeEventListener('click', flipCard);
+      secondCard.removeEventListener('click', flipCard);
+      
+      firstCard.style.backgroundColor = '#ffdfee';
+      secondCard.style.backgroundColor = '#ffdfee';
+      
+      resetBoard();
+    }
+    
+    // Unflip cards that don't match
+    function unflipCards() {
+      firstCard.innerHTML = '❔';
+      secondCard.innerHTML = '❔';
+      
+      resetBoard();
+    }
+    
+    // Reset board after turn
+    function resetBoard() {
+      [firstCard, secondCard] = [null, null];
+      lockBoard = false;
+    }
+    
+    // Switch player turn
+    function switchPlayer() {
+      currentPlayer = currentPlayer === 1 ? 2 : 1;
+      document.getElementById('game-status').textContent = `Player ${currentPlayer}'s turn!`;
+      document.getElementById('player1').classList.toggle('active');
+      document.getElementById('player2').classList.toggle('active');
+      createHearts(10);
+    }
+    
+    // End game when all pairs are matched
+    function endGame() {
+      document.getElementById('winSound').play();
+      let winnerMessage;
+      
+      if (scores[0] > scores[1]) {
+        winnerMessage = 'Player 1 wins! 💖';
+      } else if (scores[1] > scores[0]) {
+        winnerMessage = 'Player 2 wins! 💖';
+      } else {
+        winnerMessage = 'It\'s a tie! You both win! 💕';
+      }
+      
+      document.getElementById('game-status').textContent = `Game Over! ${winnerMessage}`;
+      createConfetti();
+      createHearts(30);
+    }
+    
+    // Reset game
+    function resetGame() {
+      initGame();
+      createHearts(20);
+    }
+    
     // Create floating hearts
     function createHearts(count) {
       const heartsContainer = document.getElementById('hearts');
@@ -561,144 +851,145 @@
         const heart = document.createElement('div');
         heart.className = 'heart';
         
-        const heartColors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '💕', '💞', '💓', '💗', '💖', '💘'];
+        const heartColors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '💕', '💞', '💓', '💗', '💖', '💘', '🍯', '🌸', '🍭', '🌷', '✨', '🍫'];
         const randomHeart = heartColors[Math.floor(Math.random() * heartColors.length)];
         
         heart.innerHTML = randomHeart;
-        heart.style.fontSize = `${20 + Math.random() * 30}px`;
+        heart.style.fontSize = `${40 + Math.random() * 50}px`;
         heart.style.left = `${Math.random() * 100}%`;
-        heart.style.animationDuration = `${3 + Math.random() * 7}s`;
-        heart.style.animationDelay = `${Math.random() * 2}s`;
+        heart.style.top = `${Math.random() * 100}%`;
+        heart.style.animationDuration = `${8 + Math.random() * 15}s`;
+        heart.style.animationDelay = `${Math.random() * 5}s`;
         
         heartsContainer.appendChild(heart);
         
         setTimeout(() => {
           heart.remove();
-        }, 10000);
+        }, 20000);
+      }
+    }
+    
+    // Create bubbles
+    function createBubbles() {
+      for (let i = 0; i < 80; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        
+        const size = `${30 + Math.random() * 70}px`;
+        bubble.style.width = size;
+        bubble.style.height = size;
+        bubble.style.left = `${Math.random() * 100}%`;
+        bubble.style.bottom = `-${size}`;
+        bubble.style.animationDuration = `${10 + Math.random() * 20}s`;
+        bubble.style.animationDelay = `${Math.random() * 10}s`;
+        bubble.style.backgroundColor = `hsla(${Math.random() * 360}, 100%, 85%, 0.7)`;
+        
+        document.body.appendChild(bubble);
+        
+        setTimeout(() => {
+          bubble.remove();
+        }, 30000);
       }
     }
     
     // Create confetti
     function createConfetti() {
-      for (let i = 0; i < 150; i++) {
+      for (let i = 0; i < 300; i++) {
         const confetti = document.createElement('div');
         confetti.className = 'confetti';
         confetti.style.left = `${Math.random() * 100}%`;
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 75%)`;
-        confetti.style.width = `${5 + Math.random() * 10}px`;
-        confetti.style.height = `${5 + Math.random() * 10}px`;
-        confetti.style.animationDuration = `${3 + Math.random() * 4}s`;
-        confetti.style.animationDelay = `${Math.random() * 2}s`;
+        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
+        confetti.style.width = `${15 + Math.random() * 30}px`;
+        confetti.style.height = `${15 + Math.random() * 30}px`;
+        confetti.style.animationDuration = `${6 + Math.random() * 10}s`;
+        confetti.style.animationDelay = `${Math.random() * 5}s`;
         document.body.appendChild(confetti);
         
         setTimeout(() => {
           confetti.remove();
-        }, 5000);
+        }, 15000);
       }
     }
     
-    // Update countdown
-    function updateCountdown() {
-      // Set your wedding date here
-      const weddingDate = new Date();
-      weddingDate.setDate(weddingDate.getDate() + 120); // Example: 120 days from now
-      
-      const now = new Date();
-      const diff = weddingDate - now;
-      
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      
-      document.getElementById('days').textContent = days.toString().padStart(2, '0');
-      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+    // Show main content
+    function showMain() {
+      document.getElementById('main-content').style.display = 'block';
+      document.getElementById('compliment-content').style.display = 'none';
+      document.getElementById('kawaii-content').style.display = 'none';
+      document.getElementById('game-content').style.display = 'none';
+      createHearts(15);
     }
     
-    // Show proposal box
-    function showProposal() {
-      document.getElementById('proposalBox').classList.add('active');
-      createHearts(50);
+    // Show compliment
+    function showCompliment() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('compliment-content').style.display = 'block';
+      document.getElementById('kawaii-content').style.display = 'none';
+      document.getElementById('game-content').style.display = 'none';
+      newCompliment();
+      createHearts(20);
     }
     
-    // Close proposal box
-    function closeProposal() {
-      document.getElementById('proposalBox').classList.remove('active');
-    }
-    
-    // Handle "Make me wait more?" button
-    let noClicks = 0;
-    const noBtnMessages = [
-      "After 12 years? Really?",
-      "I'll cry! 😭",
-      "Our college selves would be sad!",
-      "Please say yes! 🥺",
-      "I'll ask every day!",
-      "Okay fine... YES! 💍"
-    ];
-    
-    document.getElementById('noBtn').addEventListener('click', function() {
-      noClicks++;
-      if (noClicks < noBtnMessages.length) {
-        this.textContent = noBtnMessages[noClicks - 1];
-        createHearts(12);
-      } else {
-        this.textContent = "Just kidding - YES!";
-        setTimeout(acceptProposal, 1000);
-      }
-    });
-    
-    // Accept proposal
-    function acceptProposal() {
-      document.getElementById('proposalBox').classList.remove('active');
-      document.getElementById('acceptedBox').classList.add('active');
+    // Show kawaii content
+    function showKawaii() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('compliment-content').style.display = 'none';
+      document.getElementById('kawaii-content').style.display = 'block';
+      document.getElementById('game-content').style.display = 'none';
+      createBubbles();
+      createHearts(40);
       createConfetti();
-      createHearts(100);
     }
     
-    // Celebrate
-    function celebrate() {
-      createConfetti();
-      createHearts(50);
-      setTimeout(() => {
-        document.getElementById('acceptedBox').classList.remove('active');
-      }, 3000);
+    // Show game
+    function showGame() {
+      document.getElementById('main-content').style.display = 'none';
+      document.getElementById('compliment-content').style.display = 'none';
+      document.getElementById('kawaii-content').style.display = 'none';
+      document.getElementById('game-content').style.display = 'block';
+      createHearts(15);
+    }
+    
+    // Generate new compliment
+    function newCompliment() {
+      const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+      document.getElementById('compliment-text').textContent = randomCompliment;
+      createHearts(8);
+      createBubbles();
     }
     
     // Send virtual kiss
     let kissCount = 0;
     function sendKiss() {
       kissCount++;
-      document.getElementById('kiss-count').textContent = `Virtual kisses: ${kissCount}`;
+      document.getElementById('kiss-count').textContent = `Blowing kisses: ${kissCount}`;
       
       const kiss = document.createElement('div');
       kiss.className = 'sticker';
-      kiss.innerHTML = '💋';
-      kiss.style.fontSize = `${30 + Math.random() * 50}px`;
+      const kissTypes = ['💋', '😘', '💖', '💌', '🥰', '💝', '🌸', '🍬'];
+      kiss.innerHTML = kissTypes[Math.floor(Math.random() * kissTypes.length)];
+      kiss.style.fontSize = `${50 + Math.random() * 80}px`;
       kiss.style.left = `${Math.random() * 80 + 10}%`;
       kiss.style.top = `${Math.random() * 80 + 10}%`;
       document.body.appendChild(kiss);
       
       setTimeout(() => {
         kiss.remove();
-      }, 3000);
+      }, 5000);
       
-      if (kissCount % 12 === 0) {
-        createHearts(12);
+      if (kissCount % 5 === 0) {
+        createHearts(20);
+      }
+      if (kissCount % 10 === 0) {
+        createBubbles();
       }
     }
     
-    // Initialize
-    window.onload = function() {
-      createHearts(30);
-      updateCountdown();
-      setInterval(updateCountdown, 60000); // Update every minute
-      
-      // Continuous hearts
-      setInterval(() => {
-        createHearts(3);
-      }, 2000);
-    };
+    // Rotate fun facts
+    function rotateFunFact() {
+      const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
+      document.getElementById('fun-fact').textContent = randomFact;
+    }
   </script>
 </body>
 </html>
