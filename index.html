@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Princess 👑</title>
+    <title>For My Sunshine 🌸</title>
     <style>
         /* Custom Heart Cursor */
         body {
@@ -94,7 +94,7 @@
             background-color: #ff4d73;
         }
 
-        /* Quiz Styling */
+        /* Enhanced Quiz Styling */
         .quiz-container {
             background: white;
             padding: 20px;
@@ -121,9 +121,10 @@
 
         .quiz-option:hover {
             background: #ffd1dc;
+            transform: scale(1.02);
         }
 
-        /* Mini Game */
+        /* Enhanced Game */
         #game-container {
             width: 300px;
             height: 300px;
@@ -132,6 +133,7 @@
             position: relative;
             overflow: hidden;
             margin: 20px auto;
+            box-shadow: 0 8px 16px rgba(255, 107, 139, 0.2);
         }
 
         #game-character {
@@ -142,17 +144,81 @@
             border-radius: 50%;
             bottom: 10px;
             left: 125px;
+            transition: transform 0.1s;
         }
 
         .falling-heart {
             position: absolute;
             font-size: 24px;
             top: -30px;
+            animation: heartbeat 1s infinite;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         #game-score {
             font-size: 1.5rem;
             margin: 10px 0;
+            font-weight: bold;
+            color: #ff4d73;
+        }
+
+        #game-timer {
+            font-size: 1.2rem;
+            margin: 5px 0;
+        }
+
+        /* Super Cute Countdown */
+        .countdown-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .countdown-container::before {
+            content: "⏰";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: 30px;
+            background: #ff6b8b;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .countdown-item {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 10px;
+            background: #ffe6eb;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff4d73;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #888;
         }
 
         /* Confetti */
@@ -163,6 +229,24 @@
             background-color: #f00;
             opacity: 0;
             z-index: 999;
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: white;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .music-player:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -179,6 +263,14 @@
         <p id="password-error" style="color: red; display: none;">Wrong date! Try again.</p>
     </div>
 
+    <!-- Music Player -->
+    <div class="music-player" onclick="toggleMusic()">
+        <span id="music-icon">🎵</span>
+    </div>
+    <audio id="bg-music" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Page 1: Home -->
     <div class="page" id="home">
         <h1>Hey My Love <span class="heart">💖</span></h1>
@@ -187,7 +279,7 @@
         <button onclick="startFloatingHearts()">Click for Magic!</button>
     </div>
 
-    <!-- Page 2: Quiz -->
+    <!-- Page 2: Enhanced Quiz -->
     <div class="page" style="background-color: #ffebee;">
         <h1>How Well Do You Know Me? <span class="heart">🧠</span></h1>
         <div class="quiz-container">
@@ -203,20 +295,41 @@
                 <label class="quiz-option"><input type="radio" name="q2" value="B"> Beach</label>
                 <label class="quiz-option"><input type="radio" name="q2" value="C"> Mountains</label>
             </div>
+            <div class="quiz-question">
+                <p>3. What's my favorite food?</p>
+                <label class="quiz-option"><input type="radio" name="q3" value="A"> Pizza</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="B"> You</label>
+                <label class="quiz-option"><input type="radio" name="q3" value="C"> Pasta</label>
+            </div>
+            <div class="quiz-question">
+                <p>4. What's my favorite movie genre?</p>
+                <label class="quiz-option"><input type="radio" name="q4" value="A">  Action</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="B"> Comedy</label>
+                <label class="quiz-option"><input type="radio" name="q4" value="C"> Romance</label>
+            </div>
+            <div class="quiz-question">
+                <p>5. What's my favorite season?</p>
+                <label class="quiz-option"><input type="radio" name="q5" value="A"> Spring</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="B"> Summer</label>
+                <label class="quiz-option"><input type="radio" name="q5" value="C"> Winter</label>
+            </div>
             <button onclick="checkQuiz()">Submit Answers</button>
             <p id="quiz-result" style="display: none; font-weight: bold;"></p>
+            <div id="quiz-gif" style="display: none; margin-top: 20px;"></div>
         </div>
     </div>
 
-    <!-- Page 3: Mini Game -->
+    <!-- Page 3: Enhanced Game -->
     <div class="page">
         <h1>Catch My Love! <span class="heart">🎮</span></h1>
-        <p>Use arrow keys to catch falling hearts!</p>
+        <p>Use arrow keys (← →) to catch falling hearts!</p>
+        <p id="game-timer">Time: 30s</p>
+        <p id="game-score">Score: 0</p>
         <div id="game-container">
             <div id="game-character"></div>
         </div>
-        <p id="game-score">Score: 0</p>
         <button onclick="startGame()">Start Game</button>
+        <p id="game-result" style="display: none; font-weight: bold;"></p>
     </div>
 
     <!-- Page 4: Virtual Kiss -->
@@ -227,15 +340,28 @@
         <p id="kiss-message" style="display: none;">I felt that! Love you too! ❤️</p>
     </div>
 
-    <!-- Page 5: Countdown -->
+    <!-- Page 5: Super Cute Countdown -->
     <div class="page">
-        <h1>Counting Down <span class="heart">⏳</span></h1>
-        <p>Until our next special date:</p>
-        <div id="countdown" style="font-size: 1.5rem;">
-            <span id="days">00</span> days, 
-            <span id="hours">00</span> hours, 
-            <span id="minutes">00</span> minutes
+        <h1>Counting Down to Our Special Day <span class="heart">⏳</span></h1>
+        <div class="countdown-container">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
         </div>
+        <p>I can't wait to see you again!</p>
         <button onclick="showPasswordPage()">Secret Message 🔐</button>
     </div>
 
@@ -258,15 +384,18 @@
             createConfetti();
         }
 
-        // Quiz
+        // Enhanced Quiz
         function checkQuiz() {
             const answers = {
-                q1: 'A', // Change to correct answers
-                q2: 'B'
+                q1: 'B', // Change these to correct answers
+                q2: 'C'
+                q3: 'B',
+                q4: 'A',
+                q5: 'C'
             };
             
             let score = 0;
-            for (let i = 1; i <= 2; i++) {
+            for (let i = 1; i <= 5; i++) {
                 const selected = document.querySelector(`input[name="q${i}"]:checked`);
                 if (selected && selected.value === answers[`q${i}`]) {
                     score++;
@@ -274,28 +403,61 @@
             }
             
             const result = document.getElementById('quiz-result');
+            const gifContainer = document.getElementById('quiz-gif');
+            
             result.style.display = 'block';
-            result.textContent = `You got ${score}/2 correct! ${score === 2 ? 'You know me so well! ❤️' : 'Try again! 😊'}`;
+            gifContainer.style.display = 'block';
+            
+            if (score === 5) {
+                result.textContent = 'Perfect! You know me so well! ❤️';
+                gifContainer.innerHTML = '<img src="https://media.giphy.com/media/l0HU7JI1nq8m6QnU4/giphy.gif" width="200">';
+            } else if (score >= 3) {
+                result.textContent = `Good job! You got ${score}/5 correct! 😊`;
+                gifContainer.innerHTML = '<img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" width="200">';
+            } else {
+                result.textContent = `You got ${score}/5 correct. Try again! 💕`;
+                gifContainer.innerHTML = '<img src="https://media.giphy.com/media/3o7aD2d7hy9ktXNDP2/giphy.gif" width="200">';
+            }
+            
             createConfetti();
         }
 
-        // Mini Game
+        // Enhanced Game
         let gameScore = 0;
         let gameInterval;
+        let gameTimer;
+        let timeLeft = 30;
         let characterPosition = 125;
+        let gameActive = false;
         
         function startGame() {
+            if (gameActive) return;
+            
+            gameActive = true;
             gameScore = 0;
+            timeLeft = 30;
             document.getElementById('game-score').textContent = 'Score: 0';
+            document.getElementById('game-timer').textContent = 'Time: 50s';
+            document.getElementById('game-result').style.display = 'none';
             document.getElementById('game-character').style.left = '125px';
             
             // Clear existing hearts
             const hearts = document.querySelectorAll('.falling-heart');
             hearts.forEach(heart => heart.remove());
             
-            // Start new game
+            // Start game loop
             gameInterval = setInterval(() => {
                 createFallingHeart();
+            }, 800);
+            
+            // Start timer
+            gameTimer = setInterval(() => {
+                timeLeft--;
+                document.getElementById('game-timer').textContent = `Time: ${timeLeft}s`;
+                
+                if (timeLeft <= 0) {
+                    endGame();
+                }
             }, 1000);
             
             // Keyboard controls
@@ -303,15 +465,21 @@
         }
         
         function moveCharacter(e) {
+            if (!gameActive) return;
+            
             if (e.key === 'ArrowLeft' && characterPosition > 0) {
-                characterPosition -= 10;
+                characterPosition -= 15;
+                document.getElementById('game-character').style.transform = 'scaleX(-1)';
             } else if (e.key === 'ArrowRight' && characterPosition < 250) {
-                characterPosition += 10;
+                characterPosition += 15;
+                document.getElementById('game-character').style.transform = 'scaleX(1)';
             }
             document.getElementById('game-character').style.left = characterPosition + 'px';
         }
         
         function createFallingHeart() {
+            if (!gameActive) return;
+            
             const heart = document.createElement('div');
             heart.innerHTML = '❤️';
             heart.classList.add('falling-heart');
@@ -320,6 +488,11 @@
             
             let position = -30;
             const fall = setInterval(() => {
+                if (!gameActive) {
+                    clearInterval(fall);
+                    return;
+                }
+                
                 position += 5;
                 heart.style.top = position + 'px';
                 
@@ -341,6 +514,25 @@
                 }
             }, 20);
         }
+        
+        function endGame() {
+            gameActive = false;
+            clearInterval(gameInterval);
+            clearInterval(gameTimer);
+            
+            const result = document.getElementById('game-result');
+            result.style.display = 'block';
+            
+            if (gameScore >= 20) {
+                result.textContent = `Amazing! You caught ${gameScore} hearts! ❤️❤️❤️`;
+            } else if (gameScore >= 10) {
+                result.textContent = `Good job! You caught ${gameScore} hearts! 💕`;
+            } else {
+                result.textContent = `You caught ${gameScore} hearts. Try again! 😊`;
+            }
+            
+            createConfetti();
+        }
 
         // Virtual Kiss
         function sendKiss() {
@@ -351,7 +543,7 @@
             }, 2000);
         }
 
-        // Countdown Timer
+        // Super Cute Countdown Timer
         function updateCountdown() {
             const targetDate = new Date('2025-02-14T00:00:00').getTime(); // CHANGE TO YOUR DATE
             const now = new Date().getTime();
@@ -360,10 +552,20 @@
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
             
-            document.getElementById('days').textContent = days;
-            document.getElementById('hours').textContent = hours;
-            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('days').textContent = days < 10 ? '0' + days : days;
+            document.getElementById('hours').textContent = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').textContent = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').textContent = seconds < 10 ? '0' + seconds : seconds;
+            
+            // Change colors based on time
+            if (days < 7) {
+                document.getElementById('days').style.color = '#ff1493';
+            }
+            if (hours < 24) {
+                document.getElementById('hours').style.color = '#ff1493';
+            }
         }
         setInterval(updateCountdown, 1000);
         updateCountdown();
@@ -375,13 +577,29 @@
 
         function checkPassword() {
             const password = document.getElementById('password-input').value;
-            if (password === '0214') { // CHANGE TO YOUR SPECIAL DATE (MMDD)
-                alert('You unlocked my heart! 💖 Here's a secret: I love you more than anything!');
+            if (password === '0606') { // CHANGE TO YOUR SPECIAL DATE (MMDD)
+                alert('You unlocked my heart! 💖 Here\'s a secret: I love you more than anything!');
                 document.getElementById('password-page').style.display = 'none';
                 createConfetti();
             } else {
                 document.getElementById('password-error').style.display = 'block';
             }
+        }
+
+        // Music Player
+        let isMusicPlaying = false;
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const icon = document.getElementById('music-icon');
+            
+            if (isMusicPlaying) {
+                music.pause();
+                icon.textContent = '🎵';
+            } else {
+                music.play();
+                icon.textContent = '🔊';
+            }
+            isMusicPlaying = !isMusicPlaying;
         }
 
         // Confetti Effect
@@ -418,7 +636,12 @@
         document.head.appendChild(style);
 
         // Start with some floating hearts
-        window.onload = startFloatingHearts;
+        window.onload = function() {
+            startFloatingHearts();
+            
+            // Replace these with your actual photos!
+            // Example: document.querySelector('.polaroid img').src = 'your-image-url.jpg';
+        };
     </script>
 </body>
 </html>
