@@ -1,1257 +1,424 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Eternal Love Story ✨</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&family=Pacifico&display=swap');
-    
-    :root {
-      --rose: #ff66b3;
-      --deep-rose: #e84393;
-      --soft-pink: #ffdeeb;
-      --lavender: #d4b8ff;
-      --gold: #ffd700;
-      --sky: #a7e0ff;
-      --mint: #b5ead7;
-      --peach: #ffd3b6;
-      --champagne: #f7e7ce;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    body {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(135deg, #fff5f7, #fff0f8);
-      color: #8a4d76;
-      overflow-x: hidden;
-      min-height: 100vh;
-      line-height: 1.6;
-    }
-    
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    
-    h1, h2, h3 {
-      font-family: 'Dancing Script', cursive;
-      color: var(--deep-rose);
-      text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
-    }
-    
-    h1 {
-      font-size: 5.5rem;
-      margin-bottom: 1.5rem;
-      animation: gentlePulse 3s infinite;
-      background: linear-gradient(to right, #ff6b8b, #ff8e9e, #ffb3c1);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 4px 8px rgba(232, 67, 147, 0.2));
-    }
-    
-    @keyframes gentlePulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.03); }
-    }
-    
-    .intro {
-      font-size: 2rem;
-      margin-bottom: 3rem;
-      background-color: rgba(255,255,255,0.9);
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(255,105,180,0.15);
-      backdrop-filter: blur(8px);
-      border: 3px solid rgba(255, 182, 193, 0.5);
-      position: relative;
-      overflow: hidden;
-      font-family: 'Pacifico', cursive;
-    }
-    
-    .intro::before {
-      content: "";
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      right: -10px;
-      bottom: -10px;
-      border: 2px dashed rgba(232, 67, 147, 0.3);
-      border-radius: 25px;
-      pointer-events: none;
-      animation: rotate 60s linear infinite;
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    .btn {
-      padding: 1.3rem 2.8rem;
-      font-size: 1.6rem;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      font-weight: 600;
-      margin: 1rem;
-      position: relative;
-      overflow: hidden;
-      font-family: 'Montserrat', sans-serif;
-      z-index: 1;
-      min-width: 220px;
-    }
-    
-    .btn-rose {
-      background-color: var(--rose);
-      color: white;
-      text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    }
-    
-    .btn-rose:hover {
-      background-color: var(--deep-rose);
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(232, 67, 147, 0.3);
-    }
-    
-    .btn-gold {
-      background-color: var(--gold);
-      color: #8a4d76;
-      border: 2px solid rgba(232, 67, 147, 0.3);
-    }
-    
-    .btn-gold:hover {
-      background-color: #ffcc00;
-      transform: translateY(-5px) rotate(-2deg);
-      box-shadow: 0 12px 25px rgba(255, 215, 0, 0.3);
-    }
-    
-    .btn-lavender {
-      background-color: var(--lavender);
-      color: #5d3a7a;
-      border: 2px solid rgba(148, 88, 204, 0.3);
-    }
-    
-    .content-area {
-      background-color: rgba(255,255,255,0.95);
-      border-radius: 20px;
-      padding: 3rem;
-      margin: 3rem 0;
-      box-shadow: 0 20px 50px rgba(255,182,193,0.15);
-      backdrop-filter: blur(8px);
-      min-height: 500px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(255, 182, 193, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hidden {
-      display: none;
-    }
-    
-    /* Romantic Elements */
-    .petal {
-      position: absolute;
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.7;
-      animation: floatPetal 15s linear infinite;
-      z-index: -1;
-      width: 40px;
-      height: 40px;
-    }
-    
-    .romantic-icon {
-      font-size: 4rem;
-      margin: 1.5rem;
-      animation: gentleSway 5s infinite;
-      text-shadow: 3px 3px 0px rgba(255,255,255,0.8);
-      filter: drop-shadow(0 0 8px rgba(232, 67, 147, 0.3));
-    }
-    
-    .love-card {
-      background: white;
-      border-radius: 15px;
-      padding: 2.5rem;
-      box-shadow: 0 15px 35px rgba(255,182,193,0.1);
-      transition: all 0.5s ease;
-      border: 1px solid rgba(255, 182, 193, 0.2);
-      margin: 1rem;
-      width: 280px;
-      height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .love-card::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,255,255,0));
-      z-index: -1;
-    }
-    
-    .love-meter {
-      width: 100%;
-      height: 50px;
-      background-color: #ffecf1;
-      border-radius: 25px;
-      margin: 3rem auto;
-      overflow: hidden;
-      position: relative;
-      box-shadow: inset 0 0 10px rgba(232, 67, 147, 0.2);
-      border: 2px solid white;
-    }
-    
-    .love-meter-fill {
-      height: 100%;
-      width: 100%;
-      background: linear-gradient(90deg, #ff6b8b, #ff8e9e, #ffb3c1);
-      border-radius: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: bold;
-      font-size: 1.8rem;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-      animation: grow 3s forwards;
-    }
-    
-    .kiss-btn {
-      background-color: var(--rose);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-      font-size: 2rem;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(232, 67, 147, 0.3);
-      transition: all 0.3s ease;
-      margin: 2rem;
-      animation: pulse 2s infinite;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .floating-heart {
-      position: fixed;
-      pointer-events: none;
-      z-index: 100;
-      animation: floatHeart 6s ease-in-out infinite;
-      font-size: 2rem;
-      text-align: center;
-      opacity: 0;
-    }
-    
-    .romantic-fact {
-      background-color: white;
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 10px 30px rgba(255,182,193,0.1);
-      border-left: 4px solid var(--rose);
-      position: relative;
-      max-width: 800px;
-    }
-    
-    .hearts-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-    }
-    
-    .heart-bg {
-      position: absolute;
-      font-size: 1.5rem;
-      animation: floatHeartBg 15s linear infinite;
-      opacity: 0.2;
-    }
-    
-    .confetti {
-      position: fixed;
-      width: 15px;
-      height: 15px;
-      opacity: 0;
-      z-index: 1000;
-      animation: confettiFall 5s linear forwards;
-      border-radius: 50%;
-      background: linear-gradient(45deg, var(--rose), var(--lavender));
-    }
-    
-    /* Adventure Game Styles */
-    .adventure-container {
-      width: 100%;
-      height: 550px;
-      background-color: rgba(255,255,255,0.95);
-      border-radius: 20px;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 182, 193, 0.3);
-      box-shadow: 0 15px 35px rgba(255,182,193,0.1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2rem;
-    }
-    
-    .adventure-scene {
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-    
-    .adventure-text {
-      font-size: 1.6rem;
-      margin-bottom: 2rem;
-      background-color: rgba(255,255,255,0.9);
-      padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      border: 1px solid rgba(255, 182, 193, 0.2);
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.8;
-      max-width: 800px;
-    }
-    
-    .adventure-choices {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-    
-    .adventure-choice {
-      padding: 1rem 2rem;
-      font-size: 1.2rem;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-family: 'Montserrat', sans-serif;
-      background-color: white;
-      color: var(--deep-rose);
-      border: 1px solid rgba(232, 67, 147, 0.3);
-      min-width: 200px;
-    }
-    
-    .adventure-choice:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(232, 67, 147, 0.2);
-      background-color: var(--soft-pink);
-    }
-    
-    .adventure-character {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      transition: all 0.5s ease;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-    }
-    
-    .character-you {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/5238/5238389.png');
-      bottom: 30px;
-      left: 50px;
-      z-index: 10;
-    }
-    
-    .character-partner {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/1864/1864593.png');
-      bottom: 30px;
-      right: 50px;
-      z-index: 10;
-    }
-    
-    .adventure-item {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 5;
-      transition: all 0.5s ease;
-    }
-    
-    .love-score {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 1.5rem;
-      color: var(--deep-rose);
-      font-family: 'Dancing Script', cursive;
-      z-index: 20;
-      background-color: rgba(255,255,255,0.9);
-      padding: 0.5rem 1.5rem;
-      border-radius: 30px;
-      border: 1px solid rgba(232, 67, 147, 0.3);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    
-    /* Photo Album */
-    .photo-album {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    
-    .photo-frame {
-      width: 220px;
-      height: 220px;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(232, 67, 147, 0.1);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      border: 1px solid rgba(255, 182, 193, 0.3);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    
-    .photo-frame:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 30px rgba(232, 67, 147, 0.2);
-    }
-    
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    
-    .photo-frame:hover img {
-      transform: scale(1.1);
-    }
-    
-    .photo-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-      color: white;
-      padding: 1rem;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    
-    .photo-frame:hover .photo-caption {
-      opacity: 1;
-    }
-    
-    /* Memory Box */
-    .memory-box {
-      background-color: rgba(255,255,255,0.9);
-      border-radius: 15px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 10px 30px rgba(232, 67, 147, 0.1);
-      border: 1px solid rgba(255, 182, 193, 0.3);
-      max-width: 800px;
-      position: relative;
-    }
-    
-    .memory-box::before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      border: 1px dashed rgba(232, 67, 147, 0.2);
-      border-radius: 10px;
-      pointer-events: none;
-    }
-    
-    /* Animations */
-    @keyframes floatPetal {
-      0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-100vh) translateX(100px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-    
-    @keyframes gentleSway {
-      0%, 100% { transform: rotate(-5deg); }
-      50% { transform: rotate(5deg); }
-    }
-    
-    @keyframes grow {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-    
-    @keyframes floatHeart {
-      0%, 100% { 
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
-      20% {
-        opacity: 1;
-      }
-      80% {
-        opacity: 1;
-      }
-      100% { 
-        transform: translateY(-100px) rotate(10deg);
-        opacity: 0;
-      }
-    }
-    
-    @keyframes confettiFall {
-      0% {
-        transform: translateY(-100px) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-    
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    
-    @keyframes floatHeartBg {
-      0% {
-        transform: translateY(100vh) translateX(0) rotate(0deg);
-        opacity: 0;
-      }
-      10% {
-        opacity: 0.2;
-      }
-      100% {
-        transform: translateY(-100px) translateX(100px) rotate(360deg);
-        opacity: 0;
-      }
-    }
-    
-    /* Responsive design */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 4rem;
-      }
-      
-      .intro {
-        font-size: 1.6rem;
-        padding: 2rem;
-      }
-      
-      .btn {
-        padding: 1rem 2rem;
-        font-size: 1.4rem;
-        min-width: 180px;
-      }
-      
-      .romantic-icon {
-        font-size: 3.5rem;
-      }
-      
-      .adventure-text {
-        font-size: 1.4rem;
-      }
-      
-      .adventure-choice {
-        font-size: 1.1rem;
-        padding: 0.8rem 1.5rem;
-      }
-      
-      .photo-frame {
-        width: 180px;
-        height: 180px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 3rem;
-      }
-      
-      .intro {
-        font-size: 1.3rem;
-        padding: 1.5rem;
-      }
-      
-      .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 1.2rem;
-        min-width: 160px;
-      }
-      
-      .romantic-icon {
-        font-size: 3rem;
-      }
-      
-      .adventure-text {
-        font-size: 1.2rem;
-        padding: 1rem;
-      }
-      
-      .adventure-choices {
-        flex-direction: column;
-      }
-      
-      .adventure-choice {
-        width: 100%;
-      }
-      
-      .photo-frame {
-        width: 150px;
-        height: 150px;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Princess 👑</title>
+    <style>
+        /* Custom Heart Cursor */
+        body {
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff6b8b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            background-color: #fff5f5;
+            color: #ff6b8b;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Floating Hearts & Sparkles */
+        .floating-effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-item {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float 8s ease-in infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.7; }
+            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Page Styling */
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 107, 139, 0.3);
+        }
+
+        p {
+            font-size: 1.3rem;
+            max-width: 600px;
+            margin: 10px auto;
+        }
+
+        .heart {
+            font-size: 2rem;
+            animation: pulse 1.5s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        button {
+            background-color: #ff6b8b;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 107, 139, 0.3);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff4d73;
+        }
+
+        /* Quiz Styling */
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            max-width: 500px;
+            margin: 20px auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-question {
+            margin: 15px 0;
+            text-align: left;
+        }
+
+        .quiz-option {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background: #ffe6eb;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quiz-option:hover {
+            background: #ffd1dc;
+        }
+
+        /* Mini Game */
+        #game-container {
+            width: 300px;
+            height: 300px;
+            background: #ffe6eb;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            margin: 20px auto;
+        }
+
+        #game-character {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff6b8b;
+            border-radius: 50%;
+            bottom: 10px;
+            left: 125px;
+        }
+
+        .falling-heart {
+            position: absolute;
+            font-size: 24px;
+            top: -30px;
+        }
+
+        #game-score {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            opacity: 0;
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
-  <div class="hearts-bg" id="hearts-bg"></div>
-  
-  <div class="container">
-    <h1>Our Eternal Love ✨</h1>
-    
-    <div class="intro">
-      <p>My Dearest Love,</p>
-      <p>Every moment with you is a beautiful chapter in our story</p>
-      <div class="romantic-icon">💖</div>
-    </div>
-    
-    <div class="content-area">
-      <div id="main-content">
-        <h2>You Are My Everything</h2>
-        
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;">
-          <div class="love-card">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌹</div>
-            <p>The rose to my garden</p>
-          </div>
-          <div class="love-card">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">☀️</div>
-            <p>The sunshine to my day</p>
-          </div>
-          <div class="love-card">
-            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎶</div>
-            <p>The melody to my heart</p>
-          </div>
-        </div>
-        
-        <h2 style="margin-top: 3rem;">Our Love Journey</h2>
-        <div class="love-meter">
-          <div class="love-meter-fill">Endless & Everlasting 💞</div>
-        </div>
-        
-        <div class="romantic-fact">
-          <h3>My Promise to You</h3>
-          <p id="romantic-promise">I will cherish every moment with you, through all of life's adventures and quiet moments alike.</p>
-        </div>
-        
-        <div class="btn-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin: 2rem 0;">
-          <button class="btn btn-rose" onclick="showRomanticWords()">
-            <i class="fas fa-heart"></i> Love Letters <i class="fas fa-heart"></i>
-          </button>
-          <button class="btn btn-gold" onclick="showAdventure()">
-            <i class="fas fa-compass"></i> Our Adventure <i class="fas fa-compass"></i>
-          </button>
-          <button class="btn btn-lavender" onclick="showAlbum()">
-            <i class="fas fa-images"></i> Memory Lane <i class="fas fa-images"></i>
-          </button>
-        </div>
-        
-        <div style="margin-top: 2rem;">
-          <button class="kiss-btn" onclick="sendKiss()">💋</button>
-          <p id="kiss-count" style="font-size: 1.2rem; color: var(--deep-rose);">Kisses shared today: 0</p>
-        </div>
-      </div>
-      
-      <!-- Romantic Words Content -->
-      <div id="romantic-content" class="hidden">
-        <div class="romantic-icon">💌</div>
-        <div class="memory-box">
-          <p id="romantic-text" style="font-size: 1.8rem; font-family: 'Dancing Script', cursive; line-height: 1.8;">
-            Your love is the most beautiful story my heart has ever known...
-          </p>
-        </div>
-        <button class="btn btn-rose" onclick="newRomanticWord()">
-          <i class="fas fa-heart"></i> Another Love Note <i class="fas fa-heart"></i>
-        </button>
-        <button class="btn btn-gold" onclick="showMain()">
-          <i class="fas fa-home"></i> Return Home <i class="fas fa-home"></i>
-        </button>
-      </div>
-      
-      <!-- Adventure Game Content -->
-      <div id="adventure-content" class="hidden">
-        <h2>Our Love Adventure</h2>
-        <p>Create beautiful memories together</p>
-        
-        <div class="adventure-container">
-          <div class="love-score">Connection: <span id="love-points">100</span>%</div>
-          
-          <div class="adventure-scene" id="adventure-scene">
-            <div class="adventure-character character-you" id="character-you"></div>
-            <div class="adventure-character character-partner" id="character-partner"></div>
-            
-            <div class="adventure-text" id="adventure-text">
-              Where shall we begin our romantic journey today, my love?
-            </div>
-            
-            <div class="adventure-choices" id="adventure-choices">
-              <!-- Choices will be added by JavaScript -->
-            </div>
-          </div>
-        </div>
-        
-        <div class="memory-box" style="margin-top: 2rem;">
-          <h3>Our Adventure Log</h3>
-          <div id="adventure-log" style="text-align: left; max-height: 150px; overflow-y: auto; padding: 0.5rem;">
-            <!-- Adventure log will be added here -->
-          </div>
-        </div>
-        
-        <button class="btn btn-gold" onclick="showMain()" style="margin-top: 2rem;">
-          <i class="fas fa-home"></i> Return Home <i class="fas fa-home"></i>
-        </button>
-      </div>
-      
-      <!-- Photo Album Content -->
-      <div id="album-content" class="hidden">
-        <h2>Our Precious Memories</h2>
-        <p>Every moment with you becomes a treasured memory</p>
-        
-        <div class="photo-album">
-          <div class="photo-frame">
-            <img src="Screenshot 2025-07-03 172105.png" alt="Our first adventure">
-            <div class="photo-caption">Our First Adventure</div>
-          </div>
-          <div class="photo-frame">
-            <img src="Screenshot 2025-07-03 172152.png" alt="Sunset together">
-            <div class="photo-caption">Sunset Serenade</div>
-          </div>
-          <div class="photo-frame">
-            <img src="Screenshot 2025-07-03 172126.png" alt="Laughing together">
-            <div class="photo-caption">Shared Laughter</div>
-          </div>
-          <div class="photo-frame">
-            <img src="Screenshot 2025-07-06 135603.png" alt="Special moment">
-            <div class="photo-caption">Unforgettable Moment</div>
-          </div>
-          <div class="photo-frame">
-            <img src="Screenshot 2025-07-06 135553.png" alt="Romantic dinner">
-            <div class="photo-caption">Romantic Evening</div>
-          </div>
-          <div class="photo-frame">
-            <img src="Screenshot 2025-07-06 135526.png" alt="Together always">
-            <div class="photo-caption">Together Always</div>
-          </div>
-        </div>
-        
-        <div class="memory-box">
-          <h3>Our Story</h3>
-          <p>From our first hello to every "I love you" since, each moment with you has been a gift I cherish deeply.</p>
-        </div>
-        
-        <button class="btn btn-gold" onclick="showMain()" style="margin-top: 2rem;">
-          <i class="fas fa-home"></i> Return Home <i class="fas fa-home"></i>
-        </button>
-      </div>
-    </div>
-  </div>
+    <!-- Floating Effects -->
+    <div class="floating-effect" id="floating-effect"></div>
 
-  <audio id="kissSound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-10.mp3" type="audio/mpeg">
-  </audio>
-  
-  <audio id="positiveSound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-09.mp3" type="audio/mpeg">
-  </audio>
-  
-  <audio id="negativeSound">
-    <source src="https://www.soundjay.com/buttons/sounds/button-08.mp3" type="audio/mpeg">
-  </audio>
+    <!-- Password Page -->
+    <div class="page" id="password-page" style="display: none; background-color: rgba(255, 255, 255, 0.9); position: fixed; top: 0; left: 0; z-index: 100;">
+        <h1>🔒 Our Secret Place</h1>
+        <p>Enter our special date (MMDD):</p>
+        <input type="password" id="password-input" style="padding: 10px; border: 2px solid #ff6b8b; border-radius: 5px;">
+        <button onclick="checkPassword()">Unlock</button>
+        <p id="password-error" style="color: red; display: none;">Wrong date! Try again.</p>
+    </div>
 
-  <script>
-    // Adventure game variables
-    let lovePoints = 100;
-    let currentScene = "start";
-    let adventureLog = [];
-    let inventory = ["love letter"];
-    let relationshipLevel = 1;
-    let specialMoments = 0;
-    
-    // Adventure scenes data - more sophisticated and romantic
-    const adventureScenes = {
-      start: {
-        text: "Where shall we begin our romantic journey today, my love?",
-        choices: [
-          { text: "🌹 Romantic Dinner", nextScene: "dinner", points: 15, requirement: null },
-          { text: "🌉 Evening Stroll", nextScene: "stroll", points: 10, requirement: null },
-          { text: "🏡 Cozy Night In", nextScene: "cozyNight", points: 12, requirement: null },
-          { text: "🎶 Share Memories", nextScene: "memories", points: 8, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #f5f7fa, #ffeef8)"
-      },
-      dinner: {
-        text: "The candlelight dances in your eyes as we enjoy this exquisite meal together. What would you like to talk about?",
-        choices: [
-          { text: "Our future dreams", nextScene: "futureTalk", points: 20, requirement: null },
-          { text: "Favorite memories", nextScene: "favoriteMemory", points: 15, requirement: null },
-          { text: "What I love about you", nextScene: "loveAboutYou", points: 25, requirement: null },
-          { text: "Finish dinner", nextScene: "afterDinner", points: 10, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #2c3e50, #4ca1af)"
-      },
-      stroll: {
-        text: "Hand in hand, we walk beneath the stars. The night air is filled with possibilities...",
-        choices: [
-          { text: "Stop to admire the view", nextScene: "admireView", points: 15, requirement: null },
-          { text: "Find a quiet bench to sit", nextScene: "quietBench", points: 12, requirement: null },
-          { text: "Share a childhood story", nextScene: "childhoodStory", points: 18, requirement: null },
-          { text: "Head back home", nextScene: "afterStroll", points: 8, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)"
-      },
-      cozyNight: {
-        text: "Curled up together in our cozy sanctuary, what shall we do to make this night special?",
-        choices: [
-          { text: "Watch our favorite movie", nextScene: "watchMovie", points: 10, requirement: null },
-          { text: "Read poetry to each other", nextScene: "readPoetry", points: 15, requirement: "love letter" },
-          { text: "Give you a massage", nextScene: "massage", points: 20, requirement: null },
-          { text: "Simply enjoy the silence", nextScene: "enjoySilence", points: 12, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #614385, #516395)"
-      },
-      futureTalk: {
-        text: "As we discuss our dreams, I see our future together - full of love, laughter, and endless possibilities.",
-        choices: [
-          { text: "Continue our evening", nextScene: "afterDinner", points: 10, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #4b6cb7, #182848)"
-      },
-      quietBench: {
-        text: "On this quiet bench under the stars, I hold you close as we share whispered words of love.",
-        choices: [
-          { text: "Continue our walk", nextScene: "afterStroll", points: 5, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #1e3c72, #2a5298)"
-      },
-      readPoetry: {
-        text: "As I read the words of love poets, I see my own feelings reflected in your eyes. The love letter in my pocket feels warm against my heart.",
-        choices: [
-          { text: "Continue our cozy night", nextScene: "afterCozyNight", points: 5, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #5f2c82, #49a09d)"
-      },
-      // More scenes can be added for a richer experience
-      afterDinner: {
-        text: "As we leave the restaurant, the night is still young. What would you like to do next?",
-        choices: [
-          { text: "Take a moonlit walk", nextScene: "moonlitWalk", points: 15, requirement: null },
-          { text: "Go dancing", nextScene: "goDancing", points: 20, requirement: null },
-          { text: "Head home", nextScene: "start", points: 5, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #141e30, #243b55)"
-      },
-      moonlitWalk: {
-        text: "The moonlight casts a silver glow on your face as we walk along the quiet streets, our fingers intertwined.",
-        choices: [
-          { text: "Return to start", nextScene: "start", points: 10, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #0f0c29, #302b63, #24243e)"
-      },
-      // Additional scenes can continue...
-      specialMoment: {
-        text: "In this perfect moment, time seems to stand still as we share a look that says more than words ever could.",
-        choices: [
-          { text: "Cherish this memory", nextScene: "start", points: 30, requirement: null }
-        ],
-        background: "linear-gradient(135deg, #ff758c, #ff7eb3)",
-        special: true
-      }
-    };
-    
-    // Array of romantic words
-    const romanticWords = [
-      "Your love is the poetry my heart has been waiting to write...",
-      "In your eyes, I found the home I never knew I was searching for.",
-      "Every moment with you feels like a beautiful dream I never want to wake from.",
-      "Your touch ignites a fire in my soul that nothing in this world could extinguish.",
-      "I fall in love with you more each day, in ways I didn't know were possible.",
-      "Your laughter is my favorite melody, your smile my most treasured sight.",
-      "With you, I've discovered a love so deep it has become the very air I breathe.",
-      "You are my today and all of my tomorrows, my endless love.",
-      "In a world full of temporary things, you are a perpetual feeling.",
-      "Your love is the anchor that keeps me steady through all of life's storms.",
-      "I never believed in soulmates until you showed me what destiny feels like.",
-      "Your heart is my favorite place to be, your arms my perfect sanctuary.",
-      "Every love story is beautiful, but ours is my favorite.",
-      "You are the answer to every prayer I never spoke out loud.",
-      "Loving you isn't just something I do - it's who I am."
-    ];
-    
-    // Array of romantic promises
-    const romanticPromises = [
-      "I promise to choose you, every day, in a thousand different ways.",
-      "I will be your shelter in every storm and your partner in every joy.",
-      "My love for you will remain constant, even as we both grow and change.",
-      "I vow to listen with patience, love without condition, and stand by you always.",
-      "Every morning I wake up grateful that life gave me you.",
-      "I will cherish not just the big moments, but all the small ones in between.",
-      "My heart is yours completely, today and for all our tomorrows.",
-      "I promise to keep discovering new reasons to love you every single day.",
-      "Through all of life's chapters, I'll be by your side, writing our story together.",
-      "Your happiness will always be my most important mission.",
-      "I will love you more today than yesterday, but less than tomorrow.",
-      "Every challenge we face will only make our love story more beautiful.",
-      "I promise to be your safe place in this unpredictable world.",
-      "My love for you is deeper than oceans and more constant than the stars.",
-      "I will never take for granted the incredible gift of your love."
-    ];
-    
-    // Initialize the adventure game
-    function initAdventure() {
-      currentScene = "start";
-      lovePoints = 100;
-      adventureLog = ["Our love adventure begins..."];
-      updateAdventureScene();
-      createHearts(20);
-      updateAdventureLog();
-    }
-    
-    // Update adventure scene
-    function updateAdventureScene() {
-      const scene = adventureScenes[currentScene];
-      document.getElementById("adventure-text").textContent = scene.text;
-      document.getElementById("adventure-scene").style.background = scene.background || "rgba(255,255,255,0.9)";
-      
-      const choicesContainer = document.getElementById("adventure-choices");
-      choicesContainer.innerHTML = "";
-      
-      scene.choices.forEach(choice => {
-        // Check if choice has requirements
-        if (choice.requirement && !inventory.includes(choice.requirement)) {
-          return; // Skip this choice if requirement not met
+    <!-- Page 1: Home -->
+    <div class="page" id="home">
+        <h1>Hey My Love <span class="heart">💖</span></h1>
+        <p>Welcome to your personal cute website!</p>
+        <p>Made with love, just for you.</p>
+        <button onclick="startFloatingHearts()">Click for Magic!</button>
+    </div>
+
+    <!-- Page 2: Quiz -->
+    <div class="page" style="background-color: #ffebee;">
+        <h1>How Well Do You Know Me? <span class="heart">🧠</span></h1>
+        <div class="quiz-container">
+            <div class="quiz-question">
+                <p>1. What's my favorite color?</p>
+                <label class="quiz-option"><input type="radio" name="q1" value="A"> Pink</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="B"> Blue</label>
+                <label class="quiz-option"><input type="radio" name="q1" value="C"> Purple</label>
+            </div>
+            <div class="quiz-question">
+                <p>2. What's my dream vacation?</p>
+                <label class="quiz-option"><input type="radio" name="q2" value="A"> Paris</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="B"> Beach</label>
+                <label class="quiz-option"><input type="radio" name="q2" value="C"> Mountains</label>
+            </div>
+            <button onclick="checkQuiz()">Submit Answers</button>
+            <p id="quiz-result" style="display: none; font-weight: bold;"></p>
+        </div>
+    </div>
+
+    <!-- Page 3: Mini Game -->
+    <div class="page">
+        <h1>Catch My Love! <span class="heart">🎮</span></h1>
+        <p>Use arrow keys to catch falling hearts!</p>
+        <div id="game-container">
+            <div id="game-character"></div>
+        </div>
+        <p id="game-score">Score: 0</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <!-- Page 4: Virtual Kiss -->
+    <div class="page" style="background-color: #fce4ec;">
+        <h1>Send Me a Kiss <span class="heart">😘</span></h1>
+        <p>Click the button below to send me a virtual kiss!</p>
+        <button onclick="sendKiss()">💋 Muah!</button>
+        <p id="kiss-message" style="display: none;">I felt that! Love you too! ❤️</p>
+    </div>
+
+    <!-- Page 5: Countdown -->
+    <div class="page">
+        <h1>Counting Down <span class="heart">⏳</span></h1>
+        <p>Until our next special date:</p>
+        <div id="countdown" style="font-size: 1.5rem;">
+            <span id="days">00</span> days, 
+            <span id="hours">00</span> hours, 
+            <span id="minutes">00</span> minutes
+        </div>
+        <button onclick="showPasswordPage()">Secret Message 🔐</button>
+    </div>
+
+    <script>
+        // Floating Hearts & Sparkles
+        function startFloatingHearts() {
+            const effects = ['❤️', '✨', '🌸', '💖', '🌟'];
+            const container = document.getElementById('floating-effect');
+            container.innerHTML = '';
+            
+            for (let i = 0; i < 30; i++) {
+                const item = document.createElement('div');
+                item.innerHTML = effects[Math.floor(Math.random() * effects.length)];
+                item.classList.add('floating-item');
+                item.style.left = Math.random() * 100 + 'vw';
+                item.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                item.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(item);
+            }
+            createConfetti();
+        }
+
+        // Quiz
+        function checkQuiz() {
+            const answers = {
+                q1: 'A', // Change to correct answers
+                q2: 'B'
+            };
+            
+            let score = 0;
+            for (let i = 1; i <= 2; i++) {
+                const selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (selected && selected.value === answers[`q${i}`]) {
+                    score++;
+                }
+            }
+            
+            const result = document.getElementById('quiz-result');
+            result.style.display = 'block';
+            result.textContent = `You got ${score}/2 correct! ${score === 2 ? 'You know me so well! ❤️' : 'Try again! 😊'}`;
+            createConfetti();
+        }
+
+        // Mini Game
+        let gameScore = 0;
+        let gameInterval;
+        let characterPosition = 125;
+        
+        function startGame() {
+            gameScore = 0;
+            document.getElementById('game-score').textContent = 'Score: 0';
+            document.getElementById('game-character').style.left = '125px';
+            
+            // Clear existing hearts
+            const hearts = document.querySelectorAll('.falling-heart');
+            hearts.forEach(heart => heart.remove());
+            
+            // Start new game
+            gameInterval = setInterval(() => {
+                createFallingHeart();
+            }, 1000);
+            
+            // Keyboard controls
+            document.addEventListener('keydown', moveCharacter);
         }
         
-        const button = document.createElement("button");
-        button.className = "adventure-choice";
-        button.textContent = choice.text;
-        button.onclick = () => makeChoice(choice);
-        choicesContainer.appendChild(button);
-      });
-      
-      // Update love points display
-      document.getElementById("love-points").textContent = lovePoints;
-      
-      // Check for relationship level up
-      checkRelationshipLevel();
-      
-      // Animate characters
-      animateCharacters();
-    }
-    
-    // Make a choice in the adventure
-    function makeChoice(choice) {
-      lovePoints += choice.points;
-      
-      // Cap love points between 0 and 200
-      lovePoints = Math.min(Math.max(lovePoints, 0), 200);
-      
-      // Add to adventure log
-      adventureLog.push(`> ${choice.text} (+${choice.points}%)`);
-      
-      // Play appropriate sound
-      if (choice.points > 0) {
-        document.getElementById("positiveSound").play();
-        createHearts(Math.floor(choice.points / 5));
-      } else if (choice.points < 0) {
-        document.getElementById("negativeSound").play();
-      }
-      
-      // Check for special scene
-      if (Math.random() < 0.1 && lovePoints > 120) {
-        currentScene = "specialMoment";
-        specialMoments++;
-        adventureLog.push("✨ We shared a magical, unforgettable moment ✨");
-      } else {
-        currentScene = choice.nextScene;
-      }
-      
-      updateAdventureScene();
-      updateAdventureLog();
-    }
-    
-    // Update adventure log
-    function updateAdventureLog() {
-      const logContainer = document.getElementById("adventure-log");
-      logContainer.innerHTML = "";
-      
-      // Show last 5 log entries
-      const recentLogs = adventureLog.slice(Math.max(adventureLog.length - 5, 0));
-      
-      recentLogs.forEach(log => {
-        const logEntry = document.createElement("div");
-        logEntry.textContent = log;
-        logEntry.style.marginBottom = "0.5rem";
-        logEntry.style.paddingBottom = "0.5rem";
-        logEntry.style.borderBottom = "1px dashed rgba(232, 67, 147, 0.2)";
-        logContainer.appendChild(logEntry);
-      });
-      
-      // Scroll to bottom
-      logContainer.scrollTop = logContainer.scrollHeight;
-    }
-    
-    // Check relationship level
-    function checkRelationshipLevel() {
-      const newLevel = Math.floor(lovePoints / 50) + 1;
-      if (newLevel > relationshipLevel) {
-        relationshipLevel = newLevel;
-        adventureLog.push(`💖 Our relationship reached level ${relationshipLevel}! 💖`);
-        createConfetti();
-        updateAdventureLog();
-      }
-    }
-    
-    // Animate characters
-    function animateCharacters() {
-      const you = document.getElementById("character-you");
-      const partner = document.getElementById("character-partner");
-      
-      // Reset positions
-      you.style.bottom = "30px";
-      you.style.left = "50px";
-      partner.style.bottom = "30px";
-      partner.style.right = "50px";
-      
-      // Move closer on romantic scenes
-      if (["futureTalk", "quietBench", "readPoetry", "specialMoment"].includes(currentScene)) {
-        you.style.left = "100px";
-        partner.style.right = "100px";
-      }
-      
-      // Special animation for special moments
-      if (currentScene === "specialMoment") {
-        you.style.animation = "pulse 1.5s infinite";
-        partner.style.animation = "pulse 1.5s infinite 0.5s";
-      } else {
-        you.style.animation = "gentleSway 3s infinite";
-        partner.style.animation = "gentleSway 3s infinite 1s";
-      }
-    }
-    
-    // Create floating hearts
-    function createHearts(count) {
-      for (let i = 0; i < count; i++) {
-        const heart = document.createElement("div");
-        heart.className = 'floating-heart';
+        function moveCharacter(e) {
+            if (e.key === 'ArrowLeft' && characterPosition > 0) {
+                characterPosition -= 10;
+            } else if (e.key === 'ArrowRight' && characterPosition < 250) {
+                characterPosition += 10;
+            }
+            document.getElementById('game-character').style.left = characterPosition + 'px';
+        }
         
-        const heartTypes = ['❤️', '🧡', '💛', '💚', '💙', '💜', '💕', '💞', '💓', '💗', '💖', '💘'];
-        const randomHeart = heartTypes[Math.floor(Math.random() * heartTypes.length)];
-        
-        heart.innerHTML = randomHeart;
-        heart.style.fontSize = `${20 + Math.random() * 30}px`;
-        heart.style.left = `${10 + Math.random() * 80}%`;
-        heart.style.bottom = `-50px`;
-        heart.style.animationDuration = `${3 + Math.random() * 4}s`;
-        heart.style.animationDelay = `${Math.random() * 2}s`;
-        
-        document.body.appendChild(heart);
-        
-        setTimeout(() => {
-          heart.remove();
-        }, 5000);
-      }
-    }
-    
-    // Create background hearts
-    function createBackgroundHearts(count) {
-      const heartsContainer = document.getElementById('hearts-bg');
-      
-      for (let i = 0; i < count; i++) {
-        const heart = document.createElement("div");
-        heart.className = 'heart-bg';
-        heart.innerHTML = '❤️';
-        heart.style.left = `${Math.random() * 100}%`;
-        heart.style.top = `${Math.random() * 100}%`;
-        heart.style.animationDuration = `${15 + Math.random() * 30}s`;
-        heart.style.animationDelay = `${Math.random() * 15}s`;
-        heartsContainer.appendChild(heart);
-      }
-    }
-    
-    // Create petals
-    function createPetals(count) {
-      for (let i = 0; i < count; i++) {
-        const petal = document.createElement("div");
-        petal.className = 'petal';
-        petal.style.backgroundImage = "url('https://cdn-icons-png.flaticon.com/512/5238/5238375.png')";
-        petal.style.left = `${Math.random() * 100}%`;
-        petal.style.bottom = `-50px`;
-        petal.style.animationDuration = `${10 + Math.random() * 20}s`;
-        petal.style.animationDelay = `${Math.random() * 10}s`;
-        petal.style.transform = `rotate(${Math.random() * 360}deg)`;
-        document.body.appendChild(petal);
-        
-        setTimeout(() => {
-          petal.remove();
-        }, 30000);
-      }
-    }
-    
-    // Create confetti
-    function createConfetti() {
-      for (let i = 0; i < 150; i++) {
-        const confetti = document.createElement('div');
-        confetti.className = 'confetti';
-        confetti.style.left = `${Math.random() * 100}%`;
-        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
-        confetti.style.width = `${10 + Math.random() * 20}px`;
-        confetti.style.height = `${10 + Math.random() * 20}px`;
-        confetti.style.animationDuration = `${4 + Math.random() * 6}s`;
-        confetti.style.animationDelay = `${Math.random() * 3}s`;
-        document.body.appendChild(confetti);
-        
-        setTimeout(() => {
-          confetti.remove();
-        }, 10000);
-      }
-    }
-    
-    // Show main content
-    function showMain() {
-      document.getElementById('main-content').style.display = 'block';
-      document.getElementById('romantic-content').style.display = 'none';
-      document.getElementById('adventure-content').style.display = 'none';
-      document.getElementById('album-content').style.display = 'none';
-      createPetals(15);
-    }
-    
-    // Show romantic words
-    function showRomanticWords() {
-      document.getElementById('main-content').style.display = 'none';
-      document.getElementById('romantic-content').style.display = 'block';
-      document.getElementById('adventure-content').style.display = 'none';
-      document.getElementById('album-content').style.display = 'none';
-      newRomanticWord();
-      createPetals(20);
-    }
-    
-    // Show adventure game
-    function showAdventure() {
-      document.getElementById('main-content').style.display = 'none';
-      document.getElementById('romantic-content').style.display = 'none';
-      document.getElementById('adventure-content').style.display = 'block';
-      document.getElementById('album-content').style.display = 'none';
-      initAdventure();
-    }
-    
-    // Show photo album
-    function showAlbum() {
-      document.getElementById('main-content').style.display = 'none';
-      document.getElementById('romantic-content').style.display = 'none';
-      document.getElementById('adventure-content').style.display = 'none';
-      document.getElementById('album-content').style.display = 'block';
-      createPetals(15);
-    }
-    
-    // Generate new romantic word
-    function newRomanticWord() {
-      const randomWord = romanticWords[Math.floor(Math.random() * romanticWords.length)];
-      document.getElementById('romantic-text').textContent = randomWord;
-      createPetals(8);
-    }
-    
-    // Rotate romantic promises
-    function rotateRomanticPromise() {
-      const randomPromise = romanticPromises[Math.floor(Math.random() * romanticPromises.length)];
-      document.getElementById('romantic-promise').textContent = randomPromise;
-    }
-    
-    // Send virtual kiss
-    let kissCount = 0;
-    function sendKiss() {
-      kissCount++;
-      document.getElementById('kiss-count').textContent = `Kisses shared today: ${kissCount}`;
-      document.getElementById('kissSound').play();
-      
-      createHearts(3);
-      
-      if (kissCount % 5 === 0) {
-        createPetals(15);
-      }
-      if (kissCount % 10 === 0) {
-        createConfetti();
-      }
-    }
-    
-    // Initialize
-    window.onload = function() {
-      createBackgroundHearts(30);
-      createPetals(20);
-      
-      // Change romantic promise every 5 seconds
-      setInterval(rotateRomanticPromise, 5000);
-      
-      // Continuous petals
-      setInterval(() => {
-        createPetals(5);
-      }, 3000);
-    };
-  </script>
+        function createFallingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('falling-heart');
+            heart.style.left = Math.random() * 250 + 'px';
+            document.getElementById('game-container').appendChild(heart);
+            
+            let position = -30;
+            const fall = setInterval(() => {
+                position += 5;
+                heart.style.top = position + 'px';
+                
+                // Check if caught
+                if (position >= 250 && 
+                    parseInt(heart.style.left) >= characterPosition - 25 && 
+                    parseInt(heart.style.left) <= characterPosition + 25) {
+                    clearInterval(fall);
+                    heart.remove();
+                    gameScore++;
+                    document.getElementById('game-score').textContent = 'Score: ' + gameScore;
+                    if (gameScore % 5 === 0) createConfetti();
+                }
+                
+                // Check if missed
+                if (position > 300) {
+                    clearInterval(fall);
+                    heart.remove();
+                }
+            }, 20);
+        }
+
+        // Virtual Kiss
+        function sendKiss() {
+            document.getElementById('kiss-message').style.display = 'block';
+            createConfetti();
+            setTimeout(() => {
+                document.getElementById('kiss-message').style.display = 'none';
+            }, 2000);
+        }
+
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-02-14T00:00:00').getTime(); // CHANGE TO YOUR DATE
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Password Page
+        function showPasswordPage() {
+            document.getElementById('password-page').style.display = 'flex';
+        }
+
+        function checkPassword() {
+            const password = document.getElementById('password-input').value;
+            if (password === '0214') { // CHANGE TO YOUR SPECIAL DATE (MMDD)
+                alert('You unlocked my heart! 💖 Here's a secret: I love you more than anything!');
+                document.getElementById('password-page').style.display = 'none';
+                createConfetti();
+            } else {
+                document.getElementById('password-error').style.display = 'block';
+            }
+        }
+
+        // Confetti Effect
+        function createConfetti() {
+            const colors = ['#ff6b8b', '#ffb6c1', '#ff8fab', '#ffc0cb', '#ff69b4'];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = -10 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                document.body.appendChild(confetti);
+                
+                const animationDuration = Math.random() * 3 + 2;
+                confetti.style.animation = `fall ${animationDuration}s linear forwards`;
+                confetti.style.opacity = '1';
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, animationDuration * 1000);
+            }
+        }
+
+        // Add confetti animation
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Start with some floating hearts
+        window.onload = startFloatingHearts;
+    </script>
 </body>
 </html>
