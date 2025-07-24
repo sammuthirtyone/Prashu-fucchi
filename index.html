@@ -3,656 +3,501 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Kawaii Princess 💝</title>
+    <title>For Prashuuuu 💖</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Ultra Cute Pastel Palette */
-        :root {
-            --pink: #ffb6e6;
-            --mint: #b8ffd9;
-            --lavender: #d9b8ff;
-            --peach: #ffd6b8;
-            --sky: #b8e1ff;
-            --yellow: #fff2b8;
-        }
-        
+        /* === Cute Pastel Styling === */
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Comic Sans MS', 'Marker Felt', 'Arial Rounded MT Bold', sans-serif;
-            background: linear-gradient(135deg, #fff5f7, #f8f5ff);
-            color: #6a4c93;
+            font-family: 'Nunito', sans-serif;
+            background-color: #FFF5F5;
+            color: #D23669;
             overflow-x: hidden;
-            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="%23ff6b8b" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>'), auto;
         }
-        
-        /* Kawaii Cloud Header */
-        .kawaii-header {
-            background: white;
-            padding: 25px;
-            text-align: center;
-            border-radius: 0 0 50% 50%/0 0 30px 30px;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-            background-image: radial-gradient(circle at 10% 20%, var(--pink) 0%, transparent 20%), 
-                            radial-gradient(circle at 90% 30%, var(--mint) 0%, transparent 20%),
-                            radial-gradient(circle at 50% 80%, var(--lavender) 0%, transparent 20%);
+
+        h1, h2 {
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
-        .kawaii-header h1 {
-            margin: 0;
-            font-size: 3rem;
-            color: #ff6b8b;
-            text-shadow: 3px 3px 0px white, 5px 5px 0px rgba(255,107,139,0.2);
-            position: relative;
-            display: inline-block;
+
+        /* === Floating Hearts Background === */
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
-        
-        .kawaii-header h1::before, .kawaii-header h1::after {
-            content: "🌸";
-            position: absolute;
-            top: -10px;
-            font-size: 1.5rem;
-            animation: bounce 2s infinite;
-        }
-        
-        .kawaii-header h1::before {
-            left: -30px;
-        }
-        
-        .kawaii-header h1::after {
-            right: -30px;
-            animation-delay: 0.5s;
-        }
-        
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        /* Kawaii Animal Friends */
-        .animal-friends {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .animal {
-            width: 100px;
-            height: 100px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 50px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            position: relative;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .animal:hover {
-            transform: scale(1.1) rotate(10deg);
-        }
-        
-        .animal::after {
-            content: "";
+
+        .heart {
             position: absolute;
             width: 20px;
             height: 20px;
-            background: white;
-            border-radius: 50%;
-            top: 15px;
-            left: 15px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFB6C1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat;
+            opacity: 0.6;
+            animation: float 15s linear infinite;
         }
-        
-        /* Cuteness Overload Container */
-        .cuteness-overload {
-            max-width: 800px;
-            margin: 0 auto;
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-20vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* === Header with Typing Effect === */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #FFB6C1 0%, #A2D2FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .typing-text {
+            font-size: 2rem;
+            min-height: 80px;
+        }
+
+        /* === "Reasons Why You're Amazing" === */
+        .reasons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
             padding: 20px;
+        }
+
+        .reason-card {
             background: white;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border: 3px dotted var(--pink);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cuteness-overload::before {
-            content: "";
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 150px;
-            height: 150px;
-            background: var(--peach);
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-        
-        .cuteness-overload::after {
-            content: "";
-            position: absolute;
-            bottom: -30px;
-            left: -30px;
-            width: 100px;
-            height: 100px;
-            background: var(--mint);
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-        
-        /* Kawaii Button */
-        .kawaii-btn {
-            background: linear-gradient(45deg, var(--pink), var(--lavender));
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.3rem;
+            border-radius: 15px;
+            padding: 15px;
+            width: 200px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             cursor: pointer;
-            margin: 20px auto;
-            display: block;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1), 
-                        inset 0 -3px 0 rgba(0,0,0,0.1),
-                        inset 0 3px 0 rgba(255,255,255,0.3);
-            transition: all 0.3s;
-            font-family: inherit;
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
         }
-        
-        .kawaii-btn:hover {
-            transform: scale(1.05) rotate(-2deg);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15), 
-                       inset 0 -3px 0 rgba(0,0,0,0.1),
-                       inset 0 3px 0 rgba(255,255,255,0.3);
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
         }
-        
-        .kawaii-btn:active {
-            transform: scale(0.98);
-        }
-        
-        .kawaii-btn::after {
-            content: "";
+
+        .reason-card::after {
+            content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            transform: scale(0);
-            opacity: 0;
-            transition: transform 0.5s, opacity 1s;
-        }
-        
-        .kawaii-btn:active::after {
-            transform: scale(1);
-            opacity: 1;
-            transition: transform 0s, opacity 0s;
-        }
-        
-        /* Bouncing Hearts */
-        .hearts-container {
-            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 100;
+            background: linear-gradient(135deg, rgba(255,182,193,0.2) 0%, rgba(162,210,255,0.2) 100%);
+            z-index: -1;
         }
-        
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            opacity: 0;
-            animation: float 6s ease-in infinite;
+
+        /* === Polaroid Photo Gallery === */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 30px;
         }
-        
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.8; }
-            100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+
+        .polaroid {
+            background: white;
+            padding: 15px 15px 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
+            transition: transform 0.3s;
+            width: 200px;
         }
-        
-        /* Kawaii Photo Album */
-        .photo-album {
+
+        .polaroid:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #eee;
+        }
+
+        .polaroid p {
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            margin-top: 10px;
+        }
+
+        /* === "Open When" Letters === */
+        .letters-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin: 30px 0;
+            padding: 30px;
         }
-        
-        .photo-frame {
+
+        .envelope {
             width: 150px;
-            height: 150px;
-            background: white;
-            border-radius: 15px;
-            padding: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--pink);
+            height: 100px;
+            background: #FFB6C1;
             position: relative;
-            transition: all 0.3s;
-        }
-        
-        .photo-frame:hover {
-            transform: scale(1.05) rotate(5deg);
-        }
-        
-        .photo-frame::before {
-            content: "";
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            right: 5px;
-            bottom: 5px;
-            border: 2px dashed var(--lavender);
-            border-radius: 10px;
-            pointer-events: none;
-        }
-        
-        .photo-frame img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-        
-        /* Kawaii Love Meter */
-        .love-meter {
-            width: 80%;
-            height: 40px;
-            background: #f0f0f0;
-            border-radius: 20px;
-            margin: 30px auto;
-            overflow: hidden;
-            position: relative;
-            box-shadow: inset 0 3px 5px rgba(0,0,0,0.1);
-        }
-        
-        .love-level {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(90deg, #ffb6e6, #ff6b8b, #ff0066);
-            transform-origin: left;
-            transform: scaleX(0);
-            transition: transform 2s ease-out;
-            border-radius: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .love-level::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, 
-                rgba(255,255,255,0.8) 0%, 
-                rgba(255,255,255,0) 50%, 
-                rgba(255,255,255,0.8) 100%);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        .love-text {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-top: 15px;
-            font-weight: bold;
-            color: var(--lavender);
-            text-shadow: 2px 2px 0px white;
-            position: relative;
-        }
-        
-        .love-text::before, .love-text::after {
-            content: "💖";
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1.2rem;
-            animation: pulse 1.5s infinite;
-        }
-        
-        .love-text::before {
-            left: -30px;
-        }
-        
-        .love-text::after {
-            right: -30px;
-            animation-delay: 0.5s;
-        }
-        
-        @keyframes pulse {
-            0% { transform: translateY(-50%) scale(1); }
-            50% { transform: translateY(-50%) scale(1.3); }
-            100% { transform: translateY(-50%) scale(1); }
-        }
-        
-        /* Kawaii Popup */
-        .kawaii-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
-        
-        .kawaii-popup.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-        
-        .popup-content {
-            background: white;
-            padding: 30px;
-            border-radius: 30px;
-            max-width: 500px;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            border: 3px solid var(--pink);
-            position: relative;
-            transform: scale(0.8);
-            transition: transform 0.3s;
-        }
-        
-        .kawaii-popup.active .popup-content {
-            transform: scale(1);
-        }
-        
-        .popup-content::before {
-            content: "";
-            position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border: 3px dashed var(--mint);
-            border-radius: 40px;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .popup-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--pink);
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            border-radius: 5px;
             cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
-        
-        /* Kawaii Footer */
-        .kawaii-footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: white;
-            border-radius: 30px 30px 0 0;
-            position: relative;
-        }
-        
-        .kawaii-footer::before {
-            content: "";
+
+        .envelope:before {
+            content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 15px;
-            background: linear-gradient(90deg, var(--pink), var(--mint), var(--lavender), var(--peach), var(--sky), var(--yellow));
-            border-radius: 30px 30px 0 0;
+            width: 0;
+            height: 0;
+            border-left: 75px solid transparent;
+            border-right: 75px solid transparent;
+            border-top: 50px solid #FF8FA3;
+            transform-origin: top;
+            transform: rotateX(0deg);
+            transition: all 0.3s ease-in-out;
+            z-index: 3;
         }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .kawaii-header h1 {
-                font-size: 2rem;
-            }
-            
-            .animal {
-                width: 80px;
-                height: 80px;
-                font-size: 40px;
-            }
-            
-            .photo-frame {
-                width: 120px;
-                height: 120px;
-            }
+
+        .envelope:hover:before {
+            transform: rotateX(180deg);
+        }
+
+        .envelope:hover {
+            transform: translateY(-10px);
+        }
+
+        .envelope .letter {
+            position: absolute;
+            background: white;
+            width: 90%;
+            height: 90%;
+            left: 5%;
+            top: 5%;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            padding: 10px;
+            box-sizing: border-box;
+            opacity: 0;
+        }
+
+        .envelope:hover .letter {
+            top: -80px;
+            opacity: 1;
+            z-index: 5;
+        }
+
+        .envelope p {
+            margin: 0;
+            font-size: 0.8rem;
+        }
+
+        .envelope-label {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* === Confetti Button === */
+        .confetti-btn {
+            background: linear-gradient(135deg, #FFB6C1 0%, #A2D2FF 100%);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .confetti-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* === Hidden Surprise === */
+        .secret {
+            text-align: center;
+            margin: 50px 0;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .secret.show {
+            opacity: 1;
+        }
+
+        /* === Footer === */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255,182,193,0.2) 0%, rgba(162,210,255,0.2) 100%);
+            margin-top: 50px;
+        }
+
+        .heart-cursor {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23FFB6C1'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>"), auto;
         }
     </style>
 </head>
-<body>
-    <!-- Kawaii Cloud Header -->
-    <div class="kawaii-header">
-        <h1>My Precious Kawaii Princess 💝</h1>
+<body class="heart-cursor">
+    <!-- Floating Hearts Background -->
+    <div class="hearts-background" id="hearts-bg"></div>
+
+    <!-- Header with Typing Animation -->
+    <div class="header">
+        <h1>For Prashuuu</h1>
+        <div class="typing-text" id="typing-text"></div>
     </div>
-    
-    <!-- Bouncing Hearts Container -->
-    <div class="hearts-container" id="heartsContainer"></div>
-    
-    <!-- Main Content -->
-    <div class="cuteness-overload">
-        <!-- Kawaii Animal Friends -->
-        <div class="animal-friends">
-            <div class="animal" onclick="showPopup('🐰', 'Bunny says: You make my heart hop with joy!')">🐰</div>
-            <div class="animal" onclick="showPopup('🐻', 'Teddy bear says: I want to hug you forever!')">🐻</div>
-            <div class="animal" onclick="showPopup('🐱', 'Kitty says: You purr-fectly complete me!')">🐱</div>
-            <div class="animal" onclick="showPopup('🦊', 'Fox says: You\'re foxy and I adore you!')">🦊</div>
-            <div class="animal" onclick="showPopup('🐶', 'Puppy says: I woof you so much!')">🐶</div>
-        </div>
-        
-        <!-- Kawaii Button -->
-        <button class="kawaii-btn" id="magicBtn">Click for Unlimited Cuteness! ✨</button>
-        
-        <!-- Kawaii Photo Album -->
-        <div class="photo-album">
-            <div class="photo-frame">
-                <img src="Screenshot 2025-07-03 172105.png" alt="Your Beautiful Face" id="photo1">
+
+    <!-- Reasons Why You're Amazing -->
+    <section>
+        <h2 style="text-align: center;">Reasons Why You're Amazing</h2>
+        <div class="reasons-container">
+            <div class="reason-card" onclick="showConfetti(this)">
+                Your smile lights up my world
             </div>
-            <div class="photo-frame">
-                <img src="Screenshot 2025-07-03 172126.png" alt="Your Beautiful Face" id="photo2">
+            <div class="reason-card" onclick="showConfetti(this)">
+                You're the kindest person I know
             </div>
-            <div class="photo-frame">
-                <img src="Screenshot 2025-07-03 172152.png" alt="Your Beautiful Face" id="photo3">
+            <div class="reason-card" onclick="showConfetti(this)">
+                You make ordinary days magical
             </div>
-            <div class="photo-frame">
-                <img src="Screenshot 2025-07-06 135603.png" alt="Your Beautiful Face" id="photo4">
+            <div class="reason-card" onclick="showConfetti(this)">
+                Your brown eyes are mesmerizing
+            </div>
+            <div class="reason-card" onclick="showConfetti(this)">
+                You always know how to make me laugh
+            </div>
+            <div class="reason-card" onclick="showConfetti(this)">
+                You're my favorite person to talk to
             </div>
         </div>
-        
-        <!-- Kawaii Love Meter -->
-        <div class="love-meter">
-            <div class="love-level" id="loveLevel"></div>
+    </section>
+
+    <!-- Polaroid Photo Gallery -->
+    <section>
+        <h2 style="text-align: center;">My property</h2>
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="Screenshot 2025-07-03 172105.png" alt="Our memory">
+                <p>My pookiee</p>
+            </div>
+            <div class="polaroid">
+                <img src="Screenshot 2025-07-03 172126.png" alt="Our memory">
+                <p>My sweetheart</p>
+            </div>
+            <div class="polaroid">
+                <img src="Screenshot 2025-07-03 172152.png" alt="Our memory">
+                <p>My cutiee</p>
+            </div>
         </div>
-        <div class="love-text" id="loveText">Our Love Level: Loading...</div>
-        
-        <!-- Another Kawaii Button -->
-        <button class="kawaii-btn" id="surpriseBtn">I Have a Special Surprise! 🎁</button>
-    </div>
-    
-    <!-- Kawaii Popup -->
-    <div class="kawaii-popup" id="popup">
-        <div class="popup-content">
-            <button class="popup-close" id="closePopup">×</button>
-            <h2 id="popupTitle">Hello Cutie!</h2>
-            <p id="popupMessage">You're the sweetest person in the whole universe!</p>
-            <button class="kawaii-btn" id="popupBtn">OK! 💖</button>
+    </section>
+
+    <!-- Open When Letters -->
+    <section>
+        <h2 style="text-align: center;">Open When...</h2>
+        <div class="letters-container">
+            <div class="envelope">
+                <div class="letter">
+                    <p>I know today was tough, but remember how strong you are. I love you so much.</p>
+                </div>
+                <div class="envelope-label">You're Sad</div>
+            </div>
+            <div class="envelope">
+                <div class="letter">
+                    <p>Remember that time we [funny memory]? I can't stop smiling thinking about it!</p>
+                </div>
+                <div class="envelope-label">You Need a Laugh</div>
+            </div>
+            <div class="envelope">
+                <div class="letter">
+                    <p>No matter how far apart we are, my heart is always with you.</p>
+                </div>
+                <div class="envelope-label">You Miss Me</div>
+            </div>
         </div>
+    </section>
+
+    <!-- Confetti Button -->
+    <button class="confetti-btn" onclick="showConfetti(this, true)">Click for Extra Love!</button>
+
+    <!-- Hidden Surprise -->
+    <div class="secret" id="secret-message">
+        <h2>Psst... I have a secret</h2>
+        <p>I love you more than words can say</p>
+        <p id="counter">Counting the days since I fell for you: <span id="days-count">0</span></p>
     </div>
-    
-    <!-- Kawaii Footer -->
-    <div class="kawaii-footer">
-        <p>Made with infinite love and cuteness for you, my sunshine! 🌸</p>
-        <p>You make every day brighter than a rainbow! 🌈</p>
-    </div>
-    
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with <i class="fas fa-heart" style="color: #FF6B6B;"></i> for you</p>
+        <p style="font-size: 0.8rem;">(Try clicking the heart 5 times)</p>
+    </footer>
+
     <script>
-        // Array of super cute messages
-        const cuteMessages = [
-            "You're sweeter than a cupcake with extra sprinkles! 🧁",
-            "My heart does backflips every time I see you! 🤸‍♀️",
-            "You're my favorite notification in this world! 📱💖",
-            "If cuteness was a crime, you'd be life in prison! 👮‍♀️",
-            "You're the human equivalent of a puppy video! 🐶",
-            "I'd swipe right on you every day of my life! 💘",
-            "You're the marshmallow in my hot chocolate! ☕",
-            "My love for you is bigger than all the hearts on Instagram! ❤️",
-            "You're the emoji I'd use to describe perfect! 💯",
-            "Being with you feels like a never-ending hug! 🤗"
+        // === Typing Animation ===
+        const messages = [
+            "Hey Prashuuuuu, this is just for you.",
+            "Because you deserve all the love in the world.",
+            "You make my life so much brighter.",
+            "I love you more every day."
         ];
-        
-        // Create floating hearts
-        function createHearts(count = 30) {
-            const container = document.getElementById('heartsContainer');
-            const hearts = ['💖', '🌸', '✨', '💝', '💕', '💓', '💗', '💘', '💞'];
+        let messageIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingText = document.getElementById('typing-text');
+
+        function typeWriter() {
+            const currentMessage = messages[messageIndex];
             
-            for (let i = 0; i < count; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 4 + 3) + 's';
-                heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
-                container.appendChild(heart);
+            if (isDeleting) {
+                typingText.textContent = currentMessage.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentMessage.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentMessage.length) {
+                isDeleting = true;
+                setTimeout(typeWriter, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                messageIndex = (messageIndex + 1) % messages.length;
+                setTimeout(typeWriter, 500);
+            } else {
+                const speed = isDeleting ? 100 : 150;
+                setTimeout(typeWriter, speed);
             }
         }
-        
-        // Show kawaii popup
-        function showPopup(emoji, message) {
-            const popup = document.getElementById('popup');
-            document.getElementById('popupTitle').textContent = emoji + ' Message!';
-            document.getElementById('popupMessage').textContent = message;
-            popup.classList.add('active');
-            
-            // Create hearts around clicked animal
-            createHearts(10);
+
+        // === Floating Hearts ===
+        function createHearts() {
+            const heartsBg = document.getElementById('hearts-bg');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.top = Math.random() * 100 + 'vh';
+                heart.style.opacity = Math.random() * 0.5 + 0.1;
+                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+                heart.style.animationDuration = Math.random() * 10 + 10 + 's';
+                heartsBg.appendChild(heart);
+            }
         }
-        
-        // Close popup
-        document.getElementById('closePopup').addEventListener('click', () => {
-            document.getElementById('popup').classList.remove('active');
-        });
-        
-        document.getElementById('popupBtn').addEventListener('click', () => {
-            document.getElementById('popup').classList.remove('active');
-        });
-        
-        // Magic button
-        document.getElementById('magicBtn').addEventListener('click', function() {
-            // Animate love meter
-            const loveLevel = document.getElementById('loveLevel');
-            const loveText = document.getElementById('loveText');
+
+        // === Confetti Effect ===
+        function showConfetti(element, isBig = false) {
+            if (isBig) {
+                // Create big confetti
+                for (let i = 0; i < 100; i++) {
+                    createConfettiParticle(true);
+                }
+            } else {
+                // Create small confetti near the clicked element
+                const rect = element.getBoundingClientRect();
+                const x = rect.left + rect.width / 2;
+                const y = rect.top + rect.height / 2;
+                
+                for (let i = 0; i < 20; i++) {
+                    createConfettiParticle(false, x, y);
+                }
+            }
+        }
+
+        function createConfettiParticle(isBig, x = null, y = null) {
+            const colors = ['#FFB6C1', '#A2D2FF', '#B5EAD7', '#E0BBE4', '#FFDAC1'];
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.width = isBig ? '12px' : '8px';
+            confetti.style.height = isBig ? '12px' : '8px';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.borderRadius = '50%';
+            confetti.style.pointerEvents = 'none';
             
-            loveLevel.style.transform = 'scaleX(1)';
-            loveText.textContent = "Our Love Level: OVER 9000!!! 💥";
+            if (x && y) {
+                confetti.style.left = x + 'px';
+                confetti.style.top = y + 'px';
+            } else {
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.top = '-10px';
+            }
             
-            // Create massive floating effects
-            createHearts(100);
+            document.body.appendChild(confetti);
             
-            // Show random cute message
-            const randomMessage = cuteMessages[Math.floor(Math.random() * cuteMessages.length)];
-            document.getElementById('popupTitle').textContent = "Cuteness Alert! 🚨";
-            document.getElementById('popupMessage').textContent = randomMessage;
-            document.getElementById('popup').classList.add('active');
-            
-            // Make button bounce
-            this.style.animation = 'bounce 0.5s';
-            setTimeout(() => {
-                this.style.animation = '';
-            }, 500);
-        });
-        
-        // Surprise button
-        document.getElementById('surpriseBtn').addEventListener('click', function() {
-            // Create ultra cute explosion
-            createHearts(150);
-            
-            // Show special message
-            document.getElementById('popupTitle').textContent = "To My Sunshine 🌞";
-            document.getElementById('popupMessage').innerHTML = 
-                "You've unlocked the ultimate cuteness!<br><br>" +
-                "No matter how many stars twinkle in the sky, none shine as bright as you.<br><br>" +
-                "You're my favorite hello and my hardest goodbye. I love you more than all the rice in Japan! 🍚💖";
-            document.getElementById('popup').classList.add('active');
-            
-            // Animate everything
-            const animals = document.querySelectorAll('.animal');
-            animals.forEach(animal => {
-                animal.style.animation = 'bounce 0.8s';
-                setTimeout(() => {
-                    animal.style.animation = '';
-                }, 800);
+            const animation = confetti.animate([
+                { 
+                    transform: `translate(${Math.random() * 200 - 100}px, ${window.innerHeight}px) rotate(${Math.random() * 360}deg)`,
+                    opacity: 1 
+                },
+                { 
+                    transform: `translate(${Math.random() * 400 - 200}px, ${window.innerHeight + 100}px) rotate(${Math.random() * 720}deg)`,
+                    opacity: 0 
+                }
+            ], {
+                duration: Math.random() * 2000 + 1000,
+                easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
             });
             
-            const photos = document.querySelectorAll('.photo-frame');
-            photos.forEach(photo => {
-                photo.style.animation = 'pulse 1s';
-                setTimeout(() => {
-                    photo.style.animation = '';
-                }, 1000);
-            });
+            animation.onfinish = () => confetti.remove();
+        }
+
+        // === Hidden Surprise ===
+        let clickCount = 0;
+        const heartIcon = document.querySelector('.fa-heart');
+        
+        heartIcon.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount >= 5) {
+                document.getElementById('secret-message').classList.add('show');
+                
+                // Calculate days since a special date (change to your date)
+                const specialDate = new Date('2023-01-01');
+                const today = new Date();
+                const diffTime = today - specialDate;
+                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                document.getElementById('days-count').textContent = diffDays;
+            }
         });
-        
-        // Replace with your photos
-        // document.getElementById('photo1').src = "your-image-url-1.jpg";
-        // document.getElementById('photo2').src = "your-image-url-2.jpg";
-        // document.getElementById('photo3').src = "your-image-url-3.jpg";
-        // document.getElementById('photo4').src = "your-image-url-4.jpg";
-        
-        // Initialize when page loads
+
+        // Initialize
         window.onload = function() {
+            typeWriter();
             createHearts();
-            
-            // Animate love meter on load
-            setTimeout(() => {
-                const loveLevel = document.getElementById('loveLevel');
-                loveLevel.style.transform = 'scaleX(0.98)';
-                document.getElementById('loveText').textContent = "Our Love Level: Infinite Cuteness! 💞";
-            }, 1000);
-            
-            // Make animals bounce randomly
-            setInterval(() => {
-                const animals = document.querySelectorAll('.animal');
-                const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
-                randomAnimal.style.animation = 'bounce 0.8s';
-                setTimeout(() => {
-                    randomAnimal.style.animation = '';
-                }, 800);
-            }, 3000);
         };
     </script>
 </body>
