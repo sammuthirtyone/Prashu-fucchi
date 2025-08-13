@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Precious Prashu 💕</title>
+    <title>For My Sweet Prashu 💕</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Pacifico&display=swap');
         
@@ -15,8 +15,16 @@
             text-align: center;
             color: #ff69b4;
             overflow-x: hidden;
-            background-image: radial-gradient(#ffc0cb 2px, transparent 2px);
-            background-size: 30px 30px;
+            background-image: 
+                radial-gradient(#ffc0cb 2px, transparent 2px),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffb6c1"><path d="M30,50 Q50,30 70,50 Q50,70 30,50 Z"/></svg>');
+            background-size: 30px 30px, 50px 50px;
+            animation: bgFloat 20s linear infinite;
+        }
+        
+        @keyframes bgFloat {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 30px 30px, 50px 50px; }
         }
         
         .container {
@@ -173,171 +181,120 @@
             100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
         
-        #love-meter {
-            width: 100%;
-            height: 40px;
-            background-color: #ffe4e1;
-            border-radius: 20px;
-            margin: 20px 0;
-            overflow: hidden;
-            border: 2px solid #ffb6c1;
-            box-shadow: inset 0 0 10px rgba(255, 105, 180, 0.3);
+        .crying-emoji {
+            font-size: 2em;
+            animation: cryBounce 1s infinite;
         }
         
-        #love-level {
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(90deg, #ff69b4, #ff1493);
-            border-radius: 20px;
-            transition: width 0.5s;
-            position: relative;
-            overflow: hidden;
+        @keyframes cryBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         
-        #love-level::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, 
-                            rgba(255,255,255,0.1) 0%, 
-                            rgba(255,255,255,0.3) 50%, 
-                            rgba(255,255,255,0.1) 100%);
-            animation: shine 2s infinite;
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        #compliment-container {
-            min-height: 120px;
-            padding: 20px;
+        .miss-you-container {
             background: linear-gradient(45deg, #fff0f5, #ffe4e1);
+            padding: 20px;
             border-radius: 20px;
             margin: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border: 2px dotted #ff69b4;
             font-size: 1.3em;
             position: relative;
         }
         
-        #compliment-container::before, #compliment-container::after {
-            content: '❣️';
+        .miss-you-container::before, .miss-you-container::after {
+            content: '💔';
             position: absolute;
             font-size: 1.5em;
         }
         
-        #compliment-container::before {
+        .miss-you-container::before {
             left: 10px;
             top: 10px;
         }
         
-        #compliment-container::after {
+        .miss-you-container::after {
             right: 10px;
             bottom: 10px;
         }
         
-        #game-area {
-            background: linear-gradient(45deg, #fff0f5, #ffe4e1);
-            padding: 25px;
-            border-radius: 25px;
-            margin-top: 20px;
-            border: 2px dotted #ff69b4;
-        }
-        
-        #clicker-button {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ff69b4, #ff1493);
-            color: white;
-            border: 4px solid white;
-            font-size: 2em;
-            cursor: pointer;
-            transition: transform 0.1s;
-            margin: 20px 0;
-            box-shadow: 0 8px 16px rgba(255, 105, 180, 0.4);
+        .chocolate {
+            width: 100px;
+            height: 60px;
+            background: #5D4037;
+            border-radius: 10px;
+            margin: 20px auto;
             position: relative;
-            overflow: hidden;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            animation: chocolateFloat 3s ease-in-out infinite;
         }
         
-        #clicker-button:hover {
-            animation: heartBeat 0.5s;
+        @keyframes chocolateFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
         }
         
-        @keyframes heartBeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        #clicker-button:active {
-            transform: scale(0.95);
-        }
-        
-        #clicker-button::after {
+        .chocolate::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
+            width: 90%;
+            height: 80%;
+            top: 10%;
+            left: 5%;
+            background: linear-gradient(135deg, transparent 45%, rgba(255,255,255,0.3) 50%, transparent 55%);
+            border-radius: 5px;
         }
         
-        #clicker-button:active::after {
-            opacity: 0.5;
+        .desert {
+            width: 120px;
+            height: 80px;
+            background: #FFD54F;
+            border-radius: 10px 10px 50px 50px;
+            margin: 20px auto;
+            position: relative;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            animation: desertFloat 3s ease-in-out infinite;
         }
         
-        #fortune-button {
-            background: linear-gradient(45deg, #ba68c8, #9c27b0);
+        @keyframes desertFloat {
+            0%, 100% { transform: translateY(0) rotate(2deg); }
+            50% { transform: translateY(-10px) rotate(-2deg); }
         }
         
-        #kisses-counter {
-            font-size: 1.8em;
-            color: #ff1493;
-            font-weight: bold;
-            text-shadow: 0 2px 4px rgba(255, 20, 147, 0.3);
-        }
-        
-        .sticker {
+        .desert::before {
+            content: '';
             position: absolute;
-            font-size: 2em;
-            z-index: -1;
-            opacity: 0.7;
-            animation: stickerFloat 15s linear infinite;
-        }
-        
-        @keyframes stickerFloat {
-            0% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(180deg); }
-            100% { transform: translateY(0) rotate(360deg); }
-        }
-        
-        .bubble {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.7);
+            width: 100%;
+            height: 30px;
+            bottom: -10px;
+            left: 0;
+            background: #FFD54F;
             border-radius: 50%;
-            filter: blur(2px);
-            animation: bubbleFloat 10s linear infinite;
-            z-index: -1;
+            filter: blur(5px);
+            opacity: 0.7;
         }
         
-        @keyframes bubbleFloat {
-            0% { transform: translateY(0) scale(0.5); opacity: 0; }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.5; }
-            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+        .desert::after {
+            content: '🍓';
+            position: absolute;
+            font-size: 1.5em;
+            top: 10px;
+            left: 20px;
+            transform: rotate(-20deg);
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            border-radius: 50%;
+            animation: confettiFall 5s linear forwards;
+            z-index: 1000;
+        }
+        
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
         
         .cute-list {
@@ -368,36 +325,34 @@
             left: 10px;
         }
         
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
+        .bubble {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.7);
             border-radius: 50%;
-            animation: confettiFall 5s linear forwards;
-            z-index: 1000;
+            filter: blur(2px);
+            animation: bubbleFloat 10s linear infinite;
+            z-index: -1;
         }
         
-        @keyframes confettiFall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        @keyframes bubbleFloat {
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
         }
         
-        .cute-input {
-            padding: 10px;
-            border: 2px solid #ffb6c1;
-            border-radius: 20px;
-            font-family: 'Indie Flower', cursive;
-            font-size: 1.1em;
-            width: 200px;
-            margin: 10px;
-            outline: none;
-            transition: all 0.3s;
+        .sticker {
+            position: absolute;
+            font-size: 2em;
+            z-index: -1;
+            opacity: 0.7;
+            animation: stickerFloat 15s linear infinite;
         }
         
-        .cute-input:focus {
-            border-color: #ff69b4;
-            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+        @keyframes stickerFloat {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
         }
         
         .secret-message {
@@ -427,67 +382,30 @@
             color: #ff69b4;
         }
         
-        .pet {
-            width: 100px;
-            height: 100px;
-            background-color: #ffb6c1;
-            border-radius: 50%;
-            position: relative;
-            margin: 20px auto;
-            animation: petBounce 2s infinite;
+        .cute-input {
+            padding: 10px;
+            border: 2px solid #ffb6c1;
+            border-radius: 20px;
+            font-family: 'Indie Flower', cursive;
+            font-size: 1.1em;
+            width: 200px;
+            margin: 10px;
+            outline: none;
+            transition: all 0.3s;
         }
         
-        @keyframes petBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .cute-input:focus {
+            border-color: #ff69b4;
+            box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
         }
         
-        .pet::before, .pet::after {
-            content: '';
-            position: absolute;
-            background-color: white;
-            border-radius: 50%;
+        .melt {
+            animation: melt 2s forwards;
         }
         
-        .pet::before {
-            width: 30px;
-            height: 30px;
-            top: 30px;
-            left: 20px;
-        }
-        
-        .pet::after {
-            width: 30px;
-            height: 30px;
-            top: 30px;
-            right: 20px;
-        }
-        
-        .pet-eye {
-            width: 10px;
-            height: 10px;
-            background-color: #333;
-            border-radius: 50%;
-            position: absolute;
-            top: 40px;
-        }
-        
-        .pet-eye.left {
-            left: 35px;
-        }
-        
-        .pet-eye.right {
-            right: 35px;
-        }
-        
-        .pet-mouth {
-            width: 30px;
-            height: 15px;
-            border-bottom: 3px solid #333;
-            border-radius: 0 0 30px 30px;
-            position: absolute;
-            bottom: 30px;
-            left: 35px;
+        @keyframes melt {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(0) rotate(360deg); }
         }
     </style>
 </head>
@@ -498,118 +416,54 @@
     
     <div class="container">
         <header>
-            <h1>For My Precious Prashu 💕</h1>
-            <p class="subtitle">Every button is a little surprise just for you!</p>
+            <h1>For My Sweet Prashu 💕</h1>
+            <p class="subtitle">I miss you so much... 🥺</p>
         </header>
         
         <div class="button-grid">
-            <button class="cute-button" onclick="showPage('reasons')">Why You're Amazing ✨</button>
-            <button class="cute-button" onclick="showPage('compliments')">Sweet Words 🍯</button>
-            <button class="cute-button" onclick="showPage('love-meter')">Love Meter 💘</button>
-            <button class="cute-button" onclick="showPage('games')">Cute Games 🎮</button>
-            <button class="cute-button" onclick="showPage('pet')">Virtual Pet 🐾</button>
+            <button class="cute-button" onclick="showPage('miss-you')">I Miss You! 🥺</button>
+            <button class="cute-button" onclick="showPage('chocolate')">Chocolate Herna! 🍫</button>
+            <button class="cute-button" onclick="showPage('desert')">Desert Herna! 🍨</button>
             <button class="cute-button special-button" onclick="megaSurprise()">Super Special Button! 🌈</button>
         </div>
         
-        <div id="reasons" class="page hidden">
-            <h2>💖 Reasons Why You're Incredible 💖</h2>
-            <ul class="cute-list">
-                <li>Your smile is my favorite thing in the world</li>
-                <li>You have the most beautiful heart I've ever known</li>
-                <li>Your laugh is like music to my ears</li>
-                <li>You make ordinary moments magical</li>
-                <li>You understand me better than anyone</li>
-                <li>Your hugs are my safe place</li>
-                <li>You're stronger than you realize</li>
-                <li>You inspire me to be better every day</li>
-            </ul>
-            <button class="cute-button" onclick="addMoreReasons()">More Reasons! 💌</button>
-            <div id="more-reasons" class="hidden" style="margin-top: 15px;">
-                <ul class="cute-list">
-                    <li>The way you care about others is extraordinary</li>
-                    <li>Your eyes sparkle like stars</li>
-                    <li>Your voice comforts me instantly</li>
-                    <li>You're my favorite person to talk to about anything</li>
-                    <li>You turn every day into an adventure</li>
-                </ul>
+        <div id="miss-you" class="page">
+            <h2>I Miss You So Much! <span class="crying-emoji">🥺</span></h2>
+            <div class="miss-you-container">
+                <p>Every moment without you feels so empty...</p>
+                <p>I can't wait to see you again my love 💔</p>
+                <p>Please come back soon, I miss your smile, your laugh, everything about you!</p>
             </div>
+            <button class="cute-button" onclick="createHearts(30)">Send Virtual Hugs! 🤗</button>
         </div>
         
-        <div id="compliments" class="page hidden">
-            <h2>🌸 Sweet Words Just For You 🌸</h2>
-            <div id="compliment-container">
-                <p id="compliment-text">Click the button below for a sweet message!</p>
+        <div id="chocolate" class="page hidden">
+            <h2>Chocolate Herna Manlayo! <span class="crying-emoji">🍫🥺</span></h2>
+            <div class="chocolate"></div>
+            <div class="miss-you-container">
+                <p>Mero chocolatw herna manlaxa.</p>
+                <p>My chocolate is soo tasty</p>
+                <p>and its soo much gorgeous💖</p>
             </div>
-            <button class="cute-button" onclick="generateCompliment()">Give Me a Compliment! 💝</button>
-            <div style="margin-top: 20px;">
-                <input type="text" class="cute-input" id="custom-compliment" placeholder="Write your own sweet message">
-                <button class="cute-button" onclick="addCustomCompliment()">Add to Collection! ✏️</button>
-            </div>
+            <button class="cute-button" onclick="meltChocolate()">Melt the Chocolate! 🔥</button>
         </div>
         
-        <div id="love-meter" class="page hidden">
-            <h2>💞 How Much I Love You 💞</h2>
-            <p>(It's way more than this meter can measure!)</p>
-            <div id="love-meter-bar">
-                <div id="love-level" style="width: 100%;"></div>
+        <div id="desert" class="page hidden">
+            <h2>Desert Herna Manlayo! <span class="crying-emoji">🍨🥺</span></h2>
+            <div class="desert"></div>
+            <div class="miss-you-container">
+                <p>I want to see my desert soo much...</p>
+                <p>even more after knowing it looks soo tasty</p>
+                <p>day by day wait gariraxu aba🥺🥺</p>
             </div>
-            <button class="cute-button" onclick="increaseLove()">Increase Love! 💗</button>
-            <p id="love-message">I love you more than words can say! ❤️❤️❤️</p>
-        </div>
-        
-        <div id="games" class="page hidden">
-            <h2>🎀 Cute Games For You �</h2>
-            
-            <div id="clicker-game">
-                <h3>Kiss Collector 💋</h3>
-                <p>Click the button to collect kisses from me!</p>
-                <button id="clicker-button" onclick="addKiss()">💋</button>
-                <p>Kisses collected: <span id="kisses-counter">0</span></p>
-                <p id="kisses-message" style="font-size: 1.2em;"></p>
-            </div>
-            
-            <div id="fortune-game" style="margin-top: 30px;">
-                <h3>✨ Your Daily Fortune ✨</h3>
-                <p id="fortune-text">Click the button to see what wonderful things await you today!</p>
-                <button class="cute-button" onclick="showFortune()">Get My Fortune! 🔮</button>
-            </div>
-            
-            <div id="secret-game" style="margin-top: 30px;">
-                <h3>💌 Secret Message 💌</h3>
-                <p>Enter the secret code to unlock a special message!</p>
-                <input type="text" class="cute-input" id="secret-code" placeholder="Try 'Prashu'">
-                <button class="cute-button" onclick="checkSecretCode()">Unlock! 🗝️</button>
-            </div>
-        </div>
-        
-        <div id="pet" class="page hidden">
-            <h2>🐾 Your Virtual Pet 🐾</h2>
-            <p>Take care of your cute little pet!</p>
-            
-            <div class="pet">
-                <div class="pet-eye left"></div>
-                <div class="pet-eye right"></div>
-                <div class="pet-mouth"></div>
-            </div>
-            
-            <div id="pet-status">
-                <p>Happiness: <span id="pet-happy">50</span>% ❤️</p>
-                <p>Energy: <span id="pet-energy">50</span>% ⚡</p>
-            </div>
-            
-            <div class="button-grid">
-                <button class="cute-button" onclick="petAction('feed')">Feed 🍎</button>
-                <button class="cute-button" onclick="petAction('play')">Play 🎾</button>
-                <button class="cute-button" onclick="petAction('sleep')">Nap 😴</button>
-                <button class="cute-button" onclick="petAction('hug')">Hug 🤗</button>
-            </div>
+            <button class="cute-button" onclick="eatDesert()">Eat the Desert! 🥄</button>
         </div>
     </div>
     
     <div class="secret-message" id="secret-message">
         <button class="close-message" onclick="closeMessage()">×</button>
         <h2>💖 My Secret Message For You 💖</h2>
-        <p id="secret-message-content">You found the secret! You're the most special person in my world!</p>
+        <p id="secret-message-content">Prashu, no matter how much chocolate or desert we have, nothing is sweeter than you! I miss you so much!</p>
     </div>
     
     <script>
@@ -620,6 +474,7 @@
             });
             document.getElementById(pageId).classList.remove('hidden');
             createBubbles(5);
+            createHearts(10);
         }
         
         // Create floating hearts
@@ -641,9 +496,6 @@
                     heart.remove();
                 }, 4000);
             }
-            
-            // Play a cute sound (would need actual sound file)
-            // new Audio('heart-sound.mp3').play();
         }
         
         // Create floating bubbles
@@ -704,194 +556,36 @@
             }
         }
         
-        // Compliment generator
-        const compliments = [
-            "You're the most beautiful person I know, inside and out!",
-            "Your smile could light up the darkest room!",
-            "I'm so lucky to have someone as wonderful as you in my life!",
-            "You make my heart skip a beat every time I see you!",
-            "Your kindness touches everyone around you!",
-            "You're my favorite thought every morning and my last thought every night!",
-            "The way you care about others is truly inspiring!",
-            "You're not just my girlfriend, you're my best friend and my everything!",
-            "Every moment with you feels like a dream come true!",
-            "You're the reason I believe in love!",
-            "Your laugh is my favorite sound in the world!",
-            "You're more amazing than you'll ever realize!",
-            "Being with you is my happy place!",
-            "You make my life so much brighter just by being in it!",
-            "I fall in love with you more every day!"
-        ];
-        
-        function generateCompliment() {
-            const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
-            document.getElementById('compliment-text').textContent = randomCompliment;
-            createHearts(15);
-            createBubbles(5);
-        }
-        
-        function addCustomCompliment() {
-            const customCompliment = document.getElementById('custom-compliment').value;
-            if (customCompliment.trim() !== '') {
-                compliments.push(customCompliment);
-                document.getElementById('custom-compliment').value = '';
-                document.getElementById('compliment-text').textContent = "I'll remember that! Here's one for you: " + 
-                    compliments[Math.floor(Math.random() * compliments.length)];
-                createHearts(20);
-                createConfetti();
-            }
-        }
-        
-        // Love meter
-        let loveLevel = 100;
-        
-        function increaseLove() {
-            if (loveLevel < 100) {
-                loveLevel += 10;
-                if (loveLevel > 100) loveLevel = 100;
-                document.getElementById('love-level').style.width = loveLevel + '%';
-                document.getElementById('love-message').textContent = 
-                    loveLevel === 100 ? "I love you more than words can say! ❤️❤️❤️" : 
-                    "I love you this much! ❤️";
-                createHearts(10);
-            } else {
-                document.getElementById('love-message').textContent = "My love for you is already infinite! 💖";
-                createHearts(30);
-                createConfetti();
-            }
-        }
-        
-        // Kiss clicker game
-        let kisses = 0;
-        const kissMessages = [
-            "Just one kiss from you makes my day!",
-            "Your kisses are my favorite thing!",
-            "More kisses please!",
-            "You're the best at kissing!",
-            "I could collect your kisses forever!",
-            "Each kiss is sweeter than the last!",
-            "Your kisses are like magic!",
-            "I'm addicted to your kisses!",
-            "Kissing you is my favorite hobby!",
-            "You've given me infinite happiness with these kisses!"
-        ];
-        
-        function addKiss() {
-            kisses++;
-            document.getElementById('kisses-counter').textContent = kisses;
-            
-            if (kisses % 10 === 0) {
-                const randomMessage = kissMessages[Math.floor(Math.random() * kissMessages.length)];
-                document.getElementById('kisses-message').textContent = randomMessage;
-                createHearts(20);
-                if (kisses % 50 === 0) {
-                    createConfetti();
-                }
-            }
-            
-            // Make the button bounce
-            const button = document.getElementById('clicker-button');
-            button.style.transform = 'scale(1.1)';
+        // Melt chocolate animation
+        function meltChocolate() {
+            const chocolate = document.querySelector('.chocolate');
+            chocolate.classList.add('melt');
             setTimeout(() => {
-                button.style.transform = 'scale(1)';
-            }, 100);
+                chocolate.classList.remove('melt');
+                document.querySelector('#chocolate .miss-you-container p').textContent = 
+                    "Mero chocolate herna manlaxa lastai i want to see it huhu 🫠";
+                createHearts(20);
+            }, 2000);
         }
         
-        // Fortune teller
-        const fortunes = [
-            "Today, someone special (you!) will receive lots of love and happiness!",
-            "Your smile will brighten someone's day today - probably mine!",
-            "Good news is coming your way very soon!",
-            "You will have an unexpectedly wonderful day today!",
-            "Someone is thinking about you right now (hint: it's me)!",
-            "Your kindness will be rewarded in the sweetest way today!",
-            "Today is a perfect day to feel loved and appreciated!",
-            "The stars say you're extra beautiful today!",
-            "Your positive energy will attract wonderful things today!",
-            "Love is in the air whenever you're around!"
-        ];
-        
-        function showFortune() {
-            const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
-            document.getElementById('fortune-text').textContent = randomFortune;
-            createHearts(10);
-            createBubbles(3);
+        // Eat desert animation
+        function eatDesert() {
+            const desert = document.querySelector('.desert');
+            desert.style.animation = 'none';
+            desert.style.transform = 'scale(0)';
+            setTimeout(() => {
+                desert.style.animation = 'desertFloat 3s ease-in-out infinite';
+                desert.style.transform = '';
+                document.querySelector('#desert .miss-you-container p').textContent = 
+                    "Yummy! But it's not as sweet as you! Let's get more! 🍨💖";
+                createHearts(20);
+            }, 1000);
         }
         
-        // More reasons button
-        function addMoreReasons() {
-            document.getElementById('more-reasons').classList.remove('hidden');
-            createHearts(10);
-        }
-        
-        // Secret message
-        function checkSecretCode() {
-            const code = document.getElementById('secret-code').value.toLowerCase();
-            if (code === 'prashu') {
-                document.getElementById('secret-message').style.display = 'block';
-                document.getElementById('secret-message-content').textContent = 
-                    "Prashu, you're the most amazing person I know! Every moment with you is special. " +
-                    "I hope this little website makes you smile as much as you make me smile every day. 💖";
-                createConfetti();
-                createHearts(50);
-            } else {
-                document.getElementById('secret-code').value = '';
-                document.getElementById('secret-code').placeholder = 'Try again! Hint: your name';
-            }
-        }
-        
+        // Close secret message
         function closeMessage() {
             document.getElementById('secret-message').style.display = 'none';
         }
-        
-        // Virtual pet
-        let petHappy = 50;
-        let petEnergy = 50;
-        
-        function petAction(action) {
-            switch(action) {
-                case 'feed':
-                    petEnergy = Math.min(100, petEnergy + 15);
-                    petHappy = Math.min(100, petHappy + 5);
-                    break;
-                case 'play':
-                    petHappy = Math.min(100, petHappy + 20);
-                    petEnergy = Math.max(0, petEnergy - 10);
-                    break;
-                case 'sleep':
-                    petEnergy = Math.min(100, petEnergy + 30);
-                    break;
-                case 'hug':
-                    petHappy = Math.min(100, petHappy + 30);
-                    break;
-            }
-            
-            updatePetStatus();
-            createHearts(5);
-            
-            if (action === 'hug') {
-                document.getElementById('pet').style.animation = 'heartBeat 0.5s';
-                setTimeout(() => {
-                    document.getElementById('pet').style.animation = 'petBounce 2s infinite';
-                }, 500);
-            }
-        }
-        
-        function updatePetStatus() {
-            document.getElementById('pet-happy').textContent = petHappy;
-            document.getElementById('pet-energy').textContent = petEnergy;
-            
-            if (petHappy >= 80 && petEnergy >= 80) {
-                createHearts(10);
-            }
-        }
-        
-        // Pet needs decrease over time
-        setInterval(() => {
-            petHappy = Math.max(0, petHappy - 1);
-            petEnergy = Math.max(0, petEnergy - 1);
-            updatePetStatus();
-        }, 10000);
         
         // Mega surprise
         function megaSurprise() {
@@ -900,12 +594,12 @@
             createBubbles(20);
             
             // Show all cute messages
-            document.getElementById('compliment-text').textContent = 
-                "You're the most special person in the world to me!";
-            document.getElementById('love-message').textContent = 
-                "I love you more than anything in the universe!";
-            document.getElementById('kisses-message').textContent = 
-                "I could kiss you forever and never get enough!";
+            document.querySelector('#miss-you .miss-you-container p').textContent = 
+                "I MISS YOU SO MUCH MY LOVE! PLEASE COME BACK SOON! 💔";
+            document.querySelector('#chocolate .miss-you-container p').textContent = 
+                "Chocolate herna manlayo🥺";
+            document.querySelector('#desert .miss-you-container p').textContent = 
+                "Desert herna manlayo🥺";
                 
             // Rainbow effect
             document.body.style.animation = 'rainbowBG 5s infinite';
@@ -919,7 +613,14 @@
             createHearts(30);
             createBubbles(10);
             createStickers();
-            updatePetStatus();
+            
+            // Show crying emoji animation
+            setInterval(() => {
+                const emojis = document.querySelectorAll('.crying-emoji');
+                emojis.forEach(emoji => {
+                    emoji.textContent = Math.random() > 0.5 ? '🥺' : '😢';
+                });
+            }, 1000);
         };
     </script>
 </body>
