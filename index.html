@@ -3,502 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Prashuuuu 💖</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
+    <title>Prashi's Love Portal 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* === Cute Pastel Styling === */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Nunito', sans-serif;
-            background-color: #FFF5F5;
-            color: #D23669;
-            overflow-x: hidden;
-        }
-
-        h1, h2 {
-            font-family: 'Dancing Script', cursive;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* === Floating Hearts Background === */
-        .hearts-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFB6C1"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat;
-            opacity: 0.6;
-            animation: float 15s linear infinite;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.6;
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                transform: translateY(-20vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* === Header with Typing Effect === */
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #FFB6C1 0%, #A2D2FF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .typing-text {
-            font-size: 2rem;
-            min-height: 80px;
-        }
-
-        /* === "Reasons Why You're Amazing" === */
-        .reasons-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-        }
-
-        .reason-card {
-            background: white;
-            border-radius: 15px;
-            padding: 15px;
-            width: 200px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .reason-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .reason-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,182,193,0.2) 0%, rgba(162,210,255,0.2) 100%);
-            z-index: -1;
-        }
-
-        /* === Polaroid Photo Gallery === */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 25px;
-            padding: 30px;
-        }
-
-        .polaroid {
-            background: white;
-            padding: 15px 15px 30px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transform: rotate(-2deg);
-            transition: transform 0.3s;
-            width: 200px;
-        }
-
-        .polaroid:nth-child(even) {
-            transform: rotate(2deg);
-        }
-
-        .polaroid:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
-
-        .polaroid img {
-            width: 100%;
-            height: auto;
-            border: 1px solid #eee;
-        }
-
-        .polaroid p {
-            text-align: center;
-            font-family: 'Dancing Script', cursive;
-            margin-top: 10px;
-        }
-
-        /* === "Open When" Letters === */
-        .letters-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 30px;
-        }
-
-        .envelope {
-            width: 150px;
-            height: 100px;
-            background: #FFB6C1;
-            position: relative;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        .envelope:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            width: 0;
-            height: 0;
-            border-left: 75px solid transparent;
-            border-right: 75px solid transparent;
-            border-top: 50px solid #FF8FA3;
-            transform-origin: top;
-            transform: rotateX(0deg);
-            transition: all 0.3s ease-in-out;
-            z-index: 3;
-        }
-
-        .envelope:hover:before {
-            transform: rotateX(180deg);
-        }
-
-        .envelope:hover {
-            transform: translateY(-10px);
-        }
-
-        .envelope .letter {
-            position: absolute;
-            background: white;
-            width: 90%;
-            height: 90%;
-            left: 5%;
-            top: 5%;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-            padding: 10px;
-            box-sizing: border-box;
-            opacity: 0;
-        }
-
-        .envelope:hover .letter {
-            top: -80px;
-            opacity: 1;
-            z-index: 5;
-        }
-
-        .envelope p {
-            margin: 0;
-            font-size: 0.8rem;
-        }
-
-        .envelope-label {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            text-align: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-            color: white;
-        }
-
-        /* === Confetti Button === */
-        .confetti-btn {
-            background: linear-gradient(135deg, #FFB6C1 0%, #A2D2FF 100%);
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            margin: 20px auto;
-            display: block;
-        }
-
-        .confetti-btn:hover {
-            transform: scale(1.05);
-        }
-
-        /* === Hidden Surprise === */
-        .secret {
-            text-align: center;
-            margin: 50px 0;
-            opacity: 0;
-            transition: opacity 1s;
-        }
-
-        .secret.show {
-            opacity: 1;
-        }
-
-        /* === Footer === */
-        footer {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(255,182,193,0.2) 0%, rgba(162,210,255,0.2) 100%);
-            margin-top: 50px;
-        }
-
-        .heart-cursor {
-            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23FFB6C1'><path d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/></svg>"), auto;
-        }
-    </style>
 </head>
-<body class="heart-cursor">
-    <!-- Floating Hearts Background -->
-    <div class="hearts-background" id="hearts-bg"></div>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to Prashi's Love Portal <span class="heart">💖</span></h1>
+            <p class="subtitle">A special place just for you, my love</p>
+        </header>
 
-    <!-- Header with Typing Animation -->
-    <div class="header">
-        <h1>For Prashuuu</h1>
-        <div class="typing-text" id="typing-text"></div>
+        <div class="love-meter">
+            <h2>Our Love Meter</h2>
+            <div class="meter-container">
+                <div class="meter-fill" id="loveMeter">100%</div>
+            </div>
+            <button id="boostLove">Boost Our Love! <i class="fas fa-heart"></i></button>
+        </div>
+
+        <div class="love-notes">
+            <h2>Sweet Messages for You</h2>
+            <div class="notes-container">
+                <button class="note-btn" id="randomNote">Click for a Love Note <i class="fas fa-envelope"></i></button>
+                <p id="noteDisplay">Waiting to shower you with love...</p>
+            </div>
+        </div>
+
+        <div class="memory-game">
+            <h2>Our Memory Game</h2>
+            <p>Match the cards to reveal our special moments!</p>
+            <div class="game-board" id="gameBoard"></div>
+            <div class="game-stats">
+                <span id="moves">Moves: 0</span>
+                <span id="timer">Time: 0s</span>
+            </div>
+            <button id="restartGame">Restart Game <i class="fas fa-redo"></i></button>
+        </div>
+
+        <div class="photo-gallery">
+            <h2>Our Virtual Photo Album</h2>
+            <div class="gallery-container">
+                <div class="gallery-item" style="background-image: url('assets/couple.png');"></div>
+                <div class="gallery-item" style="background-color: #ffb6c1;"></div>
+                <div class="gallery-item" style="background-color: #ffc0cb;"></div>
+                <div class="gallery-item" style="background-color: #ff69b4;"></div>
+            </div>
+            <button id="addPhoto">+ Add Our Photo</button>
+        </div>
+
+        <div class="music-player">
+            <h2>Our Love Playlist</h2>
+            <div class="player-controls">
+                <button id="playBtn"><i class="fas fa-play"></i></button>
+                <button id="nextBtn"><i class="fas fa-forward"></i></button>
+                <span id="songTitle">Our Special Song</span>
+            </div>
+        </div>
+
+        <div class="countdown">
+            <h2>Countdown to Our Anniversary</h2>
+            <div class="countdown-container">
+                <div class="countdown-box">
+                    <span id="days">00</span>
+                    <small>Days</small>
+                </div>
+                <div class="countdown-box">
+                    <span id="hours">00</span>
+                    <small>Hours</small>
+                </div>
+                <div class="countdown-box">
+                    <span id="minutes">00</span>
+                    <small>Minutes</small>
+                </div>
+                <div class="countdown-box">
+                    <span id="seconds">00</span>
+                    <small>Seconds</small>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made with <i class="fas fa-heart"></i> by Prashi</p>
+            <p id="currentDate"></p>
+        </footer>
     </div>
 
-    <!-- Reasons Why You're Amazing -->
-    <section>
-        <h2 style="text-align: center;">Reasons Why You're Amazing</h2>
-        <div class="reasons-container">
-            <div class="reason-card" onclick="showConfetti(this)">
-                Your smile lights up my world
-            </div>
-            <div class="reason-card" onclick="showConfetti(this)">
-                You're the kindest person I know
-            </div>
-            <div class="reason-card" onclick="showConfetti(this)">
-                You make ordinary days magical
-            </div>
-            <div class="reason-card" onclick="showConfetti(this)">
-                Your brown eyes are mesmerizing
-            </div>
-            <div class="reason-card" onclick="showConfetti(this)">
-                You always know how to make me laugh
-            </div>
-            <div class="reason-card" onclick="showConfetti(this)">
-                You're my favorite person to talk to
-            </div>
-        </div>
-    </section>
+    <div class="floating-hearts"></div>
+    <audio id="bgMusic" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
 
-    <!-- Polaroid Photo Gallery -->
-    <section>
-        <h2 style="text-align: center;">My property</h2>
-        <div class="gallery">
-            <div class="polaroid">
-                <img src="Screenshot 2025-07-03 172105.png" alt="Our memory">
-                <p>My pookiee</p>
-            </div>
-            <div class="polaroid">
-                <img src="Screenshot 2025-07-03 172126.png" alt="Our memory">
-                <p>My sweetheart</p>
-            </div>
-            <div class="polaroid">
-                <img src="Screenshot 2025-07-03 172152.png" alt="Our memory">
-                <p>My cutiee</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Open When Letters -->
-    <section>
-        <h2 style="text-align: center;">Open When...</h2>
-        <div class="letters-container">
-            <div class="envelope">
-                <div class="letter">
-                    <p>I know today was tough, but remember how strong you are. I love you so much.</p>
-                </div>
-                <div class="envelope-label">You're Sad</div>
-            </div>
-            <div class="envelope">
-                <div class="letter">
-                    <p>Remember that time we you were trolling me for not being in relationship but willing to and knowing that u are going to be in it ? I can't stop smiling thinking about it!</p>
-                </div>
-                <div class="envelope-label">You Need a Laugh</div>
-            </div>
-            <div class="envelope">
-                <div class="letter">
-                    <p>No matter how far apart we are, my heart is always with you.</p>
-                </div>
-                <div class="envelope-label">You Miss Me</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Confetti Button -->
-    <button class="confetti-btn" onclick="showConfetti(this, true)">Click for Extra Love!</button>
-
-    <!-- Hidden Surprise -->
-    <div class="secret" id="secret-message">
-        <h2>Psst... I have a secret</h2>
-        <p>I love you more than words can say</p>
-        <p id="counter">Counting the days since I fell for you: <span id="days-count">0</span></p>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>Made with <i class="fas fa-heart" style="color: #FF6B6B;"></i> for you</p>
-        <p style="font-size: 0.8rem;">(Try clicking the heart 5 times)</p>
-    </footer>
-
-    <script>
-        // === Typing Animation ===
-        const messages = [
-            "Hey Prashuuuuu, this is just for you.",
-            "Because you deserve all the love in the world.",
-            "You make my life so much brighter.",
-            "I love you more every day."
-        ];
-        let messageIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingText = document.getElementById('typing-text');
-
-        function typeWriter() {
-            const currentMessage = messages[messageIndex];
-            
-            if (isDeleting) {
-                typingText.textContent = currentMessage.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentMessage.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentMessage.length) {
-                isDeleting = true;
-                setTimeout(typeWriter, 2000);
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                messageIndex = (messageIndex + 1) % messages.length;
-                setTimeout(typeWriter, 500);
-            } else {
-                const speed = isDeleting ? 100 : 150;
-                setTimeout(typeWriter, speed);
-            }
-        }
-
-        // === Floating Hearts ===
-        function createHearts() {
-            const heartsBg = document.getElementById('hearts-bg');
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('heart');
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = Math.random() * 100 + 'vh';
-                heart.style.opacity = Math.random() * 0.5 + 0.1;
-                heart.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
-                heart.style.animationDuration = Math.random() * 10 + 10 + 's';
-                heartsBg.appendChild(heart);
-            }
-        }
-
-        // === Confetti Effect ===
-        function showConfetti(element, isBig = false) {
-            if (isBig) {
-                // Create big confetti
-                for (let i = 0; i < 100; i++) {
-                    createConfettiParticle(true);
-                }
-            } else {
-                // Create small confetti near the clicked element
-                const rect = element.getBoundingClientRect();
-                const x = rect.left + rect.width / 2;
-                const y = rect.top + rect.height / 2;
-                
-                for (let i = 0; i < 20; i++) {
-                    createConfettiParticle(false, x, y);
-                }
-            }
-        }
-
-        function createConfettiParticle(isBig, x = null, y = null) {
-            const colors = ['#FFB6C1', '#A2D2FF', '#B5EAD7', '#E0BBE4', '#FFDAC1'];
-            const confetti = document.createElement('div');
-            confetti.style.position = 'fixed';
-            confetti.style.width = isBig ? '12px' : '8px';
-            confetti.style.height = isBig ? '12px' : '8px';
-            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.borderRadius = '50%';
-            confetti.style.pointerEvents = 'none';
-            
-            if (x && y) {
-                confetti.style.left = x + 'px';
-                confetti.style.top = y + 'px';
-            } else {
-                confetti.style.left = Math.random() * window.innerWidth + 'px';
-                confetti.style.top = '-10px';
-            }
-            
-            document.body.appendChild(confetti);
-            
-            const animation = confetti.animate([
-                { 
-                    transform: `translate(${Math.random() * 200 - 100}px, ${window.innerHeight}px) rotate(${Math.random() * 360}deg)`,
-                    opacity: 1 
-                },
-                { 
-                    transform: `translate(${Math.random() * 400 - 200}px, ${window.innerHeight + 100}px) rotate(${Math.random() * 720}deg)`,
-                    opacity: 0 
-                }
-            ], {
-                duration: Math.random() * 2000 + 1000,
-                easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
-            });
-            
-            animation.onfinish = () => confetti.remove();
-        }
-
-        // === Hidden Surprise ===
-        let clickCount = 0;
-        const heartIcon = document.querySelector('.fa-heart');
-        
-        heartIcon.addEventListener('click', function() {
-            clickCount++;
-            if (clickCount >= 5) {
-                document.getElementById('secret-message').classList.add('show');
-                
-                // Calculate days since a special date (change to your date)
-                const specialDate = new Date('2023-01-01');
-                const today = new Date();
-                const diffTime = today - specialDate;
-                const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-                document.getElementById('days-count').textContent = diffDays;
-            }
-        });
-
-        // Initialize
-        window.onload = function() {
-            typeWriter();
-            createHearts();
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
