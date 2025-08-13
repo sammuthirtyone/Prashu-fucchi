@@ -3,96 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prashi's Love Portal 💖</title>
+    <title>Prashi's Love Universe 💖</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="homepage">
     <div class="container">
-        <header>
-            <h1>Welcome to Prashi's Love Portal <span class="heart">💖</span></h1>
-            <p class="subtitle">A special place just for you, my love</p>
+        <header class="cute-header">
+            <h1>Welcome to Our Love Universe <span class="sparkle">✨</span></h1>
+            <div class="cute-subtitle">
+                <p>A magical place just for you, my darling Prashi</p>
+                <div class="bouncing-heart">💖</div>
+            </div>
         </header>
 
-        <div class="love-meter">
-            <h2>Our Love Meter</h2>
-            <div class="meter-container">
-                <div class="meter-fill" id="loveMeter">100%</div>
-            </div>
-            <button id="boostLove">Boost Our Love! <i class="fas fa-heart"></i></button>
-        </div>
+        <nav class="cute-nav">
+            <a href="index.html" class="nav-btn active"><i class="fas fa-home"></i> Home</a>
+            <a href="loveletters.html" class="nav-btn"><i class="fas fa-heart"></i> Love Letters</a>
+            <a href="memories.html" class="nav-btn"><i class="fas fa-images"></i> Our Memories</a>
+            <a href="fun.html" class="nav-btn"><i class="fas fa-gamepad"></i> Fun Together</a>
+            <a href="our-song.html" class="nav-btn"><i class="fas fa-music"></i> Our Song</a>
+        </nav>
 
-        <div class="love-notes">
-            <h2>Sweet Messages for You</h2>
-            <div class="notes-container">
-                <button class="note-btn" id="randomNote">Click for a Love Note <i class="fas fa-envelope"></i></button>
-                <p id="noteDisplay">Waiting to shower you with love...</p>
-            </div>
-        </div>
-
-        <div class="memory-game">
-            <h2>Our Memory Game</h2>
-            <p>Match the cards to reveal our special moments!</p>
-            <div class="game-board" id="gameBoard"></div>
-            <div class="game-stats">
-                <span id="moves">Moves: 0</span>
-                <span id="timer">Time: 0s</span>
-            </div>
-            <button id="restartGame">Restart Game <i class="fas fa-redo"></i></button>
-        </div>
-
-        <div class="photo-gallery">
-            <h2>Our Virtual Photo Album</h2>
-            <div class="gallery-container">
-                <div class="gallery-item" style="background-image: url('assets/couple.png');"></div>
-                <div class="gallery-item" style="background-color: #ffb6c1;"></div>
-                <div class="gallery-item" style="background-color: #ffc0cb;"></div>
-                <div class="gallery-item" style="background-color: #ff69b4;"></div>
-            </div>
-            <button id="addPhoto">+ Add Our Photo</button>
-        </div>
-
-        <div class="music-player">
-            <h2>Our Love Playlist</h2>
-            <div class="player-controls">
-                <button id="playBtn"><i class="fas fa-play"></i></button>
-                <button id="nextBtn"><i class="fas fa-forward"></i></button>
-                <span id="songTitle">Our Special Song</span>
-            </div>
-        </div>
-
-        <div class="countdown">
-            <h2>Countdown to Our Anniversary</h2>
-            <div class="countdown-container">
-                <div class="countdown-box">
-                    <span id="days">00</span>
-                    <small>Days</small>
+        <main class="cute-main">
+            <section class="welcome-section">
+                <div class="cute-card">
+                    <h2><i class="fas fa-star"></i> My Dearest Prashi <i class="fas fa-star"></i></h2>
+                    <p>Every moment with you feels like magic. This is our special place where I can show you just how much you mean to me.</p>
+                    <div class="cute-divider">🌸 🌸 🌸</div>
+                    <p>Explore all the pages to discover sweet surprises I've made just for you!</p>
                 </div>
-                <div class="countdown-box">
-                    <span id="hours">00</span>
-                    <small>Hours</small>
+                
+                <div class="polaroid-stack">
+                    <div class="polaroid" style="transform: rotate(-5deg);">
+                        <div class="polaroid-img" style="background-image: url('assets/images/photo1.jpg');"></div>
+                        <p>Our First Date</p>
+                    </div>
+                    <div class="polaroid" style="transform: rotate(3deg);">
+                        <div class="polaroid-img" style="background-image: url('assets/images/photo2.jpg');"></div>
+                        <p>Best Day Ever</p>
+                    </div>
+                    <div class="polaroid" style="transform: rotate(-2deg);">
+                        <div class="polaroid-img" style="background-color: #ffb6c1;"></div>
+                        <p>More to Come!</p>
+                    </div>
                 </div>
-                <div class="countdown-box">
-                    <span id="minutes">00</span>
-                    <small>Minutes</small>
-                </div>
-                <div class="countdown-box">
-                    <span id="seconds">00</span>
-                    <small>Seconds</small>
-                </div>
-            </div>
-        </div>
+            </section>
 
-        <footer>
-            <p>Made with <i class="fas fa-heart"></i> by Prashi</p>
-            <p id="currentDate"></p>
+            <section class="daily-message">
+                <div class="message-envelope">
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-body">
+                        <h3>Today's Special Message</h3>
+                        <p id="daily-message-text">Loading a sweet thought for you...</p>
+                        <button id="new-message-btn" class="cute-button">
+                            <i class="fas fa-heart"></i> New Message
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="cute-footer">
+            <p>Made with <span class="pulse-heart">💖</span> by Prashi</p>
+            <p>Every day with you is special</p>
         </footer>
     </div>
 
     <div class="floating-hearts"></div>
+    <div class="floating-stars"></div>
+    <div class="cursor-effect"></div>
+
     <audio id="bgMusic" loop>
-        <source src="assets/music.mp3" type="audio/mpeg">
+        <source src="assets/music/love-song.mp3" type="audio/mpeg">
     </audio>
 
     <script src="script.js"></script>
