@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head as index.html -->
+</head>
+<body class="fun-page">
+    <div class="container">
+        <header class="cute-header">
+            <h1>Fun Together <span class="sparkle">🎮</span></h1>
+            <div class="cute-subtitle">
+                <p>Let's play some cute games!</p>
+                <div class="floating-gamepad">🎮</div>
+            </div>
+        </header>
+
+        <nav class="cute-nav">
+            <!-- Same navigation as index.html -->
+        </nav>
+
+        <main class="fun-main">
+            <section class="game-selection">
+                <div class="game-card" data-game="memory">
+                    <div class="game-icon">🧠</div>
+                    <h3>Memory Match</h3>
+                    <p>Match all the cute pairs!</p>
+                </div>
+
+                <div class="game-card" data-game="love-meter">
+                    <div class="game-icon">💘</div>
+                    <h3>Love Meter</h3>
+                    <p>Check how much we love each other!</p>
+                </div>
+
+                <div class="game-card" data-game="quiz">
+                    <div class="game-icon">❓</div>
+                    <h3>How Well Do You Know Me?</h3>
+                    <p>A sweet little quiz about us</p>
+                </div>
+            </section>
+
+            <section class="game-display">
+                <div id="memory-game" class="game-container hidden">
+                    <h3>Memory Match Game</h3>
+                    <div class="memory-board"></div>
+                    <div class="game-stats">
+                        <span id="moves">Moves: 0</span>
+                        <span id="timer">Time: 0s</span>
+                    </div>
+                </div>
+
+                <div id="love-meter-game" class="game-container hidden">
+                    <h3>Our Love Meter</h3>
+                    <div class="meter-container">
+                        <div class="meter-fill" id="loveMeterFill"></div>
+                    </div>
+                    <p class="meter-message">Our love is at <span id="lovePercentage">100</span>%!</p>
+                    <button id="boost-love" class="cute-button">
+                        <i class="fas fa-heart"></i> Boost Our Love!
+                    </button>
+                </div>
+
+                <div id="quiz-game" class="game-container hidden">
+                    <h3>How Well Do You Know Me?</h3>
+                    <div class="quiz-progress">
+                        Question <span id="current-question">1</span>/<span id="total-questions">5</span>
+                    </div>
+                    <div class="quiz-question">
+                        <p id="question-text">Loading question...</p>
+                        <div class="quiz-options">
+                            <!-- Options will be added by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="quiz-result hidden">
+                        <h4>Your Score: <span id="quiz-score">0</span>/5</h4>
+                        <p id="quiz-message"></p>
+                        <button id="retake-quiz" class="cute-button">
+                            <i class="fas fa-redo"></i> Try Again
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="cute-footer">
+            <!-- Same footer as index.html -->
+        </footer>
+    </div>
+
+    <!-- Same floating elements and scripts as index.html -->
+</body>
+</html>
