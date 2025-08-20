@@ -26,6 +26,7 @@
             background-color: var(--light-gray);
             color: var(--text-dark);
             min-height: 100vh;
+            padding-bottom: 80px;
         }
 
         .container {
@@ -57,10 +58,6 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary-pink);
-        }
-
-        .logo span {
-            color: var(--dark-pink);
         }
 
         .search-bar {
@@ -465,6 +462,26 @@
                 display: none;
             }
         }
+
+        .btn {
+            background: linear-gradient(to right, var(--primary-pink), var(--dark-pink));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 <body>
@@ -660,7 +677,7 @@
                                 <p>Catch the rings for Prashu! Click on each ring before it disappears.</p>
                                 <div id="score">Score: 0</div>
                                 <div id="game-area"></div>
-                                <button class="btn" onclick="startGame()" style="background: var(--primary-pink); color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer;"><i class="fas fa-play"></i> Start Game</button>
+                                <button class="btn" onclick="startGame()"><i class="fas fa-play"></i> Start Game</button>
                             </div>
                         </div>
                         <div class="post-actions">
@@ -750,7 +767,7 @@
                     } else if (userText.toLowerCase().includes('cute') || userText.toLowerCase().includes('beautiful')) {
                         aiMessage.textContent = "You're the cute and beautiful one, Prashu! 🌸";
                     } else if (userText.toLowerCase().includes('desert') || userText.toLowerCase().includes('chocolate')) {
-                        aiMessage.textContent = "I know you want desert and chocolate! 😭😭 Let me get you some! 🍫🍨";
+                        aiMessage.textContent = "desert rw chocolate chaiyooooooooo😭😭🍨";
                     } else {
                         aiMessage.textContent = "You're so wonderful, Prashu! I'm so lucky to have you in my life! 💕";
                     }
@@ -842,6 +859,16 @@
             setTimeout(() => {
                 alert(`💖 Notification for Prashu: ${randomMessage}`);
             }, 2000);
+        });
+
+        // Add event listener for special treat menu item
+        document.querySelectorAll('.menu-item')[7].addEventListener('click', function() {
+            const specialTreat = document.getElementById('special-treat');
+            specialTreat.style.display = 'block';
+            
+            setTimeout(() => {
+                specialTreat.style.display = 'none';
+            }, 5000);
         });
     </script>
 </body>
