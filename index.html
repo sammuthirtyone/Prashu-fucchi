@@ -20,6 +20,7 @@
             --white: #ffffff;
             --light-gray: #fafafa;
             --text-dark: #333333;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         body {
@@ -58,13 +59,14 @@
             font-size: 1.8rem;
             font-weight: bold;
             color: var(--primary-pink);
+            cursor: pointer;
         }
 
         .search-bar {
             display: flex;
             align-items: center;
             background: var(--light-gray);
-            border-radius: 8px;
+            border-radius: 20px;
             padding: 8px 15px;
             width: 250px;
         }
@@ -87,11 +89,27 @@
         .nav-icon {
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
         }
 
         .nav-icon:hover {
             color: var(--primary-pink);
             transform: scale(1.1);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--dark-pink);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Main Content Styles */
@@ -110,7 +128,7 @@
             height: fit-content;
             position: sticky;
             top: 80px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
         }
 
         .profile-card {
@@ -132,11 +150,13 @@
             justify-content: center;
             color: white;
             font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .profile-info h3 {
             color: var(--text-dark);
             margin-bottom: 5px;
+            cursor: pointer;
         }
 
         .profile-info p {
@@ -223,7 +243,7 @@
             background: var(--white);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
         }
 
         .post-header {
@@ -248,6 +268,7 @@
             align-items: center;
             justify-content: center;
             color: var(--primary-pink);
+            cursor: pointer;
         }
 
         .post-content {
@@ -262,6 +283,7 @@
             justify-content: center;
             color: white;
             font-size: 3rem;
+            cursor: pointer;
         }
 
         .post-actions {
@@ -298,6 +320,41 @@
 
         .post-caption strong {
             color: var(--text-dark);
+            cursor: pointer;
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+            background: var(--white);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-pink);
+        }
+
+        .page-header i {
+            font-size: 1.5rem;
+            color: var(--primary-pink);
         }
 
         /* Chat Box Styles */
@@ -401,7 +458,7 @@
             border-radius: 15px;
             padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow);
             margin-bottom: 20px;
         }
 
@@ -452,17 +509,7 @@
             100% { transform: scale(1); }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                display: none;
-            }
-            
-            .search-bar {
-                display: none;
-            }
-        }
-
+        /* Buttons */
         .btn {
             background: linear-gradient(to right, var(--primary-pink), var(--dark-pink));
             color: white;
@@ -482,13 +529,78 @@
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
+
+        /* Settings */
+        .settings-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--light-pink);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-pink);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+            
+            .search-bar {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">
+                <div class="logo" onclick="showPage('home')">
                     <i class="fas fa-heart"></i>
                     <span>Prashu's Love</span>
                 </div>
@@ -499,11 +611,14 @@
                 </div>
                 
                 <div class="nav-icons">
-                    <div class="nav-icon"><i class="fas fa-home"></i></div>
-                    <div class="nav-icon"><i class="fas fa-paper-plane"></i></div>
-                    <div class="nav-icon"><i class="fas fa-plus-square"></i></div>
-                    <div class="nav-icon"><i class="fas fa-compass"></i></div>
-                    <div class="nav-icon"><i class="fas fa-heart"></i></div>
+                    <div class="nav-icon" onclick="showPage('home')"><i class="fas fa-home"></i></div>
+                    <div class="nav-icon" onclick="showPage('messages')"><i class="fas fa-paper-plane"></i></div>
+                    <div class="nav-icon" onclick="alert('Upload feature coming soon! 📸')"><i class="fas fa-plus-square"></i></div>
+                    <div class="nav-icon" onclick="showPage('explore')"><i class="fas fa-compass"></i></div>
+                    <div class="nav-icon" onclick="showPage('notifications')">
+                        <i class="fas fa-heart"></i>
+                        <span class="notification-badge">5</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -514,49 +629,49 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <div class="profile-card">
-                    <div class="profile-pic">
+                    <div class="profile-pic" onclick="showPage('profile')">
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="profile-info">
-                        <h3>Prashu's World</h3>
+                        <h3 onclick="showPage('profile')">Prashu's World</h3>
                         <p>@prashulove</p>
                     </div>
                 </div>
                 
                 <ul class="sidebar-menu">
-                    <li class="menu-item active">
+                    <li class="menu-item active" onclick="showPage('home')">
                         <i class="fas fa-home"></i>
                         <span>Home</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('explore')">
                         <i class="fas fa-search"></i>
                         <span>Explore</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('notifications')">
                         <i class="fas fa-heart"></i>
                         <span>Notifications</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('messages')">
                         <i class="fas fa-envelope"></i>
                         <span>Messages</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('bookmarks')">
                         <i class="fas fa-bookmark"></i>
                         <span>Bookmarks</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('profile')">
                         <i class="fas fa-user"></i>
                         <span>Profile</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('game')">
                         <i class="fas fa-gamepad"></i>
                         <span>Ring Game</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showSpecialMessage()">
                         <i class="fas fa-gift"></i>
                         <span>Special Treat</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="showPage('settings')">
                         <i class="fas fa-cog"></i>
                         <span>Settings</span>
                     </li>
@@ -565,143 +680,276 @@
             
             <!-- Feed -->
             <div class="feed">
-                <!-- Stories -->
-                <div class="stories">
-                    <div class="story">
-                        <div class="story-avatar">
-                            <div><i class="fas fa-plus"></i></div>
+                <!-- Home Page -->
+                <div id="home-page" class="page active">
+                    <!-- Stories -->
+                    <div class="stories">
+                        <div class="story" onclick="alert('Add to your story! 📸')">
+                            <div class="story-avatar">
+                                <div><i class="fas fa-plus"></i></div>
+                            </div>
+                            <div class="story-username">Your story</div>
                         </div>
-                        <div class="story-username">Your story</div>
+                        <div class="story" onclick="viewStory('tulip_love')">
+                            <div class="story-avatar">
+                                <div>🌷</div>
+                            </div>
+                            <div class="story-username">tulip_love</div>
+                        </div>
+                        <div class="story" onclick="viewStory('prashu_diary')">
+                            <div class="story-avatar">
+                                <div>💖</div>
+                            </div>
+                            <div class="story-username">prashu_diary</div>
+                        </div>
+                        <div class="story" onclick="viewStory('flower_power')">
+                            <div class="story-avatar">
+                                <div>🌸</div>
+                            </div>
+                            <div class="story-username">flower_power</div>
+                        </div>
+                        <div class="story" onclick="viewStory('ring_game')">
+                            <div class="story-avatar">
+                                <div>💍</div>
+                            </div>
+                            <div class="story-username">ring_game</div>
+                        </div>
                     </div>
-                    <div class="story">
-                        <div class="story-avatar">
-                            <div>🌷</div>
+                    
+                    <!-- Posts -->
+                    <div class="posts">
+                        <!-- Post 1 -->
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="post-user-avatar" onclick="showPage('profile')">🌷</div>
+                                    <div>tulip_love</div>
+                                </div>
+                                <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-image" onclick="likePost(this)">
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 5rem; margin-bottom: 10px;">🌷</div>
+                                        <p>Prashu's Favorite Flower</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-actions-left">
+                                    <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
+                                    <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
+                                    <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
+                                </div>
+                                <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
+                            </div>
+                            <div class="post-likes">1,234 likes</div>
+                            <div class="post-caption">
+                                <strong onclick="showPage('profile')">tulip_love</strong> Did you know that tulips symbolize perfect love? Just like my love for you, Prashu! 💖 #TulipLove #PrashuForever
+                            </div>
                         </div>
-                        <div class="story-username">tulip_love</div>
-                    </div>
-                    <div class="story">
-                        <div class="story-avatar">
-                            <div>💖</div>
+                        
+                        <!-- Post 2 -->
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="post-user-avatar" onclick="showPage('profile')">💌</div>
+                                    <div>love_notes</div>
+                                </div>
+                                <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-image" onclick="likePost(this)">
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 5rem; margin-bottom: 10px;">💖</div>
+                                        <p>10 Reasons Why I Love Prashu</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-actions-left">
+                                    <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
+                                    <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
+                                    <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
+                                </div>
+                                <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
+                            </div>
+                            <div class="post-likes">2,567 likes</div>
+                            <div class="post-caption">
+                                <strong onclick="showPage('profile')">love_notes</strong> 1. Your smile 😊 2. Your kindness ❤️ 3. Your passion 🌟 4. Your intelligence 🧠 5. Your sense of humor 😂 6. Your eyes 👀 7. Your voice 🎵 8. Your warmth 🔥 9. Your strength 💪 10. Your love for me! #PrashuLove
+                            </div>
                         </div>
-                        <div class="story-username">prashu_diary</div>
-                    </div>
-                    <div class="story">
-                        <div class="story-avatar">
-                            <div>🌸</div>
-                        </div>
-                        <div class="story-username">flower_power</div>
-                    </div>
-                    <div class="story">
-                        <div class="story-avatar">
-                            <div>💍</div>
-                        </div>
-                        <div class="story-username">ring_game</div>
                     </div>
                 </div>
                 
-                <!-- Posts -->
-                <div class="posts">
-                    <!-- Post 1 -->
+                <!-- Explore Page -->
+                <div id="explore-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-search"></i>
+                        <h2>Explore</h2>
+                    </div>
+                    <p>Discover beautiful content for Prashu:</p>
+                    <div class="posts">
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="post-user">
+                                    <div class="post-user-avatar">💕</div>
+                                    <div>love_quotes</div>
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <div class="post-image">
+                                    <div style="text-align: center; padding: 30px;">
+                                        <div style="font-size: 3rem; margin-bottom: 20px;">💖</div>
+                                        <h3>"You are my sunshine, my only sunshine"</h3>
+                                        <p>— For Prashu, who brightens every day</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Notifications Page -->
+                <div id="notifications-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-heart"></i>
+                        <h2>Notifications</h2>
+                    </div>
                     <div class="post">
                         <div class="post-header">
                             <div class="post-user">
                                 <div class="post-user-avatar">🌷</div>
-                                <div>tulip_love</div>
+                                <div>tulip_love liked your post</div>
                             </div>
                             <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
                         </div>
-                        <div class="post-content">
-                            <div class="post-image">
-                                <div style="text-align: center;">
-                                    <div style="font-size: 5rem; margin-bottom: 10px;">🌷</div>
-                                    <p>Prashu's Favorite Flower</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post-actions">
-                            <div class="post-actions-left">
-                                <div class="post-action"><i class="far fa-heart"></i></div>
-                                <div class="post-action"><i class="far fa-comment"></i></div>
-                                <div class="post-action"><i class="far fa-paper-plane"></i></div>
-                            </div>
-                            <div class="post-action"><i class="far fa-bookmark"></i></div>
-                        </div>
-                        <div class="post-likes">1,234 likes</div>
-                        <div class="post-caption">
-                            <strong>tulip_love</strong> Did you know that tulips symbolize perfect love? Just like my love for you, Prashu! 💖 #TulipLove #PrashuForever
-                        </div>
                     </div>
-                    
-                    <!-- Post 2 -->
                     <div class="post">
                         <div class="post-header">
                             <div class="post-user">
                                 <div class="post-user-avatar">💌</div>
-                                <div>love_notes</div>
+                                <div>love_notes mentioned you in a comment</div>
                             </div>
                             <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
-                        </div>
-                        <div class="post-content">
-                            <div class="post-image">
-                                <div style="text-align: center;">
-                                    <div style="font-size: 5rem; margin-bottom: 10px;">💖</div>
-                                    <p>10 Reasons Why I Love Prashu</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post-actions">
-                            <div class="post-actions-left">
-                                <div class="post-action"><i class="far fa-heart"></i></div>
-                                <div class="post-action"><i class="far fa-comment"></i></div>
-                                <div class="post-action"><i class="far fa-paper-plane"></i></div>
-                            </div>
-                            <div class="post-action"><i class="far fa-bookmark"></i></div>
-                        </div>
-                        <div class="post-likes">2,567 likes</div>
-                        <div class="post-caption">
-                            <strong>love_notes</strong> 1. Your smile 😊 2. Your kindness ❤️ 3. Your passion 🌟 4. Your intelligence 🧠 5. Your sense of humor 😂 6. Your eyes 👀 7. Your voice 🎵 8. Your warmth 🔥 9. Your strength 💪 10. Your love for me! #PrashuLove
-                        </div>
-                    </div>
-                    
-                    <!-- Post 3 - Game -->
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="post-user">
-                                <div class="post-user-avatar">💍</div>
-                                <div>ring_game</div>
-                            </div>
-                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
-                        </div>
-                        <div class="post-content">
-                            <div class="game-container">
-                                <p>Catch the rings for Prashu! Click on each ring before it disappears.</p>
-                                <div id="score">Score: 0</div>
-                                <div id="game-area"></div>
-                                <button class="btn" onclick="startGame()"><i class="fas fa-play"></i> Start Game</button>
-                            </div>
-                        </div>
-                        <div class="post-actions">
-                            <div class="post-actions-left">
-                                <div class="post-action"><i class="far fa-heart"></i></div>
-                                <div class="post-action"><i class="far fa-comment"></i></div>
-                                <div class="post-action"><i class="far fa-paper-plane"></i></div>
-                            </div>
-                            <div class="post-action"><i class="far fa-bookmark"></i></div>
-                        </div>
-                        <div class="post-likes">3,421 likes</div>
-                        <div class="post-caption">
-                            <strong>ring_game</strong> How many rings can you catch for Prashu? Share your high score! #RingGame #PrashuLove
                         </div>
                     </div>
                 </div>
+                
+                <!-- Messages Page -->
+                <div id="messages-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>Messages</h2>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">💖</div>
+                                <div>
+                                    <h3>Your Love</h3>
+                                    <p>I miss you, Prashu! 💕</p>
+                                </div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bookmarks Page -->
+                <div id="bookmarks-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-bookmark"></i>
+                        <h2>Bookmarks</h2>
+                    </div>
+                    <p>Your saved posts will appear here.</p>
+                </div>
+                
+                <!-- Profile Page -->
+                <div id="profile-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-user"></i>
+                        <h2>Prashu's Profile</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-pic">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Prashu's World</h3>
+                            <p>@prashulove</p>
+                            <p>Joined: June 2023</p>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">🌷</div>
+                                <div>Your tulip garden post</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Page -->
+                <div id="game-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h2>Ring Game</h2>
+                    </div>
+                    <div class="game-container">
+                        <p>Catch the rings for Prashu! Click on each ring before it disappears.</p>
+                        <div id="score">Score: 0</div>
+                        <div id="game-area"></div>
+                        <button class="btn" onclick="startGame()"><i class="fas fa-play"></i> Start Game</button>
+                    </div>
+                </div>
+                
+                <!-- Settings Page -->
+                <div id="settings-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-cog"></i>
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Notifications</h3>
+                            <p>Enable or disable notifications</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Privacy</h3>
+                            <p>Make account private</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Theme</h3>
+                            <p>Dark mode</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Special Message -->
+                <div class="special-message" id="special-treat">
+                    desert chaiyo k baby pilisseee😭😭😭😭 <br>
+                    chocolate ni chaiyo huhu😭😭
+                </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Special Message -->
-    <div class="special-message" id="special-treat">
-        desert chaiyo k baby pilisseee😭😭😭😭 <br>
-        chocolate ni chaiyo huhu😭😭
     </div>
     
     <!-- Chat Toggle -->
@@ -727,6 +975,33 @@
     </div>
 
     <script>
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            // Set active menu item
+            const menuItems = document.querySelectorAll('.menu-item');
+            for (let item of menuItems) {
+                if (item.textContent.toLowerCase().includes(pageId)) {
+                    item.classList.add('active');
+                    break;
+                }
+            }
+            
+            // Hide any visible special messages
+            document.querySelectorAll('.special-message').forEach(msg => {
+                msg.style.display = 'none';
+            });
+        }
+
         // Toggle Chat Box
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
@@ -767,7 +1042,7 @@
                     } else if (userText.toLowerCase().includes('cute') || userText.toLowerCase().includes('beautiful')) {
                         aiMessage.textContent = "You're the cute and beautiful one, Prashu! 🌸";
                     } else if (userText.toLowerCase().includes('desert') || userText.toLowerCase().includes('chocolate')) {
-                        aiMessage.textContent = "desert rw chocolate chaiyooooooooo😭😭🍨";
+                        aiMessage.textContent = "I know you want desert and chocolate! 😭😭 Let me get you some! 🍫🍨";
                     } else {
                         aiMessage.textContent = "You're so wonderful, Prashu! I'm so lucky to have you in my life! 💕";
                     }
@@ -784,6 +1059,17 @@
                 sendMessage();
             }
         });
+
+        // Special Message Display
+        function showSpecialMessage() {
+            const specialTreat = document.getElementById('special-treat');
+            specialTreat.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                specialTreat.style.display = 'none';
+            }, 5000);
+        }
 
         // Ring Game
         let score = 0;
@@ -818,12 +1104,7 @@
                 
                 // Show message every 5 points
                 if (score % 5 === 0) {
-                    const specialTreat = document.getElementById('special-treat');
-                    specialTreat.style.display = 'block';
-                    
-                    setTimeout(() => {
-                        specialTreat.style.display = 'none';
-                    }, 3000);
+                    showSpecialMessage();
                 }
             });
             
@@ -843,6 +1124,60 @@
             }, 50);
         }
 
+        // Post Interactions
+        function likePost(element) {
+            if (element.querySelector('i')) {
+                const icon = element.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = 'var(--primary-pink)';
+                    
+                    // Increase like count
+                    const likesElement = element.closest('.post').querySelector('.post-likes');
+                    let likes = parseInt(likesElement.textContent.replace(/,/g, ''));
+                    likes++;
+                    likesElement.textContent = likes.toLocaleString() + ' likes';
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                    
+                    // Decrease like count
+                    const likesElement = element.closest('.post').querySelector('.post-likes');
+                    let likes = parseInt(likesElement.textContent.replace(/,/g, ''));
+                    likes--;
+                    likesElement.textContent = likes.toLocaleString() + ' likes';
+                }
+            }
+        }
+        
+        function bookmarkPost(element) {
+            if (element.querySelector('i').classList.contains('far')) {
+                element.querySelector('i').classList.remove('far');
+                element.querySelector('i').classList.add('fas');
+                element.querySelector('i').style.color = 'var(--primary-pink)';
+                alert('Post bookmarked for Prashu! 💖');
+            } else {
+                element.querySelector('i').classList.remove('fas');
+                element.querySelector('i').classList.add('far');
+                element.querySelector('i').style.color = '';
+                alert('Post removed from bookmarks!');
+            }
+        }
+        
+        function sharePost() {
+            alert('Post shared with your love! 💌');
+        }
+        
+        function focusComment() {
+            alert('Comment feature focused! 💬');
+        }
+        
+        function viewStory(username) {
+            alert(`Viewing ${username}'s story! 📖`);
+        }
+
         // Show random love messages on page load
         document.addEventListener('DOMContentLoaded', function() {
             const messages = [
@@ -859,16 +1194,6 @@
             setTimeout(() => {
                 alert(`💖 Notification for Prashu: ${randomMessage}`);
             }, 2000);
-        });
-
-        // Add event listener for special treat menu item
-        document.querySelectorAll('.menu-item')[7].addEventListener('click', function() {
-            const specialTreat = document.getElementById('special-treat');
-            specialTreat.style.display = 'block';
-            
-            setTimeout(() => {
-                specialTreat.style.display = 'none';
-            }, 5000);
         });
     </script>
 </body>
