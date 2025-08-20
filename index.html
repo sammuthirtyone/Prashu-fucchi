@@ -323,6 +323,65 @@
             cursor: pointer;
         }
 
+        /* Reel Styles */
+        .reel-container {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 15px;
+            background: linear-gradient(45deg, #ff9ecb, #ffc2d6, #ffd6e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .reel-content {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .reel-emoji {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .reel-message {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .reel-controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .reel-btn {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
         /* Pages */
         .page {
             display: none;
@@ -370,6 +429,7 @@
             display: none;
             flex-direction: column;
             z-index: 1000;
+            transition: all 0.3s;
         }
 
         .chat-header {
@@ -394,6 +454,7 @@
             padding: 10px 15px;
             border-radius: 15px;
             max-width: 80%;
+            position: relative;
         }
 
         .message.ai {
@@ -407,6 +468,13 @@
             color: white;
             align-self: flex-end;
             border-bottom-right-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            display: block;
         }
 
         .chat-input {
@@ -584,6 +652,56 @@
             transform: translateX(26px);
         }
 
+        /* Messages Page */
+        .conversation {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid var(--light-pink);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .conversation:hover {
+            background: var(--light-pink);
+        }
+
+        .conversation-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--light-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-pink);
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+
+        .conversation-info {
+            flex: 1;
+        }
+
+        .conversation-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .conversation-preview {
+            font-size: 0.9rem;
+            color: #888;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .conversation-time {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .sidebar {
@@ -612,8 +730,8 @@
                 
                 <div class="nav-icons">
                     <div class="nav-icon" onclick="showPage('home')"><i class="fas fa-home"></i></div>
-                    <div class="nav-icon" onclick="showPage('messages')"><i class="fas fa-paper-plane"></i></div>
-                    <div class="nav-icon" onclick="alert('Upload feature coming soon! 📸')"><i class="fas fa-plus-square"></i></div>
+                    <div class="nav-icon" onclick="showPage('messages')"><i class="fas fa-paper-plane"></i><span class="notification-badge">3</span></div>
+                    <div class="nav-icon" onclick="createNewPost()"><i class="fas fa-plus-square"></i></div>
                     <div class="nav-icon" onclick="showPage('explore')"><i class="fas fa-compass"></i></div>
                     <div class="nav-icon" onclick="showPage('notifications')">
                         <i class="fas fa-heart"></i>
@@ -684,7 +802,7 @@
                 <div id="home-page" class="page active">
                     <!-- Stories -->
                     <div class="stories">
-                        <div class="story" onclick="alert('Add to your story! 📸')">
+                        <div class="story" onclick="addToStory()">
                             <div class="story-avatar">
                                 <div><i class="fas fa-plus"></i></div>
                             </div>
@@ -716,69 +834,22 @@
                         </div>
                     </div>
                     
+                    <!-- Reel Section -->
+                    <div class="reel-container">
+                        <div class="reel-content">
+                            <div class="reel-emoji" id="reel-emoji">💖</div>
+                            <div class="reel-message" id="reel-message">Prashu, you make my heart skip a beat!</div>
+                            <div class="reel-controls">
+                                <div class="reel-btn" onclick="previousReel()"><i class="fas fa-step-backward"></i></div>
+                                <div class="reel-btn" onclick="playPauseReel()"><i class="fas fa-play" id="play-icon"></i></div>
+                                <div class="reel-btn" onclick="nextReel()"><i class="fas fa-step-forward"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Posts -->
-                    <div class="posts">
-                        <!-- Post 1 -->
-                        <div class="post">
-                            <div class="post-header">
-                                <div class="post-user">
-                                    <div class="post-user-avatar" onclick="showPage('profile')">🌷</div>
-                                    <div>tulip_love</div>
-                                </div>
-                                <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-image" onclick="likePost(this)">
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 5rem; margin-bottom: 10px;">🌷</div>
-                                        <p>Prashu's Favorite Flower</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="post-actions">
-                                <div class="post-actions-left">
-                                    <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
-                                    <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
-                                    <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
-                                </div>
-                                <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
-                            </div>
-                            <div class="post-likes">1,234 likes</div>
-                            <div class="post-caption">
-                                <strong onclick="showPage('profile')">tulip_love</strong> Did you know that tulips symbolize perfect love? Just like my love for you, Prashu! 💖 #TulipLove #PrashuForever
-                            </div>
-                        </div>
-                        
-                        <!-- Post 2 -->
-                        <div class="post">
-                            <div class="post-header">
-                                <div class="post-user">
-                                    <div class="post-user-avatar" onclick="showPage('profile')">💌</div>
-                                    <div>love_notes</div>
-                                </div>
-                                <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
-                            </div>
-                            <div class="post-content">
-                                <div class="post-image" onclick="likePost(this)">
-                                    <div style="text-align: center;">
-                                        <div style="font-size: 5rem; margin-bottom: 10px;">💖</div>
-                                        <p>10 Reasons Why I Love Prashu</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="post-actions">
-                                <div class="post-actions-left">
-                                    <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
-                                    <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
-                                    <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
-                                </div>
-                                <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
-                            </div>
-                            <div class="post-likes">2,567 likes</div>
-                            <div class="post-caption">
-                                <strong onclick="showPage('profile')">love_notes</strong> 1. Your smile 😊 2. Your kindness ❤️ 3. Your passion 🌟 4. Your intelligence 🧠 5. Your sense of humor 😂 6. Your eyes 👀 7. Your voice 🎵 8. Your warmth 🔥 9. Your strength 💪 10. Your love for me! #PrashuLove
-                            </div>
-                        </div>
+                    <div class="posts" id="posts-container">
+                        <!-- Posts will be generated dynamically -->
                     </div>
                 </div>
                 
@@ -842,17 +913,29 @@
                         <i class="fas fa-envelope"></i>
                         <h2>Messages</h2>
                     </div>
-                    <div class="post">
-                        <div class="post-header">
-                            <div class="post-user">
-                                <div class="post-user-avatar">💖</div>
-                                <div>
-                                    <h3>Your Love</h3>
-                                    <p>I miss you, Prashu! 💕</p>
-                                </div>
-                            </div>
-                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                    <div class="conversation" onclick="openChat('love_chat')">
+                        <div class="conversation-avatar">💖</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Your Love</div>
+                            <div class="conversation-preview">I miss you, Prashu! When can I see you again?</div>
                         </div>
+                        <div class="conversation-time">10:30 AM</div>
+                    </div>
+                    <div class="conversation" onclick="openChat('best_friend')">
+                        <div class="conversation-avatar">🌟</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Best Friend</div>
+                            <div class="conversation-preview">Saw this and thought of you! 💕</div>
+                        </div>
+                        <div class="conversation-time">Yesterday</div>
+                    </div>
+                    <div class="conversation" onclick="openChat('family_chat')">
+                        <div class="conversation-avatar">👨‍👩‍👧</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Family Group</div>
+                            <div class="conversation-preview">Mom: How's my beautiful Prashu doing?</div>
+                        </div>
+                        <div class="conversation-time">2 days ago</div>
                     </div>
                 </div>
                 
@@ -960,16 +1043,17 @@
     <!-- Chat Box -->
     <div class="chat-box" id="chatBox">
         <div class="chat-header">
-            <h3>LoveBot 💖</h3>
+            <h3 id="chat-title">LoveBot 💖</h3>
             <div class="nav-icon" onclick="toggleChat()"><i class="fas fa-times"></i></div>
         </div>
         <div class="chat-messages" id="chatMessages">
             <div class="message ai">
                 Hello Prashu! I'm your LoveBot 💖 How can I make you smile today?
+                <span class="message-time">Just now</span>
             </div>
         </div>
         <div class="chat-input">
-            <input type="text" id="chatInput" placeholder="Type a message...">
+            <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key=='Enter') sendMessage()">
             <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
         </div>
     </div>
@@ -1008,6 +1092,54 @@
             chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
         }
 
+        // Open specific chat
+        function openChat(chatId) {
+            const chatBox = document.getElementById('chatBox');
+            const chatTitle = document.getElementById('chat-title');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Set chat title based on chatId
+            if (chatId === 'love_chat') {
+                chatTitle.textContent = "Your Love 💖";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        I miss you so much, Prashu! When can I see you again? 💕
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                    <div class="message user">
+                        I miss you too! How about this weekend? 🌸
+                        <span class="message-time">10:32 AM</span>
+                    </div>
+                    <div class="message ai">
+                        Weekend sounds perfect! I'll plan something special for us 💖
+                        <span class="message-time">10:33 AM</span>
+                    </div>
+                `;
+            } else if (chatId === 'best_friend') {
+                chatTitle.textContent = "Best Friend 🌟";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        Saw this cute tulip necklace and thought of you! 💕
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                    <div class="message user">
+                        Aww it's beautiful! You know me so well 🌷
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                `;
+            } else {
+                chatTitle.textContent = "LoveBot 💖";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        Hello Prashu! I'm your LoveBot 💖 How can I make you smile today?
+                        <span class="message-time">Just now</span>
+                    </div>
+                `;
+            }
+            
+            chatBox.style.display = 'flex';
+        }
+
         // Send Message Function
         function sendMessage() {
             const input = document.getElementById('chatInput');
@@ -1017,7 +1149,7 @@
                 // Add user message
                 const userMessage = document.createElement('div');
                 userMessage.classList.add('message', 'user');
-                userMessage.textContent = input.value;
+                userMessage.innerHTML = input.value + '<span class="message-time">Just now</span>';
                 messages.appendChild(userMessage);
                 
                 // Scroll to bottom
@@ -1032,19 +1164,16 @@
                     const aiMessage = document.createElement('div');
                     aiMessage.classList.add('message', 'ai');
                     
-                    // Simple AI responses
-                    if (userText.toLowerCase().includes('love') || userText.toLowerCase().includes('like')) {
-                        aiMessage.textContent = "I love you too, Prashu! You're the most amazing person in the world! 💖";
-                    } else if (userText.toLowerCase().includes('game')) {
-                        aiMessage.textContent = "Would you like to play the ring game? I know you'll love it! 💍";
-                    } else if (userText.toLowerCase().includes('tulip')) {
-                        aiMessage.textContent = "Tulips are your favorite! They symbolize perfect love, just like ours! 🌷";
-                    } else if (userText.toLowerCase().includes('cute') || userText.toLowerCase().includes('beautiful')) {
-                        aiMessage.textContent = "You're the cute and beautiful one, Prashu! 🌸";
-                    } else if (userText.toLowerCase().includes('desert') || userText.toLowerCase().includes('chocolate')) {
-                        aiMessage.textContent = "I know you want desert and chocolate! 😭😭 Let me get you some! 🍫🍨";
+                    // Get current chat title
+                    const chatTitle = document.getElementById('chat-title').textContent;
+                    
+                    // Different responses based on chat
+                    if (chatTitle.includes('Love')) {
+                        aiMessage.innerHTML = generateLoveResponse(userText) + '<span class="message-time">Just now</span>';
+                    } else if (chatTitle.includes('Friend')) {
+                        aiMessage.innerHTML = generateFriendResponse(userText) + '<span class="message-time">Just now</span>';
                     } else {
-                        aiMessage.textContent = "You're so wonderful, Prashu! I'm so lucky to have you in my life! 💕";
+                        aiMessage.innerHTML = generateBotResponse(userText) + '<span class="message-time">Just now</span>';
                     }
                     
                     messages.appendChild(aiMessage);
@@ -1053,12 +1182,54 @@
             }
         }
 
-        // Allow pressing Enter to send message
-        document.getElementById('chatInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
+        // AI Response Generators
+        function generateLoveResponse(userText) {
+            const responses = [
+                "I love you more than anything, Prashu! 💖",
+                "You're the most beautiful person I've ever met 🌸",
+                "Thinking about you makes my heart flutter 💗",
+                "I can't wait to see you again! When are you free? 🌷",
+                "You're my sunshine on cloudy days ☀️",
+                "I'm so lucky to have you in my life 💕",
+                "You make every day better just by being you 🌈",
+                "I'm always here for you, no matter what 💝",
+                "You're my dream come true 🌠",
+                "I fall more in love with you every day 💘"
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function generateFriendResponse(userText) {
+            const responses = [
+                "You're the best friend anyone could ask for! 🌟",
+                "We should hang out soon! What are you up to? 💕",
+                "Remember that time we went to the tulip garden? Good times! 🌷",
+                "You always know how to make me laugh 😂",
+                "I saw this and thought of you immediately! 💖",
+                "How's everything going? Miss you! 🌸",
+                "You're such an amazing person, Prashu! 💫",
+                "We need to plan another girls' day out! 💄",
+                "You're shining brighter than ever! ✨",
+                "Sending you lots of love and hugs! 🤗"
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function generateBotResponse(userText) {
+            if (userText.toLowerCase().includes('love') || userText.toLowerCase().includes('like')) {
+                return "I love you too, Prashu! You're the most amazing person in the world! 💖";
+            } else if (userText.toLowerCase().includes('game')) {
+                return "Would you like to play the ring game? I know you'll love it! 💍";
+            } else if (userText.toLowerCase().includes('tulip')) {
+                return "Tulips are your favorite! They symbolize perfect love, just like ours! 🌷";
+            } else if (userText.toLowerCase().includes('cute') || userText.toLowerCase().includes('beautiful')) {
+                return "You're the cute and beautiful one, Prashu! 🌸";
+            } else if (userText.toLowerCase().includes('desert') || userText.toLowerCase().includes('chocolate')) {
+                return "I know you want desert and chocolate! 😭😭 Let me get you some! 🍫🍨";
+            } else {
+                return "You're so wonderful, Prashu! I'm so lucky to have you in my life! 💕";
             }
-        });
+        }
 
         // Special Message Display
         function showSpecialMessage() {
@@ -1069,6 +1240,52 @@
             setTimeout(() => {
                 specialTreat.style.display = 'none';
             }, 5000);
+        }
+
+        // Reel Functions
+        let reelInterval;
+        let reelPlaying = false;
+        const reelMessages = [
+            { emoji: "💖", text: "Prashu, you make my heart skip a beat!" },
+            { emoji: "🌷", text: "Your love is like a beautiful tulip garden" },
+            { emoji: "✨", text: "You shine brighter than the stars" },
+            { emoji: "🌈", text: "You bring color to my world" },
+            { emoji: "🌞", text: "Your smile lights up my day" },
+            { emoji: "💕", text: "My heart belongs to you, Prashu" },
+            { emoji: "🌸", text: "You're more beautiful than spring flowers" },
+            { emoji: "💫", text: "You're out of this world amazing" },
+            { emoji: "💘", text: "I'm crazy in love with you" },
+            { emoji: "💝", text: "You're the best gift life gave me" }
+        ];
+        let currentReel = 0;
+
+        function playPauseReel() {
+            const playIcon = document.getElementById('play-icon');
+            if (reelPlaying) {
+                clearInterval(reelInterval);
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            } else {
+                reelInterval = setInterval(nextReel, 3000);
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            }
+            reelPlaying = !reelPlaying;
+        }
+
+        function nextReel() {
+            currentReel = (currentReel + 1) % reelMessages.length;
+            updateReel();
+        }
+
+        function previousReel() {
+            currentReel = (currentReel - 1 + reelMessages.length) % reelMessages.length;
+            updateReel();
+        }
+
+        function updateReel() {
+            document.getElementById('reel-emoji').textContent = reelMessages[currentReel].emoji;
+            document.getElementById('reel-message').textContent = reelMessages[currentReel].text;
         }
 
         // Ring Game
@@ -1177,6 +1394,88 @@
         function viewStory(username) {
             alert(`Viewing ${username}'s story! 📖`);
         }
+        
+        function addToStory() {
+            alert('Add to your story feature! 📸');
+        }
+        
+        function createNewPost() {
+            alert('Create new post feature! ✨');
+        }
+
+        // Generate posts dynamically
+        function generatePosts() {
+            const postsContainer = document.getElementById('posts-container');
+            const posts = [
+                {
+                    avatar: "🌷",
+                    username: "tulip_love",
+                    image: "🌷",
+                    title: "Prashu's Favorite Flower",
+                    caption: "Did you know that tulips symbolize perfect love? Just like my love for you, Prashu! 💖 #TulipLove #PrashuForever",
+                    likes: "1,234"
+                },
+                {
+                    avatar: "💌",
+                    username: "love_notes",
+                    image: "💖",
+                    title: "10 Reasons Why I Love Prashu",
+                    caption: "1. Your smile 😊 2. Your kindness ❤️ 3. Your passion 🌟 4. Your intelligence 🧠 5. Your sense of humor 😂 6. Your eyes 👀 7. Your voice 🎵 8. Your warmth 🔥 9. Your strength 💪 10. Your love for me! #PrashuLove",
+                    likes: "2,567"
+                },
+                {
+                    avatar: "✨",
+                    username: "shining_star",
+                    image: "⭐",
+                    title: "You Shine Brighter Than Stars",
+                    caption: "Prashu, your inner light makes everything around you beautiful. Never stop shining! ✨ #PrashuRocks",
+                    likes: "3,890"
+                },
+                {
+                    avatar: "🌞",
+                    username: "sunshine_diaries",
+                    image: "☀️",
+                    title: "My Personal Sunshine",
+                    caption: "Prashu, you brighten even my darkest days. Thank you for being my sunshine! ☀️ #MySunshine",
+                    likes: "2,145"
+                }
+            ];
+            
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+                postElement.innerHTML = `
+                    <div class="post-header">
+                        <div class="post-user">
+                            <div class="post-user-avatar" onclick="showPage('profile')">${post.avatar}</div>
+                            <div>${post.username}</div>
+                        </div>
+                        <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-image" onclick="likePost(this)">
+                            <div style="text-align: center;">
+                                <div style="font-size: 5rem; margin-bottom: 10px;">${post.image}</div>
+                                <p>${post.title}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-actions">
+                        <div class="post-actions-left">
+                            <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
+                            <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
+                            <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
+                        </div>
+                        <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
+                    </div>
+                    <div class="post-likes">${post.likes} likes</div>
+                    <div class="post-caption">
+                        <strong onclick="showPage('profile')">${post.username}</strong> ${post.caption}
+                    </div>
+                `;
+                postsContainer.appendChild(postElement);
+            });
+        }
 
         // Show random love messages on page load
         document.addEventListener('DOMContentLoaded', function() {
@@ -1194,6 +1493,14 @@
             setTimeout(() => {
                 alert(`💖 Notification for Prashu: ${randomMessage}`);
             }, 2000);
+            
+            // Generate posts
+            generatePosts();
+            
+            // Start reel animation
+            reelInterval = setInterval(nextReel, 3000);
+            reelPlaying = true;
+            document.getElementById('play-icon').classList.add('fa-pause');
         });
     </script>
 </body>
