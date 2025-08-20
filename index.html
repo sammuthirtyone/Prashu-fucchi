@@ -808,6 +808,7 @@
 
         .conversation-info {
             flex: 1;
+            overflow: hidden;
         }
 
         .conversation-name {
@@ -821,12 +822,12 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-width: 200px;
         }
 
         .conversation-time {
             font-size: 0.8rem;
             color: #888;
+            white-space: nowrap;
         }
 
         /* Responsive Design */
@@ -864,7 +865,7 @@
                 
                 <div class="search-bar">
                     <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search" id="searchInput">
                 </div>
                 
                 <div class="nav-icons">
@@ -989,11 +990,11 @@
                         
                         <div class="reels-container" id="reels-container">
                             <div class="reel-progress">
-                                <div class="progress-bar"><div class="progress-fill" style="width: 30%;"></div></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
-                                <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                                <div class="progress-bar"><div class="progress-fill" id="progress-0"></div></div>
+                                <div class="progress-bar"><div class="progress-fill" id="progress-1"></div></div>
+                                <div class="progress-bar"><div class="progress-fill" id="progress-2"></div></div>
+                                <div class="progress-bar"><div class="progress-fill" id="progress-3"></div></div>
+                                <div class="progress-bar"><div class="progress-fill" id="progress-4"></div></div>
                             </div>
                             
                             <!-- Reel 1 -->
@@ -1211,8 +1212,179 @@
                     </div>
                 </div>
                 
-                <!-- Other pages remain the same as before -->
-                <!-- Explore, Notifications, Messages, Bookmarks, Profile, Game, Settings pages -->
+                <!-- Explore Page -->
+                <div id="explore-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-search"></i>
+                        <h2>Explore</h2>
+                    </div>
+                    <p>Discover beautiful content for Prashu:</p>
+                    <div class="posts" id="explore-posts">
+                        <!-- Explore posts will be generated here -->
+                    </div>
+                </div>
+                
+                <!-- Notifications Page -->
+                <div id="notifications-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-heart"></i>
+                        <h2>Notifications</h2>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">🌷</div>
+                                <div>tulip_love liked your post</div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">💌</div>
+                                <div>love_notes mentioned you in a comment</div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">💕</div>
+                                <div>Your Love sent you a message</div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Messages Page -->
+                <div id="messages-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>Messages</h2>
+                    </div>
+                    <div class="conversation" onclick="openChat('love_chat')">
+                        <div class="conversation-avatar">💖</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Your Love</div>
+                            <div class="conversation-preview">I miss you, Prashu! When can I see you again?</div>
+                        </div>
+                        <div class="conversation-time">10:30 AM</div>
+                    </div>
+                    <div class="conversation" onclick="openChat('best_friend')">
+                        <div class="conversation-avatar">🌟</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Best Friend</div>
+                            <div class="conversation-preview">Saw this and thought of you! 💕</div>
+                        </div>
+                        <div class="conversation-time">Yesterday</div>
+                    </div>
+                    <div class="conversation" onclick="openChat('family_chat')">
+                        <div class="conversation-avatar">👨‍👩‍👧</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Family Group</div>
+                            <div class="conversation-preview">Mom: How's my beautiful Prashu doing?</div>
+                        </div>
+                        <div class="conversation-time">2 days ago</div>
+                    </div>
+                </div>
+                
+                <!-- Bookmarks Page -->
+                <div id="bookmarks-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-bookmark"></i>
+                        <h2>Bookmarks</h2>
+                    </div>
+                    <p>Your saved posts will appear here.</p>
+                    <div class="posts" id="bookmarks-posts">
+                        <!-- Bookmarked posts will appear here -->
+                    </div>
+                </div>
+                
+                <!-- Profile Page -->
+                <div id="profile-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-user"></i>
+                        <h2>Prashu's Profile</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-pic">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Prashu's World</h3>
+                            <p>@prashulove</p>
+                            <p>Joined: June 2023</p>
+                        </div>
+                    </div>
+                    <div class="posts" id="profile-posts">
+                        <!-- Profile posts will be generated here -->
+                    </div>
+                </div>
+                
+                <!-- Game Page -->
+                <div id="game-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h2>Ring Game</h2>
+                    </div>
+                    <div class="game-container">
+                        <p>Catch the rings for Prashu! Click on each ring before it disappears.</p>
+                        <div id="score">Score: 0</div>
+                        <div id="game-area"></div>
+                        <button class="btn" onclick="startGame()"><i class="fas fa-play"></i> Start Game</button>
+                    </div>
+                </div>
+                
+                <!-- Settings Page -->
+                <div id="settings-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-cog"></i>
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Notifications</h3>
+                            <p>Enable or disable notifications</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked id="notifications-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Privacy</h3>
+                            <p>Make account private</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="privacy-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Theme</h3>
+                            <p>Dark mode</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Autoplay Reels</h3>
+                            <p>Play reels automatically</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked id="autoplay-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
                 
                 <!-- Special Message -->
                 <div class="special-message" id="special-treat">
@@ -1247,6 +1419,200 @@
     </div>
 
     <script>
+        // Page Navigation
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.menu-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            // Set active menu item
+            const menuItems = document.querySelectorAll('.menu-item');
+            for (let item of menuItems) {
+                if (item.textContent.toLowerCase().includes(pageId)) {
+                    item.classList.add('active');
+                    break;
+                }
+            }
+            
+            // Hide any visible special messages
+            document.querySelectorAll('.special-message').forEach(msg => {
+                msg.style.display = 'none';
+            });
+            
+            // If showing reels page, initialize reels
+            if (pageId === 'reels') {
+                initializeReelsPage();
+            }
+            
+            // If showing game page, initialize game
+            if (pageId === 'game') {
+                initGame();
+            }
+        }
+
+        // Toggle Chat Box
+        function toggleChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Open specific chat
+        function openChat(chatId) {
+            const chatBox = document.getElementById('chatBox');
+            const chatTitle = document.getElementById('chat-title');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Set chat title based on chatId
+            if (chatId === 'love_chat') {
+                chatTitle.textContent = "Your Love 💖";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        I miss you so much, Prashu! When can I see you again? 💕
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                    <div class="message user">
+                        I miss you too! How about this weekend? 🌸
+                        <span class="message-time">10:32 AM</span>
+                    </div>
+                    <div class="message ai">
+                        Weekend sounds perfect! I'll plan something special for us 💖
+                        <span class="message-time">10:33 AM</span>
+                    </div>
+                `;
+            } else if (chatId === 'best_friend') {
+                chatTitle.textContent = "Best Friend 🌟";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        Saw this cute tulip necklace and thought of you! 💕
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                    <div class="message user">
+                        Aww it's beautiful! You know me so well 🌷
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                `;
+            } else {
+                chatTitle.textContent = "LoveBot 💖";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        Hello Prashu! I'm your LoveBot 💖 How can I make you smile today?
+                        <span class="message-time">Just now</span>
+                    </div>
+                `;
+            }
+            
+            chatBox.style.display = 'flex';
+            showPage('messages');
+        }
+
+        // Send Message Function
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            
+            if (input.value.trim() !== '') {
+                // Add user message
+                const userMessage = document.createElement('div');
+                userMessage.classList.add('message', 'user');
+                userMessage.innerHTML = input.value + '<span class="message-time">Just now</span>';
+                messages.appendChild(userMessage);
+                
+                // Scroll to bottom
+                messages.scrollTop = messages.scrollHeight;
+                
+                // Clear input
+                const userText = input.value;
+                input.value = '';
+                
+                // AI response (after a short delay)
+                setTimeout(() => {
+                    const aiMessage = document.createElement('div');
+                    aiMessage.classList.add('message', 'ai');
+                    
+                    // Get current chat title
+                    const chatTitle = document.getElementById('chat-title').textContent;
+                    
+                    // Different responses based on chat
+                    if (chatTitle.includes('Love')) {
+                        aiMessage.innerHTML = generateLoveResponse(userText) + '<span class="message-time">Just now</span>';
+                    } else if (chatTitle.includes('Friend')) {
+                        aiMessage.innerHTML = generateFriendResponse(userText) + '<span class="message-time">Just now</span>';
+                    } else {
+                        aiMessage.innerHTML = generateBotResponse(userText) + '<span class="message-time">Just now</span>';
+                    }
+                    
+                    messages.appendChild(aiMessage);
+                    messages.scrollTop = messages.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        // AI Response Generators
+        function generateLoveResponse(userText) {
+            const responses = [
+                "I love you more than anything, Prashu! 💖",
+                "You're the most beautiful person I've ever met 🌸",
+                "Thinking about you makes my heart flutter 💗",
+                "I can't wait to see you again! When are you free? 🌷",
+                "You're my sunshine on cloudy days ☀️",
+                "I'm so lucky to have you in my life 💕",
+                "You make every day better just by being you 🌈",
+                "I'm always here for you, no matter what 💝",
+                "You're my dream come true 🌠",
+                "I fall more in love with you every day 💘"
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function generateFriendResponse(userText) {
+            const responses = [
+                "You're the best friend anyone could ask for! 🌟",
+                "We should hang out soon! What are you up to? 💕",
+                "Remember that time we went to the tulip garden? Good times! 🌷",
+                "You always know how to make me laugh 😂",
+                "I saw this and thought of you immediately! 💖",
+                "How's everything going? Miss you! 🌸",
+                "You're such an amazing person, Prashu! 💫",
+                "We need to plan another girls' day out! 💄",
+                "You're shining brighter than ever! ✨",
+                "Sending you lots of love and hugs! 🤗"
+            ];
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function generateBotResponse(userText) {
+            if (userText.toLowerCase().includes('love') || userText.toLowerCase().includes('like')) {
+                return "I love you too, Prashu! You're the most amazing person in the world! 💖";
+            } else if (userText.toLowerCase().includes('game')) {
+                return "Would you like to play the ring game? I know you'll love it! 💍";
+            } else if (userText.toLowerCase().includes('tulip')) {
+                return "Tulips are your favorite! They symbolize perfect love, just like ours! 🌷";
+            } else if (userText.toLowerCase().includes('cute') || userText.toLowerCase().includes('beautiful')) {
+                return "You're the cute and beautiful one, Prashu! 🌸";
+            } else if (userText.toLowerCase().includes('desert') || userText.toLowerCase().includes('chocolate')) {
+                return "I know you want desert and chocolate! 😭😭 Let me get you some! 🍫🍨";
+            } else {
+                return "You're so wonderful, Prashu! I'm so lucky to have you in my life! 💕";
+            }
+        }
+
+        // Special Message Display
+        function showSpecialMessage() {
+            const specialTreat = document.getElementById('special-treat');
+            specialTreat.style.display = 'block';
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                specialTreat.style.display = 'none';
+            }, 5000);
+        }
+
         // Reel Functions
         let reelInterval;
         let reelPlaying = true;
@@ -1298,23 +1664,18 @@
 
         // Add touch events for swiping
         let touchStartY = 0;
-        let touchStartX = 0;
         const reelsContainer = document.getElementById('reels-container');
 
         reelsContainer.addEventListener('touchstart', function(e) {
             touchStartY = e.touches[0].clientY;
-            touchStartX = e.touches[0].clientX;
         }, false);
 
         reelsContainer.addEventListener('touchend', function(e) {
             const touchEndY = e.changedTouches[0].clientY;
-            const touchEndX = e.changedTouches[0].clientX;
-            
             const diffY = touchStartY - touchEndY;
-            const diffX = touchStartX - touchEndX;
             
             // If vertical swipe (more than 50px difference)
-            if (Math.abs(diffY) > 50 && Math.abs(diffY) > Math.abs(diffX)) {
+            if (Math.abs(diffY) > 50) {
                 if (diffY > 0) {
                     // Swipe up - next reel
                     nextReel();
@@ -1378,17 +1739,317 @@
             alert('Reel shared with your love! 💌');
         }
 
-        // Other functions remain the same as before
-        // (Page navigation, chat, game, posts, etc.)
+        function focusComment() {
+            alert('Comment feature focused! 💬');
+        }
+        
+        function viewStory(username) {
+            alert(`Viewing ${username}'s story! 📖`);
+        }
+        
+        function addToStory() {
+            alert('Add to your story feature! 📸');
+        }
+        
+        function createNewPost() {
+            alert('Create new post feature! ✨');
+        }
 
-        // Initialize reels on page load
+        // Initialize reels page
+        function initializeReelsPage() {
+            // This would duplicate the reels for the reels page
+            // In a real app, you would fetch more reels from a server
+        }
+
+        // Post Interactions
+        function likePost(element) {
+            if (element.querySelector('i')) {
+                const icon = element.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = 'var(--primary-pink)';
+                    
+                    // Increase like count
+                    const likesElement = element.closest('.post').querySelector('.post-likes');
+                    let likes = parseInt(likesElement.textContent.replace(/,/g, ''));
+                    likes++;
+                    likesElement.textContent = likes.toLocaleString() + ' likes';
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                    
+                    // Decrease like count
+                    const likesElement = element.closest('.post').querySelector('.post-likes');
+                    let likes = parseInt(likesElement.textContent.replace(/,/g, ''));
+                    likes--;
+                    likesElement.textContent = likes.toLocaleString() + ' likes';
+                }
+            }
+        }
+        
+        function bookmarkPost(element) {
+            if (element.querySelector('i').classList.contains('far')) {
+                element.querySelector('i').classList.remove('far');
+                element.querySelector('i').classList.add('fas');
+                element.querySelector('i').style.color = 'var(--primary-pink)';
+                alert('Post bookmarked for Prashu! 💖');
+                
+                // Add to bookmarks page
+                const post = element.closest('.post');
+                const bookmarksContainer = document.getElementById('bookmarks-posts');
+                if (bookmarksContainer) {
+                    const clonedPost = post.cloneNode(true);
+                    bookmarksContainer.appendChild(clonedPost);
+                }
+            } else {
+                element.querySelector('i').classList.remove('fas');
+                element.querySelector('i').classList.add('far');
+                element.querySelector('i').style.color = '';
+                alert('Post removed from bookmarks!');
+            }
+        }
+        
+        function sharePost() {
+            alert('Post shared with your love! 💌');
+        }
+
+        // Ring Game
+        let score = 0;
+        let gameInterval;
+        
+        function initGame() {
+            // Reset game
+            clearInterval(gameInterval);
+            const gameArea = document.getElementById('game-area');
+            if (gameArea) {
+                gameArea.innerHTML = '';
+                score = 0;
+                document.getElementById('score').textContent = 'Score: 0';
+            }
+        }
+        
+        function startGame() {
+            // Reset game
+            clearInterval(gameInterval);
+            const gameArea = document.getElementById('game-area');
+            gameArea.innerHTML = '';
+            score = 0;
+            document.getElementById('score').textContent = 'Score: 0';
+            
+            // Start creating rings
+            gameInterval = setInterval(createRing, 1000);
+        }
+        
+        function createRing() {
+            const gameArea = document.getElementById('game-area');
+            if (!gameArea) return;
+            
+            const ring = document.createElement('div');
+            ring.classList.add('ring');
+            ring.innerHTML = '💍';
+            
+            // Random horizontal position
+            const leftPos = Math.random() * (gameArea.offsetWidth - 40);
+            ring.style.left = leftPos + 'px';
+            
+            // Add click event
+            ring.addEventListener('click', function() {
+                score++;
+                document.getElementById('score').textContent = `Score: ${score}`;
+                ring.remove();
+                
+                // Show message every 5 points
+                if (score % 5 === 0) {
+                    showSpecialMessage();
+                }
+            });
+            
+            gameArea.appendChild(ring);
+            
+            // Animate ring falling
+            let topPos = 0;
+            const fallInterval = setInterval(() => {
+                topPos += 5;
+                ring.style.top = topPos + 'px';
+                
+                // Remove when out of view
+                if (topPos > gameArea.offsetHeight) {
+                    clearInterval(fallInterval);
+                    ring.remove();
+                }
+            }, 50);
+        }
+
+        // Generate posts dynamically
+        function generatePosts() {
+            const postsContainer = document.getElementById('posts-container');
+            const exploreContainer = document.getElementById('explore-posts');
+            const profileContainer = document.getElementById('profile-posts');
+            
+            const posts = [
+                {
+                    avatar: "🌷",
+                    username: "tulip_love",
+                    image: "🌷",
+                    title: "Prashu's Favorite Flower",
+                    caption: "Did you know that tulips symbolize perfect love? Just like my love for you, Prashu! 💖 #TulipLove #PrashuForever",
+                    likes: "1,234"
+                },
+                {
+                    avatar: "💌",
+                    username: "love_notes",
+                    image: "💖",
+                    title: "10 Reasons Why I Love Prashu",
+                    caption: "1. Your smile 😊 2. Your kindness ❤️ 3. Your passion 🌟 4. Your intelligence 🧠 5. Your sense of humor 😂 6. Your eyes 👀 7. Your voice 🎵 8. Your warmth 🔥 9. Your strength 💪 10. Your love for me! #PrashuLove",
+                    likes: "2,567"
+                },
+                {
+                    avatar: "✨",
+                    username: "shining_star",
+                    image: "⭐",
+                    title: "You Shine Brighter Than Stars",
+                    caption: "Prashu, your inner light makes everything around you beautiful. Never stop shining! ✨ #PrashuRocks",
+                    likes: "3,890"
+                },
+                {
+                    avatar: "🌞",
+                    username: "sunshine_diaries",
+                    image: "☀️",
+                    title: "My Personal Sunshine",
+                    caption: "Prashu, you brighten even my darkest days. Thank you for being my sunshine! ☀️ #MySunshine",
+                    likes: "2,145"
+                },
+                {
+                    avatar: "🌈",
+                    username: "colorful_love",
+                    image: "🌈",
+                    title: "You Bring Color to My Life",
+                    caption: "Before you, my world was black and white. Now it's filled with beautiful colors, Prashu! 🌈 #ColorfulLove",
+                    likes: "3,421"
+                },
+                {
+                    avatar: "💕",
+                    username: "forever_yours",
+                    image: "💑",
+                    title: "Forever and Always",
+                    caption: "No matter what happens, I'll always be yours, Prashu. Forever and always! 💕 #ForeverYours",
+                    likes: "4,832"
+                }
+            ];
+            
+            // Add posts to home feed
+            posts.forEach(post => {
+                const postElement = createPostElement(post);
+                if (postsContainer) postsContainer.appendChild(postElement);
+                
+                // Add some posts to explore page
+                if (exploreContainer && Math.random() > 0.3) {
+                    const explorePost = postElement.cloneNode(true);
+                    exploreContainer.appendChild(explorePost);
+                }
+                
+                // Add some posts to profile page
+                if (profileContainer && Math.random() > 0.5) {
+                    const profilePost = postElement.cloneNode(true);
+                    profileContainer.appendChild(profilePost);
+                }
+            });
+        }
+        
+        function createPostElement(post) {
+            const postElement = document.createElement('div');
+            postElement.classList.add('post');
+            postElement.innerHTML = `
+                <div class="post-header">
+                    <div class="post-user">
+                        <div class="post-user-avatar" onclick="showPage('profile')">${post.avatar}</div>
+                        <div>${post.username}</div>
+                    </div>
+                    <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                </div>
+                <div class="post-content">
+                    <div class="post-image" onclick="likePost(this)">
+                        <div style="text-align: center;">
+                            <div style="font-size: 5rem; margin-bottom: 10px;">${post.image}</div>
+                            <p>${post.title}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-actions">
+                    <div class="post-actions-left">
+                        <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
+                        <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
+                        <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
+                    </div>
+                    <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
+                </div>
+                <div class="post-likes">${post.likes} likes</div>
+                <div class="post-caption">
+                    <strong onclick="showPage('profile')">${post.username}</strong> ${post.caption}
+                </div>
+            `;
+            return postElement;
+        }
+
+        // Search functionality
+        document.getElementById('searchInput').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                alert(`Searching for: ${this.value} 🔍`);
+                this.value = '';
+            }
+        });
+
+        // Settings toggles
+        document.getElementById('notifications-toggle').addEventListener('change', function() {
+            alert(`Notifications ${this.checked ? 'enabled' : 'disabled'} 🔔`);
+        });
+
+        document.getElementById('privacy-toggle').addEventListener('change', function() {
+            alert(`Account ${this.checked ? 'made private' : 'made public'} 👁️`);
+        });
+
+        document.getElementById('theme-toggle').addEventListener('change', function() {
+            alert(`${this.checked ? 'Dark' : 'Light'} mode activated 🌙`);
+        });
+
+        document.getElementById('autoplay-toggle').addEventListener('change', function() {
+            if (this.checked && !reelPlaying) {
+                playPauseReel();
+            } else if (!this.checked && reelPlaying) {
+                playPauseReel();
+            }
+            alert(`Reels autoplay ${this.checked ? 'enabled' : 'disabled'} ▶️`);
+        });
+
+        // Show random love messages on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Start reel animation
-            reelInterval = setInterval(nextReel, 5000);
-            updateReel();
+            const messages = [
+                "Prashu, you're the most beautiful person inside and out!",
+                "Every day with you is a gift I cherish!",
+                "Your smile makes my heart skip a beat!",
+                "I'm the luckiest person to have you in my life!",
+                "You make ordinary moments extraordinary!"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            // Create a notification
+            setTimeout(() => {
+                alert(`💖 Notification for Prashu: ${randomMessage}`);
+            }, 2000);
             
             // Generate posts
             generatePosts();
+            
+            // Start reel animation
+            reelInterval = setInterval(nextReel, 5000);
+            reelPlaying = true;
+            document.getElementById('reel-play-icon').classList.add('fa-pause');
+            
+            // Initialize game
+            initGame();
         });
     </script>
 </body>
