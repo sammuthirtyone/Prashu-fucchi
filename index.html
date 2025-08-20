@@ -901,6 +901,7 @@
 
         .upload-option div {
             flex: 1;
+            pointer-events: none;
         }
 
         .upload-option h3 {
@@ -1344,8 +1345,236 @@
                     </div>
                 </div>
                 
-                <!-- Other pages (Explore, Notifications, Messages, Bookmarks, Profile, Game, Settings) -->
-                <!-- These are included in the full code but omitted here for brevity -->
+                <!-- Explore Page -->
+                <div id="explore-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-search"></i>
+                        <h2>Explore</h2>
+                    </div>
+                    <div class="posts" id="explore-posts">
+                        <!-- Explore posts will be generated dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Notifications Page -->
+                <div id="notifications-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-heart"></i>
+                        <h2>Notifications</h2>
+                    </div>
+                    <div class="notifications-list" id="notifications-list">
+                        <div class="conversation">
+                            <div class="conversation-avatar">💖</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">your_love</div>
+                                <div class="conversation-preview">Liked your post and sent you a message</div>
+                            </div>
+                            <div class="conversation-time">2m</div>
+                        </div>
+                        <div class="conversation">
+                            <div class="conversation-avatar">🌷</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">tulip_lover</div>
+                                <div class="conversation-preview">Commented on your reel: "You're beautiful!"</div>
+                            </div>
+                            <div class="conversation-time">15m</div>
+                        </div>
+                        <div class="conversation">
+                            <div class="conversation-avatar">✨</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">shining_star</div>
+                                <div class="conversation-preview">Shared your post with 5 people</div>
+                            </div>
+                            <div class="conversation-time">1h</div>
+                        </div>
+                        <div class="conversation">
+                            <div class="conversation-avatar">🌈</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">colorful_love</div>
+                                <div class="conversation-preview">Started following you</div>
+                            </div>
+                            <div class="conversation-time">3h</div>
+                        </div>
+                        <div class="conversation">
+                            <div class="conversation-avatar">💕</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">forever_yours</div>
+                                <div class="conversation-preview">Sent you a love reaction</div>
+                            </div>
+                            <div class="conversation-time">1d</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Messages Page -->
+                <div id="messages-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>Messages</h2>
+                    </div>
+                    <div class="conversations-list" id="conversations-list">
+                        <div class="conversation" onclick="openChat('your_love', '💖')">
+                            <div class="conversation-avatar">💖</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">your_love</div>
+                                <div class="conversation-preview">I miss you so much! When can I see you again?</div>
+                            </div>
+                            <div class="conversation-time">2m</div>
+                        </div>
+                        <div class="conversation" onclick="openChat('tulip_lover', '🌷')">
+                            <div class="conversation-avatar">🌷</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">tulip_lover</div>
+                                <div class="conversation-preview">I found the most beautiful tulip garden for our next date!</div>
+                            </div>
+                            <div class="conversation-time">15m</div>
+                        </div>
+                        <div class="conversation" onclick="openChat('shining_star', '✨')">
+                            <div class="conversation-avatar">✨</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">shining_star</div>
+                                <div class="conversation-preview">You're shining brighter than ever today!</div>
+                            </div>
+                            <div class="conversation-time">1h</div>
+                        </div>
+                        <div class="conversation" onclick="openChat('colorful_love', '🌈')">
+                            <div class="conversation-avatar">🌈</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">colorful_love</div>
+                                <div class="conversation-preview">I made you a colorful surprise!</div>
+                            </div>
+                            <div class="conversation-time">3h</div>
+                        </div>
+                        <div class="conversation" onclick="openChat('forever_yours', '💕')">
+                            <div class="conversation-avatar">💕</div>
+                            <div class="conversation-info">
+                                <div class="conversation-name">forever_yours</div>
+                                <div class="conversation-preview">Forever and always, my love</div>
+                            </div>
+                            <div class="conversation-time">1d</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bookmarks Page -->
+                <div id="bookmarks-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-bookmark"></i>
+                        <h2>Bookmarks</h2>
+                    </div>
+                    <div class="posts" id="bookmarks-posts">
+                        <!-- Bookmarks will be added dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Profile Page -->
+                <div id="profile-page" class="page">
+                    <div class="profile-card" style="border-bottom: none; margin-bottom: 0;">
+                        <div class="profile-pic" style="width: 100px; height: 100px; font-size: 2.5rem;">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Prashu's World</h3>
+                            <p>@prashulove</p>
+                            <div style="margin-top: 10px;">
+                                <span style="margin-right: 15px;"><strong>258</strong> posts</span>
+                                <span style="margin-right: 15px;"><strong>1.2K</strong> followers</span>
+                                <span><strong>567</strong> following</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <p>💖 Living in a world full of love and tulips 🌷</p>
+                        <p>✨ Shining bright with my special someone</p>
+                        <p>🌸 Every day is a blessing with you</p>
+                    </div>
+                    
+                    <div class="posts" id="profile-posts">
+                        <!-- Profile posts will be generated dynamically -->
+                    </div>
+                </div>
+                
+                <!-- Reels Page -->
+                <div id="reels-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-film"></i>
+                        <h2>Reels</h2>
+                    </div>
+                    <div class="reels-section">
+                        <div class="reels-container" id="reels-page-container">
+                            <!-- Reels will be duplicated here -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Game Page -->
+                <div id="game-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h2>Ring Game</h2>
+                    </div>
+                    <div class="game-container">
+                        <h3>Catch the Rings for Prashu! 💍</h3>
+                        <p>Catch as many rings as you can to show your love! Each ring = 1 point.</p>
+                        <div id="score">Score: 0</div>
+                        <button class="btn" onclick="startGame()">
+                            <i class="fas fa-play"></i>
+                            Start Game
+                        </button>
+                        <div id="game-area"></div>
+                    </div>
+                </div>
+                
+                <!-- Settings Page -->
+                <div id="settings-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-cog"></i>
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-list">
+                        <div class="settings-option">
+                            <div>
+                                <h3>Notifications</h3>
+                                <p>Enable or disable notifications</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3>Dark Mode</h3>
+                                <p>Switch to dark theme</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="dark-mode-toggle">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3>Auto-play Videos</h3>
+                                <p>Play videos automatically</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="settings-option">
+                            <div>
+                                <h3>Private Account</h3>
+                                <p>Only approved followers can see your posts</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Special Message -->
                 <div class="special-message" id="special-treat">
@@ -1660,8 +1889,12 @@
 
         // Initialize reels page
         function initializeReelsPage() {
-            // This would duplicate the reels for the reels page
-            // In a real app, you would fetch more reels from a server
+            const reelsPageContainer = document.getElementById('reels-page-container');
+            const originalReelsContainer = document.getElementById('reels-container');
+            
+            if (reelsPageContainer && originalReelsContainer) {
+                reelsPageContainer.innerHTML = originalReelsContainer.innerHTML;
+            }
         }
 
         // Post Interactions
@@ -1901,6 +2134,11 @@
             const chatBox = document.getElementById('chatBox');
             chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
         }
+        
+        function openChat(username, emoji) {
+            document.getElementById('chat-title').textContent = username + " " + emoji;
+            toggleChat();
+        }
 
         function sendMessage() {
             const input = document.getElementById('chatInput');
@@ -2002,6 +2240,21 @@
                 specialTreat.style.display = 'none';
             }, 5000);
         }
+
+        // Dark Mode Toggle
+        document.getElementById('dark-mode-toggle').addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.style.setProperty('--white', '#222');
+                document.documentElement.style.setProperty('--light-gray', '#333');
+                document.documentElement.style.setProperty('--text-dark', '#fff');
+                document.documentElement.style.setProperty('--light-pink', '#444');
+            } else {
+                document.documentElement.style.setProperty('--white', '#ffffff');
+                document.documentElement.style.setProperty('--light-gray', '#fafafa');
+                document.documentElement.style.setProperty('--text-dark', '#333333');
+                document.documentElement.style.setProperty('--light-pink', '#ffd6e0');
+            }
+        });
 
         // Show random love messages on page load
         document.addEventListener('DOMContentLoaded', function() {
