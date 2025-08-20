@@ -257,6 +257,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            cursor: pointer;
         }
 
         .post-user-avatar {
@@ -268,7 +269,6 @@
             align-items: center;
             justify-content: center;
             color: var(--primary-pink);
-            cursor: pointer;
         }
 
         .post-content {
@@ -1344,8 +1344,200 @@
                     </div>
                 </div>
                 
-                <!-- Other pages (Explore, Notifications, Messages, Bookmarks, Profile, Game, Settings) -->
-                <!-- These are included in the full code but omitted here for brevity -->
+                <!-- Explore Page -->
+                <div id="explore-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-search"></i>
+                        <h2>Explore</h2>
+                    </div>
+                    <p>Discover beautiful content for Prashu:</p>
+                    <div class="posts" id="explore-posts">
+                        <!-- Explore posts will be generated here -->
+                    </div>
+                </div>
+                
+                <!-- Notifications Page -->
+                <div id="notifications-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-heart"></i>
+                        <h2>Notifications</h2>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">🌷</div>
+                                <div>tulip_love liked your post</div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">💌</div>
+                                <div>love_notes mentioned you in a comment</div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                    <div class="post">
+                        <div class="post-header">
+                            <div class="post-user">
+                                <div class="post-user-avatar">💕</div>
+                                <div>Your Love sent you a message</div>
+                            </div>
+                            <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Messages Page -->
+                <div id="messages-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-envelope"></i>
+                        <h2>Messages</h2>
+                    </div>
+                    <div class="conversation" onclick="openChat('love_chat')">
+                        <div class="conversation-avatar">💖</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Your Love</div>
+                            <div class="conversation-preview">I miss you, Prashu! When can I see you again?</div>
+                        </div>
+                        <div class="conversation-time">10:30 AM</div>
+                    </div>
+                    <div class="conversation" onclick="openChat('best_friend')">
+                        <div class="conversation-avatar">🌟</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Best Friend</div>
+                            <div class="conversation-preview">Saw this and thought of you! 💕</div>
+                        </div>
+                        <div class="conversation-time">Yesterday</div>
+                    </div>
+                    <div class="conversation" onclick="openChat('family_chat')">
+                        <div class="conversation-avatar">👨‍👩‍👧</div>
+                        <div class="conversation-info">
+                            <div class="conversation-name">Family Group</div>
+                            <div class="conversation-preview">Mom: How's my beautiful Prashu doing?</div>
+                        </div>
+                        <div class="conversation-time">2 days ago</div>
+                    </div>
+                </div>
+                
+                <!-- Bookmarks Page -->
+                <div id="bookmarks-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-bookmark"></i>
+                        <h2>Bookmarks</h2>
+                    </div>
+                    <p>Your saved posts will appear here.</p>
+                    <div class="posts" id="bookmarks-posts">
+                        <!-- Bookmarked posts will appear here -->
+                    </div>
+                </div>
+                
+                <!-- Profile Page -->
+                <div id="profile-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-user"></i>
+                        <h2>Prashu's Profile</h2>
+                    </div>
+                    <div class="profile-card">
+                        <div class="profile-pic">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h3>Prashu's World</h3>
+                            <p>@prashulove</p>
+                            <p>Joined: June 2023</p>
+                        </div>
+                    </div>
+                    <div class="posts" id="profile-posts">
+                        <!-- Profile posts will be generated here -->
+                    </div>
+                </div>
+                
+                <!-- Game Page -->
+                <div id="game-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-gamepad"></i>
+                        <h2>Ring Game</h2>
+                    </div>
+                    <div class="game-container">
+                        <p>Catch the rings for Prashu! Click on each ring before it disappears.</p>
+                        <div id="score">Score: 0</div>
+                        <div id="game-area"></div>
+                        <button class="btn" onclick="startGame()"><i class="fas fa-play"></i> Start Game</button>
+                    </div>
+                </div>
+                
+                <!-- Settings Page -->
+                <div id="settings-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-cog"></i>
+                        <h2>Settings</h2>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Notifications</h3>
+                            <p>Enable or disable notifications</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked id="notifications-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Privacy</h3>
+                            <p>Make account private</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="privacy-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Theme</h3>
+                            <p>Dark mode</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="theme-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <div>
+                            <h3>Autoplay Reels</h3>
+                            <p>Play reels automatically</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked id="autoplay-toggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Reels Page -->
+                <div id="reels-page" class="page">
+                    <div class="page-header">
+                        <i class="fas fa-film"></i>
+                        <h2>All Reels for Prashu</h2>
+                    </div>
+                    <p>Scroll through all the beautiful reels created just for you, Prashu! 💖</p>
+                    
+                    <div class="reels-container" style="height: 600px;">
+                        <div class="reel-progress">
+                            <div class="progress-bar"><div class="progress-fill" style="width: 30%;"></div></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                            <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+                        </div>
+                        
+                        <!-- Reels will be loaded here -->
+                    </div>
+                </div>
                 
                 <!-- Special Message -->
                 <div class="special-message" id="special-treat">
@@ -1557,7 +1749,7 @@
             document.querySelector(`.reel[data-index="${currentReel}"]`).classList.add('active');
             
             // Update progress bars
-            document.querySelectorAll('.progress-fill').forEach((bar, index) => {
+            document.querySelectorAll('.progress-fill').forEach((bar, index) {
                 if (index < currentReel) {
                     bar.style.width = '100%';
                 } else if (index === currentReel) {
@@ -1902,6 +2094,54 @@
             chatBox.style.display = chatBox.style.display === 'flex' ? 'none' : 'flex';
         }
 
+        function openChat(chatId) {
+            const chatBox = document.getElementById('chatBox');
+            const chatTitle = document.getElementById('chat-title');
+            const chatMessages = document.getElementById('chatMessages');
+            
+            // Set chat title based on chatId
+            if (chatId === 'love_chat') {
+                chatTitle.textContent = "Your Love 💖";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        I miss you so much, Prashu! When can I see you again? 💕
+                        <span class="message-time">10:30 AM</span>
+                    </div>
+                    <div class="message user">
+                        I miss you too! How about this weekend? 🌸
+                        <span class="message-time">10:32 AM</span>
+                    </div>
+                    <div class="message ai">
+                        Weekend sounds perfect! I'll plan something special for us 💖
+                        <span class="message-time">10:33 AM</span>
+                    </div>
+                `;
+            } else if (chatId === 'best_friend') {
+                chatTitle.textContent = "Best Friend 🌟";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        Saw this cute tulip necklace and thought of you! 💕
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                    <div class="message user">
+                        Aww it's beautiful! You know me so well 🌷
+                        <span class="message-time">Yesterday</span>
+                    </div>
+                `;
+            } else {
+                chatTitle.textContent = "LoveBot 💖";
+                chatMessages.innerHTML = `
+                    <div class="message ai">
+                        Hello Prashu! I'm your LoveBot 💖 How can I make you smile today?
+                        <span class="message-time">Just now</span>
+                    </div>
+                `;
+            }
+            
+            chatBox.style.display = 'flex';
+            showPage('messages');
+        }
+
         function sendMessage() {
             const input = document.getElementById('chatInput');
             const messages = document.getElementById('chatMessages');
@@ -2003,8 +2243,39 @@
             }, 5000);
         }
 
-        // Show random love messages on page load
+        // Settings toggles
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize settings toggles
+            document.getElementById('notifications-toggle').addEventListener('change', function() {
+                alert(`Notifications ${this.checked ? 'enabled' : 'disabled'} 🔔`);
+            });
+
+            document.getElementById('privacy-toggle').addEventListener('change', function() {
+                alert(`Account ${this.checked ? 'made private' : 'made public'} 👁️`);
+            });
+
+            document.getElementById('theme-toggle').addEventListener('change', function() {
+                alert(`${this.checked ? 'Dark' : 'Light'} mode activated 🌙`);
+            });
+
+            document.getElementById('autoplay-toggle').addEventListener('change', function() {
+                if (this.checked && !reelPlaying) {
+                    playPauseReel();
+                } else if (!this.checked && reelPlaying) {
+                    playPauseReel();
+                }
+                alert(`Reels autoplay ${this.checked ? 'enabled' : 'disabled'} ▶️`);
+            });
+
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    alert(`Searching for: ${this.value} 🔍`);
+                    this.value = '';
+                }
+            });
+
+            // Show random love messages on page load
             const messages = [
                 "Prashu, you're the most beautiful person inside and out!",
                 "Every day with you is a gift I cherish!",
