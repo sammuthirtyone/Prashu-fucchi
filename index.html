@@ -543,6 +543,48 @@
             color: var(--primary-pink);
         }
 
+        /* Explore Grid */
+        .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .explore-item {
+            aspect-ratio: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .explore-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .explore-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .explore-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 10px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .explore-item:hover .explore-item-overlay {
+            opacity: 1;
+        }
+
         /* Chat Box Styles */
         .chat-box {
             position: fixed;
@@ -901,7 +943,6 @@
 
         .upload-option div {
             flex: 1;
-            pointer-events: none;
         }
 
         .upload-option h3 {
@@ -1004,6 +1045,10 @@
             
             .reel-message {
                 font-size: 1.5rem;
+            }
+            
+            .explore-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -1351,8 +1396,8 @@
                         <i class="fas fa-search"></i>
                         <h2>Explore</h2>
                     </div>
-                    <div class="posts" id="explore-posts">
-                        <!-- Explore posts will be generated dynamically -->
+                    <div class="explore-grid" id="explore-grid">
+                        <!-- Explore items will be generated dynamically -->
                     </div>
                 </div>
                 
@@ -1689,6 +1734,11 @@
             if (pageId === 'game') {
                 initGame();
             }
+            
+            // If showing explore page, generate explore content
+            if (pageId === 'explore') {
+                generateExploreContent();
+            }
         }
 
         // Upload Modal Functions
@@ -1701,23 +1751,95 @@
         }
 
         function uploadPhoto() {
-            alert('Photo upload feature would open here! 📸');
+            // Create file input element
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            
+            fileInput.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        // Create a new post with the uploaded image
+                        createNewPost(event.target.result, "New Photo Upload");
+                        alert('Photo uploaded successfully! 📸');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            
+            fileInput.click();
             closeUploadModal();
         }
 
         function uploadStory() {
-            alert('Adding to your story! This would open your camera 📷');
-            closeUploadModal();
+            // Create file input element
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
             
-            // Simulate adding to story
-            const yourStory = document.querySelector('.story:first-child .story-avatar div');
-            yourStory.innerHTML = '🌄';
-            yourStory.style.fontSize = '1.2rem';
+            fileInput.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        // Simulate adding to story
+                        const yourStory = document.querySelector('.story:first-child .story-avatar div');
+                        yourStory.innerHTML = '📸';
+                        yourStory.style.fontSize = '1.2rem';
+                        alert('Added to your story! This will disappear after 24 hours ⏳');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            
+            fileInput.click();
+            closeUploadModal();
         }
 
         function createReel() {
             alert('Reel creation feature would open here! 🎥');
             closeUploadModal();
+        }
+
+        // Create a new post with uploaded content
+        function createNewPost(imageSrc, caption) {
+            const postsContainer = document.getElementById('posts-container');
+            
+            const postElement = document.createElement('div');
+            postElement.classList.add('post');
+            postElement.innerHTML = `
+                <div class="post-header">
+                    <div class="post-user">
+                        <div class="post-user-avatar" onclick="showPage('profile')">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div>prashulove</div>
+                    </div>
+                    <div class="nav-icon"><i class="fas fa-ellipsis-h"></i></div>
+                </div>
+                <div class="post-content">
+                    <div class="post-image" onclick="likePost(this)">
+                        <img src="${imageSrc}" alt="Uploaded content" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="post-actions">
+                    <div class="post-actions-left">
+                        <div class="post-action" onclick="likePost(this)"><i class="far fa-heart"></i></div>
+                        <div class="post-action" onclick="focusComment()"><i class="far fa-comment"></i></div>
+                        <div class="post-action" onclick="sharePost()"><i class="far fa-paper-plane"></i></div>
+                    </div>
+                    <div class="post-action" onclick="bookmarkPost(this)"><i class="far fa-bookmark"></i></div>
+                </div>
+                <div class="post-likes">0 likes</div>
+                <div class="post-caption">
+                    <strong onclick="showPage('profile')">prashulove</strong> ${caption}
+                </div>
+            `;
+            
+            // Add to the top of the posts container
+            postsContainer.insertBefore(postElement, postsContainer.firstChild);
         }
 
         // Story Viewer Functions
@@ -1879,12 +2001,27 @@
         }
         
         function addToStory() {
-            alert('Add to your story feature! This would open your camera 📷');
+            // Create file input element
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
             
-            // Simulate adding to story
-            const yourStory = document.querySelector('.story:first-child .story-avatar div');
-            yourStory.innerHTML = '🌄';
-            yourStory.style.fontSize = '1.2rem';
+            fileInput.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        // Simulate adding to story
+                        const yourStory = document.querySelector('.story:first-child .story-avatar div');
+                        yourStory.innerHTML = '📸';
+                        yourStory.style.fontSize = '1.2rem';
+                        alert('Added to your story! This will disappear after 24 hours ⏳');
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            
+            fileInput.click();
         }
 
         // Initialize reels page
@@ -1895,6 +2032,41 @@
             if (reelsPageContainer && originalReelsContainer) {
                 reelsPageContainer.innerHTML = originalReelsContainer.innerHTML;
             }
+        }
+
+        // Generate explore page content
+        function generateExploreContent() {
+            const exploreGrid = document.getElementById('explore-grid');
+            exploreGrid.innerHTML = '';
+            
+            const exploreItems = [
+                { emoji: '🌷', caption: 'Tulip Fields' },
+                { emoji: '💖', caption: 'Love Moments' },
+                { emoji: '✨', caption: 'Shining Stars' },
+                { emoji: '🌸', caption: 'Cherry Blossoms' },
+                { emoji: '💕', caption: 'Romantic Date' },
+                { emoji: '🌈', caption: 'Colorful Days' },
+                { emoji: '🌅', caption: 'Sunset Views' },
+                { emoji: '🎂', caption: 'Sweet Treats' },
+                { emoji: '🎁', caption: 'Special Gifts' },
+                { emoji: '📸', caption: 'Photo Sessions' },
+                { emoji: '🍫', caption: 'Chocolate Time' },
+                { emoji: '🎀', caption: 'Cute Accessories' }
+            ];
+            
+            exploreItems.forEach(item => {
+                const exploreItem = document.createElement('div');
+                exploreItem.classList.add('explore-item');
+                exploreItem.innerHTML = `
+                    <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3rem; background: linear-gradient(to right, #ffc2d6, #ff9ecb);">
+                        ${item.emoji}
+                    </div>
+                    <div class="explore-item-overlay">
+                        ${item.caption}
+                    </div>
+                `;
+                exploreGrid.appendChild(exploreItem);
+            });
         }
 
         // Post Interactions
@@ -2021,7 +2193,6 @@
         // Generate posts dynamically
         function generatePosts() {
             const postsContainer = document.getElementById('posts-container');
-            const exploreContainer = document.getElementById('explore-posts');
             const profileContainer = document.getElementById('profile-posts');
             
             const posts = [
@@ -2079,12 +2250,6 @@
             posts.forEach(post => {
                 const postElement = createPostElement(post);
                 if (postsContainer) postsContainer.appendChild(postElement);
-                
-                // Add some posts to explore page
-                if (exploreContainer && Math.random() > 0.3) {
-                    const explorePost = postElement.cloneNode(true);
-                    exploreContainer.appendChild(explorePost);
-                }
                 
                 // Add some posts to profile page
                 if (profileContainer && Math.random() > 0.5) {
@@ -2275,6 +2440,9 @@
             
             // Generate posts
             generatePosts();
+            
+            // Generate explore content
+            generateExploreContent();
             
             // Start reel animation
             reelInterval = setInterval(nextReel, 5000);
