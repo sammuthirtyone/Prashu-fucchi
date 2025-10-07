@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Beautiful Love 💖</title>
+    <title>My Heart's Apology</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #ff2e63;
+            --secondary: #ff8ba0;
+            --accent: #ff6b95;
+            --light: #ffecf1;
+            --dark: #590d22;
+            --gold: #ffd700;
         }
 
         body {
-            background: linear-gradient(135deg, #ffe5ec, #ffc2d1, #ffd6e0);
-            color: #ff3366;
-            text-align: center;
-            overflow-x: hidden;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0, #ffdde1);
+            color: #590d22;
             min-height: 100vh;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -28,14 +36,16 @@
 
         .container {
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             min-height: 80vh;
+            max-height: 90vh;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(255, 46, 99, 0.2);
             overflow: hidden;
             position: relative;
             margin: 20px;
+            border: 2px solid rgba(255, 139, 160, 0.3);
         }
 
         .page {
@@ -44,11 +54,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            padding: 40px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            padding: 40px;
             opacity: 0;
             transform: translateX(100%);
             transition: all 0.8s ease;
@@ -67,57 +75,44 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            color: #ff4d6d;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
 
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
-            color: #ff4d6d;
+            color: var(--primary);
         }
 
         p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            max-width: 700px;
-            color: #ff5c8d;
-        }
-
-        .heart {
-            color: #ff4d6d;
-            font-size: 3rem;
-            margin: 20px 0;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            max-width: 800px;
+            color: var(--dark);
         }
 
         .btn {
-            background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
+            background: linear-gradient(45deg, var(--primary), var(--accent));
             color: white;
             border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: 18px 45px;
+            font-size: 1.3rem;
             border-radius: 50px;
             cursor: pointer;
-            margin: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+            margin: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 25px rgba(255, 46, 99, 0.4);
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 46, 99, 0.6);
         }
 
         .btn:active {
@@ -125,94 +120,173 @@
         }
 
         .btn-secondary {
-            background: linear-gradient(135deg, #ffb3c1, #ffdde1);
-            color: #590d22;
+            background: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
         }
 
-        /* Photo Frame */
-        .photo-frame {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px auto 40px;
-            border: 4px solid #ff8fa3;
-            border-radius: 25px;
-            padding: 10px;
-            background: linear-gradient(135deg, #fff0f5, #ffe5ec);
-            box-shadow: 0 8px 25px rgba(255, 120, 160, 0.4);
-            width: 300px;
-            height: 300px;
+        /* Heart Animation */
+        .heart-container {
+            width: 200px;
+            height: 200px;
+            margin: 30px auto;
             position: relative;
-            animation: glowFrame 3s infinite alternate;
         }
 
-        @keyframes glowFrame {
-            0% { box-shadow: 0 0 15px #ffafcc; }
-            100% { box-shadow: 0 0 35px #ff4d6d; }
-        }
-
-        .photo-placeholder {
+        .heart {
+            position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #ffd6e0, #ffafbd);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #ff4d6d;
-            font-size: 1.2rem;
-            font-weight: bold;
+            background: var(--primary);
+            transform: rotate(45deg);
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 40px rgba(255, 46, 99, 0.5);
         }
 
-        .photo-placeholder i {
-            font-size: 4rem;
-            margin-bottom: 15px;
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            border-radius: 50%;
         }
 
-        /* Promises - Scrollable */
-        .promise-container {
-            max-height: 400px;
-            overflow-y: auto;
-            width: 90%;
-            max-width: 600px;
+        .heart:before {
+            top: -50%;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -50%;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: rotate(45deg) scale(1); }
+            50% { transform: rotate(45deg) scale(1.1); }
+        }
+
+        /* Love Letter */
+        .love-letter {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            padding: 30px;
+            border-radius: 15px;
             margin: 20px 0;
-            padding: 15px;
-            border-radius: 20px;
-            background: rgba(255, 240, 245, 0.7);
-            box-shadow: inset 0 0 10px rgba(255, 150, 180, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            text-align: left;
             position: relative;
+            overflow: hidden;
         }
 
-        .promise-container::-webkit-scrollbar {
-            width: 8px;
+        .love-letter:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
         }
 
-        .promise-container::-webkit-scrollbar-track {
+        /* Message Cards */
+        .message-cards {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .message-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .message-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .message-card::-webkit-scrollbar-track {
             background: rgba(255, 200, 210, 0.3);
             border-radius: 10px;
         }
 
-        .promise-container::-webkit-scrollbar-thumb {
-            background: linear-gradient(#ff8fa3, #ff4d6d);
+        .message-card::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--secondary), var(--primary));
             border-radius: 10px;
         }
 
+        .message-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 46, 99, 0.2);
+            border: 2px solid var(--secondary);
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+            background: inherit;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .masu-card {
+            background: linear-gradient(135deg, #ff6b95, #ff8fa3);
+            color: white;
+        }
+
+        .aalu-card {
+            background: linear-gradient(135deg, #ffc3a0, #ffafbd);
+            color: var(--dark);
+        }
+
+        /* Promise List */
         .promise-list {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            align-items: center;
+            margin: 20px 0;
+            max-width: 600px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .promise-list::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .promise-list::-webkit-scrollbar-track {
+            background: rgba(255, 200, 210, 0.3);
+            border-radius: 10px;
+        }
+
+        .promise-list::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--secondary), var(--primary));
+            border-radius: 10px;
         }
 
         .promise {
-            background: #fff0f5;
+            background: rgba(255, 255, 255, 0.7);
             padding: 15px 20px;
             border-radius: 30px;
             box-shadow: 0 4px 15px rgba(255, 130, 160, 0.3);
-            width: 95%;
             font-size: 1.1rem;
-            color: #ff4d6d;
+            color: var(--dark);
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -225,143 +299,17 @@
             transform: scale(1.03);
             background: #ffe1ec;
             box-shadow: 0 0 20px rgba(255, 140, 180, 0.4);
-            border: 2px solid #ff8fa3;
+            border: 2px solid var(--secondary);
         }
 
         .promise i {
-            color: #ff5fa2;
+            color: var(--primary);
             font-size: 1.5rem;
             min-width: 30px;
             text-align: center;
         }
 
-        .love-letter {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .love-letter::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .love-letter::-webkit-scrollbar-track {
-            background: rgba(255, 200, 210, 0.3);
-            border-radius: 10px;
-        }
-
-        .love-letter::-webkit-scrollbar-thumb {
-            background: linear-gradient(#ff8fa3, #ff4d6d);
-            border-radius: 10px;
-        }
-
-        .love-letter:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #ff4d6d, #ff8fa3, #ffb3c1);
-        }
-
-        .flowers {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .flower {
-            width: 80px;
-            height: 80px;
-            background: #ff8fa3;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-            animation-delay: calc(var(--i) * 0.5s);
-        }
-
-        .flower:before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 60px;
-            height: 60px;
-            background: #ff4d6d;
-            border-radius: 50%;
-        }
-
-        .flower:after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 35px;
-            width: 10px;
-            height: 50px;
-            background: #7cfe9c;
-            border-radius: 5px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* Music Player */
-        .music-player {
-            margin-top: 40px;
-            padding: 15px 25px;
-            background: rgba(255, 240, 245, 0.9);
-            border-radius: 60px;
-            display: inline-flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 5px 20px rgba(255, 100, 150, 0.3);
-            border: 2px solid #ff8fa3;
-            position: relative;
-        }
-
-        .music-btn {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            background: radial-gradient(circle at top left, #ff5fa2, #ff99ac);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(255, 100, 150, 0.6);
-            position: relative;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.2) rotate(10deg);
-        }
-
-        .music-btn i {
-            font-size: 1.7rem;
-        }
-
-        .music-player div:last-child {
-            font-weight: bold;
-            color: #ff4d6d;
-            font-size: 1.1rem;
-        }
-
-        /* Floating hearts animation */
+        /* Floating hearts */
         .floating-hearts {
             position: fixed;
             top: 0;
@@ -374,360 +322,333 @@
 
         .floating-heart {
             position: absolute;
-            font-size: 1.2rem;
-            color: #ff80ab;
-            animation: floatUp 3s ease-in-out forwards;
+            font-size: 1.5rem;
+            color: var(--primary);
+            animation: floatUp 5s ease-in-out forwards;
+            opacity: 0.7;
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(0) scale(1); opacity: 1; }
-            100% { transform: translateY(-120px) scale(0.5); opacity: 0; }
+            0% { transform: translateY(100vh) scale(1); opacity: 0; }
+            10% { opacity: 0.7; }
+            90% { opacity: 0.7; }
+            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
         }
 
-        /* Cute animals */
-        .cute-animal {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.7;
-            z-index: -1;
-        }
-
-        .bunny {
-            bottom: 10%;
-            left: 5%;
-            animation: bounce 4s infinite;
-        }
-
-        .panda {
-            top: 10%;
-            right: 5%;
-            animation: sway 5s infinite;
-        }
-
-        .cat {
-            bottom: 15%;
-            right: 10%;
-            animation: blink 6s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes sway {
-            0%, 100% { transform: rotate(-5deg); }
-            50% { transform: rotate(5deg); }
-        }
-
-        @keyframes blink {
-            0%, 45%, 55%, 100% { transform: scaleY(1); }
-            50% { transform: scaleY(0.1); }
-        }
-
-        footer {
+        /* Navigation */
+        .nav-dots {
+            display: flex;
+            justify-content: center;
             margin-top: 20px;
-            color: #590d22;
-            font-size: 1rem;
-            text-align: center;
+            position: sticky;
+            bottom: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            p {
-                font-size: 1rem;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            .page {
-                padding: 20px;
-            }
-            
-            .photo-frame {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .cute-animal {
-                display: none;
-            }
+        .dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 46, 99, 0.3);
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
+        .dot.active {
+            background: var(--primary);
+            transform: scale(1.3);
+        }
+
+        /* Button Container */
         .button-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
             margin-top: 20px;
+            position: sticky;
+            bottom: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            color: var(--dark);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            .message-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .message-card {
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="floating-hearts" id="floatingHearts"></div>
     
-    <!-- Cute Animals -->
-    <div class="cute-animal bunny">🐇</div>
-    <div class="cute-animal panda">🐼</div>
-    <div class="cute-animal cat">🐱</div>
-    
     <div class="container">
-        <!-- Home Page -->
-        <div class="page active" id="home">
-            <div class="heart"><i class="fas fa-heart"></i></div>
-            <h1>For My Most Amazing Person 💖</h1>
-            <p>You are the most amazing person I've ever known. Every moment with you feels magical — your smile, your laugh, your love. I can't imagine my life without you in it. You're my heart, my peace, and my forever. 💞</p>
-            
-            <div class="photo-frame">
-                <div class="photo-placeholder">
-                    <i class="fas fa-heart"></i>
-                    <div>Our Special Place</div>
-                </div>
+        <!-- Page 1: Home -->
+        <div class="page active" id="page1">
+            <div class="heart-container">
+                <div class="heart"></div>
             </div>
-            
-            <p>This is my heartfelt apology and a promise to be better.</p>
-            <button class="btn" id="startBtn">Let Me Show You How Much You Mean To Me</button>
+            <h1>My Heart's Apology</h1>
+            <p>Every beat of my heart whispers your name, and today it speaks of regret and endless love.</p>
+            <div class="button-container">
+                <button class="btn" id="toApologyBtn">Read My Apology</button>
+            </div>
+            <div class="nav-dots">
+                <div class="dot active" data-page="page1"></div>
+                <div class="dot" data-page="page2"></div>
+                <div class="dot" data-page="page3"></div>
+                <div class="dot" data-page="page4"></div>
+                <div class="dot" data-page="page5"></div>
+            </div>
         </div>
         
-        <!-- Apology Page -->
-        <div class="page" id="apology">
-            <h2>I'm So Sorry</h2>
-            <div class="heart"><i class="fas fa-heart-broken"></i></div>
+        <!-- Page 2: Apology -->
+        <div class="page" id="page2">
+            <h2>I'm Truly Sorry</h2>
             <div class="love-letter">
                 <p>My dearest love,</p>
-                <p>I'm writing this with a heavy heart, filled with regret for the pain I've caused you. I know my actions hurt you deeply, and for that, I am truly, deeply sorry. You deserve nothing but happiness, love, and respect, and I'm devastated that I was the source of your pain instead of your comfort.</p>
-                
-                <p>Seeing you upset breaks my heart in ways I can't even describe. Your smile is my favorite sight in the world, and knowing I dimmed that light fills me with immense guilt. I never want to be the reason for your tears or sadness.</p>
-                
-                <p>I want you to know that I'm reflecting deeply on my behavior and working to become a better person - the person you deserve. You've always seen the best in me, even when I couldn't see it myself, and I want to live up to that vision you have of me.</p>
-                
-                <p>Our relationship means everything to me. The thought of losing you or causing you pain is unbearable. I promise to learn from this mistake, to communicate better, to listen more carefully, and to always prioritize your feelings and our connection.</p>
-                
-                <p>You are the most precious person in my life, and I will do whatever it takes to earn back your trust and make you feel as loved and cherished as you truly are.</p>
-                
+                <p>I'm writing this with a heart full of regret for the pain I've caused you. You are the most precious person in my life, and seeing you hurt because of my actions breaks me completely.</p>
+                <p>I know my words can't erase the pain, but I want you to know how deeply sorry I am. You deserve nothing but happiness, love, and respect, and I'm devastated that I failed to give you that.</p>
+                <p>Every moment without your smile feels empty. I promise to learn from my mistakes and become the person you deserve - someone who cherishes you, respects you, and loves you unconditionally.</p>
                 <p>With all my love and deepest regret,</p>
-                <p>Your aalu</p>
+                <p>Your forever love</p>
             </div>
             <div class="button-container">
-                <button class="btn" id="toReasonsBtn">Why I Love You</button>
-                <button class="btn btn-secondary" id="backToHome1">Back to Home</button>
+                <button class="btn" id="toMessagesBtn">Special Messages For You</button>
+                <button class="btn btn-secondary" id="backToHome1">Back</button>
+            </div>
+            <div class="nav-dots">
+                <div class="dot" data-page="page1"></div>
+                <div class="dot active" data-page="page2"></div>
+                <div class="dot" data-page="page3"></div>
+                <div class="dot" data-page="page4"></div>
+                <div class="dot" data-page="page5"></div>
             </div>
         </div>
         
-        <!-- Reasons Page -->
-        <div class="page" id="reasons">
-            <h2>Why I Love You</h2>
-            <div class="heart"><i class="fas fa-heart"></i></div>
-            <div class="flowers">
-                <div class="flower" style="--i:0"></div>
-                <div class="flower" style="--i:1"></div>
-                <div class="flower" style="--i:2"></div>
-                <div class="flower" style="--i:3"></div>
-            </div>
-            <div class="love-letter">
-                <p>I love everything about you:</p>
-                <ul style="text-align: left; margin-left: 20px; margin-top: 10px;">
-                    <li>Your beautiful smile that lights up my world</li>
-                    <li>Your kind heart that cares for everyone</li>
-                    <li>Your intelligence and the way you see the world</li>
-                    <li>Your strength that inspires me every day</li>
-                    <li>The way you make me feel like I'm home</li>
-                    <li>Your laughter that's my favorite sound</li>
-                    <li>Your patience and understanding</li>
-                    <li>The way you challenge me to be better</li>
-                    <li>Your passion for the things you care about</li>
-                    <li>How you always know what to say to make me feel better</li>
-                </ul>
-            </div>
-            <div class="button-container">
-                <button class="btn" id="toPromisesBtn">My Promises to You</button>
-                <button class="btn btn-secondary" id="backToApology">Back to Apology</button>
-            </div>
-        </div>
-        
-        <!-- Promises Page -->
-        <div class="page" id="promises">
-            <h2>My Promises to You</h2>
-            <div class="heart"><i class="fas fa-hand-holding-heart"></i></div>
-            
-            <div class="promise-container">
-                <div class="promise-list">
-                    <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you more each day and never take you for granted.</span></div>
-                    <div class="promise"><i class="fas fa-kiss-wink-heart"></i><span>I promise to always make you smile even on tough days.</span></div>
-                    <div class="promise"><i class="fas fa-star"></i><span>I promise to believe in you when you forget to believe in yourself.</span></div>
-                    <div class="promise"><i class="fas fa-hand-holding-heart"></i><span>I promise to always hold your hand through everything.</span></div>
-                    <div class="promise"><i class="fas fa-moon"></i><span>I promise to love you under every moon and sun.</span></div>
-                    <div class="promise"><i class="fas fa-mug-hot"></i><span>I promise to bring warmth to your heart every day.</span></div>
-                    <div class="promise"><i class="fas fa-gift"></i><span>I promise to give you my time, my care, and all my love.</span></div>
-                    <div class="promise"><i class="fas fa-infinity"></i><span>I promise to love you endlessly, beyond forever.</span></div>
-                    <div class="promise"><i class="fas fa-laugh-beam"></i><span>I promise to cherish every laugh we share together.</span></div>
-                    <div class="promise"><i class="fas fa-shield-heart"></i><span>I promise to protect your heart and always be honest with you.</span></div>
-                    <div class="promise"><i class="fas fa-cloud-moon"></i><span>I promise to be there for you during sleepless nights.</span></div>
-                    <div class="promise"><i class="fas fa-cookie-bite"></i><span>I promise to always save you the last bite of dessert.</span></div>
-                    <div class="promise"><i class="fas fa-music"></i><span>I promise to dance with you even when there's no music playing.</span></div>
-                    <div class="promise"><i class="fas fa-rainbow"></i><span>I promise to find the beauty in every storm we weather together.</span></div>
-                    <div class="promise"><i class="fas fa-feather-alt"></i><span>I promise to be gentle with your feelings always.</span></div>
+        <!-- Page 3: Special Messages -->
+        <div class="page" id="page3">
+            <h2>Special Messages For You</h2>
+            <div class="message-cards">
+                <div class="message-card masu-card">
+                    <div class="card-title">From Your Masu 💋</div>
+                    <p>My love, every time I see you, my heart races and my thoughts turn to how incredibly beautiful you are. Your smile drives me wild, and I can't help but imagine holding you close, feeling your warmth against me.</p>
+                    <p>I dream of those intimate moments when it's just us, when I can whisper how much I desire you and show you with every touch how deeply I crave you. You awaken something primal in me that only you can satisfy.</p>
+                    <p>There's a fire that burns within me whenever you're near, a longing that grows stronger with each passing day. The way you look at me, the sound of your voice, the scent of your skin - everything about you intoxicates me.</p>
+                    <p>I want to explore every inch of your body, to learn what makes you sigh with pleasure, to discover the secret places that make you tremble with anticipation. My hands ache to trace the curves of your form, my lips yearn to taste the sweetness of your skin.</p>
+                    <p>When we're together, time stands still. The world fades away, and there's only you and me, lost in each other. The way you respond to my touch, the soft sounds you make when I please you - these are the moments I live for.</p>
+                    <p>I'm sorry for letting you down, and I promise to make it up to you in ways that will leave you breathless and longing for more. Let me show you how much I desire you, how completely I'm yours.</p>
+                </div>
+                <div class="message-card aalu-card">
+                    <div class="card-title">From Your Aalu 🥔</div>
+                    <p>My silly love, I know I can be a complete potato sometimes - clumsy, forgetful, and not always the brightest bulb in the box. But my love for you is the one thing I never get wrong.</p>
+                    <p>I may trip over my own feet trying to impress you and say the dumbest things at the worst times, but every awkward moment is just proof of how much you fluster me in the best way.</p>
+                    <p>Remember that time I tried to cook you a romantic dinner and almost set the kitchen on fire? Or when I planned a surprise date but got the days mixed up and showed up at your work in a suit while you were in pajamas? Yeah, that's your aalu in action!</p>
+                    <p>But here's the thing - even when I'm being a complete potato, my heart is always in the right place. I may not always know the right words to say, but I'll never stop trying to make you happy.</p>
+                    <p>I'm the guy who will send you 20 memes in a row because each one reminded me of you. I'll dance terribly in the kitchen with you even though I have two left feet. I'll watch your favorite romantic movies with you even though I don't understand half of what's going on.</p>
+                    <p>I'm just a simple aalu who's crazy in love with you, and even when I mess up, my heart is always in the right place - right there with you. You're stuck with this potato, and honestly, I wouldn't have it any other way!</p>
                 </div>
             </div>
-            
+            <div class="button-container">
+                <button class="btn" id="toPromisesBtn">My Promises To You</button>
+                <button class="btn btn-secondary" id="backToApology">Back</button>
+            </div>
+            <div class="nav-dots">
+                <div class="dot" data-page="page1"></div>
+                <div class="dot" data-page="page2"></div>
+                <div class="dot active" data-page="page3"></div>
+                <div class="dot" data-page="page4"></div>
+                <div class="dot" data-page="page5"></div>
+            </div>
+        </div>
+        
+        <!-- Page 4: Promises -->
+        <div class="page" id="page4">
+            <h2>My Sacred Promises</h2>
+            <div class="promise-list">
+                <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you more each day, even when I'm being a silly aalu</span></div>
+                <div class="promise"><i class="fas fa-hand-holding-heart"></i><span>I promise to always hold your hand through everything life brings us</span></div>
+                <div class="promise"><i class="fas fa-kiss-wink-heart"></i><span>I promise to keep the passion alive and always desire you as your masu</span></div>
+                <div class="promise"><i class="fas fa-laugh-beam"></i><span>I promise to make you smile every day, even with my potato-like clumsiness</span></div>
+                <div class="promise"><i class="fas fa-shield-heart"></i><span>I promise to protect your heart and always be honest with you</span></div>
+                <div class="promise"><i class="fas fa-infinity"></i><span>I promise to love you endlessly, beyond forever</span></div>
+                <div class="promise"><i class="fas fa-music"></i><span>I promise to dance with you even when there's no music playing</span></div>
+                <div class="promise"><i class="fas fa-mug-hot"></i><span>I promise to always make you coffee/tea exactly how you like it</span></div>
+                <div class="promise"><i class="fas fa-star"></i><span>I promise to always see you as the amazing person you are</span></div>
+                <div class="promise"><i class="fas fa-home"></i><span>I promise to always make you feel safe and loved in my arms</span></div>
+            </div>
             <div class="button-container">
                 <button class="btn" id="toFinalBtn">My Final Message</button>
-                <button class="btn btn-secondary" id="backToReasons">Back to Reasons</button>
+                <button class="btn btn-secondary" id="backToMessages">Back</button>
+            </div>
+            <div class="nav-dots">
+                <div class="dot" data-page="page1"></div>
+                <div class="dot" data-page="page2"></div>
+                <div class="dot" data-page="page3"></div>
+                <div class="dot active" data-page="page4"></div>
+                <div class="dot" data-page="page5"></div>
             </div>
         </div>
         
-        <!-- Final Page -->
-        <div class="page" id="final">
+        <!-- Page 5: Final -->
+        <div class="page" id="page5">
             <h2>You Are My Everything</h2>
-            <div class="heart"><i class="fas fa-star"></i></div>
-            <div class="music-player">
-                <div class="music-btn" id="playBtn">
-                    <i class="fas fa-play"></i>
-                </div>
-                <div>Play our song 💕</div>
-                <iframe id="ytPlayer" width="0" height="0"
-                    src="https://www.youtube.com/embed/7omdVNSR_EE?enablejsapi=1"
-                    frameborder="0" allow="autoplay; encrypted-media">
-                </iframe>
+            <div class="heart-container">
+                <div class="heart"></div>
             </div>
             <div class="love-letter">
-                <p>My love,</p>
-                <p>You are the most amazing person I've ever known. I can't imagine my life without you in it. Every day with you is a gift that I cherish more than words can express.</p>
-                <p>Thank you for being you. Thank you for your patience, your kindness, your understanding, and for the incredible love you've shown me. You've made me a better person just by being in my life.</p>
-                <p>I know I've made mistakes, but my love for you is constant and true. I promise to spend every day making you feel as special as you are to me.</p>
-                <p>I love you more than words can express, more than any song can capture, more than any poem can describe.</p>
+                <p>My beautiful love,</p>
+                <p>Whether I'm your passionate masu who can't keep my hands off you, or your silly aalu who makes you laugh with my clumsiness - one thing remains constant: my endless love for you.There's a certain look you get, a hungry little spark in ur eyes that tells me exactly what u are craving. u pushed me back onto the bed,ur fingers tracing a slow, deliberate path down my stomach until they wrap around the solid, throbbing weight of my masu. A shiver runs through u, and u'll look up at me from under her lashes, that secret smile playing on her lips right before u lowers her head. The first touch of ur tongue is a silken promise, a slow, worshipful circle that makes my entire body tense. Then u take it, ur mouth a warm, wet heaven, and loses urself completely. ur world narrows to the feel of it, the taste of it, the way it stretches ur lips and fills ur throat. u love the power it has over u, the way it makes u gasp for air only to eagerly dive back in, driven by a deep need to please it. The sounds u make  a muffled symphony of pure bliss, and I know there's nowhere else she'd rather be than on ur knees, completely devoted to the demanding strength of ur masu and u suck it soo good and ate all my creamm.</p>
+                <p>You are the most amazing person I've ever known, and I can't imagine my life without you in it. Thank you for being patient with me, for loving me despite my flaws, and for being my everything.</p>
+                <p>I know I've made mistakes, but my love for you is true and unwavering. I promise to spend every day making you feel as loved and cherished as you truly are.</p>
+                <p>You're not just my girlfriend  you're my best friend, my confidante, my partner in crime, and the love of my life. I'm so grateful to have you by my side.</p>
                 <p>Forever yours,</p>
-                <p>Your masu</p>
+                <p>Your Masu & Your Aalu 💖</p>
             </div>
             <div class="button-container">
-                <button class="btn" id="restartBtn">Start Over</button>
-                <button class="btn btn-secondary" id="backToPromises">Back to Promises</button>
+                <button class="btn" id="restartBtn">Read Again From Start</button>
+                <button class="btn btn-secondary" id="backToPromises">Back</button>
+            </div>
+            <div class="nav-dots">
+                <div class="dot" data-page="page1"></div>
+                <div class="dot" data-page="page2"></div>
+                <div class="dot" data-page="page3"></div>
+                <div class="dot" data-page="page4"></div>
+                <div class="dot active" data-page="page5"></div>
             </div>
         </div>
     </div>
     
     <footer>
-        Made with <i class="fas fa-heart" style="color: #ff4d6d;"></i> for the most special person in my life
+        Made with endless love and hope for your forgiveness 💖
     </footer>
 
     <script>
         // Create floating hearts
         const floatingHeartsContainer = document.getElementById('floatingHearts');
         
-        for (let i = 0; i < 20; i++) {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = '💖';
-            
-            // Random position and animation delay
-            const left = Math.random() * 100;
-            const delay = Math.random() * 15;
-            
-            heart.style.left = `${left}%`;
-            heart.style.animationDelay = `${delay}s`;
-            
-            floatingHeartsContainer.appendChild(heart);
+        function createFloatingHearts() {
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                
+                const left = Math.random() * 100;
+                const delay = Math.random() * 15;
+                const size = Math.random() * 20 + 10;
+                
+                heart.style.left = `${left}%`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.fontSize = `${size}px`;
+                
+                floatingHeartsContainer.appendChild(heart);
+            }
         }
         
-        // Page navigation - FIXED
-        const startBtn = document.getElementById('startBtn');
-        const toReasonsBtn = document.getElementById('toReasonsBtn');
-        const toPromisesBtn = document.getElementById('toPromisesBtn');
-        const toFinalBtn = document.getElementById('toFinalBtn');
-        const restartBtn = document.getElementById('restartBtn');
+        createFloatingHearts();
+
+        // Page navigation
+        const pages = document.querySelectorAll('.page');
+        const dots = document.querySelectorAll('.dot');
         
-        const backToHome1 = document.getElementById('backToHome1');
-        const backToApology = document.getElementById('backToApology');
-        const backToReasons = document.getElementById('backToReasons');
-        const backToPromises = document.getElementById('backToPromises');
-        
-        // Function to navigate between pages
-        function navigateTo(pageId) {
-            // Find current active page
-            const currentPage = document.querySelector('.page.active');
+        function showPage(pageId) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
             
-            // Normal navigation
-            currentPage.classList.remove('active');
-            currentPage.classList.add('exit');
+            document.getElementById(pageId).classList.add('active');
+            document.querySelector(`.dot[data-page="${pageId}"]`).classList.add('active');
             
-            setTimeout(() => {
-                currentPage.classList.remove('exit');
-                document.getElementById(pageId).classList.add('active');
-            }, 800);
-        }
-        
-        // Event listeners for navigation - FIXED
-        startBtn.addEventListener('click', () => navigateTo('apology'));
-        toReasonsBtn.addEventListener('click', () => navigateTo('reasons'));
-        toPromisesBtn.addEventListener('click', () => navigateTo('promises'));
-        toFinalBtn.addEventListener('click', () => navigateTo('final'));
-        restartBtn.addEventListener('click', () => navigateTo('home'));
-        
-        backToHome1.addEventListener('click', () => navigateTo('home'));
-        backToApology.addEventListener('click', () => navigateTo('apology'));
-        backToReasons.addEventListener('click', () => navigateTo('reasons'));
-        backToPromises.addEventListener('click', () => navigateTo('promises'));
-        
-        // Music player functionality
-        const playBtn = document.getElementById('playBtn');
-        const ytPlayer = document.getElementById('ytPlayer');
-        let isPlaying = false;
-        
-        function playYouTubeVideo() {
-            ytPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            // Scroll to top when changing pages
+            document.getElementById(pageId).scrollTop = 0;
         }
 
-        function pauseYouTubeVideo() {
-            ytPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-        }
-        
-        playBtn.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            
-            if (!isPlaying) {
-                icon.classList.remove('fa-play');
-                icon.classList.add('fa-pause');
-                playYouTubeVideo();
-                isPlaying = true;
-                playBtn.style.boxShadow = "0 0 25px rgba(255, 80, 120, 0.9)";
-                
-                // Create floating hearts when music plays
-                setInterval(createHeart, 500);
-            } else {
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-play');
-                pauseYouTubeVideo();
-                isPlaying = false;
-            }
+        // Button event listeners
+        document.getElementById('toApologyBtn').addEventListener('click', () => showPage('page2'));
+        document.getElementById('toMessagesBtn').addEventListener('click', () => showPage('page3'));
+        document.getElementById('toPromisesBtn').addEventListener('click', () => showPage('page4'));
+        document.getElementById('toFinalBtn').addEventListener('click', () => showPage('page5'));
+        document.getElementById('restartBtn').addEventListener('click', () => showPage('page1'));
+
+        // Back buttons
+        document.getElementById('backToHome1').addEventListener('click', () => showPage('page1'));
+        document.getElementById('backToApology').addEventListener('click', () => showPage('page2'));
+        document.getElementById('backToMessages').addEventListener('click', () => showPage('page3'));
+        document.getElementById('backToPromises').addEventListener('click', () => showPage('page4'));
+
+        // Dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                const pageId = this.getAttribute('data-page');
+                showPage(pageId);
+            });
         });
-        
-        // Create floating hearts
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.style.left = `${Math.random() * 100}%`;
-            heart.innerHTML = '💖';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 3000);
-        }
-        
-        // Add some interactive elements
-        const hearts = document.querySelectorAll('.fa-heart');
+
+        // Interactive hearts
+        const hearts = document.querySelectorAll('.heart');
         hearts.forEach(heart => {
             heart.addEventListener('click', function() {
-                this.style.transform = 'scale(1.5)';
+                this.style.transform = 'rotate(45deg) scale(1.3)';
                 setTimeout(() => {
-                    this.style.transform = 'scale(1)';
+                    this.style.transform = 'rotate(45deg) scale(1)';
                 }, 300);
+            });
+        });
+
+        // Make sure buttons are always visible
+        window.addEventListener('scroll', function() {
+            const buttonContainers = document.querySelectorAll('.button-container');
+            buttonContainers.forEach(container => {
+                const rect = container.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                    container.style.opacity = '1';
+                }
             });
         });
     </script>
