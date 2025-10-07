@@ -1,224 +1,723 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Love ❤️</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe6eb);
-      color: #ff3366;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beautiful Love 💖</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
-    h1 {
-      margin-top: 30px;
-      font-size: 2.5em;
-      color: #ff4d6d;
-      text-shadow: 0 2px 5px rgba(255, 100, 150, 0.3);
-    }
+        body {
+            background: linear-gradient(135deg, #ffe5ec, #ffc2d1, #ffd6e0);
+            color: #ff3366;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
 
-    .photo-frame {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 30px auto;
-      border: 3px solid #ff5fa2;
-      border-radius: 20px;
-      padding: 10px;
-      background: linear-gradient(135deg, #ffe1f0, #fff5fa);
-      box-shadow: 0 4px 10px rgba(255, 0, 100, 0.2);
-      width: 300px;
-      height: 300px;
-    }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            min-height: 80vh;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            margin: 20px;
+        }
 
-    .photo-placeholder {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border-radius: 15px;
-    }
+        .page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.8s ease;
+            text-align: center;
+            overflow-y: auto;
+        }
 
-    .photo-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px;
-    }
+        .page.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
 
-    .promise-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      margin: 30px auto;
-      max-width: 700px;
-    }
+        .page.exit {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
 
-    .promise {
-      background: rgba(255, 245, 248, 0.9);
-      padding: 15px 25px;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
-      width: 100%;
-      text-align: left;
-      font-size: 1.05rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      border-left: 5px solid #ff8fa3;
-      transition: all 0.3s ease;
-    }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #ff4d6d;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    .promise:hover {
-      transform: scale(1.03);
-      box-shadow: 0 8px 20px rgba(255, 100, 150, 0.3);
-    }
+        h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #ff4d6d;
+        }
 
-    .promise i {
-      color: #ff4d6d;
-    }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            max-width: 700px;
+            color: #ff5c8d;
+        }
 
-    .music-player {
-      margin: 30px 0;
-      padding: 15px 25px;
-      background: rgba(255, 245, 248, 0.8);
-      border-radius: 50px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      box-shadow: 0 5px 20px rgba(255, 100, 150, 0.3);
-      border: 2px solid #ff8fa3;
-      transition: all 0.3s ease;
-      justify-content: center;
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
+        .heart {
+            color: #ff4d6d;
+            font-size: 3rem;
+            margin: 20px 0;
+            animation: heartbeat 1.5s infinite;
+        }
 
-    .music-player:hover {
-      transform: scale(1.03);
-      box-shadow: 0 10px 25px rgba(255, 100, 150, 0.4);
-    }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
 
-    .music-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: radial-gradient(circle at top left, #ff5fa2, #ff99ac);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 15px rgba(255, 100, 150, 0.6);
-    }
+        .btn {
+            background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
 
-    .music-btn:hover {
-      transform: scale(1.2) rotate(10deg);
-      box-shadow: 0 0 25px rgba(255, 100, 150, 0.8);
-    }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+        }
 
-    .music-btn i {
-      font-size: 1.5rem;
-    }
+        .btn:active {
+            transform: translateY(2px);
+        }
 
-    .music-player div:last-child {
-      font-weight: bold;
-      color: #ff4d6d;
-      font-size: 1.1rem;
-      letter-spacing: 0.5px;
-    }
-  </style>
+        .btn-secondary {
+            background: linear-gradient(135deg, #ffb3c1, #ffdde1);
+            color: #590d22;
+        }
+
+        /* Photo Frame */
+        .photo-frame {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto 40px;
+            border: 4px solid #ff8fa3;
+            border-radius: 25px;
+            padding: 10px;
+            background: linear-gradient(135deg, #fff0f5, #ffe5ec);
+            box-shadow: 0 8px 25px rgba(255, 120, 160, 0.4);
+            width: 300px;
+            height: 300px;
+            position: relative;
+            animation: glowFrame 3s infinite alternate;
+        }
+
+        @keyframes glowFrame {
+            0% { box-shadow: 0 0 15px #ffafcc; }
+            100% { box-shadow: 0 0 35px #ff4d6d; }
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        /* Promises - Scrollable */
+        .promise-container {
+            max-height: 400px;
+            overflow-y: auto;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 20px;
+            background: rgba(255, 240, 245, 0.7);
+            box-shadow: inset 0 0 10px rgba(255, 150, 180, 0.3);
+            position: relative;
+        }
+
+        .promise-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .promise-container::-webkit-scrollbar-track {
+            background: rgba(255, 200, 210, 0.3);
+            border-radius: 10px;
+        }
+
+        .promise-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff8fa3, #ff4d6d);
+            border-radius: 10px;
+        }
+
+        .promise-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .promise {
+            background: #fff0f5;
+            padding: 15px 20px;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(255, 130, 160, 0.3);
+            width: 95%;
+            font-size: 1.1rem;
+            color: #ff4d6d;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 15px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .promise:hover {
+            transform: scale(1.03);
+            background: #ffe1ec;
+            box-shadow: 0 0 20px rgba(255, 140, 180, 0.4);
+            border: 2px solid #ff8fa3;
+        }
+
+        .promise i {
+            color: #ff5fa2;
+            font-size: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+        }
+
+        .love-letter {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .love-letter::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .love-letter::-webkit-scrollbar-track {
+            background: rgba(255, 200, 210, 0.3);
+            border-radius: 10px;
+        }
+
+        .love-letter::-webkit-scrollbar-thumb {
+            background: linear-gradient(#ff8fa3, #ff4d6d);
+            border-radius: 10px;
+        }
+
+        .love-letter:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff4d6d, #ff8fa3, #ffb3c1);
+        }
+
+        .flowers {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .flower {
+            width: 80px;
+            height: 80px;
+            background: #ff8fa3;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            animation-delay: calc(var(--i) * 0.5s);
+        }
+
+        .flower:before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 60px;
+            height: 60px;
+            background: #ff4d6d;
+            border-radius: 50%;
+        }
+
+        .flower:after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            left: 35px;
+            width: 10px;
+            height: 50px;
+            background: #7cfe9c;
+            border-radius: 5px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Music Player */
+        .music-player {
+            margin-top: 40px;
+            padding: 15px 25px;
+            background: rgba(255, 240, 245, 0.9);
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 5px 20px rgba(255, 100, 150, 0.3);
+            border: 2px solid #ff8fa3;
+            position: relative;
+        }
+
+        .music-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: radial-gradient(circle at top left, #ff5fa2, #ff99ac);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(255, 100, 150, 0.6);
+            position: relative;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .music-btn i {
+            font-size: 1.7rem;
+        }
+
+        .music-player div:last-child {
+            font-weight: bold;
+            color: #ff4d6d;
+            font-size: 1.1rem;
+        }
+
+        /* Floating hearts animation */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 1.2rem;
+            color: #ff80ab;
+            animation: floatUp 3s ease-in-out forwards;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-120px) scale(0.5); opacity: 0; }
+        }
+
+        /* Cute animals */
+        .cute-animal {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        .bunny {
+            bottom: 10%;
+            left: 5%;
+            animation: bounce 4s infinite;
+        }
+
+        .panda {
+            top: 10%;
+            right: 5%;
+            animation: sway 5s infinite;
+        }
+
+        .cat {
+            bottom: 15%;
+            right: 10%;
+            animation: blink 6s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        @keyframes blink {
+            0%, 45%, 55%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(0.1); }
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #590d22;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .page {
+                padding: 20px;
+            }
+            
+            .photo-frame {
+                width: 250px;
+                height: 250px;
+            }
+            
+            .cute-animal {
+                display: none;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-
-  <h1>For My Love ❤️</h1>
-
-  <div class="photo-frame">
-    <div class="photo-placeholder">
-      <img src="Screenshot 2025-07-06 135526.png" alt="Our Photo" class="photo-image">
+    <div class="floating-hearts" id="floatingHearts"></div>
+    
+    <!-- Cute Animals -->
+    <div class="cute-animal bunny">🐇</div>
+    <div class="cute-animal panda">🐼</div>
+    <div class="cute-animal cat">🐱</div>
+    
+    <div class="container">
+        <!-- Home Page -->
+        <div class="page active" id="home">
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <h1>For My Most Amazing Person 💖</h1>
+            <p>You are the most amazing person I've ever known. Every moment with you feels magical — your smile, your laugh, your love. I can't imagine my life without you in it. You're my heart, my peace, and my forever. 💞</p>
+            
+            <div class="photo-frame">
+                <div class="photo-placeholder">
+                    <!-- Replace with your actual image path -->
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="Our Photo">
+                </div>
+            </div>
+            
+            <p>This is my heartfelt apology and a promise to be better.</p>
+            <button class="btn" id="startBtn">Let Me Show You How Much You Mean To Me</button>
+        </div>
+        
+        <!-- Apology Page -->
+        <div class="page" id="apology">
+            <h2>I'm So Sorry</h2>
+            <div class="heart"><i class="fas fa-heart-broken"></i></div>
+            <div class="love-letter">
+                <p>My dearest love,</p>
+                <p>I'm writing this with a heavy heart, filled with regret for the pain I've caused you. I know my actions hurt you deeply, and for that, I am truly, deeply sorry. You deserve nothing but happiness, love, and respect, and I'm devastated that I was the source of your pain instead of your comfort.</p>
+                
+                <p>Seeing you upset breaks my heart in ways I can't even describe. Your smile is my favorite sight in the world, and knowing I dimmed that light fills me with immense guilt. I never want to be the reason for your tears or sadness.</p>
+                
+                <p>I want you to know that I'm reflecting deeply on my behavior and working to become a better person - the person you deserve. You've always seen the best in me, even when I couldn't see it myself, and I want to live up to that vision you have of me.</p>
+                
+                <p>Our relationship means everything to me. The thought of losing you or causing you pain is unbearable. I promise to learn from this mistake, to communicate better, to listen more carefully, and to always prioritize your feelings and our connection.</p>
+                
+                <p>You are the most precious person in my life, and I will do whatever it takes to earn back your trust and make you feel as loved and cherished as you truly are.</p>
+                
+                <p>With all my love and deepest regret,</p>
+                <p>[Your Name]</p>
+            </div>
+            <div class="button-container">
+                <button class="btn" id="toReasonsBtn">Why I Love You</button>
+                <button class="btn btn-secondary" id="backToHome1">Back to Home</button>
+            </div>
+        </div>
+        
+        <!-- Reasons Page -->
+        <div class="page" id="reasons">
+            <h2>Why I Love You</h2>
+            <div class="heart"><i class="fas fa-heart"></i></div>
+            <div class="flowers">
+                <div class="flower" style="--i:0"></div>
+                <div class="flower" style="--i:1"></div>
+                <div class="flower" style="--i:2"></div>
+                <div class="flower" style="--i:3"></div>
+            </div>
+            <div class="love-letter">
+                <p>I love everything about you:</p>
+                <ul style="text-align: left; margin-left: 20px; margin-top: 10px;">
+                    <li>Your beautiful smile that lights up my world</li>
+                    <li>Your kind heart that cares for everyone</li>
+                    <li>Your intelligence and the way you see the world</li>
+                    <li>Your strength that inspires me every day</li>
+                    <li>The way you make me feel like I'm home</li>
+                    <li>Your laughter that's my favorite sound</li>
+                    <li>Your patience and understanding</li>
+                    <li>The way you challenge me to be better</li>
+                    <li>Your passion for the things you care about</li>
+                    <li>How you always know what to say to make me feel better</li>
+                </ul>
+            </div>
+            <div class="button-container">
+                <button class="btn" id="toPromisesBtn">My Promises to You</button>
+                <button class="btn btn-secondary" id="backToApology">Back to Apology</button>
+            </div>
+        </div>
+        
+        <!-- Promises Page -->
+        <div class="page" id="promises">
+            <h2>My Promises to You</h2>
+            <div class="heart"><i class="fas fa-hand-holding-heart"></i></div>
+            
+            <div class="promise-container">
+                <div class="promise-list">
+                    <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you more each day and never take you for granted.</span></div>
+                    <div class="promise"><i class="fas fa-kiss-wink-heart"></i><span>I promise to always make you smile even on tough days.</span></div>
+                    <div class="promise"><i class="fas fa-star"></i><span>I promise to believe in you when you forget to believe in yourself.</span></div>
+                    <div class="promise"><i class="fas fa-hand-holding-heart"></i><span>I promise to always hold your hand through everything.</span></div>
+                    <div class="promise"><i class="fas fa-moon"></i><span>I promise to love you under every moon and sun.</span></div>
+                    <div class="promise"><i class="fas fa-mug-hot"></i><span>I promise to bring warmth to your heart every day.</span></div>
+                    <div class="promise"><i class="fas fa-gift"></i><span>I promise to give you my time, my care, and all my love.</span></div>
+                    <div class="promise"><i class="fas fa-infinity"></i><span>I promise to love you endlessly, beyond forever.</span></div>
+                    <div class="promise"><i class="fas fa-laugh-beam"></i><span>I promise to cherish every laugh we share together.</span></div>
+                    <div class="promise"><i class="fas fa-shield-heart"></i><span>I promise to protect your heart and always be honest with you.</span></div>
+                    <div class="promise"><i class="fas fa-cloud-moon"></i><span>I promise to be there for you during sleepless nights.</span></div>
+                    <div class="promise"><i class="fas fa-cookie-bite"></i><span>I promise to always save you the last bite of dessert.</span></div>
+                    <div class="promise"><i class="fas fa-music"></i><span>I promise to dance with you even when there's no music playing.</span></div>
+                    <div class="promise"><i class="fas fa-rainbow"></i><span>I promise to find the beauty in every storm we weather together.</span></div>
+                    <div class="promise"><i class="fas fa-feather-alt"></i><span>I promise to be gentle with your feelings always.</span></div>
+                </div>
+            </div>
+            
+            <div class="button-container">
+                <button class="btn" id="toFinalBtn">My Final Message</button>
+                <button class="btn btn-secondary" id="backToReasons">Back to Reasons</button>
+            </div>
+        </div>
+        
+        <!-- Final Page -->
+        <div class="page" id="final">
+            <h2>You Are My Everything</h2>
+            <div class="heart"><i class="fas fa-star"></i></div>
+            <div class="music-player">
+                <div class="music-btn" id="playBtn">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div>Play our song 💕</div>
+                <iframe id="ytPlayer" width="0" height="0"
+                    src="https://www.youtube.com/embed/7omdVNSR_EE?enablejsapi=1"
+                    frameborder="0" allow="autoplay; encrypted-media">
+                </iframe>
+            </div>
+            <div class="love-letter">
+                <p>My love,</p>
+                <p>You are the most amazing person I've ever known. I can't imagine my life without you in it. Every day with you is a gift that I cherish more than words can express.</p>
+                <p>Thank you for being you. Thank you for your patience, your kindness, your understanding, and for the incredible love you've shown me. You've made me a better person just by being in my life.</p>
+                <p>I know I've made mistakes, but my love for you is constant and true. I promise to spend every day making you feel as special as you are to me.</p>
+                <p>I love you more than words can express, more than any song can capture, more than any poem can describe.</p>
+                <p>Forever yours,</p>
+                <p>[Your Name]</p>
+            </div>
+            <div class="button-container">
+                <button class="btn" id="restartBtn">Start Over</button>
+                <button class="btn btn-secondary" id="backToPromises">Back to Promises</button>
+            </div>
+        </div>
     </div>
-  </div>
+    
+    <footer>
+        Made with <i class="fas fa-heart" style="color: #ff4d6d;"></i> for the most special person in my life
+    </footer>
 
-  <div class="music-player">
-    <div class="music-btn" id="playBtn">
-      <i class="fas fa-volume-mute"></i>
-    </div>
-    <div>Our Song 🎶</div>
-    <iframe id="ytPlayer" width="0" height="0"
-      src="https://www.youtube.com/embed/7omdVNSR_EE?enablejsapi=1&autoplay=1&mute=1&loop=1"
-      frameborder="0" allow="autoplay; encrypted-media"></iframe>
-  </div>
+    <script>
+        // Create floating hearts
+        const floatingHeartsContainer = document.getElementById('floatingHearts');
+        
+        for (let i = 0; i < 20; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '💖';
+            
+            // Random position and animation delay
+            const left = Math.random() * 100;
+            const delay = Math.random() * 15;
+            
+            heart.style.left = `${left}%`;
+            heart.style.animationDelay = `${delay}s`;
+            
+            floatingHeartsContainer.appendChild(heart);
+        }
+        
+        // Page navigation - FIXED
+        const startBtn = document.getElementById('startBtn');
+        const toReasonsBtn = document.getElementById('toReasonsBtn');
+        const toPromisesBtn = document.getElementById('toPromisesBtn');
+        const toFinalBtn = document.getElementById('toFinalBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        
+        const backToHome1 = document.getElementById('backToHome1');
+        const backToApology = document.getElementById('backToApology');
+        const backToReasons = document.getElementById('backToReasons');
+        const backToPromises = document.getElementById('backToPromises');
+        
+        // Function to navigate between pages
+        function navigateTo(pageId) {
+            // Find current active page
+            const currentPage = document.querySelector('.page.active');
+            
+            // Normal navigation
+            currentPage.classList.remove('active');
+            currentPage.classList.add('exit');
+            
+            setTimeout(() => {
+                currentPage.classList.remove('exit');
+                document.getElementById(pageId).classList.add('active');
+            }, 800);
+        }
+        
+        // Event listeners for navigation - FIXED
+        startBtn.addEventListener('click', () => navigateTo('apology'));
+        toReasonsBtn.addEventListener('click', () => navigateTo('reasons'));
+        toPromisesBtn.addEventListener('click', () => navigateTo('promises'));
+        toFinalBtn.addEventListener('click', () => navigateTo('final'));
+        restartBtn.addEventListener('click', () => navigateTo('home'));
+        
+        backToHome1.addEventListener('click', () => navigateTo('home'));
+        backToApology.addEventListener('click', () => navigateTo('apology'));
+        backToReasons.addEventListener('click', () => navigateTo('reasons'));
+        backToPromises.addEventListener('click', () => navigateTo('promises'));
+        
+        // Music player functionality
+        const playBtn = document.getElementById('playBtn');
+        const ytPlayer = document.getElementById('ytPlayer');
+        let isPlaying = false;
+        
+        function playYouTubeVideo() {
+            ytPlayer.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }
 
-  <div class="promise-list">
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you more each day and never take you for granted.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always stand by your side, no matter what.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to support your dreams and celebrate your success.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make you smile even on your worst days.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be patient, understanding, and kind to you.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always listen to you with my heart.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to never let distance or time weaken our bond.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be your biggest cheerleader and strongest supporter.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to cherish every little moment with you.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to never let you feel alone, even in silence.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make you laugh until your stomach hurts.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to hold your hand through all of life’s ups and downs.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to respect and value you every single day.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep our love safe and strong forever.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to remember how lucky I am to have you.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to give you endless hugs and warm cuddles.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be your peace after a long, tiring day.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep falling for you again and again.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make your world brighter every day.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always find my way back to you.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to never let go, no matter what happens.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep your heart safe with mine.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to bring you coffee, kisses, and care when you need it.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make you proud to call me yours.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to create memories that last a lifetime.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep choosing you, every single day.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always love you for who you are and who you become.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be your comfort, your calm, and your forever home.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make every moment with you a beautiful memory.</span></div>
-    <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you endlessly, with all that I am. ❤️</span></div>
-  </div>
-
-  <script>
-    const playBtn = document.getElementById('playBtn');
-    const ytPlayer = document.getElementById('ytPlayer');
-    let isMuted = true;
-
-    function unmuteYouTubeVideo() {
-      ytPlayer.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-    }
-
-    function muteYouTubeVideo() {
-      ytPlayer.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
-    }
-
-    playBtn.addEventListener('click', function () {
-      const icon = this.querySelector('i');
-      if (isMuted) {
-        icon.classList.remove('fa-volume-mute');
-        icon.classList.add('fa-volume-up');
-        unmuteYouTubeVideo();
-        isMuted = false;
-        playBtn.style.boxShadow = "0 0 25px rgba(255, 80, 120, 0.9)";
-      } else {
-        icon.classList.remove('fa-volume-up');
-        icon.classList.add('fa-volume-mute');
-        muteYouTubeVideo();
-        isMuted = true;
-        playBtn.style.boxShadow = "0 0 15px rgba(255, 100, 150, 0.6)";
-      }
-    });
-  </script>
-
+        function pauseYouTubeVideo() {
+            ytPlayer.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+        
+        playBtn.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            
+            if (!isPlaying) {
+                icon.classList.remove('fa-play');
+                icon.classList.add('fa-pause');
+                playYouTubeVideo();
+                isPlaying = true;
+                playBtn.style.boxShadow = "0 0 25px rgba(255, 80, 120, 0.9)";
+                
+                // Create floating hearts when music plays
+                setInterval(createHeart, 500);
+            } else {
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-play');
+                pauseYouTubeVideo();
+                isPlaying = false;
+            }
+        });
+        
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.style.left = `${Math.random() * 100}%`;
+            heart.innerHTML = '💖';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 3000);
+        }
+        
+        // Add some interactive elements
+        const hearts = document.querySelectorAll('.fa-heart');
+        hearts.forEach(heart => {
+            heart.addEventListener('click', function() {
+                this.style.transform = 'scale(1.5)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 300);
+            });
+        });
+    </script>
 </body>
 </html>
