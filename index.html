@@ -420,6 +420,29 @@
                 max-width: 300px;
             }
         }
+
+        /* Fix for long text content */
+        .long-text {
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .long-text::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .long-text::-webkit-scrollbar-track {
+            background: rgba(255, 200, 210, 0.3);
+            border-radius: 10px;
+        }
+
+        .long-text::-webkit-scrollbar-thumb {
+            background: linear-gradient(var(--secondary), var(--primary));
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -475,21 +498,25 @@
             <div class="message-cards">
                 <div class="message-card masu-card">
                     <div class="card-title">From Your Masu 💋</div>
-                    <p>My love, every time I see you, my heart races and my thoughts turn to how incredibly beautiful you are. Your smile drives me wild, and I can't help but imagine holding you close, feeling your warmth against me.</p>
-                    <p>I dream of those intimate moments when it's just us, when I can whisper how much I desire you and show you with every touch how deeply I crave you. You awaken something primal in me that only you can satisfy.</p>
-                    <p>There's a fire that burns within me whenever you're near, a longing that grows stronger with each passing day. The way you look at me, the sound of your voice, the scent of your skin - everything about you intoxicates me.</p>
-                    <p>I want to explore every inch of your body, to learn what makes you sigh with pleasure, to discover the secret places that make you tremble with anticipation. My hands ache to trace the curves of your form, my lips yearn to taste the sweetness of your skin.</p>
-                    <p>When we're together, time stands still. The world fades away, and there's only you and me, lost in each other. The way you respond to my touch, the soft sounds you make when I please you - these are the moments I live for.</p>
-                    <p>I'm sorry for letting you down, and I promise to make it up to you in ways that will leave you breathless and longing for more. Let me show you how much I desire you, how completely I'm yours.</p>
+                    <div class="long-text">
+                        <p>My love, every time I see you, my heart races and my thoughts turn to how incredibly beautiful you are. Your smile drives me wild, and I can't help but imagine holding you close, feeling your warmth against me.</p>
+                        <p>I dream of those intimate moments when it's just us, when I can whisper how much I desire you and show you with every touch how deeply I crave you. You awaken something primal in me that only you can satisfy.</p>
+                        <p>There's a certain look you get, a hungry little spark in your eyes that tells me exactly what you are craving. You push me back onto the bed, your fingers tracing a slow, deliberate path down my stomach until they wrap around the solid, throbbing weight of my masu. A shiver runs through you, and you look up at me from under your lashes, that secret smile playing on your lips right before you lower your head.</p>
+                        <p>The first touch of your tongue is a silken promise, a slow, worshipful circle that makes my entire body tense. Then you take it, your mouth a warm, wet heaven, and lose yourself completely. Your world narrows to the feel of it, the taste of it, the way it stretches your lips and fills your throat. You love the power it has over you, the way it makes you gasp for air only to eagerly dive back in, driven by a deep need to please it.</p>
+                        <p>The sounds you make are a muffled symphony of pure bliss, and I know there's nowhere else you'd rather be than on your knees, completely devoted to the demanding strength of your masu. You suck it so good and eat all my cream and I moaned "Aaaahhhhhhh mommyyyy suck it moreee!"</p>
+                        <p>Then i wanna get sucked more and more the way prashu sucked wass sooo good that i came out alll her cream in her mouth and she ate it making me feel even more good and then we chocopied soo gooddd....</p>
+                    </div>
                 </div>
                 <div class="message-card aalu-card">
                     <div class="card-title">From Your Aalu 🥔</div>
-                    <p>My silly love, I know I can be a complete potato sometimes - clumsy, forgetful, and not always the brightest bulb in the box. But my love for you is the one thing I never get wrong.</p>
-                    <p>I may trip over my own feet trying to impress you and say the dumbest things at the worst times, but every awkward moment is just proof of how much you fluster me in the best way.</p>
-                    <p>Remember that time I tried to cook you a romantic dinner and almost set the kitchen on fire? Or when I planned a surprise date but got the days mixed up and showed up at your work in a suit while you were in pajamas? Yeah, that's your aalu in action!</p>
-                    <p>But here's the thing - even when I'm being a complete potato, my heart is always in the right place. I may not always know the right words to say, but I'll never stop trying to make you happy.</p>
-                    <p>I'm the guy who will send you 20 memes in a row because each one reminded me of you. I'll dance terribly in the kitchen with you even though I have two left feet. I'll watch your favorite romantic movies with you even though I don't understand half of what's going on.</p>
-                    <p>I'm just a simple aalu who's crazy in love with you, and even when I mess up, my heart is always in the right place - right there with you. You're stuck with this potato, and honestly, I wouldn't have it any other way!</p>
+                    <div class="long-text">
+                        <p>My silly love, I know I can be a complete potato sometimes - clumsy, forgetful, and not always the brightest bulb in the box. But my love for you is the one thing I never get wrong.</p>
+                        <p>I may trip over my own feet trying to impress you and say the dumbest things at the worst times, but every awkward moment is just proof of how much you fluster me in the best way.</p>
+                        <p>Remember that time I tried to cook you a romantic dinner and almost set the kitchen on fire? Or when I planned a surprise date but got the days mixed up and showed up at your work in a suit while you were in pajamas? Yeah, that's your aalu in action!</p>
+                        <p>But here's the thing - even when I'm being a complete potato, my heart is always in the right place. I may not always know the right words to say, but I'll never stop trying to make you happy.</p>
+                        <p>I'm the guy who will send you 20 memes in a row because each one reminded me of you. I'll dance terribly in the kitchen with you even though I have two left feet. I'll watch your favorite romantic movies with you even though I don't understand half of what's going on.</p>
+                        <p>I'm just a simple aalu who's crazy in love with you, and even when I mess up, my heart is always in the right place - right there with you. You're stuck with this potato, and honestly, I wouldn't have it any other way!</p>
+                    </div>
                 </div>
             </div>
             <div class="button-container">
@@ -540,13 +567,15 @@
                 <div class="heart"></div>
             </div>
             <div class="love-letter">
-                <p>My beautiful love,</p>
-                <p>Whether I'm your passionate masu who can't keep my hands off you, or your silly aalu who makes you laugh with my clumsiness - one thing remains constant: my endless love for you.There's a certain look you get, a hungry little spark in ur eyes that tells me exactly what u are craving. u pushed me back onto the bed,ur fingers tracing a slow, deliberate path down my stomach until they wrap around the solid, throbbing weight of my masu. A shiver runs through u, and u'll look up at me from under her lashes, that secret smile playing on her lips right before u lowers her head. The first touch of ur tongue is a silken promise, a slow, worshipful circle that makes my entire body tense. Then u take it, ur mouth a warm, wet heaven, and loses urself completely. ur world narrows to the feel of it, the taste of it, the way it stretches ur lips and fills ur throat. u love the power it has over u, the way it makes u gasp for air only to eagerly dive back in, driven by a deep need to please it. The sounds u make  a muffled symphony of pure bliss, and I know there's nowhere else she'd rather be than on ur knees, completely devoted to the demanding strength of ur masu and u suck it soo good and ate all my creamm.</p>
-                <p>You are the most amazing person I've ever known, and I can't imagine my life without you in it. Thank you for being patient with me, for loving me despite my flaws, and for being my everything.</p>
-                <p>I know I've made mistakes, but my love for you is true and unwavering. I promise to spend every day making you feel as loved and cherished as you truly are.</p>
-                <p>You're not just my girlfriend  you're my best friend, my confidante, my partner in crime, and the love of my life. I'm so grateful to have you by my side.</p>
-                <p>Forever yours,</p>
-                <p>Your Masu & Your Aalu 💖</p>
+                <div class="long-text">
+                    <p>My beautiful love,</p>
+                    <p>Whether I'm your passionate masu who can't keep my hands off you, or your silly aalu who makes you laugh with my clumsiness - one thing remains constant: my endless love for you.</p>
+                    <p>You are the most amazing person I've ever known, and I can't imagine my life without you in it. Thank you for being patient with me, for loving me despite my flaws, and for being my everything.</p>
+                    <p>I know I've made mistakes, but my love for you is true and unwavering. I promise to spend every day making you feel as loved and cherished as you truly are.</p>
+                    <p>You're not just my girlfriend - you're my best friend, my confidante, my partner in crime, and the love of my life. I'm so grateful to have you by my side.</p>
+                    <p>Forever yours,</p>
+                    <p>Your Masu & Your Aalu 💖</p>
+                </div>
             </div>
             <div class="button-container">
                 <button class="btn" id="restartBtn">Read Again From Start</button>
