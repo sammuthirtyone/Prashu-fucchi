@@ -1,694 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Beautiful Girlfriend</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For My Love ❤️</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #fff0f5, #ffe6eb);
+      color: #ff3366;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
 
-        body {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0, #ffdde1);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow-x: hidden;
-            color: #590d22;
-        }
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      color: #ff4d6d;
+      text-shadow: 0 2px 5px rgba(255, 100, 150, 0.3);
+    }
 
-        .container {
-            width: 100%;
-            max-width: 900px;
-            min-height: 80vh;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            margin: 20px;
-            padding: 20px;
-        }
+    .photo-frame {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px auto;
+      border: 3px solid #ff5fa2;
+      border-radius: 20px;
+      padding: 10px;
+      background: linear-gradient(135deg, #ffe1f0, #fff5fa);
+      box-shadow: 0 4px 10px rgba(255, 0, 100, 0.2);
+      width: 300px;
+      height: 300px;
+    }
 
-        .page {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s ease;
-            text-align: center;
-        }
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 15px;
+    }
 
-        .page.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .photo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
 
-        .page.exit {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
+    .promise-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 700px;
+    }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: #ff4d6d;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    .promise {
+      background: rgba(255, 245, 248, 0.9);
+      padding: 15px 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(255, 150, 180, 0.2);
+      width: 100%;
+      text-align: left;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 5px solid #ff8fa3;
+      transition: all 0.3s ease;
+    }
 
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: #ff4d6d;
-        }
+    .promise:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(255, 100, 150, 0.3);
+    }
 
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            margin-bottom: 25px;
-            max-width: 700px;
-        }
+    .promise i {
+      color: #ff4d6d;
+    }
 
-        .heart {
-            color: #ff4d6d;
-            font-size: 3rem;
-            margin: 20px 0;
-            animation: heartbeat 1.5s infinite;
-        }
+    .music-player {
+      margin: 30px 0;
+      padding: 15px 25px;
+      background: rgba(255, 245, 248, 0.8);
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      box-shadow: 0 5px 20px rgba(255, 100, 150, 0.3);
+      border: 2px solid #ff8fa3;
+      transition: all 0.3s ease;
+      justify-content: center;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            25% { transform: scale(1.1); }
-            50% { transform: scale(1); }
-            75% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+    .music-player:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 25px rgba(255, 100, 150, 0.4);
+    }
 
-        .btn {
-            background: linear-gradient(135deg, #ff4d6d, #ff8fa3);
-            color: white;
-            border: none;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            margin: 15px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-        }
+    .music-btn {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top left, #ff5fa2, #ff99ac);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 100, 150, 0.6);
+    }
 
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
-        }
+    .music-btn:hover {
+      transform: scale(1.2) rotate(10deg);
+      box-shadow: 0 0 25px rgba(255, 100, 150, 0.8);
+    }
 
-        .btn:active {
-            transform: translateY(2px);
-        }
+    .music-btn i {
+      font-size: 1.5rem;
+    }
 
-        .btn-secondary {
-            background: linear-gradient(135deg, #ffb3c1, #ffdde1);
-            color: #590d22;
-        }
-
-        .love-letter {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
-            text-align: left;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .love-letter:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #ff4d6d, #ff8fa3, #ffb3c1);
-        }
-
-        .flowers {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-
-        .flower {
-            width: 80px;
-            height: 80px;
-            background: #ff8fa3;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            position: relative;
-            animation: float 3s ease-in-out infinite;
-            animation-delay: calc(var(--i) * 0.5s);
-        }
-
-        .flower:before {
-            content: "";
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 60px;
-            height: 60px;
-            background: #ff4d6d;
-            border-radius: 50%;
-        }
-
-        .flower:after {
-            content: "";
-            position: absolute;
-            bottom: -20px;
-            left: 35px;
-            width: 10px;
-            height: 50px;
-            background: #7cfe9c;
-            border-radius: 5px;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .promises {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
-            max-width: 700px;
-        }
-
-        .promise {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .promise i {
-            color: #ff4d6d;
-            font-size: 1.5rem;
-        }
-
-        .floating-hearts {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-heart {
-            position: absolute;
-            color: #ff4d6d;
-            font-size: 24px;
-            opacity: 0.7;
-            animation: float-heart 15s infinite linear;
-        }
-
-        @keyframes float-heart {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.7;
-            }
-            90% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .photo-frame {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .photo-frame:before {
-            content: "";
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            background: white;
-        }
-
-        .photo-placeholder {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            background: #ffdde1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            color: #ff4d6d;
-            font-size: 1.5rem;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .music-player {
-            margin: 20px 0;
-            padding: 15px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .music-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: #ff4d6d;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .music-btn:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            margin-top: 20px;
-            color: #590d22;
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            p {
-                font-size: 1rem;
-            }
-            
-            .container {
-                padding: 15px;
-            }
-            
-            .page {
-                padding: 20px;
-            }
-        }
-    </style>
+    .music-player div:last-child {
+      font-weight: bold;
+      color: #ff4d6d;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+  </style>
 </head>
 <body>
-    <div class="floating-hearts" id="floatingHearts"></div>
-    
-    <div class="container">
-        <!-- Home Page -->
-        <div class="page active" id="home">
-            <div class="heart"><i class="fas fa-heart"></i></div>
-            <h1>For My Beautiful Girlfriend</h1>
-            <p>You mean the world to me, and I'm truly sorry for hurting you.</p>
-           <div class="photo-frame">
+
+  <h1>For My Love ❤️</h1>
+
+  <div class="photo-frame">
     <div class="photo-placeholder">
-        <img src="Screenshot 2025-07-06 135526.png" alt="Our Photo" class="photo-image">
+      <img src="Screenshot 2025-07-06 135526.png" alt="Our Photo" class="photo-image">
     </div>
-</div>
+  </div>
 
-            </div>
-            <p>This is my heartfelt apology and a promise to be better.</p>
-            <button class="btn" id="startBtn">Let Me Show You How Much You Mean To Me</button>
-        </div>
-        
-        <!-- Apology Page -->
-        <div class="page" id="apology">
-            <h2>I'm So Sorry</h2>
-            <div class="heart"><i class="fas fa-heart-broken"></i></div>
-            <div class="love-letter">
-                <p>My dearest love,</p>
-                <p>I know I've hurt you, and I feel terrible about it. You deserve nothing but happiness, and I'm sorry I was the cause of your pain.</p>
-                <p>Every moment without your smile feels empty. I promise to learn from my mistakes and become the person you deserve.</p>
-                <p>With all my love and regret,</p>
-                <p>Your Gudgobar</p>
-            </div>
-            <button class="btn" id="toReasonsBtn">Why I Love You</button>
-            <button class="btn btn-secondary" id="backToHome1">Back</button>
-        </div>
-        
-        <!-- Reasons Page -->
-        <div class="page" id="reasons">
-            <h2>Why I Love You</h2>
-            <div class="heart"><i class="fas fa-heart"></i></div>
-            <div class="flowers">
-                <div class="flower" style="--i:0"></div>
-                <div class="flower" style="--i:1"></div>
-                <div class="flower" style="--i:2"></div>
-                <div class="flower" style="--i:3"></div>
-            </div>
-            <div class="love-letter">
-                <p>I love everything about you:</p>
-                <ul style="text-align: left; margin-left: 20px; margin-top: 10px;">
-                    <li>Your beautiful smile that lights up my world</li>
-                    <li>Your kind heart that cares for everyone</li>
-                    <li>Your intelligence and the way you see the world</li>
-                    <li>Your strength that inspires me every day</li>
-                    <li>The way you make me feel like I'm home</li>
-                </ul>
-            </div>
-            <button class="btn" id="toPromisesBtn">My Promises to You</button>
-            <button class="btn btn-secondary" id="backToApology">Back</button>
-        </div>
-        
-        <!-- Promises Page -->
-        <div class="page" id="promises">
-            <h2>My Promises to You</h2>
-            <div class="heart"><i class="fas fa-hand-holding-heart"></i></div>
-            <div class="promises">
-                <div class="promise">
-                    <i class="fas fa-heart"></i>
-                    <span>I promise to always listen to you and value your opinions</span>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-heart"></i>
-                    <span>I promise to be more thoughtful and considerate of your feelings</span>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-heart"></i>
-                    <span>I promise to support your dreams and be your biggest cheerleader</span>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-heart"></i>
-                    <span>I promise to work on myself and become a better person for you</span>
-                </div>
-                <div class="promise">
-                    <i class="fas fa-heart"></i>
-                    <span>I promise to love you more each day and never take you for granted</span>
-                </div>
-                <div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to love you more each day and never take you for granted.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to always make you feel special, no matter how many days pass.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to hold your hand through every storm and never let go.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to be your biggest supporter and your safe place forever.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to listen to you even when words are hard to find.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to make you smile when you least expect it and most need it.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to respect your dreams and help you chase them fearlessly.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to remind you every day how beautiful you are inside and out.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to never stop choosing you, again and again, in every lifetime.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to stay by your side even when life gets tough.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to make our memories last a lifetime and beyond.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to hug you tighter on your bad days and laugh with you on the good ones.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to be honest, faithful, and true to you always.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to be patient with you and kind even when we disagree.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to never stop flirting with you, even when we’re old and grey.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to make you laugh until your stomach hurts.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to always find new ways to say “I love you.”</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to cherish your heart like it’s the most precious thing in the world — because it is.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to love you in every mood, every moment, and every chapter of life.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to always make time for us, no matter how busy life gets.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to grow with you, learn with you, and never stop improving for you.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to keep our love full of passion, laughter, and endless surprises.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to protect your heart as if it were my own.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to never let you feel alone, even for a second.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to hold you tighter when the world feels heavy.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to never stop believing in us, no matter what happens.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to make our love story one that even the stars envy.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to always see you as the most beautiful part of my world.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise to love you endlessly — in this life and every one after.</span>
-</div>
-<div class="promise">
-    <i class="fas fa-heart"></i>
-    <span>I promise that no matter where life takes us, my heart will always find yours.</span>
-</div>
-            </div>
-            <button class="btn" id="toFinalBtn">My Final Message</button>
-            <button class="btn btn-secondary" id="backToReasons">Back</button>
-        </div>
-        
-        <!-- Final Page -->
-        <div class="page" id="final">
-            <h2>You Are My Everything</h2>
-            <div class="heart"><i class="fas fa-star"></i></div>
-            <div class="music-player">
-                <div class="music-btn" id="playBtn">
-                    <i class="fas fa-play"></i>
-                </div>
-                <div>Play our song</div>
-            </div>
-            <div class="love-letter">
-                <p>My love,</p>
-                <p>You are the most amazing person I’ve ever known truly one of a kind. Every single moment I spend with you feels special, like the world slows down just for us. You’ve brought so much light, happiness, and meaning into my life that I can’t even imagine a single day without you in it. Your smile brightens even my darkest days, your voice calms my storms, and your love makes everything feel right. You’re not just someone I love you’re my peace, my home, and my greatest blessing. I’m endlessly grateful for you and everything you are. ❤️</p>
-                <p>Thank you for being you. Thank you for everything you bring to my life.</p>
-                <p>I love you more than words can express.</p>
-                <p>Forever yours,</p>
-                <p>Your aalu</p>
-            </div>
-            <button class="btn" id="restartBtn">Start Over</button>
-            <button class="btn btn-secondary" id="backToPromises">Back</button>
-        </div>
+  <div class="music-player">
+    <div class="music-btn" id="playBtn">
+      <i class="fas fa-volume-mute"></i>
     </div>
-    
-    <footer>
-        Made with <i class="fas fa-heart" style="color: #ff4d6d;"></i> for the most special person in my life
-    </footer>
+    <div>Our Song 🎶</div>
+    <iframe id="ytPlayer" width="0" height="0"
+      src="https://www.youtube.com/embed/7omdVNSR_EE?enablejsapi=1&autoplay=1&mute=1&loop=1"
+      frameborder="0" allow="autoplay; encrypted-media"></iframe>
+  </div>
 
-    <script>
-        // Create floating hearts
-        const floatingHeartsContainer = document.getElementById('floatingHearts');
-        
-        for (let i = 0; i < 20; i++) {
-            const heart = document.createElement('div');
-            heart.classList.add('floating-heart');
-            heart.innerHTML = '<i class="fas fa-heart"></i>';
-            
-            // Random position and animation delay
-            const left = Math.random() * 100;
-            const delay = Math.random() * 15;
-            const size = Math.random() * 20 + 10;
-            
-            heart.style.left = `${left}%`;
-            heart.style.animationDelay = `${delay}s`;
-            heart.style.fontSize = `${size}px`;
-            
-            floatingHeartsContainer.appendChild(heart);
-        }
-        
-        // Page navigation
-        const pages = document.querySelectorAll('.page');
-        const startBtn = document.getElementById('startBtn');
-        const toReasonsBtn = document.getElementById('toReasonsBtn');
-        const toPromisesBtn = document.getElementById('toPromisesBtn');
-        const toFinalBtn = document.getElementById('toFinalBtn');
-        const restartBtn = document.getElementById('restartBtn');
-        
-        const backToHome1 = document.getElementById('backToHome1');
-        const backToApology = document.getElementById('backToApology');
-        const backToReasons = document.getElementById('backToReasons');
-        const backToPromises = document.getElementById('backToPromises');
-        
-        // Function to navigate between pages
-        function navigateTo(pageId) {
-            // Find current active page
-            const currentPage = document.querySelector('.page.active');
-            
-            // If we're going back to home from any page
-            if (pageId === 'home') {
-                currentPage.classList.remove('active');
-                currentPage.classList.add('exit');
-                
-                setTimeout(() => {
-                    currentPage.classList.remove('exit');
-                    document.getElementById(pageId).classList.add('active');
-                }, 800);
-                return;
-            }
-            
-            // Normal navigation
-            currentPage.classList.remove('active');
-            currentPage.classList.add('exit');
-            
-            setTimeout(() => {
-                currentPage.classList.remove('exit');
-                document.getElementById(pageId).classList.add('active');
-            }, 800);
-        }
-        
-        // Event listeners for navigation
-        startBtn.addEventListener('click', () => navigateTo('apology'));
-        toReasonsBtn.addEventListener('click', () => navigateTo('reasons'));
-        toPromisesBtn.addEventListener('click', () => navigateTo('promises'));
-        toFinalBtn.addEventListener('click', () => navigateTo('final'));
-        restartBtn.addEventListener('click', () => navigateTo('home'));
-        
-        backToHome1.addEventListener('click', () => navigateTo('home'));
-        backToApology.addEventListener('click', () => navigateTo('apology'));
-        backToReasons.addEventListener('click', () => navigateTo('reasons'));
-        backToPromises.addEventListener('click', () => navigateTo('promises'));
-        
-        // Music player functionality
-        const playBtn = document.getElementById('playBtn');
-        let isPlaying = false;
-        
-        playBtn.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            
-            if (!isPlaying) {
-                icon.classList.remove('fa-play');
-                icon.classList.add('fa-pause');
-                // In a real implementation, you would play audio here
-                // For example: audioElement.play();
-                alert("Our special song would play here! 🎵");
-                isPlaying = true;
-            } else {
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-play');
-                // In a real implementation, you would pause audio here
-                // For example: audioElement.pause();
-                isPlaying = false;
-            }
-        });
-        
-        // Add some interactive elements
-        const hearts = document.querySelectorAll('.fa-heart');
-        hearts.forEach(heart => {
-            heart.addEventListener('click', function() {
-                this.style.transform = 'scale(1.5)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 300);
-            });
-        });
-    </script>
+  <div class="promise-list">
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you more each day and never take you for granted.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always stand by your side, no matter what.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to support your dreams and celebrate your success.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make you smile even on your worst days.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be patient, understanding, and kind to you.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always listen to you with my heart.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to never let distance or time weaken our bond.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be your biggest cheerleader and strongest supporter.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to cherish every little moment with you.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to never let you feel alone, even in silence.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make you laugh until your stomach hurts.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to hold your hand through all of life’s ups and downs.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to respect and value you every single day.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep our love safe and strong forever.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to remember how lucky I am to have you.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to give you endless hugs and warm cuddles.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be your peace after a long, tiring day.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep falling for you again and again.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make your world brighter every day.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always find my way back to you.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to never let go, no matter what happens.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep your heart safe with mine.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to bring you coffee, kisses, and care when you need it.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make you proud to call me yours.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to create memories that last a lifetime.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to keep choosing you, every single day.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to always love you for who you are and who you become.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to be your comfort, your calm, and your forever home.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to make every moment with you a beautiful memory.</span></div>
+    <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you endlessly, with all that I am. ❤️</span></div>
+  </div>
+
+  <script>
+    const playBtn = document.getElementById('playBtn');
+    const ytPlayer = document.getElementById('ytPlayer');
+    let isMuted = true;
+
+    function unmuteYouTubeVideo() {
+      ytPlayer.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+    }
+
+    function muteYouTubeVideo() {
+      ytPlayer.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+    }
+
+    playBtn.addEventListener('click', function () {
+      const icon = this.querySelector('i');
+      if (isMuted) {
+        icon.classList.remove('fa-volume-mute');
+        icon.classList.add('fa-volume-up');
+        unmuteYouTubeVideo();
+        isMuted = false;
+        playBtn.style.boxShadow = "0 0 25px rgba(255, 80, 120, 0.9)";
+      } else {
+        icon.classList.remove('fa-volume-up');
+        icon.classList.add('fa-volume-mute');
+        muteYouTubeVideo();
+        isMuted = true;
+        playBtn.style.boxShadow = "0 0 15px rgba(255, 100, 150, 0.6)";
+      }
+    });
+  </script>
+
 </body>
 </html>
