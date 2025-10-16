@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Heart's Apology</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>My Love For You ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -14,303 +14,214 @@
         }
 
         :root {
-            --primary: #ff2e63;
-            --secondary: #ff8ba0;
-            --accent: #ff6b95;
-            --light: #ffecf1;
+            --primary: #ff6b8b;
+            --secondary: #ffa5b6;
+            --accent: #ff4d6d;
+            --light: #fff0f3;
             --dark: #590d22;
-            --gold: #ffd700;
+            --text: #333;
         }
 
         body {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0, #ffdde1);
-            color: #590d22;
+            background: linear-gradient(135deg, #ffccd5 0%, #ffb3c1 100%);
             min-height: 100vh;
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             padding: 20px;
+            color: var(--text);
+            overflow-x: hidden;
         }
 
         .container {
+            max-width: 1200px;
             width: 100%;
-            max-width: 1000px;
-            min-height: 80vh;
-            max-height: 90vh;
-            background: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 25px;
-            box-shadow: 0 15px 50px rgba(255, 46, 99, 0.2);
-            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            text-align: center;
+            margin-top: 20px;
             position: relative;
-            margin: 20px;
-            border: 2px solid rgba(255, 139, 160, 0.3);
+            overflow: hidden;
         }
 
-        .page {
+        .container::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 40px;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.8s ease;
-            text-align: center;
-            overflow-y: auto;
-        }
-
-        .page.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .page.exit {
-            opacity: 0;
-            transform: translateX(-100%);
+            height: 8px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
         }
 
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        p {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            margin-bottom: 30px;
-            max-width: 800px;
+            font-size: 3rem;
+            margin-bottom: 15px;
             color: var(--dark);
-        }
-
-        .btn {
-            background: linear-gradient(45deg, var(--primary), var(--accent));
-            color: white;
-            border: none;
-            padding: 18px 45px;
-            font-size: 1.3rem;
-            border-radius: 50px;
-            cursor: pointer;
-            margin: 20px;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 25px rgba(255, 46, 99, 0.4);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(255, 46, 99, 0.6);
-        }
-
-        .btn:active {
-            transform: translateY(2px);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
-        }
-
-        /* Heart Animation */
-        .heart-container {
-            width: 200px;
-            height: 200px;
-            margin: 30px auto;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 80%;
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
         }
 
         .heart {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: var(--primary);
-            transform: rotate(45deg);
-            animation: pulse 2s infinite;
-            box-shadow: 0 0 40px rgba(255, 46, 99, 0.5);
+            color: var(--accent);
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+            margin: 0 10px;
         }
 
-        .heart:before,
-        .heart:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: var(--primary);
-            border-radius: 50%;
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
 
-        .heart:before {
-            top: -50%;
-            left: 0;
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
         }
 
-        .heart:after {
-            top: 0;
-            left: -50%;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: rotate(45deg) scale(1); }
-            50% { transform: rotate(45deg) scale(1.1); }
-        }
-
-        /* Love Letter */
-        .love-letter {
-            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
-            padding: 30px;
-            border-radius: 15px;
-            margin: 20px 0;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            max-width: 700px;
-            text-align: left;
+        .nav-button {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border: none;
+            border-radius: 50px;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(231, 84, 128, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 10px;
             position: relative;
             overflow: hidden;
         }
 
-        .love-letter:before {
-            content: "";
+        .nav-button::before {
+            content: '';
             position: absolute;
             top: 0;
-            left: 0;
+            left: -100%;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
         }
 
-        /* Message Cards */
-        .message-cards {
-            display: flex;
-            gap: 30px;
-            margin: 30px 0;
-            flex-wrap: wrap;
-            justify-content: center;
+        .nav-button:hover::before {
+            left: 100%;
         }
 
-        .message-card {
-            background: white;
+        .nav-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(231, 84, 128, 0.6);
+        }
+
+        .nav-button:active {
+            transform: translateY(2px);
+        }
+
+        .page {
+            display: none;
+            animation: fadeIn 0.8s ease;
+            padding: 20px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .image-container {
+            width: 100%;
+            height: 450px;
             border-radius: 20px;
-            padding: 30px;
-            width: 300px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            border: 2px solid transparent;
-            max-height: 500px;
-            overflow-y: auto;
+            overflow: hidden;
+            margin: 25px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            position: relative;
         }
 
-        .message-card::-webkit-scrollbar {
-            width: 6px;
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
 
-        .message-card::-webkit-scrollbar-track {
-            background: rgba(255, 200, 210, 0.3);
-            border-radius: 10px;
+        .image-container:hover img {
+            transform: scale(1.05);
         }
 
-        .message-card::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--secondary), var(--primary));
-            border-radius: 10px;
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            margin: 25px 0;
+            padding: 25px;
+            background-color: var(--light);
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
-        .message-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(255, 46, 99, 0.2);
-            border: 2px solid var(--secondary);
+        .message::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--secondary);
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            opacity: 0.3;
         }
 
-        .card-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            font-weight: bold;
-            position: sticky;
-            top: 0;
-            background: inherit;
-            padding: 10px;
-            border-radius: 10px;
+        .love-meter {
+            width: 100%;
+            height: 30px;
+            background-color: #e0e0e0;
+            border-radius: 15px;
+            margin: 30px 0;
+            overflow: hidden;
+            position: relative;
         }
 
-        .masu-card {
-            background: linear-gradient(135deg, #ff6b95, #ff8fa3);
-            color: white;
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 15px;
+            width: 100%;
+            transition: width 1.5s ease;
         }
 
-        .aalu-card {
-            background: linear-gradient(135deg, #ffc3a0, #ffafbd);
+        .footer {
+            margin-top: 40px;
+            font-size: 1rem;
             color: var(--dark);
+            padding: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
         }
 
-        /* Promise List */
-        .promise-list {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
-            max-width: 600px;
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-
-        .promise-list::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .promise-list::-webkit-scrollbar-track {
-            background: rgba(255, 200, 210, 0.3);
-            border-radius: 10px;
-        }
-
-        .promise-list::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--secondary), var(--primary));
-            border-radius: 10px;
-        }
-
-        .promise {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 15px 20px;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(255, 130, 160, 0.3);
-            font-size: 1.1rem;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .promise:hover {
-            transform: scale(1.03);
-            background: #ffe1ec;
-            box-shadow: 0 0 20px rgba(255, 140, 180, 0.4);
-            border: 2px solid var(--secondary);
-        }
-
-        .promise i {
-            color: var(--primary);
-            font-size: 1.5rem;
-            min-width: 30px;
-            text-align: center;
-        }
-
-        /* Floating hearts */
-        .floating-hearts {
+        .hearts-container {
             position: fixed;
             top: 0;
             left: 0;
@@ -322,364 +233,356 @@
 
         .floating-heart {
             position: absolute;
-            font-size: 1.5rem;
-            color: var(--primary);
-            animation: floatUp 5s ease-in-out forwards;
-            opacity: 0.7;
+            color: rgba(255, 107, 139, 0.5);
+            font-size: 20px;
+            animation: float 8s linear infinite;
         }
 
-        @keyframes floatUp {
-            0% { transform: translateY(100vh) scale(1); opacity: 0; }
-            10% { opacity: 0.7; }
-            90% { opacity: 0.7; }
-            100% { transform: translateY(-100px) scale(0.5); opacity: 0; }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
-        /* Navigation */
-        .nav-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            position: sticky;
-            bottom: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
+        .love-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
         }
 
-        .dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: rgba(255, 46, 99, 0.3);
-            margin: 0 10px;
-            cursor: pointer;
+        .love-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
+            border-top: 4px solid var(--accent);
         }
 
-        .dot.active {
-            background: var(--primary);
-            transform: scale(1.3);
+        .love-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        /* Button Container */
-        .button-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            position: sticky;
-            bottom: 10px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 15px;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
+        .love-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 15px;
         }
 
-        /* Footer */
-        footer {
-            margin-top: 30px;
+        .love-card h3 {
             color: var(--dark);
-            font-size: 1rem;
-            text-align: center;
+            margin-bottom: 10px;
         }
 
-        /* Responsive */
+        /* Responsive design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
-            h2 {
-                font-size: 2rem;
+            .image-container {
+                height: 350px;
             }
             
-            p {
+            .message {
                 font-size: 1.1rem;
+                padding: 20px;
             }
             
-            .message-cards {
+            .nav-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .love-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .image-container {
+                height: 250px;
+            }
+            
+            .message {
+                font-size: 1rem;
+                padding: 15px;
+            }
+            
+            .nav-buttons {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .message-card {
-                width: 100%;
-                max-width: 350px;
+            .nav-button {
+                width: 90%;
+                justify-content: center;
             }
-            
-            .button-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-
-        /* Fix for long text content */
-        .long-text {
-            max-height: 400px;
-            overflow-y: auto;
-            padding: 10px;
-            text-align: left;
-            line-height: 1.6;
-        }
-
-        .long-text::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .long-text::-webkit-scrollbar-track {
-            background: rgba(255, 200, 210, 0.3);
-            border-radius: 10px;
-        }
-
-        .long-text::-webkit-scrollbar-thumb {
-            background: linear-gradient(var(--secondary), var(--primary));
-            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="floating-hearts" id="floatingHearts"></div>
+    <div class="hearts-container" id="hearts-container"></div>
     
     <div class="container">
-        <!-- Page 1: Home -->
-        <div class="page active" id="page1">
-            <div class="heart-container">
-                <div class="heart"></div>
-            </div>
-            <h1>My Heart's Apology</h1>
-            <p>Every beat of my heart whispers your name, and today it speaks of regret and endless love.</p>
-            <div class="button-container">
-                <button class="btn" id="toApologyBtn">Read My Apology</button>
-            </div>
-            <div class="nav-dots">
-                <div class="dot active" data-page="page1"></div>
-                <div class="dot" data-page="page2"></div>
-                <div class="dot" data-page="page3"></div>
-                <div class="dot" data-page="page4"></div>
-                <div class="dot" data-page="page5"></div>
-            </div>
+        <h1>My Love For You <span class="heart">❤️</span> Is Eternal</h1>
+        
+        <div class="nav-buttons">
+            <button class="nav-button" onclick="showPage('home')">
+                <i class="fas fa-home"></i> Home
+            </button>
+            <button class="nav-button" onclick="showPage('reasons')">
+                <i class="fas fa-heart"></i> Why I Love You
+            </button>
+            <button class="nav-button" onclick="showPage('qualities')">
+                <i class="fas fa-star"></i> Your Beautiful Qualities
+            </button>
+            <button class="nav-button" onclick="showPage('promises')">
+                <i class="fas fa-hand-holding-heart"></i> My Promises
+            </button>
+            <button class="nav-button" onclick="showPage('forever')">
+                <i class="fas fa-infinity"></i> Forever With You
+            </button>
         </div>
         
-        <!-- Page 2: Apology -->
-        <div class="page" id="page2">
-            <h2>I'm Truly Sorry</h2>
-            <div class="love-letter">
-                <p>My dearest love,</p>
-                <p>I'm writing this with a heart full of regret for the pain I've caused you. You are the most precious person in my life, and seeing you hurt because of my actions breaks me completely.</p>
-                <p>I know my words can't erase the pain, but I want you to know how deeply sorry I am. You deserve nothing but happiness, love, and respect, and I'm devastated that I failed to give you that.</p>
-                <p>Every moment without your smile feels empty. I promise to learn from my mistakes and become the person you deserve - someone who cherishes you, respects you, and loves you unconditionally.</p>
-                <p>With all my love and deepest regret,</p>
-                <p>Your forever love</p>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/5b/5b/3f/5b5b3f3c3c3c3c3c3c3c3c3c3c3c3c3c.jpg" alt="Our Love">
             </div>
-            <div class="button-container">
-                <button class="btn" id="toMessagesBtn">Special Messages For You</button>
-                <button class="btn btn-secondary" id="backToHome1">Back</button>
+            
+            <div class="message">
+                My love for you is a journey that starts forever and ends at never. You are the reason my heart beats with so much joy and my soul feels so complete. Every moment with you is a treasure I'll cherish forever.
             </div>
-            <div class="nav-dots">
-                <div class="dot" data-page="page1"></div>
-                <div class="dot active" data-page="page2"></div>
-                <div class="dot" data-page="page3"></div>
-                <div class="dot" data-page="page4"></div>
-                <div class="dot" data-page="page5"></div>
+            
+            <div class="love-meter">
+                <div class="love-fill" id="love-meter-fill"></div>
             </div>
+            
+            <p>My love for you is infinite and grows stronger every single day</p>
         </div>
         
-        <!-- Page 3: Special Messages -->
-        <div class="page" id="page3">
-            <h2>Special Messages For You</h2>
-            <div class="message-cards">
-                <div class="message-card masu-card">
-                    <div class="card-title">From Your Masu 💋</div>
-                    <div class="long-text">
-                        <p>My love, every time I see you, my heart races and my thoughts turn to how incredibly beautiful you are. Your smile drives me wild, and I can't help but imagine holding you close, feeling your warmth against me.</p>
-                        <p>I dream of those intimate moments when it's just us, when I can whisper how much I desire you and show you with every touch how deeply I crave you. You awaken something primal in me that only you can satisfy.</p>
-                        <p>There's a certain look you get, a hungry little spark in your eyes that tells me exactly what you are craving. You push me back onto the bed, your fingers tracing a slow, deliberate path down my stomach until they wrap around the solid, throbbing weight of my masu. A shiver runs through you, and you look up at me from under your lashes, that secret smile playing on your lips right before you lower your head.</p>
-                        <p>The first touch of your tongue is a silken promise, a slow, worshipful circle that makes my entire body tense. Then you take it, your mouth a warm, wet heaven, and lose yourself completely. Your world narrows to the feel of it, the taste of it, the way it stretches your lips and fills your throat. You love the power it has over you, the way it makes you gasp for air only to eagerly dive back in, driven by a deep need to please it.</p>
-                        <p>The sounds you make are a muffled symphony of pure bliss, and I know there's nowhere else you'd rather be than on your knees, completely devoted to the demanding strength of your masu. You suck it so good and eat all my cream and I moaned "Aaaahhhhhhh mommyyyy suck it moreee!"</p>
-                        <p>Then i wanna get sucked more and more the way prashu sucked wass sooo good that i came out alll her cream in her mouth and she ate it making me feel even more good and then we chocopied soo gooddd....</p>
-                    </div>
+        <!-- Reasons Page -->
+        <div id="reasons" class="page">
+            <h2>Why I Love You Endlessly</h2>
+            
+            <div class="love-grid">
+                <div class="love-card">
+                    <i class="fas fa-smile"></i>
+                    <h3>Your Beautiful Smile</h3>
+                    <p>The way your smile lights up my world and makes everything better</p>
                 </div>
-                <div class="message-card aalu-card">
-                    <div class="card-title">From Your Aalu 🥔</div>
-                    <div class="long-text">
-                        <p>My silly love, I know I can be a complete potato sometimes - clumsy, forgetful, and not always the brightest bulb in the box. But my love for you is the one thing I never get wrong.</p>
-                        <p>I may trip over my own feet trying to impress you and say the dumbest things at the worst times, but every awkward moment is just proof of how much you fluster me in the best way.</p>
-                        <p>Remember that time I tried to cook you a romantic dinner and almost set the kitchen on fire? Or when I planned a surprise date but got the days mixed up and showed up at your work in a suit while you were in pajamas? Yeah, that's your aalu in action!</p>
-                        <p>But here's the thing - even when I'm being a complete potato, my heart is always in the right place. I may not always know the right words to say, but I'll never stop trying to make you happy.</p>
-                        <p>I'm the guy who will send you 20 memes in a row because each one reminded me of you. I'll dance terribly in the kitchen with you even though I have two left feet. I'll watch your favorite romantic movies with you even though I don't understand half of what's going on.</p>
-                        <p>I'm just a simple aalu who's crazy in love with you, and even when I mess up, my heart is always in the right place - right there with you. You're stuck with this potato, and honestly, I wouldn't have it any other way!</p>
-                    </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Your Kind Heart</h3>
+                    <p>Your incredible capacity for love and kindness towards everyone</p>
                 </div>
-            </div>
-            <div class="button-container">
-                <button class="btn" id="toPromisesBtn">My Promises To You</button>
-                <button class="btn btn-secondary" id="backToApology">Back</button>
-            </div>
-            <div class="nav-dots">
-                <div class="dot" data-page="page1"></div>
-                <div class="dot" data-page="page2"></div>
-                <div class="dot active" data-page="page3"></div>
-                <div class="dot" data-page="page4"></div>
-                <div class="dot" data-page="page5"></div>
-            </div>
-        </div>
-        
-        <!-- Page 4: Promises -->
-        <div class="page" id="page4">
-            <h2>My Sacred Promises</h2>
-            <div class="promise-list">
-                <div class="promise"><i class="fas fa-heart"></i><span>I promise to love you more each day, even when I'm being a silly aalu</span></div>
-                <div class="promise"><i class="fas fa-hand-holding-heart"></i><span>I promise to always hold your hand through everything life brings us</span></div>
-                <div class="promise"><i class="fas fa-kiss-wink-heart"></i><span>I promise to keep the passion alive and always desire you as your masu</span></div>
-                <div class="promise"><i class="fas fa-laugh-beam"></i><span>I promise to make you smile every day, even with my potato-like clumsiness</span></div>
-                <div class="promise"><i class="fas fa-shield-heart"></i><span>I promise to protect your heart and always be honest with you</span></div>
-                <div class="promise"><i class="fas fa-infinity"></i><span>I promise to love you endlessly, beyond forever</span></div>
-                <div class="promise"><i class="fas fa-music"></i><span>I promise to dance with you even when there's no music playing</span></div>
-                <div class="promise"><i class="fas fa-mug-hot"></i><span>I promise to always make you coffee/tea exactly how you like it</span></div>
-                <div class="promise"><i class="fas fa-star"></i><span>I promise to always see you as the amazing person you are</span></div>
-                <div class="promise"><i class="fas fa-home"></i><span>I promise to always make you feel safe and loved in my arms</span></div>
-            </div>
-            <div class="button-container">
-                <button class="btn" id="toFinalBtn">My Final Message</button>
-                <button class="btn btn-secondary" id="backToMessages">Back</button>
-            </div>
-            <div class="nav-dots">
-                <div class="dot" data-page="page1"></div>
-                <div class="dot" data-page="page2"></div>
-                <div class="dot" data-page="page3"></div>
-                <div class="dot active" data-page="page4"></div>
-                <div class="dot" data-page="page5"></div>
-            </div>
-        </div>
-        
-        <!-- Page 5: Final -->
-        <div class="page" id="page5">
-            <h2>You Are My Everything</h2>
-            <div class="heart-container">
-                <div class="heart"></div>
-            </div>
-            <div class="love-letter">
-                <div class="long-text">
-                    <p>My beautiful love,</p>
-                    <p>Whether I'm your passionate masu who can't keep my hands off you, or your silly aalu who makes you laugh with my clumsiness - one thing remains constant: my endless love for you.</p>
-                    <p>You are the most amazing person I've ever known, and I can't imagine my life without you in it. Thank you for being patient with me, for loving me despite my flaws, and for being my everything.</p>
-                    <p>I know I've made mistakes, but my love for you is true and unwavering. I promise to spend every day making you feel as loved and cherished as you truly are.</p>
-                    <p>You're not just my girlfriend - you're my best friend, my confidante, my partner in crime, and the love of my life. I'm so grateful to have you by my side.</p>
-                    <p>Forever yours,</p>
-                    <p>Your Masu & Your Aalu 💖</p>
+                
+                <div class="love-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Your Beautiful Mind</h3>
+                    <p>The way you think and see the world inspires me every day</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-laugh"></i>
+                    <h3>Your Sense of Humor</h3>
+                    <p>How you can make me laugh even on my toughest days</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-shield-heart"></i>
+                    <h3>Your Strength</h3>
+                    <p>The incredible strength you show in everything you do</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Simply Everything</h3>
+                    <p>Every single thing about you makes me fall deeper in love</p>
                 </div>
             </div>
-            <div class="button-container">
-                <button class="btn" id="restartBtn">Read Again From Start</button>
-                <button class="btn btn-secondary" id="backToPromises">Back</button>
+        </div>
+        
+        <!-- Qualities Page -->
+        <div id="qualities" class="page">
+            <h2>Your Beautiful Qualities That Captivate Me</h2>
+            
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/3y/3y/3y/3y3y3y3y3y3y3y3y3y3y3y3y3y3y3y.jpg" alt="Your Beauty">
             </div>
-            <div class="nav-dots">
-                <div class="dot" data-page="page1"></div>
-                <div class="dot" data-page="page2"></div>
-                <div class="dot" data-page="page3"></div>
-                <div class="dot" data-page="page4"></div>
-                <div class="dot active" data-page="page5"></div>
+            
+            <div class="message">
+                Your beauty isn't just in your appearance, but in the way you love, the way you care, and the incredible person you are. You have this magical ability to make everything around you better just by being there.
             </div>
+            
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="showRandomCompliment()">
+                    <i class="fas fa-random"></i> Another Compliment
+                </button>
+            </div>
+        </div>
+        
+        <!-- Promises Page -->
+        <div id="promises" class="page">
+            <h2>My Promises To You</h2>
+            
+            <div class="love-grid">
+                <div class="love-card">
+                    <i class="fas fa-heart-circle-check"></i>
+                    <h3>I Promise To Love You</h3>
+                    <p>To love you unconditionally through every moment of our lives together</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-hand-holding-medical"></i>
+                    <h3>I Promise To Support You</h3>
+                    <p>To always be your biggest supporter and cheerleader in everything you do</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-ear-listen"></i>
+                    <h3>I Promise To Listen</h3>
+                    <p>To always listen with an open heart and understand your feelings</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-face-laugh-beam"></i>
+                    <h3>I Promise To Make You Smile</h3>
+                    <p>To do everything I can to bring joy and happiness to your life every day</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-shield-heart"></i>
+                    <h3>I Promise To Protect You</h3>
+                    <p>To always keep you safe and be your safe haven in this world</p>
+                </div>
+                
+                <div class="love-card">
+                    <i class="fas fa-infinity"></i>
+                    <h3>I Promise Forever</h3>
+                    <p>To love you today, tomorrow, and for all the days of my life</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Forever Page -->
+        <div id="forever" class="page">
+            <div class="image-container">
+                <img src="https://i.pinimg.com/736x/4d/4d/4d/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.jpg" alt="Our Forever">
+            </div>
+            
+            <div class="message">
+                I want to spend forever with you, building a life filled with love, laughter, and endless happiness. You are my soulmate, my best friend, and the love of my life. With you, I've found my forever.
+            </div>
+            
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="showLoveLetter()">
+                    <i class="fas fa-envelope"></i> My Love Letter
+                </button>
+            </div>
+        </div>
+        
+        <div class="footer">
+            Made with <span class="heart">❤️</span> for the most amazing person in my life
         </div>
     </div>
-    
-    <footer>
-        Made with endless love and hope for your forgiveness 💖
-    </footer>
 
     <script>
-        // Create floating hearts
-        const floatingHeartsContainer = document.getElementById('floatingHearts');
-        
-        function createFloatingHearts() {
-            for (let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
-                heart.innerHTML = '❤️';
-                
-                const left = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const size = Math.random() * 20 + 10;
-                
-                heart.style.left = `${left}%`;
-                heart.style.animationDelay = `${delay}s`;
-                heart.style.fontSize = `${size}px`;
-                
-                floatingHeartsContainer.appendChild(heart);
-            }
-        }
-        
-        createFloatingHearts();
-
-        // Page navigation
-        const pages = document.querySelectorAll('.page');
-        const dots = document.querySelectorAll('.dot');
-        
+        // Function to show pages
         function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
             pages.forEach(page => {
                 page.classList.remove('active');
             });
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
             
+            // Show the selected page
             document.getElementById(pageId).classList.add('active');
-            document.querySelector(`.dot[data-page="${pageId}"]`).classList.add('active');
-            
-            // Scroll to top when changing pages
-            document.getElementById(pageId).scrollTop = 0;
         }
-
-        // Button event listeners
-        document.getElementById('toApologyBtn').addEventListener('click', () => showPage('page2'));
-        document.getElementById('toMessagesBtn').addEventListener('click', () => showPage('page3'));
-        document.getElementById('toPromisesBtn').addEventListener('click', () => showPage('page4'));
-        document.getElementById('toFinalBtn').addEventListener('click', () => showPage('page5'));
-        document.getElementById('restartBtn').addEventListener('click', () => showPage('page1'));
-
-        // Back buttons
-        document.getElementById('backToHome1').addEventListener('click', () => showPage('page1'));
-        document.getElementById('backToApology').addEventListener('click', () => showPage('page2'));
-        document.getElementById('backToMessages').addEventListener('click', () => showPage('page3'));
-        document.getElementById('backToPromises').addEventListener('click', () => showPage('page4'));
-
-        // Dot navigation
-        dots.forEach(dot => {
-            dot.addEventListener('click', function() {
-                const pageId = this.getAttribute('data-page');
-                showPage(pageId);
-            });
-        });
-
-        // Interactive hearts
-        const hearts = document.querySelectorAll('.heart');
-        hearts.forEach(heart => {
-            heart.addEventListener('click', function() {
-                this.style.transform = 'rotate(45deg) scale(1.3)';
-                setTimeout(() => {
-                    this.style.transform = 'rotate(45deg) scale(1)';
-                }, 300);
-            });
-        });
-
-        // Make sure buttons are always visible
-        window.addEventListener('scroll', function() {
-            const buttonContainers = document.querySelectorAll('.button-container');
-            buttonContainers.forEach(container => {
-                const rect = container.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom >= 0) {
-                    container.style.opacity = '1';
+        
+        // Create floating hearts
+        function createHearts() {
+            const heartsContainer = document.getElementById('hearts-container');
+            const heartCount = 25;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heartsContainer.appendChild(heart);
+            }
+        }
+        
+        // Animate love meter
+        function animateLoveMeter() {
+            const loveMeter = document.getElementById('love-meter-fill');
+            let width = 0;
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                } else {
+                    width++;
+                    loveMeter.style.width = width + '%';
                 }
-            });
-        });
+            }, 30);
+        }
+        
+        // Show random compliment
+        function showRandomCompliment() {
+            const compliments = [
+                "Your inner beauty shines brighter than any star in the sky.",
+                "The way you see the good in everyone inspires me to be a better person.",
+                "Your intelligence and wisdom leave me in awe every single day.",
+                "You have the most beautiful soul I've ever encountered.",
+                "Your passion for life is contagious and makes everything more beautiful.",
+                "The kindness in your heart makes the world a better place.",
+                "You are the most genuine and authentic person I know."
+            ];
+            
+            const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
+            document.querySelector('#qualities .message').textContent = randomCompliment;
+        }
+        
+        // Show love letter
+        function showLoveLetter() {
+            document.querySelector('#forever .message').innerHTML = `
+                <strong>My Dearest Love,</strong><br><br>
+                From the moment you entered my life, everything changed. You brought colors to my world that I never knew existed. 
+                Your love has transformed me in ways I never thought possible.<br><br>
+                I promise to cherish you, to honor you, and to love you more with each passing day. 
+                You are my everything, and I can't imagine my life without you in it.<br><br>
+                Forever yours,<br>
+                <em>With all my love</em>
+            `;
+        }
+        
+        // Initialize the page
+        window.onload = function() {
+            createHearts();
+            animateLoveMeter();
+        };
     </script>
 </body>
 </html>
