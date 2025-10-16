@@ -166,11 +166,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .image-container:hover img {
-            transform: scale(1.05);
         }
 
         .message {
@@ -392,7 +387,7 @@
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/5b/5b/3f/5b5b3f3c3c3c3c3c3c3c3c3c3c3c3c3c.jpg" alt="Our Love" id="main-image">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QaFPEW8KKvouyhQPaj/giphy.gif" alt="Our Love" id="main-image">
             </div>
             
             <div class="message">
@@ -407,7 +402,7 @@
             
             <div class="nav-buttons">
                 <button class="nav-button" onclick="changeMainImage()">
-                    <i class="fas fa-sync-alt"></i> Change Love Image
+                    <i class="fas fa-sync-alt"></i> Change Love GIF
                 </button>
             </div>
         </div>
@@ -460,7 +455,7 @@
             <h2>Your Beautiful Qualities That Captivate Me</h2>
             
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/3y/3y/3y/3y3y3y3y3y3y3y3y3y3y3y3y3y3y3y.jpg" alt="Your Beauty" id="qualities-image">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MLrZhK7sa0e1AW2yfZ/giphy.gif" alt="Your Beauty" id="qualities-image">
             </div>
             
             <div class="message" id="qualities-message">
@@ -469,7 +464,7 @@
             
             <div class="nav-buttons">
                 <button class="nav-button" onclick="changeQualitiesContent()">
-                    <i class="fas fa-random"></i> Change Image & Message
+                    <i class="fas fa-random"></i> Change GIF & Message
                 </button>
             </div>
         </div>
@@ -479,18 +474,18 @@
             <h2>Visuals That Remind Me of Our Love</h2>
             
             <div class="image-gallery" id="love-gallery">
-                <!-- Images will be loaded here by JavaScript -->
+                <!-- GIFs will be loaded here by JavaScript -->
             </div>
             
             <div class="message">
-                Each of these images represents a different aspect of my love for you - the beauty, the passion, the tenderness, and the eternal connection we share.
+                Each of these animated GIFs represents a different aspect of my love for you - the beauty, the passion, the tenderness, and the eternal connection we share.
             </div>
         </div>
         
         <!-- Forever Page -->
         <div id="forever" class="page">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/4d/4d/4d/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.jpg" alt="Our Forever" id="forever-image">
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jv2NrCzvwqPh6/giphy.gif" alt="Our Forever" id="forever-image">
             </div>
             
             <div class="message" id="forever-message">
@@ -502,7 +497,7 @@
                     <i class="fas fa-envelope"></i> My Love Letter
                 </button>
                 <button class="nav-button" onclick="changeForeverImage()">
-                    <i class="fas fa-image"></i> Change Image
+                    <i class="fas fa-image"></i> Change GIF
                 </button>
             </div>
         </div>
@@ -513,18 +508,16 @@
     </div>
 
     <script>
-        // Your Pinterest image URLs (converted to direct image links)
-        // Note: These are placeholder URLs. You'll need to replace them with actual direct image URLs
-        const imageUrls = [
-            "https://i.pinimg.com/736x/5b/5b/3f/5b5b3f3c3c3c3c3c3c3c3c3c3c3c3c3c.jpg",
-            "https://i.pinimg.com/736x/3y/3y/3y/3y3y3y3y3y3y3y3y3y3y3y3y3y3y3y.jpg",
-            "https://i.pinimg.com/736x/6d/6d/6d/6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d.jpg",
-            "https://i.pinimg.com/736x/1m/1m/1m/1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m.jpg",
-            "https://i.pinimg.com/736x/5j/5j/5j/5j5j5j5j5j5j5j5j5j5j5j5j5j5j5j.jpg",
-            "https://i.pinimg.com/736x/26/26/26/26262626262626262626262626262626.jpg",
-            "https://i.pinimg.com/736x/4d/4d/4d/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.jpg",
-            "https://i.pinimg.com/736x/5g/5g/5g/5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g.jpg",
-            "https://i.pinimg.com/736x/7c/7c/7c/7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c.jpg"
+        // Your animated GIF URLs
+        const gifUrls = [
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QaFPEW8KKvouyhQPaj/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MLrZhK7sa0e1AW2yfZ/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jv2NrCzvwqPh6/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KdSI4eUbdP65kRtqF4/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7WJ0cL3xCYtc4/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eTcyMnlrNWczNXM3d3hkd3g2YjExdnJ1OTluM21mb21vbnR1eXZhOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fuEspo4rCaKshEUUsS/giphy.gif",
+            "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eGVwNmpkc2tqMGkyZ3ZxYWV0YXZnbTRnOHNlMWtrdjNydmIxMWZqZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8QthgaH2SykkR7cLGA/giphy.gif",
+            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjg3a3pubzl3dHJ6bmxyemRveXdmN3MyZ2VlaWh4NjB3bDg3d2NodCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SRbVg86icBP9K/giphy.gif"
         ];
 
         // Messages for different pages
@@ -596,8 +589,8 @@
 
         // Change main image on home page
         function changeMainImage() {
-            const randomIndex = Math.floor(Math.random() * imageUrls.length);
-            document.getElementById('main-image').src = imageUrls[randomIndex];
+            const randomIndex = Math.floor(Math.random() * gifUrls.length);
+            document.getElementById('main-image').src = gifUrls[randomIndex];
             
             // Also change the message
             const messageIndex = Math.floor(Math.random() * homeMessages.length);
@@ -606,8 +599,8 @@
 
         // Change qualities page content
         function changeQualitiesContent() {
-            const randomImageIndex = Math.floor(Math.random() * imageUrls.length);
-            document.getElementById('qualities-image').src = imageUrls[randomImageIndex];
+            const randomImageIndex = Math.floor(Math.random() * gifUrls.length);
+            document.getElementById('qualities-image').src = gifUrls[randomImageIndex];
             
             const randomMessageIndex = Math.floor(Math.random() * qualitiesMessages.length);
             document.getElementById('qualities-message').textContent = qualitiesMessages[randomMessageIndex];
@@ -615,25 +608,25 @@
 
         // Change forever page image
         function changeForeverImage() {
-            const randomIndex = Math.floor(Math.random() * imageUrls.length);
-            document.getElementById('forever-image').src = imageUrls[randomIndex];
+            const randomIndex = Math.floor(Math.random() * gifUrls.length);
+            document.getElementById('forever-image').src = gifUrls[randomIndex];
             
             const randomMessageIndex = Math.floor(Math.random() * foreverMessages.length);
             document.getElementById('forever-message').textContent = foreverMessages[randomMessageIndex];
         }
 
-        // Load gallery images
+        // Load gallery GIFs
         function loadGallery() {
             const gallery = document.getElementById('love-gallery');
             gallery.innerHTML = '';
             
-            imageUrls.forEach(url => {
+            gifUrls.forEach(url => {
                 const galleryItem = document.createElement('div');
                 galleryItem.className = 'gallery-item';
                 
                 const img = document.createElement('img');
                 img.src = url;
-                img.alt = 'Love Image';
+                img.alt = 'Love GIF';
                 
                 galleryItem.appendChild(img);
                 gallery.appendChild(galleryItem);
