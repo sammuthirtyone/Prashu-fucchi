@@ -287,6 +287,33 @@
             margin-bottom: 10px;
         }
 
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         /* Responsive design */
         @media (max-width: 768px) {
             h1 {
@@ -307,7 +334,7 @@
                 font-size: 1rem;
             }
             
-            .love-grid {
+            .love-grid, .image-gallery {
                 grid-template-columns: 1fr;
             }
         }
@@ -354,8 +381,8 @@
             <button class="nav-button" onclick="showPage('qualities')">
                 <i class="fas fa-star"></i> Your Beautiful Qualities
             </button>
-            <button class="nav-button" onclick="showPage('promises')">
-                <i class="fas fa-hand-holding-heart"></i> My Promises
+            <button class="nav-button" onclick="showPage('gallery')">
+                <i class="fas fa-images"></i> Love Gallery
             </button>
             <button class="nav-button" onclick="showPage('forever')">
                 <i class="fas fa-infinity"></i> Forever With You
@@ -365,7 +392,7 @@
         <!-- Home Page -->
         <div id="home" class="page active">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/5b/5b/3f/5b5b3f3c3c3c3c3c3c3c3c3c3c3c3c3c.jpg" alt="Our Love">
+                <img src="https://i.pinimg.com/736x/5b/5b/3f/5b5b3f3c3c3c3c3c3c3c3c3c3c3c3c3c.jpg" alt="Our Love" id="main-image">
             </div>
             
             <div class="message">
@@ -377,6 +404,12 @@
             </div>
             
             <p>My love for you is infinite and grows stronger every single day</p>
+            
+            <div class="nav-buttons">
+                <button class="nav-button" onclick="changeMainImage()">
+                    <i class="fas fa-sync-alt"></i> Change Love Image
+                </button>
+            </div>
         </div>
         
         <!-- Reasons Page -->
@@ -427,76 +460,49 @@
             <h2>Your Beautiful Qualities That Captivate Me</h2>
             
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/3y/3y/3y/3y3y3y3y3y3y3y3y3y3y3y3y3y3y3y.jpg" alt="Your Beauty">
+                <img src="https://i.pinimg.com/736x/3y/3y/3y/3y3y3y3y3y3y3y3y3y3y3y3y3y3y3y.jpg" alt="Your Beauty" id="qualities-image">
             </div>
             
-            <div class="message">
+            <div class="message" id="qualities-message">
                 Your beauty isn't just in your appearance, but in the way you love, the way you care, and the incredible person you are. You have this magical ability to make everything around you better just by being there.
             </div>
             
             <div class="nav-buttons">
-                <button class="nav-button" onclick="showRandomCompliment()">
-                    <i class="fas fa-random"></i> Another Compliment
+                <button class="nav-button" onclick="changeQualitiesContent()">
+                    <i class="fas fa-random"></i> Change Image & Message
                 </button>
             </div>
         </div>
         
-        <!-- Promises Page -->
-        <div id="promises" class="page">
-            <h2>My Promises To You</h2>
+        <!-- Gallery Page -->
+        <div id="gallery" class="page">
+            <h2>Visuals That Remind Me of Our Love</h2>
             
-            <div class="love-grid">
-                <div class="love-card">
-                    <i class="fas fa-heart-circle-check"></i>
-                    <h3>I Promise To Love You</h3>
-                    <p>To love you unconditionally through every moment of our lives together</p>
-                </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-hand-holding-medical"></i>
-                    <h3>I Promise To Support You</h3>
-                    <p>To always be your biggest supporter and cheerleader in everything you do</p>
-                </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-ear-listen"></i>
-                    <h3>I Promise To Listen</h3>
-                    <p>To always listen with an open heart and understand your feelings</p>
-                </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-face-laugh-beam"></i>
-                    <h3>I Promise To Make You Smile</h3>
-                    <p>To do everything I can to bring joy and happiness to your life every day</p>
-                </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-shield-heart"></i>
-                    <h3>I Promise To Protect You</h3>
-                    <p>To always keep you safe and be your safe haven in this world</p>
-                </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-infinity"></i>
-                    <h3>I Promise Forever</h3>
-                    <p>To love you today, tomorrow, and for all the days of my life</p>
-                </div>
+            <div class="image-gallery" id="love-gallery">
+                <!-- Images will be loaded here by JavaScript -->
+            </div>
+            
+            <div class="message">
+                Each of these images represents a different aspect of my love for you - the beauty, the passion, the tenderness, and the eternal connection we share.
             </div>
         </div>
         
         <!-- Forever Page -->
         <div id="forever" class="page">
             <div class="image-container">
-                <img src="https://i.pinimg.com/736x/4d/4d/4d/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.jpg" alt="Our Forever">
+                <img src="https://i.pinimg.com/736x/4d/4d/4d/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.jpg" alt="Our Forever" id="forever-image">
             </div>
             
-            <div class="message">
+            <div class="message" id="forever-message">
                 I want to spend forever with you, building a life filled with love, laughter, and endless happiness. You are my soulmate, my best friend, and the love of my life. With you, I've found my forever.
             </div>
             
             <div class="nav-buttons">
                 <button class="nav-button" onclick="showLoveLetter()">
                     <i class="fas fa-envelope"></i> My Love Letter
+                </button>
+                <button class="nav-button" onclick="changeForeverImage()">
+                    <i class="fas fa-image"></i> Change Image
                 </button>
             </div>
         </div>
@@ -507,6 +513,45 @@
     </div>
 
     <script>
+        // Your Pinterest image URLs (converted to direct image links)
+        // Note: These are placeholder URLs. You'll need to replace them with actual direct image URLs
+        const imageUrls = [
+            "https://i.pinimg.com/736x/5b/5b/3f/5b5b3f3c3c3c3c3c3c3c3c3c3c3c3c3c.jpg",
+            "https://i.pinimg.com/736x/3y/3y/3y/3y3y3y3y3y3y3y3y3y3y3y3y3y3y3y.jpg",
+            "https://i.pinimg.com/736x/6d/6d/6d/6d6d6d6d6d6d6d6d6d6d6d6d6d6d6d.jpg",
+            "https://i.pinimg.com/736x/1m/1m/1m/1m1m1m1m1m1m1m1m1m1m1m1m1m1m1m.jpg",
+            "https://i.pinimg.com/736x/5j/5j/5j/5j5j5j5j5j5j5j5j5j5j5j5j5j5j5j.jpg",
+            "https://i.pinimg.com/736x/26/26/26/26262626262626262626262626262626.jpg",
+            "https://i.pinimg.com/736x/4d/4d/4d/4d4d4d4d4d4d4d4d4d4d4d4d4d4d4d.jpg",
+            "https://i.pinimg.com/736x/5g/5g/5g/5g5g5g5g5g5g5g5g5g5g5g5g5g5g5g.jpg",
+            "https://i.pinimg.com/736x/7c/7c/7c/7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c7c.jpg"
+        ];
+
+        // Messages for different pages
+        const homeMessages = [
+            "My love for you is a journey that starts forever and ends at never.",
+            "You are the reason my heart beats with so much joy and my soul feels so complete.",
+            "Every moment with you is a treasure I'll cherish forever.",
+            "Your love has transformed my world in the most beautiful way.",
+            "I fall in love with you more with each passing day."
+        ];
+
+        const qualitiesMessages = [
+            "Your beauty isn't just in your appearance, but in the way you love and care.",
+            "You have this magical ability to make everything around you better just by being there.",
+            "The light you bring into my life illuminates even my darkest days.",
+            "Your inner beauty shines brighter than any star in the night sky.",
+            "You are the most beautiful person I know, inside and out."
+        ];
+
+        const foreverMessages = [
+            "I want to spend forever with you, building a life filled with love and happiness.",
+            "You are my soulmate, my best friend, and the love of my life.",
+            "With you, I've found my forever and my always.",
+            "My love for you will continue to grow for all eternity.",
+            "You are my today, my tomorrow, and my forever."
+        ];
+
         // Function to show pages
         function showPage(pageId) {
             // Hide all pages
@@ -548,26 +593,56 @@
                 }
             }, 30);
         }
-        
-        // Show random compliment
-        function showRandomCompliment() {
-            const compliments = [
-                "Your inner beauty shines brighter than any star in the sky.",
-                "The way you see the good in everyone inspires me to be a better person.",
-                "Your intelligence and wisdom leave me in awe every single day.",
-                "You have the most beautiful soul I've ever encountered.",
-                "Your passion for life is contagious and makes everything more beautiful.",
-                "The kindness in your heart makes the world a better place.",
-                "You are the most genuine and authentic person I know."
-            ];
+
+        // Change main image on home page
+        function changeMainImage() {
+            const randomIndex = Math.floor(Math.random() * imageUrls.length);
+            document.getElementById('main-image').src = imageUrls[randomIndex];
             
-            const randomCompliment = compliments[Math.floor(Math.random() * compliments.length)];
-            document.querySelector('#qualities .message').textContent = randomCompliment;
+            // Also change the message
+            const messageIndex = Math.floor(Math.random() * homeMessages.length);
+            document.querySelector('#home .message').textContent = homeMessages[messageIndex];
         }
-        
+
+        // Change qualities page content
+        function changeQualitiesContent() {
+            const randomImageIndex = Math.floor(Math.random() * imageUrls.length);
+            document.getElementById('qualities-image').src = imageUrls[randomImageIndex];
+            
+            const randomMessageIndex = Math.floor(Math.random() * qualitiesMessages.length);
+            document.getElementById('qualities-message').textContent = qualitiesMessages[randomMessageIndex];
+        }
+
+        // Change forever page image
+        function changeForeverImage() {
+            const randomIndex = Math.floor(Math.random() * imageUrls.length);
+            document.getElementById('forever-image').src = imageUrls[randomIndex];
+            
+            const randomMessageIndex = Math.floor(Math.random() * foreverMessages.length);
+            document.getElementById('forever-message').textContent = foreverMessages[randomMessageIndex];
+        }
+
+        // Load gallery images
+        function loadGallery() {
+            const gallery = document.getElementById('love-gallery');
+            gallery.innerHTML = '';
+            
+            imageUrls.forEach(url => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = url;
+                img.alt = 'Love Image';
+                
+                galleryItem.appendChild(img);
+                gallery.appendChild(galleryItem);
+            });
+        }
+
         // Show love letter
         function showLoveLetter() {
-            document.querySelector('#forever .message').innerHTML = `
+            document.getElementById('forever-message').innerHTML = `
                 <strong>My Dearest Love,</strong><br><br>
                 From the moment you entered my life, everything changed. You brought colors to my world that I never knew existed. 
                 Your love has transformed me in ways I never thought possible.<br><br>
@@ -582,6 +657,7 @@
         window.onload = function() {
             createHearts();
             animateLoveMeter();
+            loadGallery();
         };
     </script>
 </body>
