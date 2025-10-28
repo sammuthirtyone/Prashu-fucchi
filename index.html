@@ -3,220 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Love For You ❤️</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>For My Beautiful Girlfriend ❤️</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
         }
-
-        :root {
-            --primary: #ff6b8b;
-            --secondary: #ffa5b6;
-            --accent: #ff4d6d;
-            --light: #fff0f3;
-            --dark: #590d22;
-            --text: #333;
-        }
-
+        
         body {
-            background: linear-gradient(135deg, #ffccd5 0%, #ffb3c1 100%);
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
-            color: var(--text);
             overflow-x: hidden;
         }
-
+        
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            padding: 30px;
             text-align: center;
-            margin-top: 20px;
-            position: relative;
-            overflow: hidden;
         }
-
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            background: linear-gradient(to right, var(--primary), var(--accent));
+        
+        header {
+            margin: 20px 0;
+            animation: fadeIn 2s ease;
         }
-
+        
         h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
+            color: #ff4d6d;
+            font-size: 2.8rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            position: relative;
-            display: inline-block;
+            margin-bottom: 10px;
         }
-
-        h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 10%;
-            width: 80%;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        
+        .subtitle {
+            color: #ff758f;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
         }
-
-        .heart {
-            color: var(--accent);
-            animation: heartbeat 1.5s infinite;
-            display: inline-block;
-            margin: 0 10px;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 30px 0;
-        }
-
-        .nav-button {
-            background: linear-gradient(to right, var(--primary), var(--accent));
-            border: none;
-            border-radius: 50px;
-            color: white;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 15px rgba(231, 84, 128, 0.4);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            position: relative;
+        
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 30px;
+            border-radius: 50%;
             overflow: hidden;
-        }
-
-        .nav-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: 0.5s;
-        }
-
-        .nav-button:hover::before {
-            left: 100%;
-        }
-
-        .nav-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(231, 84, 128, 0.6);
-        }
-
-        .nav-button:active {
-            transform: translateY(2px);
-        }
-
-        .page {
-            display: none;
-            animation: fadeIn 0.8s ease;
-            padding: 20px;
-        }
-
-        .active {
-            display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .image-container {
-            width: 100%;
-            height: 450px;
-            border-radius: 20px;
-            overflow: hidden;
-            margin: 25px 0;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border: 8px solid white;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             position: relative;
+            animation: float 6s ease-in-out infinite;
         }
-
-        .image-container img {
+        
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
         }
-
-        .message {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            margin: 25px 0;
-            padding: 25px;
-            background-color: var(--light);
-            border-radius: 15px;
-            border-left: 5px solid var(--accent);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
+        
+        .photo-frame:hover img {
+            transform: scale(1.05);
         }
-
-        .message::before {
-            content: '"';
-            font-size: 5rem;
-            color: var(--secondary);
+        
+        .photo-frame::after {
+            content: "❤️";
             position: absolute;
-            top: -20px;
-            left: 10px;
-            opacity: 0.3;
+            bottom: -10px;
+            right: -10px;
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease infinite;
         }
-
-        .love-meter {
-            width: 100%;
-            height: 30px;
-            background-color: #e0e0e0;
-            border-radius: 15px;
+        
+        .buttons-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
             margin: 30px 0;
-            overflow: hidden;
-            position: relative;
         }
-
-        .love-fill {
-            height: 100%;
-            background: linear-gradient(to right, var(--secondary), var(--accent));
-            border-radius: 15px;
-            width: 100%;
-            transition: width 1.5s ease;
+        
+        .love-button {
+            background: linear-gradient(to right, #ff758f, #ff4d6d);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
-
-        .footer {
-            margin-top: 40px;
-            font-size: 1rem;
-            color: var(--dark);
-            padding: 20px;
-            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        
+        .love-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
         }
-
-        .hearts-container {
+        
+        .love-button:active {
+            transform: translateY(0);
+        }
+        
+        .love-message {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            animation: slideUp 1s ease;
+        }
+        
+        .love-message h2 {
+            color: #ff4d6d;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .love-message p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .hearts {
             position: fixed;
             top: 0;
             left: 0;
@@ -225,327 +141,330 @@
             pointer-events: none;
             z-index: -1;
         }
-
-        .floating-heart {
+        
+        .heart {
             position: absolute;
-            color: rgba(255, 107, 139, 0.5);
             font-size: 20px;
-            animation: float 8s linear infinite;
+            color: #ff4d6d;
+            opacity: 0;
+            animation: fall 10s linear infinite;
         }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
+        
+        .page {
+            display: none;
+            width: 100%;
+            animation: fadeIn 1s ease;
         }
-
-        .love-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
+        
+        .active {
+            display: block;
         }
-
-        .love-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        
+        .back-button {
+            background: rgba(255, 255, 255, 0.7);
+            color: #ff4d6d;
+            border: 2px solid #ff4d6d;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin: 20px 0;
             transition: all 0.3s ease;
-            border-top: 4px solid var(--accent);
         }
-
-        .love-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        
+        .back-button:hover {
+            background: #ff4d6d;
+            color: white;
         }
-
-        .love-card i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 15px;
-        }
-
-        .love-card h3 {
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .image-gallery {
+        
+        .reasons-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
-
+        
+        .reason-card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .reason-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .reason-card h3 {
+            color: #ff4d6d;
+            margin-bottom: 10px;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
         .gallery-item {
             border-radius: 15px;
             overflow: hidden;
-            height: 250px;
+            height: 200px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
+            transition: transform 0.3s ease;
         }
-
+        
         .gallery-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
         }
-
+        
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-
-        /* Responsive design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .image-container {
-                height: 350px;
-            }
-            
-            .message {
-                font-size: 1.1rem;
-                padding: 20px;
-            }
-            
-            .nav-button {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            
-            .love-grid, .image-gallery {
-                grid-template-columns: 1fr;
-            }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
         }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .image-container {
-                height: 250px;
-            }
-            
-            .message {
-                font-size: 1rem;
-                padding: 15px;
-            }
-            
-            .nav-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .nav-button {
-                width: 90%;
-                justify-content: center;
-            }
+        
+        .countdown-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            min-width: 80px;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            color: #ff4d6d;
+            font-weight: bold;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #777;
+        }
+        
+        .love-meter {
+            width: 100%;
+            height: 30px;
+            background: #f0f0f0;
+            border-radius: 15px;
+            margin: 30px 0;
+            overflow: hidden;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(to right, #ff758f, #ff4d6d);
+            border-radius: 15px;
+            width: 100%;
+            animation: fillLove 3s ease-in-out infinite alternate;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes fillLove {
+            0% { width: 95%; }
+            100% { width: 100%; }
+        }
+        
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .subtitle { font-size: 1.1rem; }
+            .photo-frame { width: 200px; height: 200px; }
+            .love-button { padding: 12px 20px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <div class="hearts-container" id="hearts-container"></div>
+    <div class="hearts" id="hearts"></div>
     
     <div class="container">
-        <h1>My Love For You <span class="heart">❤️</span> Is Eternal</h1>
-        
-        <div class="nav-buttons">
-            <button class="nav-button" onclick="showPage('home')">
-                <i class="fas fa-home"></i> Home
-            </button>
-            <button class="nav-button" onclick="showPage('reasons')">
-                <i class="fas fa-heart"></i> Why I Love You
-            </button>
-            <button class="nav-button" onclick="showPage('qualities')">
-                <i class="fas fa-star"></i> Your Beautiful Qualities
-            </button>
-            <button class="nav-button" onclick="showPage('gallery')">
-                <i class="fas fa-images"></i> Love Gallery
-            </button>
-            <button class="nav-button" onclick="showPage('forever')">
-                <i class="fas fa-infinity"></i> Forever With You
-            </button>
-        </div>
-        
-        <!-- Home Page -->
-        <div id="home" class="page active">
-            <div class="image-container">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QaFPEW8KKvouyhQPaj/giphy.gif" alt="Our Love" id="main-image">
+        <!-- Main Page -->
+        <div id="main-page" class="page active">
+            <header>
+                <h1>For My Beautiful Girlfriend ❤️</h1>
+                <p class="subtitle">You mean the world to me</p>
+            </header>
+            
+            <div class="photo-frame">
+                <!-- Replace with your girlfriend's photo -->
+                <img src="Screenshot 2025-07-03 172126.png" alt="My Beautiful Girlfriend">
             </div>
             
-            <div class="message">
-                My love for you is a journey that starts forever and ends at never. You are the reason my heart beats with so much joy and my soul feels so complete. Every moment with you is a treasure I'll cherish forever.
+            <div class="love-message">
+                <h2>My Love for You</h2>
+                <p>Every day with you feels like a beautiful dream. Your smile lights up my world, and your love fills my heart with joy. I'm the luckiest person in the world to have you by my side.</p>
+            </div>
+            
+            <div class="buttons-container">
+                <button class="love-button" onclick="showPage('reasons-page')">
+                    <span>💖</span> Why I Love You
+                </button>
+                <button class="love-button" onclick="showPage('gallery-page')">
+                    <span>🖼️</span> Our Love Gallery
+                </button>
+                <button class="love-button" onclick="showPage('countdown-page')">
+                    <span>⏰</span> Our Time Together
+                </button>
+                <button class="love-button" onclick="showPage('message-page')">
+                    <span>💌</span> Special Message
+                </button>
             </div>
             
             <div class="love-meter">
-                <div class="love-fill" id="love-meter-fill"></div>
+                <div class="love-fill"></div>
             </div>
             
-            <p>My love for you is infinite and grows stronger every single day</p>
-            
-            <div class="nav-buttons">
-                <button class="nav-button" onclick="changeMainImage()">
-                    <i class="fas fa-sync-alt"></i> Change Love GIF
-                </button>
-            </div>
+            <p style="color: #ff4d6d; margin-top: 20px; font-weight: bold;">My love for you is infinite! 💕</p>
         </div>
         
         <!-- Reasons Page -->
-        <div id="reasons" class="page">
-            <h2>Why I Love You Endlessly</h2>
+        <div id="reasons-page" class="page">
+            <h1>Reasons Why I Love You 💖</h1>
             
-            <div class="love-grid">
-                <div class="love-card">
-                    <i class="fas fa-smile"></i>
-                    <h3>Your Beautiful Smile</h3>
-                    <p>The way your smile lights up my world and makes everything better</p>
+            <div class="reasons-container">
+                <div class="reason-card">
+                    <h3>Your Smile 😊</h3>
+                    <p>Your smile brightens even my darkest days and makes everything better.</p>
                 </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Your Kind Heart</h3>
-                    <p>Your incredible capacity for love and kindness towards everyone</p>
+                <div class="reason-card">
+                    <h3>Your Kindness 💝</h3>
+                    <p>You have the most beautiful heart and always care for others.</p>
                 </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-brain"></i>
-                    <h3>Your Beautiful Mind</h3>
-                    <p>The way you think and see the world inspires me every day</p>
+                <div class="reason-card">
+                    <h3>Your Laugh 😄</h3>
+                    <p>I love the sound of your laughter - it's my favorite melody.</p>
                 </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-laugh"></i>
-                    <h3>Your Sense of Humor</h3>
-                    <p>How you can make me laugh even on my toughest days</p>
+                <div class="reason-card">
+                    <h3>Your Intelligence 🧠</h3>
+                    <p>You're incredibly smart and I love our deep conversations.</p>
                 </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-shield-heart"></i>
-                    <h3>Your Strength</h3>
-                    <p>The incredible strength you show in everything you do</p>
+                <div class="reason-card">
+                    <h3>Your Support 🤗</h3>
+                    <p>You always believe in me and push me to be my best self.</p>
                 </div>
-                
-                <div class="love-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Simply Everything</h3>
-                    <p>Every single thing about you makes me fall deeper in love</p>
+                <div class="reason-card">
+                    <h3>Your Eyes 👀</h3>
+                    <p>When I look into your eyes, I see my future and my happiness.</p>
                 </div>
             </div>
-        </div>
-        
-        <!-- Qualities Page -->
-        <div id="qualities" class="page">
-            <h2>Your Beautiful Qualities That Captivate Me</h2>
             
-            <div class="image-container">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MLrZhK7sa0e1AW2yfZ/giphy.gif" alt="Your Beauty" id="qualities-image">
-            </div>
-            
-            <div class="message" id="qualities-message">
-                Your beauty isn't just in your appearance, but in the way you love, the way you care, and the incredible person you are. You have this magical ability to make everything around you better just by being there.
-            </div>
-            
-            <div class="nav-buttons">
-                <button class="nav-button" onclick="changeQualitiesContent()">
-                    <i class="fas fa-random"></i> Change GIF & Message
-                </button>
-            </div>
+            <button class="back-button" onclick="showPage('main-page')">Back to Home</button>
         </div>
         
         <!-- Gallery Page -->
-        <div id="gallery" class="page">
-            <h2>Visuals That Remind Me of Our Love</h2>
+        <div id="gallery-page" class="page">
+            <h1>My GIRLLLLLL 🖼️</h1>
             
-            <div class="image-gallery" id="love-gallery">
-                <!-- GIFs will be loaded here by JavaScript -->
+            <div class="gallery">
+                <!-- Replace these with your actual photos -->
+                <div class="gallery-item">
+                    <img src="Screenshot 2025-10-13 160851.png" alt="MY GURL 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="Screenshot 2025-10-03 195821.png" alt="MY BHUNTII 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Screenshot 2025-10-03 195811.png" alt="MY PUNTII 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="Screenshot 2025-09-29 171956.png" alt="MY KUCHUPUCHUUU 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="Screenshot 2025-09-29 171909.png" alt="MY RASHMALAII 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="Screenshot 2025-08-09 193401.png" alt="MY SANUU 6">
+                </div>
             </div>
             
-            <div class="message">
-                Each of these animated GIFs represents a different aspect of my love for you - the beauty, the passion, the tenderness, and the eternal connection we share.
-            </div>
+            <button class="back-button" onclick="showPage('main-page')">Back to Home</button>
         </div>
         
-        <!-- Forever Page -->
-        <div id="forever" class="page">
-            <div class="image-container">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jv2NrCzvwqPh6/giphy.gif" alt="Our Forever" id="forever-image">
+        <!-- Countdown Page -->
+        <div id="countdown-page" class="page">
+            <h1>Our Time Together ⏰</h1>
+            
+            <div class="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="years">0</div>
+                    <div class="countdown-label">Years</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="months">0</div>
+                    <div class="countdown-label">Months</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">0</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
             </div>
             
-            <div class="message" id="forever-message">
-                I want to spend forever with you, building a life filled with love, laughter, and endless happiness. You are my soulmate, my best friend, and the love of my life. With you, I've found my forever.
+            <div class="love-message">
+                <h2>Every Moment Counts</h2>
+                <p>From the day we met, my life has been filled with so much happiness. I cherish every second we spend together and look forward to creating many more beautiful memories with you.</p>
             </div>
             
-            <div class="nav-buttons">
-                <button class="nav-button" onclick="showLoveLetter()">
-                    <i class="fas fa-envelope"></i> My Love Letter
-                </button>
-                <button class="nav-button" onclick="changeForeverImage()">
-                    <i class="fas fa-image"></i> Change GIF
-                </button>
-            </div>
+            <button class="back-button" onclick="showPage('main-page')">Back to Home</button>
         </div>
         
-        <div class="footer">
-            Made with <span class="heart">❤️</span> for the most amazing person in my life
+        <!-- Message Page -->
+        <div id="message-page" class="page">
+            <h1>A Special Message Just For You 💌</h1>
+            
+            <div class="love-message">
+                <h2>My Dearest Love,</h2>
+                <p>I wanted to create this website to show you just how much you mean to me. Every day I wake up grateful that I have you in my life. You are my sunshine on cloudy days, my comfort when I'm feeling down, and my greatest joy in every moment.</p>
+                <p>I love the way your eyes light up when you talk about things you're passionate about. I love how you always know exactly what to say to make me feel better. I love your kindness, your intelligence, your beautiful smile, and everything that makes you who you are.</p>
+                <p>No matter what happens in life, I promise to always be by your side, to support you, to cherish you, and to love you with all my heart. You are my everything.</p>
+                <p style="text-align: right; margin-top: 20px; font-weight: bold;">Forever yours,<br>Your Loving Boyfriend</p>
+            </div>
+            
+            <button class="back-button" onclick="showPage('main-page')">Back to Home</button>
         </div>
     </div>
 
     <script>
-        // Your animated GIF URLs
-        const gifUrls = [
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/QaFPEW8KKvouyhQPaj/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MLrZhK7sa0e1AW2yfZ/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/jv2NrCzvwqPh6/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/KdSI4eUbdP65kRtqF4/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3pqcjJpYTZhdHJodG1idDRiZXMwNWZvNWxvcXEweWZ6ZGNud2liaiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/7WJ0cL3xCYtc4/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eTcyMnlrNWczNXM3d3hkd3g2YjExdnJ1OTluM21mb21vbnR1eXZhOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/fuEspo4rCaKshEUUsS/giphy.gif",
-            "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3eGVwNmpkc2tqMGkyZ3ZxYWV0YXZnbTRnOHNlMWtrdjNydmIxMWZqZCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8QthgaH2SykkR7cLGA/giphy.gif",
-            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjg3a3pubzl3dHJ6bmxyemRveXdmN3MyZ2VlaWh4NjB3bDg3d2NodCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SRbVg86icBP9K/giphy.gif"
-        ];
-
-        // Messages for different pages
-        const homeMessages = [
-            "My love for you is a journey that starts forever and ends at never.",
-            "You are the reason my heart beats with so much joy and my soul feels so complete.",
-            "Every moment with you is a treasure I'll cherish forever.",
-            "Your love has transformed my world in the most beautiful way.",
-            "I fall in love with you more with each passing day."
-        ];
-
-        const qualitiesMessages = [
-            "Your beauty isn't just in your appearance, but in the way you love and care.",
-            "You have this magical ability to make everything around you better just by being there.",
-            "The light you bring into my life illuminates even my darkest days.",
-            "Your inner beauty shines brighter than any star in the night sky.",
-            "You are the most beautiful person I know, inside and out."
-        ];
-
-        const foreverMessages = [
-            "I want to spend forever with you, building a life filled with love and happiness.",
-            "You are my soulmate, my best friend, and the love of my life.",
-            "With you, I've found my forever and my always.",
-            "My love for you will continue to grow for all eternity.",
-            "You are my today, my tomorrow, and my forever."
-        ];
-
-        // Function to show pages
+        // Function to show specific page and hide others
         function showPage(pageId) {
             // Hide all pages
             const pages = document.querySelectorAll('.page');
@@ -557,100 +476,52 @@
             document.getElementById(pageId).classList.add('active');
         }
         
-        // Create floating hearts
+        // Create falling hearts
         function createHearts() {
-            const heartsContainer = document.getElementById('hearts-container');
-            const heartCount = 25;
+            const heartsContainer = document.getElementById('hearts');
+            const heartCount = 30;
             
             for (let i = 0; i < heartCount; i++) {
                 const heart = document.createElement('div');
-                heart.classList.add('floating-heart');
+                heart.classList.add('heart');
                 heart.innerHTML = '❤️';
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
                 heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                
                 heartsContainer.appendChild(heart);
             }
         }
         
-        // Animate love meter
-        function animateLoveMeter() {
-            const loveMeter = document.getElementById('love-meter-fill');
-            let width = 0;
-            const interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                } else {
-                    width++;
-                    loveMeter.style.width = width + '%';
-                }
-            }, 30);
-        }
-
-        // Change main image on home page
-        function changeMainImage() {
-            const randomIndex = Math.floor(Math.random() * gifUrls.length);
-            document.getElementById('main-image').src = gifUrls[randomIndex];
+        // Calculate time together
+        function calculateTimeTogether() {
+            // Set your relationship start date here (YYYY, MM, DD)
+            // Note: Months are 0-indexed in JavaScript (0 = January, 11 = December)
+            const startDate = new Date(2023, 0, 1); // Example: January 1, 2023
             
-            // Also change the message
-            const messageIndex = Math.floor(Math.random() * homeMessages.length);
-            document.querySelector('#home .message').textContent = homeMessages[messageIndex];
-        }
-
-        // Change qualities page content
-        function changeQualitiesContent() {
-            const randomImageIndex = Math.floor(Math.random() * gifUrls.length);
-            document.getElementById('qualities-image').src = gifUrls[randomImageIndex];
+            const now = new Date();
+            const diffTime = Math.abs(now - startDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
             
-            const randomMessageIndex = Math.floor(Math.random() * qualitiesMessages.length);
-            document.getElementById('qualities-message').textContent = qualitiesMessages[randomMessageIndex];
-        }
-
-        // Change forever page image
-        function changeForeverImage() {
-            const randomIndex = Math.floor(Math.random() * gifUrls.length);
-            document.getElementById('forever-image').src = gifUrls[randomIndex];
+            const years = Math.floor(diffDays / 365);
+            const months = Math.floor((diffDays % 365) / 30);
+            const days = (diffDays % 365) % 30;
+            const hours = now.getHours();
             
-            const randomMessageIndex = Math.floor(Math.random() * foreverMessages.length);
-            document.getElementById('forever-message').textContent = foreverMessages[randomMessageIndex];
-        }
-
-        // Load gallery GIFs
-        function loadGallery() {
-            const gallery = document.getElementById('love-gallery');
-            gallery.innerHTML = '';
-            
-            gifUrls.forEach(url => {
-                const galleryItem = document.createElement('div');
-                galleryItem.className = 'gallery-item';
-                
-                const img = document.createElement('img');
-                img.src = url;
-                img.alt = 'Love GIF';
-                
-                galleryItem.appendChild(img);
-                gallery.appendChild(galleryItem);
-            });
-        }
-
-        // Show love letter
-        function showLoveLetter() {
-            document.getElementById('forever-message').innerHTML = `
-                <strong>My Dearest Love,</strong><br><br>
-                From the moment you entered my life, everything changed. You brought colors to my world that I never knew existed. 
-                Your love has transformed me in ways I never thought possible.<br><br>
-                I promise to cherish you, to honor you, and to love you more with each passing day. 
-                You are my everything, and I can't imagine my life without you in it.<br><br>
-                Forever yours,<br>
-                <em>With all my love</em>
-            `;
+            document.getElementById('years').textContent = years;
+            document.getElementById('months').textContent = months;
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
         }
         
-        // Initialize the page
+        // Initialize the website
         window.onload = function() {
             createHearts();
-            animateLoveMeter();
-            loadGallery();
+            calculateTimeTogether();
+            
+            // Update the time together every hour
+            setInterval(calculateTimeTogether, 3600000);
         };
     </script>
 </body>
